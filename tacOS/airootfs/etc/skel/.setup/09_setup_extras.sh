@@ -91,7 +91,7 @@ bldGh0sty(){
 	}	
 	echo -e '|\n|~ Building Gh0sty\n|'
 	cd "$DATA" || cd "$HOME/.local/share/" || return 1
-	if [ ! -d "$HOME/.local/share/gh0sty" ]; then pullgh0sty
+	if [ ! -d "$HOME/.local/share/gh0sty" ]; then pullGh0sty
 	elif [ -d "$HOME/.local/share/dummy" ]; then sudo rm -r 'gh0sty'; pullGh0sty
 	fi; cd || return 1
 }
