@@ -113,9 +113,9 @@ alias lbup="readFiles $ANARCHY/bup.log"
 ################################################################################
 # 4 SUDO MODS
 ################################################################################
+alias calamares='gksudo calamares'
 alias fixloadkeys='sudo sed -i '\''$d'\'' "/etc/vconsole.conf"'
 alias fuckup='sudo $(history -p \!\!)'
-alias gkscalamares='gksudo calamares'
 alias sblkid='sudo blkid'
 alias scat='sudo cat'
 alias schattr='sudo chattr'

@@ -80,9 +80,13 @@ fi
 if command grep -q 'live' '/etc/group'; then
 	if [ $(tty) == '/dev/tty1' ]; then
 		echo -e "\n| The graphical environment is launched with 'startx'"
-		echo -e "| the installer can be run with 'gkscalamares'\n|"
+		echo -e "| the installer can be run with 'calamares'\n|"
 		echo -e "| If installing please go to the '\$HOME/.setup' folder"
 		echo -e "| when finished and run ./'01_setup_all.sh'\n|"
+		echo -e "| Before doing so, be sure too add the newly created"
+		echo -e "| user to the sudoers file (root login required).\n|"
+		echo -e "| For server users, just use the Arch install scripts"
+		echo -e "| or do it the Arch way.\n|"
 		echo -e '| Welcome to tacOS have fun!'
 	fi
 else
