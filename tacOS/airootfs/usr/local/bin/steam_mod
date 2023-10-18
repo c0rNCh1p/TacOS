@@ -1,0 +1,88 @@
+#!/bin/bash
+
+# This script kills anything like a running firewall, proxy or VPN before
+# starting steam. The reason for this is because those programs cause unplayable
+# lag in multiplayer online games, and can sometimes cause games to not even
+# launch, they are restarted when steam is exited 
+
+# Please note when exiting steam to use the systray or menu option button,
+# exiting with 'Ctrl+q' will not kill the steam process and wont reload anything
+
+# Any connection which was killed can be reestablished if absolutely necessary,
+# the killNetUtils function responsible for killing them isnt part of the loop
+# checking if a steam window is open and it only runs once at launch
+
+# Steam is esentially an operating system and games a like little VMs, they take
+# up alot of processing power. Its beneficial to kill any browsers, mail clients
+# or anything else taking up bandwidth. In addition to bandwith, active memory
+# is also important, so killing anything else that isnt needed can improve
+# performance. For example playing audio files in the background through a music
+# player like deadbeef instead of in a browser is highly advantageous
+
+# This file is called upon by the awesome rc.lua file on this operating system
+# for the 'Ctrl+y' shortcut that launches steam
+
+STEAMLOG="$HOME/.steam/steam_mod.log"
+! test -d "$HOME/.steam" && mkdir -p "$HOME/.steam"
+! test -f "$HOME/.steam/steam_mod.log" && touch "$HOME/.steam/steam_mod.log"
+
+IPTABLESSTAT=0
+OVPNCLI2STAT=0
+OVPNCLISTAT=0
+TORSTAT=0
+UFWSTAT=0
+WGCLI2CLISTAT=0
+WGCLICLISTAT=0
+
+runSteam(){
+    killNetUtils
+    steam-runtime &>"$STEAMLOG"
+    while wmctrl -l | grep -iw 'Steam' | grep -ivw 'Launch'; do
+    	sleep 1; return
+    done
+    reloadNetUtils
+}
+
+killNetUtils(){
+	systemctl is-active --quiet 'iptables' &&
+		IPTABLESSTAT=1; sudo systemctl stop 'iptables' &>'/dev/null'
+	systemctl is-active --quiet 'ufw' &&
+		UFWSTAT=1; sudo systemctl stop 'ufw' &>'/dev/null'
+	systemctl is-active --quiet 'tor' &&
+		TORSTAT=1; sudo systemctl stop 'tor' &>'/dev/null'
+	# Please ignore or remove the following VPN connections if they are not
+	# present on the system, they can be considered example VPN connections to
+	# shut down when running steam
+	nmcli con show --active | grep -q 'wgcli' &&
+		WGCLICLISTAT=1; nmcli con down 'wgcli' &>'/dev/null'
+	nmcli con show --active | grep -q 'wgcli2' &&
+		WGCLI2CLISTAT=1; nmcli con down 'wgcli2' &>'/dev/null'
+	nmcli con show --active | grep -q 'ovpncli' &&
+		OVPNCLISTAT=1; nmcli con down 'ovpncli' &>'/dev/null'
+	nmcli con show --active | grep -q 'ovpncli2' &&
+		OVPNCLI2STAT=1; nmcli con down 'ovpncli2' &>'/dev/null'
+}
+
+killSteam(){
+	local PIDS
+    for PIDS in 'steam' 'gamemode' 'steam-runtime' 'steam.sh' 'steam_mod'; do
+        for PID in $(pgrep -f "$PIDS"); do
+            kill -9 "$PID" &>'/dev/null'
+        done
+    done
+}
+
+reloadNetUtils(){
+	[ "$IPTABLESSTAT" -eq 1 ] && sudo systemctl start iptables &>'/dev/null'
+	[ "$UFWSTAT" -eq 1 ] && sudo systemctl start 'ufw' &>'/dev/null'
+	[ "$TORSTAT" -eq 1 ] && sudo systemctl start 'tor' &>'/dev/null'
+	[ "$WGCLICLISTAT" -eq 1 ] && nmcli con up 'wgcli' &>'/dev/null'
+	[ "$WGCLI2CLISTAT" -eq 1 ] && nmcli con up 'wgcli2' &>'/dev/null'
+	[ "$OVPNCLISTAT" -eq 1 ] && nmcli con up 'ovpncli' &>'/dev/null'
+	[ "$OVPNCLI2STAT" -eq 1 ] && nmcli con up 'ovpncli2' &>'/dev/null'
+}
+
+runSteam &>"$STEAMLOG" 
+PID=$!
+wait $PID && killSteam
+unset IPTABLESSTAT OVPNCLI2STAT OVPNCLISTAT STEAMLOG TORSTAT UFWSTAT WGCLI2CLISTAT WGCLICLISTAT PID

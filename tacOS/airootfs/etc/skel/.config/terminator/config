@@ -1,0 +1,76 @@
+# __ __| __|  _ \   \  | _ _|   \ |    \ __ __| _ \  _ \ 
+#    |   _|     /  |\/ |   |   .  |   _ \   |  (   |   / 
+#   _|  ___| _|_\ _|  _| ___| _|\_| _/  _\ _| \___/ _|_\ 
+###############################################################################################################################################
+# ▸ ~/.config/terminator/config (PARSER)
+###############################################################################################################################################
+# ▸ man 'terminator_config(5)'| less +/DESCRIPTION
+###############################################################################################################################################
+[global_config]
+  focus = mouse
+  handle_size = 2
+  borderless = True
+  tab_position = hidden
+  homogeneous_tabbar = False
+  use_custom_url_handler = True
+  custom_url_handler = /bin/vivaldi-stable
+  enabled_plugins = TerminalShot, LaunchpadBugURLHandler, LaunchpadCodeURLHandler, CurrDirOpen
+  suppress_multiple_term_dialog = True
+  always_split_with_profile = True
+  title_at_bottom = True
+[keybindings]
+  new_tab = <Primary><Shift>t
+  go_next = ""
+  go_prev = ""
+  rotate_cw = <Primary><Alt>r
+  rotate_ccw = <Primary><Shift>r
+  split_horiz = <Primary><Shift>o
+  split_vert = <Primary><Shift>e
+  copy = <Primary><Shift>c
+  paste = <Primary><Shift>v
+  search = <Primary><Shift>f
+  toggle_zoom = ""
+  scaled_zoom = ""
+  reset = ""
+  reset_clear = ""
+  hide_window = ""
+  group_all = <Primary><Alt>g
+  ungroup_all = <Shift><Alt>g
+  ungroup_win = <Shift><Alt>w
+  group_tab = <Primary><Alt>t
+  ungroup_tab = <Shift><Alt>t
+  new_window = ""
+  new_terminator = ""
+  insert_number = ""
+  insert_padded = ""
+  layout_launcher = ""
+  help = ""
+[profiles]
+  [[default]]
+    background_color = "#0f0e0e"
+    background_darkness = 0.66
+    background_type = transparent
+    foreground_color = "#aec18d"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    bold_is_bright = True
+    title_hide_sizetext = True
+    title_transmit_fg_color = "#000000"
+    title_transmit_bg_color = "#849e37"
+    title_receive_fg_color = "#000000"
+    title_receive_bg_color = "#3e7093"
+    title_inactive_bg_color = "#9b4c3b"
+    title_font = Sans 2
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
+###############################################################################################################################################
