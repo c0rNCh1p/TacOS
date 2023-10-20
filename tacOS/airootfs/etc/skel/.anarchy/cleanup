@@ -103,7 +103,6 @@
 ########################################################################################################################
 [ ! -d "$AUDIO/ccvst" ] && mvp "$AUDIO/ccvst" &>'/dev/null'
 [ ! -d "$AUDIO/files" ] && mvp "$AUDIO/files" &>'/dev/null'
-[ ! -d "$AUDIO/files/playlists" ] && mvp "$AUDIO/files/playlists" &>'/dev/null'
 [ ! -d "$ARDOUR" ] && mvp "$ARDOUR" &>'/dev/null'
 [ ! -d "$ARDOUR/plugins" ] && mvp "$ARDOUR/plugins" &>'/dev/null'
 [ ! -d "$ARDOUR/projects" ] && mvp "$ARDOUR/projects" &>'/dev/null'
@@ -131,6 +130,5 @@
 [ ! -d "$REAPER/templates" ] && mvp "$REAPER/templates" &>'/dev/null'
 [ ! -d "$VISUAL/ccvst" ] && mvp "$VISUAL/ccvst" &>'/dev/null'
 [ ! -d "$VISUAL/files" ] && mvp "$VISUAL/files" &>'/dev/null'
-[ ! -d "$VISUAL/files/playlists" ] && mvp "$VISUAL/files/playlists" &>'/dev/null'
 [ -f "$HOME/.bash_history" ] && mv "$HOME/.bash_history" "$XDG_STATE_HOME/bash/history"
 ########################################################################################################################

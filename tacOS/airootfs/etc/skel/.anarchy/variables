@@ -95,7 +95,7 @@ export XCURSOR_PATH="$FLAVOUR/cursors"
 ################################################################################
 export ALIEN_HOME="$DATA/alien"
 export ALSA_HOME="$CONFIG/alsa"
-export ARDOUR_HOME="$CONFIG/ardour7"
+export ARDOUR_HOME="$CONFIG/ardour8"
 export AWESOME_HOME="$CONFIG/awesome"
 export CADENCE_HOME="$CONFIG/Cadence"
 export CURL_HOME="$CONFIG/curl"
