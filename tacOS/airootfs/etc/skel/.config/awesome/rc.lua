@@ -482,7 +482,7 @@ globalkeys=gears.table.join(
 	end,
 	{description='| launch reaper\n', group='04 launchers'}),
 	awful.key({modkey}, 'a', function()
-		awful.spawn.with_shell('ardour7 -n')
+		awful.spawn.with_shell('ardour8 -n')
 	end,
 	{description='| launch ardour\n', group='04 launchers'}),
 	awful.key({modkey}, 'd', function()
