@@ -10,12 +10,14 @@ readFiles(){
 }
 
 enterShot(){
-	(mpv --volume=30 --really-quiet "$HOME/.anarchy/shot.wav" &>'/dev/null' &)
+	local PID
+	(mpv --volume=30 --really-quiet "$HOME/.anarchy/shot.wav" &>'/dev/null' &&
+		PID=$? && kill -9 $PID &>'/dev/null' &)
 }
 
 reload(){
 	mpv --volume=40 --really-quiet "$HOME/.anarchy/reload.wav" &>'/dev/null'
-	kill -9 $(echo "$$");	#kill -9 $(ps -o ppid= -p $$) # kill parent
+	kill -9 $(echo "$$") #; kill -9 $(ps -o ppid= -p $$) # kill parent
 }
 
 psGrep(){
@@ -25,13 +27,13 @@ psGrep(){
 }
 
 [ -d "$HOME/.setup/" ] &&
-find "$HOME/.setup/" -type f ! -executable -exec chmod 764 {} + &>'/dev/null'
+	find "$HOME/.setup/" -type f ! -executable -exec chmod 764 {} + &>'/dev/null'
 [ -d "$HOME/.local/bin" ] &&
-find "$HOME/.local/bin" -type f ! -executable -exec chmod 764 {} + &>'/dev/null'
+	find "$HOME/.local/bin" -type f ! -executable -exec chmod 764 {} + &>'/dev/null'
 [ -f "$HOME/.config/awesome/toggle_picom.sh" ] &&
-find "$HOME/.config/awesome/toggle_picom.sh" -type f ! -executable -exec chmod 764 {} + &>'/dev/null'
+	find "$HOME/.config/awesome/toggle_picom.sh" -type f ! -executable -exec chmod 764 {} + &>'/dev/null'
 [ -f "$HOME/.config/awesome/toggle_pulse.sh" ] &&
-find "$HOME/.config/awesome/toggle_pulse.sh" -type f ! -executable -exec chmod 764 {} + &>'/dev/null'
+	find "$HOME/.config/awesome/toggle_pulse.sh" -type f ! -executable -exec chmod 764 {} + &>'/dev/null'
 
 if [[ -f '/sys/hypervisor/uuid' ]]; then
     HYPEVISUID=$(cat '/sys/hypervisor/uuid')
@@ -90,7 +92,7 @@ if command grep -q 'live' '/etc/group'; then
 		echo -e '| Welcome to tacOS have fun!'
 	fi
 else
-	sed -i -e '7s/^\(\s*\)#/\1/' -e '7s/^\(\s*\) /\1/' "$HOME/.setup/01-setup-all.sh" &>'/dev/null'
-	sed -i -e '10s/^\(\s*\)#/\1/' -e '10s/^\(\s*\) /\1/' "$HOME/.setup/01-setup-all.sh" &>'/dev/null'
+	sed -i -e '7s/^\(\s*\)#/\1/' -e '7s/^\(\s*\) /\1/' "$HOME/.setup/01_setup_all.sh" &>'/dev/null'
+	sed -i -e '10s/^\(\s*\)#/\1/' -e '10s/^\(\s*\) /\1/' "$HOME/.setup/01_setup_all.sh" &>'/dev/null'
 fi
 
