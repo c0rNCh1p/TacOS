@@ -22,7 +22,6 @@ mlocate
 p7zip
 pdf2png
 ripgrep
-tree
 unace
 unrar
 unzip
@@ -112,6 +111,7 @@ the_platinum_searcher-bin
 the_silver_searcher
 thunderbird
 timeshift
+tree
 unicode-emoji
 vi
 vicious

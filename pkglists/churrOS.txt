@@ -17,7 +17,6 @@ clonezilla
 mlocate
 p7zip
 ripgrep
-tree
 unace
 unrar
 unzip
@@ -56,6 +55,7 @@ reflector
 sl
 the_platinum_searcher-bin
 the_silver_searcher
+tree
 unicode-emoji
 vi
 yay-bin
