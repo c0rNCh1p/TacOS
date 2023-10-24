@@ -44,10 +44,11 @@ fi
 
 [ -f "$HOME/.anarchy/aliases" ] && . "$HOME/.anarchy/aliases"
 [ -f "$HOME/.anarchy/cleanup" ] && . "$HOME/.anarchy/cleanup"
+[ -f "$HOME/.anarchy/daemons" ] && . "$HOME/.anarchy/daemons"
 [ -f "$HOME/.anarchy/insulter" ] && . "$HOME/.anarchy/insulter"
 [ -f "$HOME/.anarchy/mntmgr" ] && . "$HOME/.anarchy/mntmgr"
+[ -f "$HOME/.anarchy/perso" ] && . "$HOME/.anarchy/perso"
 [ -f "$HOME/.anarchy/variables" ] && . "$HOME/.anarchy/variables"
-[ -f "$HOME/.local/bin/daemons" ] && . "$HOME/.local/bin/daemons"
 [ -r '/usr/share/bash-completion/bash_completion' ] && . '/usr/share/bash-completion/bash_completion'
 
 if [ "$USECOLOR" == 'true' ]; then

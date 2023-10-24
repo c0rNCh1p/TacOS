@@ -52,8 +52,8 @@
 # 3 FILE MODIFICATIONS
 ########################################################################################################################
 [[ -f '/etc/ch1px0rg-rel' && -f '/etc/lsb-release' ]] && smv '/etc/ch1px0rg-rel' '/etc/lsb-release'
-[[ -f '/usr/local/bin/arcolinux-graphical-target' && -f '/usr/local/bin/agt_mod' ]] &&
-	smv '/usr/local/bin/agt_mod' '/usr/local/bin/arcolinux-graphical-target'
+[[ -f '/usr/local/bin/arcolinux-graphical-target' && -f "$HOME/.local/bin/agt_mod" ]] &&
+	smv "$HOME/.local/bin/agt_mod" '/usr/local/bin/arcolinux-graphical-target'
 [ -f "$CONFIG/auostart/variety.desktop" ] && smv "$CONFIG/auostart/variety.desktop" "/etc/xdg/autostart"
 [ -f "$HOME/.asoundrc" ] && mv "$HOME/.asoundrc" "$ALSA_HOME/asoundrc"
 [ -f "$HOME/.gtkrc-2.0" ] && mv "$HOME/.gtkrc-2.0" "$GTK2_RC_FILES/gtkrc"
