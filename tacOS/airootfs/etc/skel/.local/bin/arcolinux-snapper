@@ -4,7 +4,7 @@ echo "############################################"
 echo "Start ArcoLinux snapper cleanup"
 echo "############################################"
 
-if [ -f /usr/bin/snapper ]; then
+if [ -f '/usr/bin/snapper' ]; then
 	for i in {1..20};
 	do 
 		snapper --no-dbus delete $i
@@ -17,4 +17,4 @@ echo "End arcolinux-snapper"
 echo "############################################"
 echo
 
-rm -f /usr/local/bin/arcolinux-snapper
+rm -f "$HOME/.local/bin/arcolinux-snapper"
