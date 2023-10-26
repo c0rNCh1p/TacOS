@@ -1,0 +1,11 @@
+#!/bin/bash
+sleep 2
+[ -f '/var/lib/pacman/db.lck' ] && rm '/var/lib/pacman/db.lck'
+sleep 2
+if pacman -Qs xorg-server >'/dev/null'; then
+	if pacman -Qs xf86-video-nouveau >"/dev/null"; then
+		echo -e "|\n| xf86-video-nouveau breaks xorg\n| removing it now\n|"
+		pacman -Rns --noconfirm xf86-video-nouveau
+	fi
+fi
+sleep 2

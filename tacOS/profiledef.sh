@@ -47,9 +47,6 @@ file_permissions=(
   ["/etc/wireguard"]="0:0:700"
   ["/etc/polkit-1/rules.d"]="0:0:750"
   ["/etc/grub.d/40_custom"]="0:0:755"
-  ["/usr/local/bin/arcolinux-snapper"]="0:0:755"
-  ["/usr/local/bin/fix-pacman-database-and-keys"]="0:0:755"
-  ["/usr/local/bin/arcolinux-graphical-target-mod"]="0:0:755"  
   ["/etc/X11/xinit/xinitrc.d/80-xapp-gtk3-module.sh"]="0:0:755"
 )
 ################################################################################

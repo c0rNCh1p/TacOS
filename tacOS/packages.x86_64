@@ -1,13 +1,12 @@
-#          \ | \ \   / _ _|  _ \  _ _|    \      _ \  |  /   __|   __| 
-#         .  |  \ \ /    |   |  |   |    _ \     __/  . <   (_ | \__ \ 
-#        _|\_|   \_/   ___| ___/  ___| _/  _\   _|   _|\_\ \___| ____/
-################################################################################
+#           _ _|   \ | __ __| __|  |
+#             |   .  |    |   _|   |
+#           ___| _|\_|   _|  ___| ____|           
+##################################################
 # ▸ /etc/packages.x86_64
 # ▸ /archiso/packages.x86_64
-# ▸ /home/$USER/.ch1p0ss/pkglists/pkgs-nvidia-gpu.txt
-################################################################################
+##################################################
 # 1 INSTALL FIRST
-################################################################################
+##################################################
 freetype2
 lib32-krb5
 lib32-libglvnd
@@ -15,25 +14,24 @@ libcamera
 libglvnd
 qt6-multimedia
 ruby
-################################################################################
+##################################################
 # 2 ASSET MANAGERS
-################################################################################
+##################################################
 clonezilla
 mlocate
 p7zip
 pdf2png
 ripgrep
-tree
 unace
 unrar
 unzip
-################################################################################
+##################################################
 # 3 LIBRARIES
-################################################################################
+##################################################
 alsa-lib
 boost-libs
-lib32-nvidia-utils
 laptop-detect
+lib32-vulkan-intel
 libdvdcss
 libfido2
 libgsf
@@ -42,9 +40,9 @@ libopenraw
 libpwquality
 libusb-compat
 python-iwlib
-################################################################################
-# 4 FRONTEND SOFTWARE
-################################################################################
+##################################################
+# 4 FRONTEND
+##################################################
 appstream
 arandr
 archlinux-tweak-tool-git
@@ -68,6 +66,7 @@ git
 gnome-screenshot
 gpm
 gucharmap
+habash
 hardcode-fixer-git
 hardinfo-gtk3
 htop
@@ -92,12 +91,15 @@ nemo-terminal
 neofetch
 pacman-mirrorlist
 pavucontrol
+pdf2png
 picom
 pix
 pkgfile
 playerctl
 poppler-glib
 poppler-qt5
+python-habaitica
+python-habaitipy
 qt5ct
 qt5-xmlpatterns
 qview
@@ -112,6 +114,7 @@ the_platinum_searcher-bin
 the_silver_searcher
 thunderbird
 timeshift
+tree
 unicode-emoji
 vi
 vicious
@@ -121,16 +124,17 @@ vivaldi
 vivaldi-ffmpeg-codecs
 vivaldi-widevine
 volumeicon
+xmrig
 xwallpaper
 yay-bin
-youtube-dl
 yt-dlp
-xmrig
 zenity
-################################################################################
-# 5 BACKEND SOFTWARE
-################################################################################
+##################################################
+# 5 BACKEND
+##################################################
 accountsservice
+alhp-keyring
+alhp-mirrorlist
 alsa-firmware
 amd-ucode
 archinstall
@@ -144,8 +148,6 @@ ckbcomp
 cpuid
 cronie
 cryptsetup
-#cuda
-#cuda-tools
 dconf-editor
 ddrescue
 dmidecode
@@ -180,6 +182,7 @@ hdparm
 hwinfo
 hyperv
 ibus
+intel-compute-runtime
 intel-ucode
 intltool
 inxi
@@ -217,13 +220,8 @@ mtpfs
 nilfs-utils
 ntfs-3g
 numlockx
-nvidia-dkms
-nvidia-settings
-nvidia-utils
 nvme-cli
 open-vm-tools
-#opencl-nvidia-390xx
-opencl-nvidia-470xx
 os-prober
 partclone
 parted
@@ -252,6 +250,7 @@ upower
 usb_modeswitch
 usbmuxd
 usbutils
+vulkan-intel
 wayland
 wd719x-firmware
 wmctrl
@@ -262,21 +261,20 @@ xdo
 xdotool
 xf86-input-elographics
 xf86-input-libinput
-#xf86-video-nouveau
+#xf86-video-intel
 xfsprogs
 xkeyboard-config
 xorg-apps
 xorg-server
 xorg-xinit
-################################################################################
-# 6 MULTIMEDIA SOFTWARE
-################################################################################
+##################################################
+# 6 MULTIMEDIA
+##################################################
 alsa-plugins
 alsa-utils
 ardour
 aspell
 aspell-en
-avahi
 bigsh0t
 blender
 cadence
@@ -407,9 +405,10 @@ wineasio
 x264
 x265
 zynaddsubfx
-################################################################################
-# 7 NETWORKING SOFTWARE
-################################################################################
+##################################################
+# 7 NETWORKING
+##################################################
+avahi
 bind
 bluez
 bluez-libs
@@ -477,9 +476,9 @@ wpa_supplicant
 wvdial
 x11-ssh-askpass
 xl2tpd
-################################################################################
-# 8 PROGRAMMING SOFTWARE
-################################################################################
+##################################################
+# 8 PROGRAMMING
+##################################################
 bash
 bash-completion
 clang
@@ -502,9 +501,9 @@ python-pipx
 python-pyparted
 shellcheck
 shfmt
-################################################################################
+##################################################
 # 9 EXTRA ACCESSORIES
-################################################################################
+##################################################
 adobe-source-sans-fonts
 all-repository-fonts
 arc-darkest-theme-git
@@ -512,8 +511,8 @@ arc-gtk-theme
 bibata-cursor-theme-bin
 gsfonts
 noto-fonts
-sardi-icons
 obsidian-icon-theme
+sardi-icons
 terminus-font
 ttf-bitstream-vera
 ttf-dejavu
@@ -526,9 +525,9 @@ ttf-ms-fonts
 ttf-roboto
 ttf-roboto-mono
 ttf-ubuntu-font-family
-################################################################################
+##################################################
 # 10 DISTRO SPECIFIC
-################################################################################
+##################################################
 #a-candy-beauty-icon-theme-git
 arcob-calamares-config-awesome-git
 arco-calamares
@@ -542,9 +541,8 @@ arcolinux-grub-theme-vimix-git
 arcolinux-hblock-git
 arcolinux-keyring
 arcolinux-kvantum-git
-arcolinux-meta-steam-nvidia
+arcolinux-meta-steam-intel
 arcolinux-mirrorlist-git
-arcolinux-neofetch-git
 arcolinux-pipemenus-git
 arcolinux-qt5-git
 arcolinux-rofi-git
@@ -561,4 +559,4 @@ endeavouros-mirrorlist
 rebornos-keyring
 rebornos-mirrorlist
 xerolinux-mirrorlist
-################################################################################
+##################################################

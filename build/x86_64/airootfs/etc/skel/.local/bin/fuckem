@@ -1,0 +1,5 @@
+#!/bin/bash
+find . -name "*.save" -exec rm -f {} \;
+find . -name "*.bak" -exec rm -f {} \;
+find . -name "*~" -exec rm -f {} \;
+echo "*fuckem*"
