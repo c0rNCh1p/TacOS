@@ -5,7 +5,7 @@
 • Arch: x86_64  
 • Size: 5.5G (ISO)  
 • Type: Squashfs  
-• Vers: v02.01.01
+• Vers: v02.01.02
 #### Weblinks
 • Archiso: https://wiki.archlinux.org/title/Archiso  
 • Arcolinux: https://arcolinux.com/  

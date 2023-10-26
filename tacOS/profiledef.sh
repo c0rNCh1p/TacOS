@@ -11,10 +11,10 @@
 ################################################################################
 #shellcheck disable=SC2034
 iso_name="tacOS"
-iso_label="tacOS-v02.01.01"
+iso_label="tacOS-v02.01.02"
 iso_publisher="tacOS <https://github.com/c0rNCh1p>"
 iso_application="tacOS Live/Rescue CD"
-iso_version="v02.01.01"
+iso_version="v02.01.02"
 install_dir="arch"
 buildmodes=("iso")
 bootmodes=(

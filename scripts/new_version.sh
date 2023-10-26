@@ -1,7 +1,7 @@
 #!/bin/bash
 #shellcheck disable=SC2086
 
-OLDVSN='v02.01.01'
+OLDVSN='v02.01.02'
 
 echo -e "\nThe current iso version is $OLDVSN"
 echo -e '\nEnter the new iso version\n'
