@@ -51,25 +51,25 @@ while true; do
 	read -p '▸ ' GPUBRAND
 	case "$GPUBRAND" in
 	n)
-		PACKAGELIST='pkgs_nachOS.txt'
+		PACKAGELIST='nachOS.txt'
 		LATESTISO="nachOS_${DESKTOP}_${VERSION}_x86_64"
 		ISOLABEL="nachOS_${DESKTOP}_${VERSION}_x86_64.iso"
 		cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
 		break;;
 	j)
-		PACKAGELIST='pkgs_jalapenOS.txt'
+		PACKAGELIST='jalapenOS.txt'
 		LATESTISO="jalapenOS_${DESKTOP}_${VERSION}_x86_64"
 		ISOLABEL="jalapenOS_${DESKTOP}_${VERSION}_x86_64.iso"
 		cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
 		break;;
 	a)
-		PACKAGELIST='pkgs_asadOS.txt'
+		PACKAGELIST='asadOS.txt'
 		LATESTISO="asadOS_${DESKTOP}_${VERSION}_x86_64"
 		ISOLABEL="asadOS_${DESKTOP}_${VERSION}_x86_64.iso"
 		cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
 		break;;
 	a)
-		PACKAGELIST='pkgs_churrOS.txt'
+		PACKAGELIST='churrOS.txt'
 		LATESTISO="churrOS_${DESKTOP}_${VERSION}_x86_64"
 		ISOLABEL="churrOS_${DESKTOP}_${VERSION}_x86_64.iso"
 		cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
