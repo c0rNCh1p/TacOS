@@ -116,11 +116,11 @@ intel-ucode
 intltool
 inxi
 jfsutils
-kconfig
-kcoreaddons
-ki18n
+kconfig5
+kcoreaddons5
+ki18n5
 kpmcore
-kservice
+kservice5
 linux
 linux-atm
 linux-firmware
@@ -154,7 +154,7 @@ open-vm-tools
 os-prober
 partclone
 partimage
-plasma-framework
+plasma-framework5
 polkit
 polkit-gnome
 pv
