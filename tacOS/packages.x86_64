@@ -70,7 +70,7 @@ hardcode-fixer-git
 hardinfo-gtk3
 htop
 kvantum
-kwidgetsaddons
+kwidgetsaddons5
 less
 lutris
 lxappearance-gtk3
@@ -184,11 +184,11 @@ intel-ucode
 intltool
 inxi
 jfsutils
-kconfig
-kcoreaddons
-ki18n
+kconfig5
+kcoreaddons5
+ki18n5
 kpmcore
-kservice
+kservice5
 linux
 linux-atm
 linux-firmware
@@ -223,7 +223,7 @@ os-prober
 partclone
 parted
 partimage
-plasma-framework
+plasma-framework5
 polkit
 polkit-gnome
 pv
