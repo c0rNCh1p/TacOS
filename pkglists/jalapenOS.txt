@@ -66,6 +66,7 @@ git
 gnome-screenshot
 gpm
 gucharmap
+habash
 hardcode-fixer-git
 hardinfo-gtk3
 htop
@@ -97,6 +98,8 @@ pkgfile
 playerctl
 poppler-glib
 poppler-qt5
+python-habaitica
+python-habaitipy
 qt5ct
 qt5-xmlpatterns
 qview
