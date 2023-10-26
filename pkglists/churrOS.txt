@@ -317,7 +317,7 @@ shfmt
 # 9 EXTRA ACCESSORIES
 ##################################################
 adobe-source-sans-fonts
-all-repository-fonts
+#all-repository-fonts
 gsfonts
 noto-fonts
 terminus-font

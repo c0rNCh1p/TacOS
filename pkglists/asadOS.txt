@@ -502,7 +502,7 @@ shfmt
 # 9 EXTRA ACCESSORIES
 ##################################################
 adobe-source-sans-fonts
-all-repository-fonts
+#all-repository-fonts
 arc-darkest-theme-git
 arc-gtk-theme
 bibata-cursor-theme-bin
