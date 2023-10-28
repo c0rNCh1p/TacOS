@@ -64,8 +64,6 @@ yt-dlp
 # 5 BACKEND
 ##################################################
 accountsservice
-alhp-keyring
-alhp-mirrorlist
 alsa-firmware
 amd-ucode
 archinstall

@@ -13,6 +13,8 @@ SCUTTLEURL='https://github.com/c0rNCh1p/scuttle.git'
 nottyOrNoice(){
 	local NAUGHTYORNICE BTCHSIZE BATCH
 	NAUGHTYORNICE=(
+		'alhp-keyring'
+		'alhp-mirrorlist'
 		'hexyl'
 		'highlight'
 		'hydra'

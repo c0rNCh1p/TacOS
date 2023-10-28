@@ -8,8 +8,6 @@ OUTFOLDER='iso_out'
 BUILDDATE=$(date +'%H%M-%d%m-%Y')
 
 PACKAGES=(
-	'alhp-keyring'
-	'alhp-mirrorlist'
 	'archiso'
 	'arcolinux-keyring'
 	'arcolinux-mirrorlist-git'
@@ -25,20 +23,18 @@ PACKAGES=(
 )
 
 declare -A PACKAGEURLS=(
-	[1]='https://archlinux.pkgs.org/rolling/chaotic-aur-x86_64/alhp-keyring-20230504-4-any.pkg.tar.zst'
-	[2]='https://archlinux.pkgs.org/rolling/chaotic-aur-x86_64/alhp-mirrorlist-20230831-1-any.pkg.tar.zst'
-	[3]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/archiso-72-1-any.pkg.tar.zst'
-	[4]='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-keyring-20251209-3-any.pkg.tar.zst'
-	[5]='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-mirrorlist-git-23.06-01-any.pkg.tar.zst'
-	[6]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/chaotic-keyring-20230616-1-any.pkg.tar.zst'
-	[7]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/chaotic-mirrorlist-20230603-1-any.pkg.tar.zst'
-	[8]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/endeavouros-keyring-20230523-1-any.pkg.tar.zst'
-	[9]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/endeavouros-mirrorlist-23.7-1-any.pkg.tar.zst'
-	[10]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/pacman-contrib-1.9.0-1-x86_64.pkg.tar.zst'
-	[11]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-keyring-20230606-1-any.pkg.tar.zst'
-	[12]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-mirrorlist-20230606-1-any.pkg.tar.zst'
-	[13]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/reflector-2023-1-any.pkg.tar.zst'
-	[14]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/xerolinux-mirrorlist-0.1.3-3-any.pkg.tar.zst'
+	[1]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/archiso-72-1-any.pkg.tar.zst'
+	[2]='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-keyring-20251209-3-any.pkg.tar.zst'
+	[3]='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-mirrorlist-git-23.06-01-any.pkg.tar.zst'
+	[4]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/chaotic-keyring-20230616-1-any.pkg.tar.zst'
+	[5]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/chaotic-mirrorlist-20230603-1-any.pkg.tar.zst'
+	[6]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/endeavouros-keyring-20230523-1-any.pkg.tar.zst'
+	[7]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/endeavouros-mirrorlist-23.7-1-any.pkg.tar.zst'
+	[8]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/pacman-contrib-1.9.0-1-x86_64.pkg.tar.zst'
+	[9]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-keyring-20230606-1-any.pkg.tar.zst'
+	[10]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-mirrorlist-20230606-1-any.pkg.tar.zst'
+	[11]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/reflector-2023-1-any.pkg.tar.zst'
+	[12]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/xerolinux-mirrorlist-0.1.3-3-any.pkg.tar.zst'
 )
 
 [ -d "$OUTFOLDER" ] && sudo rm -rf "$OUTFOLDER"
@@ -85,12 +81,6 @@ for PACKAGE in "${PACKAGES[@]}"; do
 		if ! sudo pacman -S "$PACKAGE"; then
 			echo -e "\nFailed to install $PACKAGE with pacman\ninstalling it manually from repository\n"
 			case "$PACKAGE" in
-				'alhp-keyring')
-					wget -P "$HOME/Downloads" "${PACKAGEURLS[1]}"
-					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[1]##*/}";;
-				'alhp-mirrorlist')
-					wget -P "$HOME/Downloads" "${PACKAGEURLS[2]}"
-					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[2]##*/}";;			
 				'archiso')
 					wget -P "$HOME/Downloads" "${PACKAGEURLS[3]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[3]##*/}";;
