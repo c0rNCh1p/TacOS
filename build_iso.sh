@@ -23,7 +23,7 @@ PACKAGES=(
 )
 
 declare -A PACKAGEURLS=(
-	[1]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/archiso-72-1-any.pkg.tar.zst'
+	[1]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/archiso-73-1-any.pkg.tar.zst'
 	[2]='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-keyring-20251209-3-any.pkg.tar.zst'
 	[3]='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-mirrorlist-git-23.06-01-any.pkg.tar.zst'
 	[4]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/chaotic-keyring-20230616-1-any.pkg.tar.zst'
@@ -82,40 +82,40 @@ for PACKAGE in "${PACKAGES[@]}"; do
 			echo -e "\nFailed to install $PACKAGE with pacman\ninstalling it manually from repository\n"
 			case "$PACKAGE" in
 				'archiso')
-					wget -P "$HOME/Downloads" "${PACKAGEURLS[1]}"
+					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[1]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[1]##*/}";;
 				'arcolinux-keyring')
-					wget -P "$HOME/Downloads" "${PACKAGEURLS[2]}"
+					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[2]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[2]##*/}";;
 				'arcolinux-mirrorlist-git')
-					wget -P "$HOME/Downloads" "${PACKAGEURLS[3]}"
+					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[3]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[3]##*/}";;
 				'chaotic-keyring')
-					wget -P "$HOME/Downloads" "${PACKAGEURLS[4]}"
+					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[4]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[4]##*/}";;
 				'chaotic-mirrorlist')
-					wget -P "$HOME/Downloads" "${PACKAGEURLS[5]}"
+					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[5]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[5]##*/}";;
 				'endeavouros-keyring')
-					wget -P "$HOME/Downloads" "${PACKAGEURLS[6]}"
+					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[6]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[6]##*/}";;
 				'endeavouros-mirrorlist')
-					wget -P "$HOME/Downloads" "${PACKAGEURLS[7]}"
+					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[7]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[7]##*/}";;
 				'pacman-contrib')
-					wget -P "$HOME/Downloads" "${PACKAGEURLS[8]}"
+					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[8]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[8]##*/}";;
 				'rebornos-keyring')
-					wget -P "$HOME/Downloads" "${PACKAGEURLS[9]}"
+					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[9]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[9]##*/}";;
 				'rebornos-mirrorlist')
-					wget -P "$HOME/Downloads" "${PACKAGEURLS[10]}"
+					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[10]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[10]##*/}";;
 				'reflector')
-					wget -P "$HOME/Downloads" "${PACKAGEURLS[11]}"
+					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[11]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[11]##*/}";;
 				'xerolinux-mirrorlist')
-					wget -P "$HOME/Downloads" "${PACKAGEURLS[12]}"
+					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[12]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[12]##*/}";;
 			esac
 		fi
