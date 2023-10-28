@@ -128,7 +128,8 @@ if ! diff -q 'tacOS/pacman.conf' '/etc/pacman.conf'; then
 	[ "$ANS" == 'y' ] && sudo cp 'tacOS/pacman.conf' '/etc'
 fi
 echo -e '\nUpdating pacman mirrors and keyrings\n'
-sudo pacman-key --init; sudo pacman-key --populate
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
 sudo reflector --age 6 --latest 20 --sort score --protocol https --save '/etc/pacman.d/mirrorlist'
 sudo pacman -Fy; sudo pacman -Syu
 echo -e "\nAdding build date ($BUILDDATE) to /etc/dev-rel\n"
