@@ -55,7 +55,6 @@ bldAURPkgs(){
 		'material-black-colors-theme'
 		'nemo-compare'
 		'python-habitica'
-		'python-habitipy'
 		'rig'
 		'sl'
 		'steamcmd'

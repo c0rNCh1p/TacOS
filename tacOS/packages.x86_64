@@ -1,6 +1,6 @@
-#           _ _|   \ | __ __| __|  |
-#             |   .  |    |   _|   |
-#           ___| _|\_|   _|  ___| ____|           
+#        \ | \ \   / _ _|  _ \  _ _|    \
+#       .  |  \ \ /    |   |  |   |    _ \
+#      _|\_|   \_/   ___| ___/  ___| _/  _\
 ##################################################
 # ▸ /etc/packages.x86_64
 # ▸ /archiso/packages.x86_64
@@ -20,7 +20,6 @@ ruby
 clonezilla
 mlocate
 p7zip
-pdf2png
 ripgrep
 unace
 unrar
@@ -30,8 +29,8 @@ unzip
 ##################################################
 alsa-lib
 boost-libs
+lib32-nvidia-utils
 laptop-detect
-lib32-vulkan-intel
 libdvdcss
 libfido2
 libgsf
@@ -143,6 +142,8 @@ ckbcomp
 cpuid
 cronie
 cryptsetup
+#cuda
+#cuda-tools
 dconf-editor
 ddrescue
 dmidecode
@@ -177,7 +178,6 @@ hdparm
 hwinfo
 hyperv
 ibus
-intel-compute-runtime
 intel-ucode
 intltool
 inxi
@@ -215,7 +215,12 @@ mtpfs
 nilfs-utils
 ntfs-3g
 numlockx
+nvidia-dkms
+nvidia-settings
+nvidia-utils
 nvme-cli
+#opencl-nvidia-390xx
+opencl-nvidia-470xx
 open-vm-tools
 os-prober
 partclone
@@ -245,7 +250,6 @@ upower
 usb_modeswitch
 usbmuxd
 usbutils
-vulkan-intel
 wayland
 wd719x-firmware
 wmctrl
@@ -256,7 +260,7 @@ xdo
 xdotool
 xf86-input-elographics
 xf86-input-libinput
-#xf86-video-intel
+#xf86-video-nouveau
 xfsprogs
 xkeyboard-config
 xorg-apps
@@ -506,8 +510,8 @@ arc-gtk-theme
 bibata-cursor-theme-bin
 gsfonts
 noto-fonts
-obsidian-icon-theme
 sardi-icons
+obsidian-icon-theme
 terminus-font
 ttf-bitstream-vera
 ttf-dejavu
@@ -536,7 +540,7 @@ arcolinux-grub-theme-vimix-git
 arcolinux-hblock-git
 arcolinux-keyring
 arcolinux-kvantum-git
-arcolinux-meta-steam-intel
+arcolinux-meta-steam-nvidia
 arcolinux-mirrorlist-git
 arcolinux-pipemenus-git
 arcolinux-qt5-git

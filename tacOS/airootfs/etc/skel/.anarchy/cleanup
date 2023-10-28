@@ -83,8 +83,8 @@
 [ -d "$HOME/.cargo" ] && mv "$HOME/.cargo" "$CARGO_HOME"
 [ -d "$HOME/.ccache" ] && mv "$HOME/.ccache" "$CCACHE_DIR"
 [ -d "$HOME/Monero" ] && mv "$HOME/Monero" "$CONFIG/monero-project"
-[ -d "$HOME/.pki" ] && rmr "$PKI_HOME" && mv "$HOME/.pki" "$PKI_HOME"
-[ -d "$HOME/.pulse" ] && rmr "$PULSE_HOME" && mv "$HOME/.pulse" "$PULSE_HOME"
+[ -d "$HOME/.pki" ] && mv "$HOME/.pki" "$PKI_HOME"
+[ -d "$HOME/.pulse" ] && mv "$HOME/.pulse" "$PULSE_HOME"
 [ -d "$HOME/.wine" ] && mv "$HOME/.wine" "$WINEPREFIX"
 [ ! -d "$DEADBEEF_HOME" ] && mvp "$DEADBEEF_HOME" &>'/dev/null'
 [ ! -d "$GIMP_HOME" ] && mvp "$GIMP_HOME" &>'/dev/null'
