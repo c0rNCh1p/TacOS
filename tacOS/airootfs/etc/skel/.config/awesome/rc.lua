@@ -87,13 +87,8 @@ beautiful.notification_font='Nouveau IBM Bold 9.5'
 local brightness=1.0
 local function adjustBrightness(inc)
     brightness=math.min(1.0, math.max(0.1, brightness + (inc * 0.1)))
-    local success, err=awful.spawn.with_shell('xrandr --output HDMI-1 --brightness ' .. tostring(brightness))
-    if not success then
-        success, err=awful.spawn.with_shell('xrandr --output eDP-1 --brightness ' .. tostring(brightness))
-    end
-    if not success then
-        print('Failed to set brightness', err)
-    end
+    awful.spawn.with_shell('xrandr --output HDMI-1 --brightness ' .. tostring(brightness))
+    awful.spawn.with_shell('xrandr --output eDP-1 --brightness ' .. tostring(brightness))
 end
 
 -- window layouts
