@@ -19,6 +19,7 @@ PACKAGES=(
 	'rebornos-keyring'
 	'rebornos-mirrorlist'
 	'reflector'
+	'wget'
 	'xerolinux-mirrorlist'
 )
 
@@ -34,12 +35,14 @@ declare -A PACKAGEURLS=(
 	[9]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-keyring-20231026-1-any.pkg.tar.zst'
 	[10]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-mirrorlist-20231026-1-any.pkg.tar.zst'
 	[11]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/reflector-2023-1-any.pkg.tar.zst'
-	[12]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/xerolinux-mirrorlist-0.1.5-2-any.pkg.tar.zst'
+	[12]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/wget-1.21.4-1-x86_64.pkg.tar.zst'
+	[13]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/xerolinux-mirrorlist-0.1.5-2-any.pkg.tar.zst'
 )
 
 [ -d "$OUTFOLDER" ] && sudo rm -rf "$OUTFOLDER"
 [ -d "$HOME/$OUTFOLDER" ] && sudo rm -rf "$HOME/$OUTFOLDER"
 [ ! -d 'tacOS_latest' ] && mkdir -p 'tacOS_latest'
+[ ! -d "$HOME/Downloads" ] && mkdir -p "$HOME/Downloads"
 
 while true; do
 	echo -e '\nSelect the ingredients for the tacOS\n'
@@ -114,9 +117,12 @@ for PACKAGE in "${PACKAGES[@]}"; do
 				'reflector')
 					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[11]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[11]##*/}";;
-				'xerolinux-mirrorlist')
+				'wget')
 					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[12]}"
-					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[12]##*/}";;
+					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[12]##*/}";;					
+				'xerolinux-mirrorlist')
+					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[13]}"
+					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[13]##*/}";;
 			esac
 		fi
 	fi
