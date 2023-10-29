@@ -166,19 +166,16 @@ urchMain(){
 	}
 	binOut(){
 		local CNT1=$(sudo find /bin/ -type f -iname "*$ARG3*" | wc -l)
-		local CNT2=$(sudo find /usr/bin/ -type f -iname "*$ARG3*" | wc -l)
-		local CNT3=$(sudo find /usr/local/bin/ -type f -iname "*$ARG3*" | wc -l)
-		local CNT4=$(sudo find $HOME/.local/bin/ -type f -iname "*$ARG3*" | wc -l)
-		TOTAL=$(( CNT1 + CNT3 + CNT4 ))
+		local CNT2=$(sudo find /usr/local/bin/ -type f -iname "*$ARG3*" | wc -l)
+		local CNT3=$(sudo find $HOME/.local/bin/ -type f -iname "*$ARG3*" | wc -l)
+		TOTAL=$(( CNT1 + CNT2 + CNT3))
 		if [ $TOTAL -ge 1 ]; then
 			drawBorder '⩝⩜'; header; drawBorder '⩜⩝'
-			sudo find /bin/ -xdev -type f -iname "*$ARG3*" -printf '%p\n'\
+			sudo find '/bin/' -xdev -type f -iname "*$ARG3*" -printf '%p\n'\
 			| grep -i "$ARG3" | showResults "$ARG3"
-			sudo find /usr/bin/ -xdev -type f -iname "*$ARG3*" -printf '%p\n'\
+			sudo find '/usr/local/bin/' -xdev -type f -iname "*$ARG3*" -printf '%p\n'\
 			| grep -i "$ARG3" | showResults "$ARG3"
-			sudo find /usr/local/bin/ -xdev -type f -iname "*$ARG3*" -printf '%p\n'\
-			| grep -i "$ARG3" | showResults "$ARG3"
-			sudo find $HOME/.local/bin/ -xdev -type f -iname "*$ARG3*" -printf '%p\n'\
+			sudo find "$HOME/.local/bin/" -xdev -type f -iname "*$ARG3*" -printf '%p\n'\
 			| grep -i "$ARG3" | showResults "$ARG3"
 			drawBorder '⩝⩜'; footer; drawBorder '⩜⩝'
 		else echo -e '\nNo matches\n'
