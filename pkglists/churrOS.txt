@@ -257,6 +257,7 @@ nfs-utils
 nmap
 nss-mdns
 ntp
+onionshare
 openconnect
 open-iscsi
 openresolv
