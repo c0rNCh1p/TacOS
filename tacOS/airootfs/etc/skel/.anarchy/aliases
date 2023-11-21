@@ -162,8 +162,8 @@ alias srflct='sudo reflector'
 alias srmirrors='srflct -a 6 -l 20 --sort score --save /etc/pacman.d/mirrorlist'
 alias srmlogoutlock='sudo rm /tmp/arcologout.lock'
 alias srmpyextmng='sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED'
-alias srm='sudo rm'
 alias srmr='sudo rm -r'
+alias srm='sudo rm'
 alias stee='sudo tee'
 alias sucp='sudo cp -rp'
 alias sufw='sudo ufw'
@@ -175,11 +175,10 @@ alias sysfailed='sudo systemctl list-units --failed'
 alias sysfailrs='sudo systemctl reset-failed'
 alias syslist='sudo systemctl list-unit-files --all'
 alias sysreload='sudo systemctl daemon-reload'
-alias ytaac="sudo yt-dlp --extract-audio --audio-format aac "
-alias ytbest="sudo yt-dlp --extract-audio --audio-format best "
-alias ytflac="sudo yt-dlp --extract-audio --audio-format flac "
+alias ytavi="sudo yt-dlp -f 'bestvideo[ext=avi]+bestaudio[ext=m4a]' "
 alias ytmp3="sudo yt-dlp --extract-audio --audio-format mp3 "
-alias ytbest="sudo yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' "
+alias ytmp4="sudo yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' "
+alias ytwav="sudo yt-dlp --extract-audio --audio-format wav "
 ################################################################################
 # 5 SPEEDDIAL
 ################################################################################
