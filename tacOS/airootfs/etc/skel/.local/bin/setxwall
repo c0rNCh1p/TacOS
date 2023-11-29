@@ -2,7 +2,7 @@
 #shellcheck disable=SC2012
 XWALLINC=1
 XWALLDIR="$FLAVOUR/walls"
-DEFXWALL='morning-distopia.png'
+DEFXWALL='morning_distopia.png'
 xwallpaper --zoom "$XWALLDIR/$DEFXWALL"
 sleep "$(( XWALLINC * 550 ))"
 while true; do
