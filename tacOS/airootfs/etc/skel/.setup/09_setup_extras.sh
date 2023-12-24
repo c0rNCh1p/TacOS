@@ -58,6 +58,7 @@ bldAURPkgs(){
 		'rig'
 		'sl'
 		'steamcmd'
+		'tastytrade'
 		'unfatarians-studio'
 	)
 	BTCHSIZE=9
