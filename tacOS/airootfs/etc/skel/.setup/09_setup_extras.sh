@@ -10,6 +10,8 @@ GH0STYURL='https://github.com/c0rNCh1p/gh0sty.git'
 MINIMAPURL='https://github.com/johnfactotum/gedit-restore-minimap.git'
 SCUTTLEURL='https://github.com/c0rNCh1p/scuttle.git'
 
+EXODUSURL='https://downloads.exodus.com/releases/exodus-linux-x64-23.12.21.zip'
+
 nottyOrNoice(){
 	local NAUGHTYORNICE BTCHSIZE BATCH
 	NAUGHTYORNICE=(
@@ -177,6 +179,18 @@ bldAlien(){
 	fi; cd || return 1
 }
 
+bldExodus(){
+	pullExodus(){
+		wget "$EXODUSURL"
+		unzip 'exodus'*'.zip'
+		sudo rm 'exodus'*'.zip'
+	}
+	echo -e '|\n|~ Building Exodus\n|'
+	cd "$DATA" || cd "$HOME/.local/share/" || return 1
+	pullExodus
+	cd || return 1
+}
+
 bldGloriousEggroll(){
 	#set -euo pipefail
 	echo -e '|\n|~ Building Glorious Eggroll\n|'
@@ -199,6 +213,7 @@ else
 	nottyOrNoice
 	bldAURPkgs
 	bldDummy
+	bldExodus
 	bldGh0sty
 	bldScuttle
 	bldFabla
