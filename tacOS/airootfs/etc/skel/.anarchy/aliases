@@ -19,14 +19,13 @@ alias en_blijf_rollen="echo 'Arco Team!'"
 ################################################################################
 alias af='lynx -dump -width=500 http://localhost:80/whm-server-status'
 alias att='archlinux-tweak-tool'
-alias bup="sh -c $ANARCHY/backup"
+
 alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
 alias calc='galculator'
 alias chars='gucharmap'
 alias chkcpu='cpuid -i | grep uarch | head -n 1'
 alias chkefi="ls '/sys/firmware/efi/efivars'"
 alias chk='readFiles'
-alias chktodo="readFiles $ANARCHY/checklist.txt"
 alias chkvul="grep . '/sys/devices/system/cpu/vulnerabilities/*'"
 alias colors='export LS_COLORS="$(cat "$HOME/.dircolors")"'
 alias cp='cp -rp'
@@ -39,9 +38,9 @@ alias df='df -h'
 alias downn='shutdown now'
 alias du='du -sh'
 alias ev='evince'
+alias exodus="$DATA/Exodus-linux-x64/Exodus"
 alias free='free -wh'
 alias fuckoff='faillock --user "$USER" --reset'
-alias fuck="sh -c $ANARCHY/secretary"
 alias ged='gedit'
 alias gednew='gedit --new-window'
 alias gpgchk='gpg --keyserver-options auto-key-retrieve --verify'
@@ -98,7 +97,6 @@ alias stopx='pkill -15 -t tty"$XDG_VTNR" Xorg'
 alias term='terminator'
 alias tree='tree -a'
 alias umnt="unmounter &>'/dev/null'"
-alias updtodo="gedit --new-window $ANARCHY/checklist.txt"
 alias up='uptime -p'
 alias userlist="cut -d: -f1 /etc/passwd | sort"
 alias viv='vivaldi-stable'
@@ -109,7 +107,6 @@ alias xdw='ls /usr/share/wayland-sessions'
 alias xr='xreader'
 alias yskip='yay -S --mflags --skipinteg'
 alias yss='yay -Ss'
-alias lbup="readFiles $ANARCHY/bup.log" 
 ################################################################################
 # 4 SUDO MODS
 ################################################################################
@@ -187,8 +184,6 @@ alias sdawesome="$EDITOR $CONFIG/awesome/rc.lua"
 alias sdbashrc="$EDITOR $HOME/.bashrc"
 alias sdcleanup="$EDITOR $ANARCHY/cleanup"
 alias sdmimeapps="$EDITOR $CONFIG/mimeapps.list"
-alias sdpractice="$EDITOR $HOME/.local/share/Steam/steamapps/common/\
-Counter-Strike\ Global\ Offensive/game/csgo/cfg/practice.cfg"
 alias sdrofilaunch="$EDITOR $CONFIG/awesome/rofi/launcher.rasi"
 alias sdterminator="$EDITOR $CONFIG/terminator/config"
 alias sdubashrc="sudo $EDITOR /root/.bashrc"
@@ -203,10 +198,6 @@ alias sunano="sudo $EDITOR /etc/nanorc"
 alias suneofetch="sudo $EDITOR /etc/neofetch/config.conf"
 alias sunmconf="sudo $EDITOR /etc/NetworkManager/NetworkManager.conf"
 alias sunsswitch="sudo $EDITOR /etc/nsswitch.conf"
-alias suovpncli2="sudo $EDITOR /etc/openvpn/ovpncli2.ovpn"
-alias suovpncli3="sudo $EDITOR /etc/openvpn/ovpncli3.ovpn"
-alias suovpnclient="sudo $EDITOR /etc/openvpn/client/ovpncli.ovpn"
-alias suovpncli="sudo $EDITOR /etc/openvpn/ovpncli.ovpn"
 alias supacman="sudo $EDITOR /etc/pacman.conf"
 alias supchains="sudo $EDITOR /etc/proxychains.conf"
 alias sureadline="sudo $EDITOR /etc/inputrc"
@@ -214,10 +205,6 @@ alias susshd="sudo $EDITOR /etc/ssh/sshd_config"
 alias sussh="sudo $EDITOR /etc/ssh/ssh_config"
 alias sutorrc="sudo $EDITOR /etc/tor/torrc"
 alias sutorsocks="sudo $EDITOR /etc/tor/torsocks.conf"
-alias suwgcli2="sudo $EDITOR /etc/wireguard/wgcli2.conf"
-alias suwgcli3="sudo $EDITOR /etc/wireguard/wgcli3.conf"
-alias suwgclient="sudo $EDITOR /etc/wireguard/wgcli.conf"
-alias suwgcli="sudo $EDITOR /etc/wireguard/wgcli.conf"
 alias suxinit="sudo $EDITOR /etc/X11/xinit/xinitrc"
 alias suxprofile="sudo $EDITOR /etc/xprofile"
 ################################################################################
