@@ -317,6 +317,7 @@ harvid
 hunspell
 hunspell-en_au
 imagemagick
+inkscape
 jack2
 jack2-dbus
 jack-example-tools
