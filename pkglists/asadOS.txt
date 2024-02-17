@@ -470,6 +470,7 @@ wireless-regdb
 wireless_tools
 wireshark-qt
 wpa_supplicant
+whois
 wvdial
 x11-ssh-askpass
 xl2tpd
