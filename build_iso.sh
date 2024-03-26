@@ -48,33 +48,34 @@ while true; do
 	echo -e '▸ [N] nachOS (Nvidia)\n▸ [J] jalapenOS (Intel)\n▸ [A] asadOS (AMD)\n▸ [C] churrOS (server)\n'
 	read -p '▸ ' GPUBRAND
 	case "$GPUBRAND" in
-	[n|N])
-		PACKAGELIST='nachOS.txt'
-		LATESTISO="nachOS_${DESKTOP}_${VERSION}_x86_64"
-		ISOLABEL="nachOS_${DESKTOP}_${VERSION}_x86_64.iso"
-		cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
-		break;;
-	[j|J])
-		PACKAGELIST='jalapenOS.txt'
-		LATESTISO="jalapenOS_${DESKTOP}_${VERSION}_x86_64"
-		ISOLABEL="jalapenOS_${DESKTOP}_${VERSION}_x86_64.iso"
-		cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
-		break;;
-	[a|A])
-		PACKAGELIST='asadOS.txt'
-		LATESTISO="asadOS_${DESKTOP}_${VERSION}_x86_64"
-		ISOLABEL="asadOS_${DESKTOP}_${VERSION}_x86_64.iso"
-		cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
-		break;;
-	[c|C])
-		PACKAGELIST='churrOS.txt'
-		LATESTISO="churrOS_${DESKTOP}_${VERSION}_x86_64"
-		ISOLABEL="churrOS_${DESKTOP}_${VERSION}_x86_64.iso"
-		cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
-		break;;		
-	*) echo -e '⚠ invalid selection ⚠';;
+		n|N)
+			PACKAGELIST='nachOS.txt'
+			LATESTISO="nachOS_${DESKTOP}_${VERSION}_x86_64"
+			ISOLABEL="nachOS_${DESKTOP}_${VERSION}_x86_64.iso"
+			cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
+			break;;
+		j|J)
+			PACKAGELIST='jalapenOS.txt'
+			LATESTISO="jalapenOS_${DESKTOP}_${VERSION}_x86_64"
+			ISOLABEL="jalapenOS_${DESKTOP}_${VERSION}_x86_64.iso"
+			cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
+			break;;
+		a|A)
+			PACKAGELIST='asadOS.txt'
+			LATESTISO="asadOS_${DESKTOP}_${VERSION}_x86_64"
+			ISOLABEL="asadOS_${DESKTOP}_${VERSION}_x86_64.iso"
+			cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
+			break;;
+		c|C)
+			PACKAGELIST='churrOS.txt'
+			LATESTISO="churrOS_${DESKTOP}_${VERSION}_x86_64"
+			ISOLABEL="churrOS_${DESKTOP}_${VERSION}_x86_64.iso"
+			cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
+			break;;        
+		*) echo -e '⚠ invalid selection ⚠';;
 	esac
 done
+
 
 echo -e '\nMaking sure system requirements are installed'
 for PACKAGE in "${PACKAGES[@]}"; do
