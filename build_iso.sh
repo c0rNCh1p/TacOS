@@ -66,7 +66,7 @@ while true; do
 		ISOLABEL="asadOS_${DESKTOP}_${VERSION}_x86_64.iso"
 		cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
 		break;;
-	[a|A])
+	[c|C])
 		PACKAGELIST='churrOS.txt'
 		LATESTISO="churrOS_${DESKTOP}_${VERSION}_x86_64"
 		ISOLABEL="churrOS_${DESKTOP}_${VERSION}_x86_64.iso"
