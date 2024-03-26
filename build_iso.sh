@@ -24,19 +24,18 @@ PACKAGES=(
 )
 
 declare -A PACKAGEURLS=(
-	[1]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/archiso-74-1-any.pkg.tar.zst'
+	[1]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/archiso-75-1-any.pkg.tar.zst'
 	[2]='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-keyring-20251209-3-any.pkg.tar.zst'
-	[3]='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-mirrorlist-git-23.06-01-any.pkg.tar.zst'
+	[3]='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-mirrorlist-git-24.03-12-any.pkg.tar.zst'
 	[4]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/chaotic-keyring-20230616-1-any.pkg.tar.zst'
-	[5]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/chaotic-mirrorlist-20231212-1-any.pkg.tar.zst'
+	[5]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/chaotic-mirrorlist-20240306-1-any.pkg.tar.zst'
 	[6]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/endeavouros-keyring-20231222-1-any.pkg.tar.zst'
-	[7]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/endeavouros-mirrorlist-23.16-1-any.pkg.tar.zst'
-	[8]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/pacman-contrib-1.9.1-1-x86_64.pkg.tar.zst'
+	[7]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/endeavouros-mirrorlist-24.2-1-any.pkg.tar.zst'
+	[8]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/pacman-contrib-1.10.5-1-x86_64.pkg.tar.zst'
 	[9]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-keyring-20231128-1-any.pkg.tar.zst'
-	[10]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-mirrorlist-20231120-1-any.pkg.tar.zst'
+	[10]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-mirrorlist-20240215-1-any.pkg.tar.zst'
 	[11]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/reflector-2023-1-any.pkg.tar.zst'
-	[12]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/wget-1.21.4-1-x86_64.pkg.tar.zst'
-	[13]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/xerolinux-mirrorlist-0.1.5-3-any.pkg.tar.zst'
+	[12]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/wget-1.24.5-1-x86_64.pkg.tar.zst'
 )
 
 [ -d "$OUTFOLDER" ] && sudo rm -rf "$OUTFOLDER"
@@ -120,9 +119,6 @@ for PACKAGE in "${PACKAGES[@]}"; do
 				'wget')
 					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[12]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[12]##*/}";;					
-				'xerolinux-mirrorlist')
-					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[13]}"
-					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[13]##*/}";;
 			esac
 		fi
 	fi
