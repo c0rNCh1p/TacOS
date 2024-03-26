@@ -415,6 +415,10 @@ globalkeys=gears.table.join(
 	awful.key({modkey}, 'b', function()
 		awful.util.spawn(browser)
 	end,
+	{description='| Launch Inkscape\n', group='04 launchers'}),
+	awful.key({modkey}, 'i', function()
+		awful.spawn.with_shell('inkscape')
+	end,
 	{description='| Launch browser\n', group='04 launchers'}),
 	awful.key({modkey}, 'e', function()
 		awful.spawn.with_shell('gedit --new-window')

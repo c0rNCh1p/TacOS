@@ -54,7 +54,7 @@ bustMain() {
 		*.lz) mainErr1;;
 		*.lzma) mainErr1;;
 		*.lzo) mainErr1;;
-		*.rar) unrar -x "$ARG";;
+		*.rar) unrar e "$ARG";;
 		*.rpm) rpmextract.sh "$ARG";;
 		*.rz) mainErr1;;
 		*.sar) mainErr1;;

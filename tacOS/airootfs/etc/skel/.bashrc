@@ -83,7 +83,8 @@ fi
 if command grep -q 'live' '/etc/group'; then
 	if [ $(tty) == '/dev/tty1' ]; then
 		echo -e "\n| The graphical environment is launched with 'startx'"
-		echo -e "| the installer can be run with 'calamares'\n|"
+		echo -e "| after refreshing the shell with 'bash'. The installer"
+		echo -e "| can be run with 'calamares'.\n|"
 		echo -e "| If installing please go to the '\$HOME/.setup' folder"
 		echo -e "| when finished and run ./'01_setup_all.sh'\n|"
 		echo -e "| Before doing so, be sure too add the newly created"
