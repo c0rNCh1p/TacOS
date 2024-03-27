@@ -72,9 +72,9 @@ while true; do
 done
 
 if command -v curl &>'/dev/null'; then
-	DLCMD='curl -L -o'
+	DLCMD=(curl -L -o)
 elif command -v wget &>'/dev/null'; then
-	DLCMD='wget -c -P'
+	DLCMD=(wget -c -O)
 else
 	echo -e 'Neither wget nor curl is installed. Please install one to continue.'
 	exit 1
@@ -88,37 +88,37 @@ for PACKAGE in "${!PACKAGEURLS[@]}"; do
 			echo -e "\nFailed to install $PACKAGE with pacman\ninstalling it manually from repository\n"
 			case "$PACKAGE" in
 				'archiso')
-					"$DLCMD" "$HOME/Downloads/${PACKAGEURLS['archiso']##*/}" "${PACKAGEURLS['archiso']}"
+					"${DLCMD[@]}" "$HOME/Downloads/${PACKAGEURLS['archiso']##*/}" "${PACKAGEURLS['archiso']}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS['archiso']##*/}";;
 				'arcolinux-keyring')
-					"$DLCMD" "$HOME/Downloads/${PACKAGEURLS['arcolinux-keyring']##*/}" "${PACKAGEURLS['arcolinux-keyring']}"
+					"${DLCMD[@]}" "$HOME/Downloads/${PACKAGEURLS['arcolinux-keyring']##*/}" "${PACKAGEURLS['arcolinux-keyring']}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS['arcolinux-keyring']##*/}";;
 				'arcolinux-mirrorlist-git')
-					"$DLCMD" "$HOME/Downloads/${PACKAGEURLS['arcolinux-mirrorlist-git']##*/}" "${PACKAGEURLS['arcolinux-mirrorlist-git']}"
+					"${DLCMD[@]}" "$HOME/Downloads/${PACKAGEURLS['arcolinux-mirrorlist-git']##*/}" "${PACKAGEURLS['arcolinux-mirrorlist-git']}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS['arcolinux-mirrorlist-git']##*/}";;
 				'chaotic-keyring')
-					"$DLCMD" "$HOME/Downloads/${PACKAGEURLS['chaotic-keyring']##*/}" "${PACKAGEURLS['chaotic-keyring']}"
+					"${DLCMD[@]}" "$HOME/Downloads/${PACKAGEURLS['chaotic-keyring']##*/}" "${PACKAGEURLS['chaotic-keyring']}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS['chaotic-keyring']##*/}";;
 				'chaotic-mirrorlist')
-					"$DLCMD" "$HOME/Downloads/${PACKAGEURLS['chaotic-mirrorlist']##*/}" "${PACKAGEURLS['chaotic-mirrorlist']}"
+					"${DLCMD[@]}" "$HOME/Downloads/${PACKAGEURLS['chaotic-mirrorlist']##*/}" "${PACKAGEURLS['chaotic-mirrorlist']}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS['chaotic-mirrorlist']##*/}";;
 				'endeavouros-keyring')
-					"$DLCMD" "$HOME/Downloads/${PACKAGEURLS['endeavouros-keyring']##*/}" "${PACKAGEURLS['endeavouros-keyring']}"
+					"${DLCMD[@]}" "$HOME/Downloads/${PACKAGEURLS['endeavouros-keyring']##*/}" "${PACKAGEURLS['endeavouros-keyring']}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS['endeavouros-keyring']##*/}";;
 				'endeavouros-mirrorlist')
-					"$DLCMD" "$HOME/Downloads/${PACKAGEURLS['endeavouros-mirrorlist']##*/}" "${PACKAGEURLS['endeavouros-mirrorlist']}"
+					"${DLCMD[@]}" "$HOME/Downloads/${PACKAGEURLS['endeavouros-mirrorlist']##*/}" "${PACKAGEURLS['endeavouros-mirrorlist']}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS['endeavouros-mirrorlist']##*/}";;
 				'pacman-contrib')
-					"$DLCMD" "$HOME/Downloads/${PACKAGEURLS['pacman-contrib']##*/}" "${PACKAGEURLS['pacman-contrib']}"
+					"${DLCMD[@]}" "$HOME/Downloads/${PACKAGEURLS['pacman-contrib']##*/}" "${PACKAGEURLS['pacman-contrib']}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS['pacman-contrib']##*/}";;
 				'rebornos-keyring')
-					"$DLCMD" "$HOME/Downloads/${PACKAGEURLS['rebornos-keyring']##*/}" "${PACKAGEURLS['rebornos-keyring']}"
+					"${DLCMD[@]}" "$HOME/Downloads/${PACKAGEURLS['rebornos-keyring']##*/}" "${PACKAGEURLS['rebornos-keyring']}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS['rebornos-keyring']##*/}";;
 				'rebornos-mirrorlist')
-					"$DLCMD" "$HOME/Downloads/${PACKAGEURLS['rebornos-mirrorlist']##*/}" "${PACKAGEURLS['rebornos-mirrorlist']}"
+					"${DLCMD[@]}" "$HOME/Downloads/${PACKAGEURLS['rebornos-mirrorlist']##*/}" "${PACKAGEURLS['rebornos-mirrorlist']}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS['rebornos-mirrorlist']##*/}";;
 				'reflector')
-					"$DLCMD" "$HOME/Downloads/${PACKAGEURLS['reflector']##*/}" "${PACKAGEURLS['reflector']}"
+					"${DLCMD[@]}" "$HOME/Downloads/${PACKAGEURLS['reflector']##*/}" "${PACKAGEURLS['reflector']}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS['reflector']##*/}";;
 			esac
 		fi
