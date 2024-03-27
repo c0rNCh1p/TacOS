@@ -7,32 +7,18 @@ VERSION='v02.01.03'
 OUTFOLDER='iso_out'
 BUILDDATE=$(date +'%H%M-%d%m-%Y')
 
-PACKAGES=(
-	'archiso'
-	'arcolinux-keyring'
-	'arcolinux-mirrorlist-git'
-	'chaotic-keyring'
-	'chaotic-mirrorlist'
-	'endeavouros-keyring'
-	'endeavouros-mirrorlist'
-	'pacman-contrib'
-	'rebornos-keyring'
-	'rebornos-mirrorlist'
-	'reflector'
-)
-
 declare -A PACKAGEURLS=(
-	[1]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/archiso-75-1-any.pkg.tar.zst'
-	[2]='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-keyring-20251209-3-any.pkg.tar.zst'
-	[3]='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-mirrorlist-git-24.03-12-any.pkg.tar.zst'
-	[4]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/chaotic-keyring-20230616-1-any.pkg.tar.zst'
-	[5]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/chaotic-mirrorlist-20240306-1-any.pkg.tar.zst'
-	[6]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/endeavouros-keyring-20231222-1-any.pkg.tar.zst'
-	[7]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/endeavouros-mirrorlist-24.2-1-any.pkg.tar.zst'
-	[8]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/pacman-contrib-1.10.5-1-x86_64.pkg.tar.zst'
-	[9]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-keyring-20231128-1-any.pkg.tar.zst'
-	[10]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-mirrorlist-20240215-1-any.pkg.tar.zst'
-	[11]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/reflector-2023-1-any.pkg.tar.zst'
+	['archiso']='https://geo.mirror.pkgbuild.com/extra/os/x86_64/archiso-75-1-any.pkg.tar.zst'
+	['arcolinux-keyring']='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-keyring-20251209-3-any.pkg.tar.zst'
+	['arcolinux-mirrorlist-git']='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-mirrorlist-git-24.03-12-any.pkg.tar.zst'
+	['chaotic-keyring']='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/chaotic-keyring-20230616-1-any.pkg.tar.zst'
+	['chaotic-mirrorlist']='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/chaotic-mirrorlist-20240306-1-any.pkg.tar.zst'
+	['endeavouros-keyring']='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/endeavouros-keyring-20231222-1-any.pkg.tar.zst'
+	['endeavouros-mirrorlist']='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/endeavouros-mirrorlist-24.2-1-any.pkg.tar.zst'
+	['pacman-contrib']='https://geo.mirror.pkgbuild.com/extra/os/x86_64/pacman-contrib-1.10.5-1-x86_64.pkg.tar.zst'
+	['rebornos-keyring']='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-keyring-20231128-1-any.pkg.tar.zst'
+	['rebornos-mirrorlist']='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-mirrorlist-20240215-1-any.pkg.tar.zst'
+	['reflector']='https://geo.mirror.pkgbuild.com/extra/os/x86_64/reflector-2023-1-any.pkg.tar.zst'
 )
 
 cleanup_failure(){
@@ -43,9 +29,8 @@ cleanup_failure(){
 }
 
 cleanup_success(){
+	sudo rm -rf "$LATESTISO" "$WORKDIR"
 	echo -e "\nFresh iso in $HOME/$OUTFOLDER\n"
-	sudo rm -rf "$LATESTISO"
-	sudo rm -rf "$WORKDIR"
 }
 
 [ -d "$OUTFOLDER" ] && sudo rm -rf "$OUTFOLDER"
@@ -96,7 +81,7 @@ else
 fi
 
 echo -e '\nMaking sure system requirements are installed'
-for PACKAGE in "${PACKAGES[@]}"; do
+for PACKAGE in "${!PACKAGEURLS[@]}"; do
 	if ! pacman -Qs "$PACKAGE" &>'/dev/null' 2>&1; then
 		echo -e "\n$PACKAGE isnt installed,\ninstalling it now"
 		if ! sudo pacman -S "$PACKAGE"; then
@@ -176,4 +161,4 @@ test -f "tacOS_latest/$LATESTISO.tar.gz" &&
 mv "$LATESTISO.tar.gz" 'tacOS_latest'
 cleanup_success
 
-unset ANS BUILDDATE DESKTOP DLCMD GPUBRAND ISOLABEL LATEST LATESTISO OUTFOLDER PACKAGELIST PACKAGES PACKAGEURLS WORKDIR
+unset ANS BUILDDATE DESKTOP DLCMD GPUBRAND ISOLABEL LATEST LATESTISO OUTFOLDER PACKAGELIST PACKAGEURLS WORKDIR
