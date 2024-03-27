@@ -11,10 +11,10 @@
 # 1 BUILD PARAMTETERS
 ################################################################################
 iso_name='tacOS'
-iso_label='tacOS-v02.01.02'
+iso_label='tacOS-v02.01.03'
 iso_publisher='tacOS <https://github.com/c0rNCh1p>'
 iso_application='tacOS Live Disk Image'
-iso_version='v02.01.02'
+iso_version='v02.01.03'
 install_dir='arch'
 buildmodes=('iso')
 bootmodes=(

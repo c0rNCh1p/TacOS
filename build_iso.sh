@@ -3,7 +3,7 @@
 
 WORKDIR='build'
 DESKTOP='awesome'
-VERSION='v02.01.02'
+VERSION='v02.01.03'
 OUTFOLDER='iso_out'
 BUILDDATE=$(date +'%H%M-%d%m-%Y')
 
@@ -19,8 +19,6 @@ PACKAGES=(
 	'rebornos-keyring'
 	'rebornos-mirrorlist'
 	'reflector'
-	'wget'
-	'xerolinux-mirrorlist'
 )
 
 declare -A PACKAGEURLS=(
@@ -35,8 +33,29 @@ declare -A PACKAGEURLS=(
 	[9]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-keyring-20231128-1-any.pkg.tar.zst'
 	[10]='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-mirrorlist-20240215-1-any.pkg.tar.zst'
 	[11]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/reflector-2023-1-any.pkg.tar.zst'
-	[12]='https://geo.mirror.pkgbuild.com/extra/os/x86_64/wget-1.24.5-1-x86_64.pkg.tar.zst'
 )
+
+cleanup_failure(){
+	echo -e '\nAn error occurred, cleaning up build directories.'
+	sudo rm -rf "$WORKDIR" 'tacOS_latest'
+	echo -e '\nPlease check the package lists and configuration before retrying.'
+	exit 1
+}
+
+cleanup_success(){
+	echo -e "\nFresh iso in $HOME/$OUTFOLDER\n"
+	sudo rm -rf "$LATESTISO"
+	sudo rm -rf "$WORKDIR"
+}
+
+if command -v wget &>'/dev/null'; then
+	DLCMD='wget -c -P'
+elif command -v curl &>'/dev/null'; then
+	DLCMD='curl -L -o'
+else
+	echo -e 'Neither wget nor curl is installed. Please install one to continue.'
+	exit 1
+fi
 
 [ -d "$OUTFOLDER" ] && sudo rm -rf "$OUTFOLDER"
 [ -d "$HOME/$OUTFOLDER" ] && sudo rm -rf "$HOME/$OUTFOLDER"
@@ -71,11 +90,10 @@ while true; do
 			LATESTISO="churrOS_${DESKTOP}_${VERSION}_x86_64"
 			ISOLABEL="churrOS_${DESKTOP}_${VERSION}_x86_64.iso"
 			cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
-			break;;        
+			break;;
 		*) echo -e '⚠ invalid selection ⚠';;
 	esac
 done
-
 
 echo -e '\nMaking sure system requirements are installed'
 for PACKAGE in "${PACKAGES[@]}"; do
@@ -85,41 +103,38 @@ for PACKAGE in "${PACKAGES[@]}"; do
 			echo -e "\nFailed to install $PACKAGE with pacman\ninstalling it manually from repository\n"
 			case "$PACKAGE" in
 				'archiso')
-					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[1]}"
+					"$DLCMD" "$HOME/Downloads" "${PACKAGEURLS[1]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[1]##*/}";;
 				'arcolinux-keyring')
-					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[2]}"
+					"$DLCMD" "$HOME/Downloads" "${PACKAGEURLS[2]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[2]##*/}";;
 				'arcolinux-mirrorlist-git')
-					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[3]}"
+					"$DLCMD" "$HOME/Downloads" "${PACKAGEURLS[3]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[3]##*/}";;
 				'chaotic-keyring')
-					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[4]}"
+					"$DLCMD" "$HOME/Downloads" "${PACKAGEURLS[4]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[4]##*/}";;
 				'chaotic-mirrorlist')
-					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[5]}"
+					"$DLCMD" "$HOME/Downloads" "${PACKAGEURLS[5]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[5]##*/}";;
 				'endeavouros-keyring')
-					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[6]}"
+					"$DLCMD" "$HOME/Downloads" "${PACKAGEURLS[6]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[6]##*/}";;
 				'endeavouros-mirrorlist')
-					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[7]}"
+					"$DLCMD" "$HOME/Downloads" "${PACKAGEURLS[7]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[7]##*/}";;
 				'pacman-contrib')
-					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[8]}"
+					"$DLCMD" "$HOME/Downloads" "${PACKAGEURLS[8]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[8]##*/}";;
 				'rebornos-keyring')
-					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[9]}"
+					"$DLCMD" "$HOME/Downloads" "${PACKAGEURLS[9]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[9]##*/}";;
 				'rebornos-mirrorlist')
-					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[10]}"
+					"$DLCMD" "$HOME/Downloads" "${PACKAGEURLS[10]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[10]##*/}";;
 				'reflector')
-					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[11]}"
+					"$DLCMD" "$HOME/Downloads" "${PACKAGEURLS[11]}"
 					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[11]##*/}";;
-				'wget')
-					wget -c -P "$HOME/Downloads" "${PACKAGEURLS[12]}"
-					sudo pacman -U "$HOME/Downloads/${PACKAGEURLS[12]##*/}";;					
 			esac
 		fi
 	fi
@@ -130,6 +145,7 @@ if ! diff -q 'tacOS/pacman.conf' '/etc/pacman.conf'; then
 	read -p '▸ ' ANS
 	[ "$ANS" == 'y' ] && sudo cp 'tacOS/pacman.conf' '/etc'
 fi
+
 echo -e '\nUpdating pacman mirrors and keyrings\n'
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
@@ -138,8 +154,9 @@ sudo pacman -Fy; sudo pacman -Syu
 echo -e "\nAdding build date ($BUILDDATE) to /etc/dev-rel\n"
 sed -i "s/\(^ISO_BUILD=\).*/\1$BUILDDATE/" 'tacOS/airootfs/etc/dev-rel'
 
-echo -e "Building iso from archiso template\nwith packages listed in $PACKAGELIST\n"
-sudo mkarchiso -v -w "$WORKDIR" -o "$OUTFOLDER" "$PWD/tacOS/"
+echo "Building iso from archiso template with packages listed in $PACKAGELIST"
+sudo mkarchiso -v -w "$WORKDIR" -o "$OUTFOLDER" "$PWD/tacOS/" || cleanup_failure
+
 cd "$OUTFOLDER" || exit 1
 sudo mv 'tacOS-'*'-x86_64.iso' "$ISOLABEL"
 echo -e "\nCreating checksums for $ISOLABEL\n"
@@ -157,7 +174,6 @@ tar zcvf "$LATESTISO.tar.gz" "$LATESTISO"
 test -f "tacOS_latest/$LATESTISO.tar.gz" &&
 	sudo rm -rf "$HOME/tacOS_latest/$LATESTISO.tar.gz"
 mv "$LATESTISO.tar.gz" 'tacOS_latest'
-echo -e "\nFresh iso in $HOME/$OUTFOLDER\n"
-sudo rm -rf "$LATESTISO"
-sudo rm -rf "$WORKDIR"
+cleanup_success
+
 unset ANS BUILDDATE DESKTOP GPUBRAND ISOLABEL LATEST LATESTISO OUTFOLDER PACKAGELIST PACKAGES PACKAGEURLS WORKDIR

@@ -250,7 +250,6 @@ wayland
 wd719x-firmware
 wmctrl
 xapp
-xdg-ninja-git
 xdg-user-dirs
 xdo
 xdotool
@@ -272,7 +271,6 @@ aspell
 aspell-en
 bigsh0t
 blender
-cadence
 carla
 docbook-xml
 docbook-xsl
@@ -423,8 +421,6 @@ dnsutils
 ethtool
 gnu-netcat
 iptables
-ipw2100-fw
-ipw2200-fw
 irssi
 iw
 iwd
@@ -556,5 +552,4 @@ endeavouros-keyring
 endeavouros-mirrorlist
 rebornos-keyring
 rebornos-mirrorlist
-xerolinux-mirrorlist
 ##################################################

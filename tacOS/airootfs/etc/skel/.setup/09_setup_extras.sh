@@ -46,6 +46,7 @@ bldAURPkgs(){
 		'awesome-freedesktop-git'
 		'awesome-themes-git'
 		'bgrm-git'
+		'cadence'
 		'deadbeef-plugin-statusnotifier-git'
 		'die-plugins'
 		'epson-inkjet-printer-escpr'
@@ -53,6 +54,7 @@ bldAURPkgs(){
 		'gedit-dark-variant'
 		'gedit-open-uri-context-menu-git'
 		'habash'
+		'ipw2x00-firmware'
 		'lain-git'
 		'material-black-colors-theme'
 		'nemo-compare'
@@ -62,6 +64,7 @@ bldAURPkgs(){
 		'steamcmd'
 		'tastytrade'
 		'unfatarians-studio'
+		'xdg-ninja-git'
 	)
 	BTCHSIZE=9
 	echo -e "|\n|~ Installing AUR packages: ${#AURPKGS[@]}\n|"
