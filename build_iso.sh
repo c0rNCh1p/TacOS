@@ -39,7 +39,7 @@ cleanup_success(){
 [ ! -d "$HOME/Downloads" ] && mkdir -p "$HOME/Downloads"
 
 while true; do
-	echo -e '\nSelect the ingredients for the tacOS\n'
+	echo -e '\nSelect the ingredients for the TacOS\n'
 	echo -e '▸ [N] NachOS (Nvidia)\n▸ [J] JalapenOS (Intel)\n▸ [A] AsadOS (AMD)\n▸ [C] ChurrOS (Server)\n'
 	read -p '▸ ' GPUBRAND
 	case "$GPUBRAND" in
