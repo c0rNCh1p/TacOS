@@ -86,11 +86,18 @@ if command grep -q 'live' '/etc/group'; then
 		echo -e "| after refreshing the shell with 'bash'. The installer"
 		echo -e "| can be run with 'calamares'.\n|"
 		echo -e "| If installing please go to the '\$HOME/.setup' folder"
-		echo -e "| when finished and run ./'01_setup_all.sh'\n|"
+		echo -e "| once finished and run ./'01_setup_all.sh'\n|"
 		echo -e "| Before doing so, be sure too add the newly created"
 		echo -e "| user to the sudoers file (root login required).\n|"
-		echo -e "| For server users, just use the Arch install scripts"
-		echo -e "| or do it the Arch way.\n|"
+		echo -e "| For server users wishing to install, just use the Arch"
+		echo -e "| install scripts or do it the Arch way.\n|"
+		echo -e "| Occasionally network or configuration issues may cause"
+		echo -e "| the installer to crash, usually with this error message:\n|"
+		echo -e "| 'The command <pre>pacman</pre> returned error code 1'\n|"
+		echo -e "| If an installation error is encountered, the system will"
+		echo -e "| need to be rebooted before another installaion.\n|"
+		echo -e "| After rebooting, run 'arcoinstall' instead of 'calamares'"
+		echo -e "| and opt for the offline installation as a workaround."
 		echo -e '| Welcome to tacOS have fun!'
 	fi
 else

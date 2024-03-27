@@ -18,8 +18,8 @@ alias en_blijf_rollen="echo 'Arco Team!'"
 # 3 COMMANDS
 ################################################################################
 alias af='lynx -dump -width=500 http://localhost:80/whm-server-status'
+alias arcoinstall='arcolinux-welcome-app'
 alias att='archlinux-tweak-tool'
-
 alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
 alias calc='galculator'
 alias chars='gucharmap'

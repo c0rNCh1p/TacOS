@@ -546,6 +546,7 @@ arcolinux-systemd-services-git
 arcolinux-system-installation-git
 arcolinux-wallpapers-dual-git
 arcolinux-wallpapers-git
+arcolinux-welcome-app-git
 chaotic-keyring
 chaotic-mirrorlist
 endeavouros-keyring
