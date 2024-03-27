@@ -72,9 +72,9 @@ while true; do
 done
 
 if command -v curl &>'/dev/null'; then
-	DLCMD=(curl -L -o)
+	DLCMD=('curl' '-L' '-o')
 elif command -v wget &>'/dev/null'; then
-	DLCMD=(wget -c -O)
+	DLCMD=('wget' '-c' '-O')
 else
 	echo -e 'Neither wget nor curl is installed. Please install one to continue.'
 	exit 1
