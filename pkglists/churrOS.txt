@@ -333,6 +333,7 @@ ttf-ubuntu-font-family
 # 10 DISTRO SPECIFIC
 ##################################################
 #a-candy-beauty-icon-theme-git
+arcolinux-bootloader-grub-git
 arcolinux-app-git
 arcolinux-bin-git
 arcolinux-cron-git

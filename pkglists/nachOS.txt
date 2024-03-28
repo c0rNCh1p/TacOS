@@ -531,6 +531,7 @@ arcob-calamares-config-awesome-git
 arco-calamares
 arcolinux-app-git
 arcolinux-bin-git
+arcolinux-bootloader-grub-git
 arcolinux-cron-git
 arcolinux-desktop-trasher-git
 arcolinux-docs-git
