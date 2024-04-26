@@ -101,6 +101,7 @@ export AWESOME_HOME="$CONFIG/awesome"
 export CADENCE_HOME="$CONFIG/Cadence"
 export CURL_HOME="$CONFIG/curl"
 export DEADBEEF_HOME="$CONFIG/deadbeef"
+export EXODUS_HOME="$DATA/Exodus-linux-x64"
 export FABLA_HOME="$DATA/openAV-Fabla2"
 export GEDIT_HOME="$DATA/gedit"
 export GIMP_HOME="$CONFIG/GIMP/2.10"
@@ -131,7 +132,7 @@ export YAY_HOME="$DATA/yay"
 ################################################################################
 # 7 INPUT VARS
 ################################################################################
-export BROWSER='/bin/vivaldi-stable'
+export BROWSER='/bin/firefox'
 export DATE_LONG=$(date +'%H%M-%d%m-%Y')
 export DATE_SHORT=$(date +'%d/%m/%y')
 export EDITOR="/bin/nano --backupdir=$NANO_HOME/backup"
