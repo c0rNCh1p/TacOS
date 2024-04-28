@@ -51,6 +51,7 @@ bldAURPkgs(){
 		'die-plugins'
 		'epson-inkjet-printer-escpr'
 		'epson-inkjet-printer-escpr2'
+		'epsonscan2'
 		'gedit-dark-variant'
 		'gedit-open-uri-context-menu-git'
 		'habash'
