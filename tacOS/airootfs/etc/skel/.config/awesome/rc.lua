@@ -412,12 +412,12 @@ globalkeys=gears.table.join(
 		awful.util.spawn(terminal)
 	end,
 	{description='| Launch terminal\n', group='04 launchers'}),
-	awful.key({modkey}, 'b', function()
-		awful.util.spawn(browser)
-	end,
-	{description='| Launch Inkscape\n', group='04 launchers'}),
 	awful.key({modkey}, 'i', function()
 		awful.spawn.with_shell('inkscape')
+	end,
+	{description='| Launch Inkscape\n', group='04 launchers'}),
+	awful.key({modkey}, 'b', function()
+		awful.util.spawn(browser)
 	end,
 	{description='| Launch browser\n', group='04 launchers'}),
 	awful.key({modkey}, 'e', function()
@@ -481,7 +481,7 @@ globalkeys=gears.table.join(
 	end,
 	{description='| Launch OBS\n', group='04 launchers'}),
 	awful.key({modkey, 'Shift'}, 'r', function()
-		awful.spawn.with_shell('reaper')
+		awful.spawn.with_shell('reaper -nosplash')
 	end,
 	{description='| Launch Reaper\n', group='04 launchers'}),
 	awful.key({modkey}, 'a', function()
