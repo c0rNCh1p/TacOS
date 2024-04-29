@@ -498,7 +498,7 @@ globalkeys=gears.table.join(
 	end,
 	{description='| Launch Telegram\n', group='04 launchers'}),
 	awful.key({modkey, 'Shift'}, 's', function()
-		awful.spawn.with_shell('steam-runtime')
+		awful.spawn.with_shell('steam-native')
 	end,
 	{description='| Launch Steam\n', group='04 launchers'}),		
 	awful.key({modkey, 'Shift'}, 'b', function()
