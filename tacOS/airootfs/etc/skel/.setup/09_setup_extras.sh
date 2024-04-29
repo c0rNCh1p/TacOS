@@ -59,6 +59,7 @@ bldAURPkgs(){
 		'lain-git'
 		'material-black-colors-theme'
 		'nemo-compare'
+		'proton-ge-custom'
 		'python-habitica'
 		'rig'
 		'sl'
