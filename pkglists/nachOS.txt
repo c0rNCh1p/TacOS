@@ -368,6 +368,7 @@ pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
 pulseaudio-equalizer-ladspa
+qjackctl
 qmidiarp
 qmidictl
 qmidinet
