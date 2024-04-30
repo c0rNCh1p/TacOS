@@ -363,7 +363,9 @@ ptex
 pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
+pulseaudio-equalizer
 pulseaudio-equalizer-ladspa
+pulseaudio-jack
 qjackctl
 qmidiarp
 qmidictl
