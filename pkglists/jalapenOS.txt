@@ -491,10 +491,8 @@ llvm
 luacheck
 luarocks
 meson
-pyinstaller
-python
+python39
 python-pip
-python-pipx
 python-pyparted
 shellcheck
 shfmt
