@@ -344,6 +344,8 @@ lame
 lib32-gamemode
 lib32-mangohud
 lib32-obs-vkcapture
+lib32-x264
+lib32-x265
 libreoffice-fresh
 lv2
 mangohud
