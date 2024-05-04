@@ -54,6 +54,7 @@ bldAURPkgs(){
 		'epsonscan2'
 		'gedit-dark-variant'
 		'gedit-open-uri-context-menu-git'
+		'goverlay'
 		'habash'
 		'ipw2x00-firmware'
 		'lain-git'

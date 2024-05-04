@@ -1,19 +1,12 @@
-# __ __| __|  _ \   \  | _ _|   \ |    \ __ __| _ \  _ \ 
-#    |   _|     /  |\/ |   |   .  |   _ \   |  (   |   / 
-#   _|  ___| _|_\ _|  _| ___| _|\_| _/  _\ _| \___/ _|_\ 
-###############################################################################################################################################
-# ▸ ~/.config/terminator/config (PARSER)
-###############################################################################################################################################
-# ▸ man 'terminator_config(5)'| less +/DESCRIPTION
-###############################################################################################################################################
 [global_config]
+  dbus = False
   focus = mouse
   handle_size = 2
   borderless = True
   tab_position = hidden
   homogeneous_tabbar = False
   use_custom_url_handler = True
-  custom_url_handler = /bin/vivaldi-stable
+  custom_url_handler = /bin/firefox
   enabled_plugins = TerminalShot, LaunchpadBugURLHandler, LaunchpadCodeURLHandler, CurrDirOpen
   suppress_multiple_term_dialog = True
   always_split_with_profile = True
@@ -73,4 +66,3 @@
       parent = window0
       profile = default
 [plugins]
-###############################################################################################################################################

@@ -146,6 +146,7 @@ export GRAPHICAL='/bin/gedit'
 export GTK_IM_MODULE='/bin/ibus'
 export INPUTRC='/etc/inputrc'
 export MAILCLIENT='/bin/thunderbird'
+export PYGAME_DETECT_AVX2=1
 #export QT_IM_MODULE='/bin/fcitx'
 export QT_IM_MODULE='/bin/ibus'
 export QT_QPA_PLATFORMTHEME='/bin/qt5ct'
