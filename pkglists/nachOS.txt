@@ -132,11 +132,16 @@ zenity
 ##################################################
 # 5 BACKEND
 ##################################################
+#cuda
+#cuda-tools
+#fcitx
+#opencl-nvidia-390xx
+#xf86-video-nouveau
 accountsservice
 alsa-firmware
 amd-ucode
-archinstall
 arch-install-scripts
+archinstall
 archiso
 archlinux-keyring
 base
@@ -146,8 +151,6 @@ ckbcomp
 cpuid
 cronie
 cryptsetup
-#cuda
-#cuda-tools
 dconf-editor
 ddrescue
 dmidecode
@@ -162,7 +165,6 @@ exfatprogs
 expac
 f2fs-tools
 fatresize
-#fcitx
 fsarchiver
 gksu
 gnome-keyring
@@ -191,6 +193,8 @@ kcoreaddons5
 ki18n5
 kpmcore
 kservice5
+lib32-mesa-vdpau
+libva-nvidia-driver
 linux
 linux-atm
 linux-firmware
@@ -208,6 +212,7 @@ memtest86+
 memtest86+-efi
 mesa
 mesa-utils
+mesa-vdpau
 mintstick-git
 mkinitcpio
 mkinitcpio-archiso
@@ -223,9 +228,8 @@ nvidia-dkms
 nvidia-settings
 nvidia-utils
 nvme-cli
-#opencl-nvidia-390xx
-opencl-nvidia-470xx
 open-vm-tools
+opencl-nvidia-470xx
 os-prober
 partclone
 parted
@@ -263,7 +267,6 @@ xdo
 xdotool
 xf86-input-elographics
 xf86-input-libinput
-#xf86-video-nouveau
 xfsprogs
 xkeyboard-config
 xorg-apps
@@ -306,6 +309,7 @@ gimp
 gimp-extras
 gimp-help-en
 gnome-font-viewer
+gpu-screen-recorder-gtk-git
 gst-libav
 gst-plugins-bad
 gst-plugins-bad-libs

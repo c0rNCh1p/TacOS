@@ -133,11 +133,13 @@ zenity
 ##################################################
 # 5 BACKEND
 ##################################################
+#fcitx
+#xf86-video-intel
 accountsservice
 alsa-firmware
 amd-ucode
-archinstall
 arch-install-scripts
+archinstall
 archiso
 archlinux-keyring
 base
@@ -161,7 +163,6 @@ exfatprogs
 expac
 f2fs-tools
 fatresize
-#fcitx
 fsarchiver
 gksu
 gnome-keyring
@@ -182,6 +183,7 @@ hwinfo
 hyperv
 ibus
 intel-compute-runtime
+intel-media-driver
 intel-ucode
 intltool
 inxi
@@ -191,6 +193,8 @@ kcoreaddons5
 ki18n5
 kpmcore
 kservice5
+lib32-mesa-vdpau
+libva-intel-driver-g45-h264
 linux
 linux-atm
 linux-firmware
@@ -208,6 +212,7 @@ memtest86+
 memtest86+-efi
 mesa
 mesa-utils
+mesa-vdpau
 mintstick-git
 mkinitcpio
 mkinitcpio-archiso
@@ -259,7 +264,6 @@ xdo
 xdotool
 xf86-input-elographics
 xf86-input-libinput
-#xf86-video-intel
 xfsprogs
 xkeyboard-config
 xorg-apps
@@ -302,6 +306,7 @@ gimp
 gimp-extras
 gimp-help-en
 gnome-font-viewer
+gpu-screen-recorder-gtk-git
 gst-libav
 gst-plugins-bad
 gst-plugins-bad-libs
