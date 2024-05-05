@@ -52,6 +52,8 @@ bldAURPkgs(){
 		'epson-inkjet-printer-escpr'
 		'epson-inkjet-printer-escpr2'
 		'epsonscan2'
+		'ffhevc'
+		'ffx264'
 		'gedit-dark-variant'
 		'gedit-open-uri-context-menu-git'
 		'goverlay'
