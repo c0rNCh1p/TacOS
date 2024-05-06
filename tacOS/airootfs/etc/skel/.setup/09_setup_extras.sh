@@ -54,7 +54,6 @@ bldAURPkgs(){
 		'epsonscan2'
 		'ffhevc'
 		'ffx264'
-		'gedit-dark-variant'
 		'gedit-open-uri-context-menu-git'
 		'goverlay'
 		'habash'
