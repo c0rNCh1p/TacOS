@@ -453,6 +453,7 @@ dnsmasq
 dnsutils
 ethtool
 gnu-netcat
+inetutils
 iptables
 irssi
 iw

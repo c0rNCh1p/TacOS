@@ -144,23 +144,12 @@ bldFabla(){
 	fi; cd || return 1
 }
 
-bldGeditMinimap(){
-	echo -e '|\n|~ Building Gedit Minimap\n|'
-	cd "$DATA" || cd "$HOME/.local/share/" || return 1
-	if [[ ! -d "$GEDIT_HOME/plugins" || -d "$HOME/.local/share/gedit/plugins" ]]; then 
-		mkdir -p "$GEDIT_HOME/plugins" || mkdir -p "$HOME/.local/share/gedit/plugins"
-	fi
-	if [[ ! -d "$GEDIT_HOME/plugins/restore-minimap" || -d "$HOME/.local/share/gedit/plugins/restore-minimap" ]]; then
-		cd "$GEDIT_HOME/plugins" || "$HOME/.local/share/gedit/plugins/restore-minimap" || return 1
-		git clone "$MINIMAPURL" restore-minimap
-	elif [[ -d "$GEDIT_HOME/plugins/restore-minimap" || -d "$HOME/.local/share/gedit/plugins/restore-minimap" ]]; then 
-		cd "$GEDIT_HOME/plugins/restore-minimap" || "$HOME/.local/share/gedit/plugins/restore-minimap" || return 1
-		if [[ $(git diff 'origin/master') ]]; then
-			cd .. || return 1
-			sudo rm -r 'restore-minimap'
-			git clone "$MINIMAPURL" restore-minimap
-		fi
-	fi; cd || return 1
+gedit_minimap(){
+	test -d "$HOME/.local/share/gedit/plugins/restore-minimap"
+		sudo rm -r "$HOME/.local/share/gedit/plugins/restore-minimap"
+	mkdir -p "$HOME/.local/share/gedit/plugins/"
+	cd "$HOME/.local/share/gedit/plugins/"
+	git clone 'https://github.com/johnfactotum/gedit-restore-minimap.git' restore-minimap
 }
 
 bldAlien(){
@@ -224,7 +213,7 @@ else
 	bldGh0sty
 	bldScuttle
 	bldFabla
-	bldGeditMinimap
+	gedit_minimap
 	bldAlien
 	#bldGloriousEggroll
 fi
