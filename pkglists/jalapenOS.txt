@@ -127,6 +127,7 @@ vivaldi-widevine
 volumeicon
 xmrig
 xwallpaper
+xcolor
 yay-bin
 yt-dlp
 zenity
