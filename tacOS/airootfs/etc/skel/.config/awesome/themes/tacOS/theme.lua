@@ -1,13 +1,14 @@
---[[                        __|  |  | _ |  _ \ \ \  /    \   _ \   __|
-                           (     __ |   |  __/  >  <   (  |    /  (_ |
-                          \___| _| _|  _| _|    _/\_\ \__/  _|_\ \___|
+--[[                           __________         _______  _________
+                               \__   ___/____ ____\_ __  \/   _____/
+                                 |   |  \__  \  __\   |   \_____   \
+                                 |___|  (____/____/_______/________/
 
-                                      Inspiration:
-                                      ▸ dunzor2 by dunz0r
-                                      ▸ multicolor by lcpz
-                                      ▸ wombat by zhuravlik
-                                      ▸ zenburn by anrxc
-                                      
+                                       Inspiration:
+                                        ▸ Dunzor2 by Dunz0r
+                                        ▸ Multicolor by Lcpz
+                                        ▸ Wombat by Zhuravlik                                                                              
+                                        ▸ Zenburn by Anrxc
+
 ----------------------------------------------------------------------------------------------------
  ▸ $XDG_CONFIG_HOME/awesome/themes/tacOS/theme.lua
 ----------------------------------------------------------------------------------------------------
@@ -53,8 +54,8 @@ theme.confdir=thisdir
 theme.icon_theme='Obsidian Green'
 theme.font='Nouveau IBM Regular 10'
 theme.taglist_font='Square One Bold 6'
-theme.border_width=dpi(1)
-theme.menu_border_width=dpi(1)
+theme.border_width=dpi(0.5)
+theme.menu_border_width=dpi(0.5)
 theme.menu_height=dpi(25)
 theme.menu_width=dpi(260)
 theme.tasklist_plain_task_name=true
@@ -62,20 +63,20 @@ theme.tasklist_disable_icon=true
 theme.useless_gap=5
 markup=lain.util.markup
 
-theme.bg_normal='#03010f'
-theme.bg_focus='#121214'
-theme.bg_urgent='#161616'
-theme.fg_normal='#a7c260'
-theme.fg_focus='#6288c2'
-theme.fg_urgent='#d5251f'
-theme.fg_minimize='#788556'
-theme.border_normal='#6288c2'
-theme.border_focus='#8bad2f'
-theme.border_marked='#9ac429'
-theme.menu_fg_normal='#a7c260'
-theme.menu_fg_focus='#6288c2'
-theme.menu_bg_normal='#161616'
-theme.menu_bg_focus='#161616'
+theme.bg_normal='#03010f' -- No touchy
+theme.bg_focus='#121214' -- No touchy
+theme.bg_urgent='#161616' -- Blek
+theme.fg_normal='#5294ac' -- Light blue (Tags and focused client text)
+theme.fg_focus='#c1e874' -- Light green (Focused tag)
+theme.fg_urgent='#d5251f' -- Deep bright red (Nothing)
+theme.fg_minimize='#788556' -- Shitty green (Nothing)
+theme.border_normal='#002e52' -- Darkish blue (Unfocused client borders)
+theme.border_focus='#375500' -- Green Highlight (Focused borders)
+theme.border_marked='#38be2e' -- Standard Green (Nothin)
+theme.menu_fg_normal='#c1e874' -- Light green (Menu text)
+theme.menu_fg_focus='#7cbad0' -- Light blue (Nothin)
+theme.menu_bg_normal='#161616' -- Blek 
+theme.menu_bg_focus='#161616' -- Blek
 
 theme.awesome_icon=iconsdir .. '/awesome.png'
 --theme.menu_submenu_icon=iconsdir .. '/awesome.png'
@@ -116,7 +117,7 @@ theme.layout_floating=iconsdir .. '/floating.png'
 -- text clock
 os.setlocale(os.getenv('LANG'))
 local mytextclock=
-wibox.widget.textclock(markup('#9eafc9', '🗓 %a %d/%m/%y ') .. markup('#a7c260', '⏲ %H:%M '))
+wibox.widget.textclock(markup('#7cbad0', '🗓 %a %d/%m/%y ') .. markup('#c1e874', '⏲ %H:%M '))
 mytextclock.font=theme.font
 theme.cal=lain.widget.cal({
 	attach_to={mytextclock},
@@ -131,7 +132,7 @@ theme.cal=lain.widget.cal({
 local cpuicon=wibox.widget.imagebox(theme.widget_cpu)
 local cpu=lain.widget.cpu({
 	settings=function()
-		widget:set_markup(markup.fontfg(theme.font, '#9eafc9', cpu_now.usage .. '% '))
+		widget:set_markup(markup.fontfg(theme.font, '#7cbad0', cpu_now.usage .. '% '))
 	end
 })
 
@@ -139,7 +140,7 @@ local cpu=lain.widget.cpu({
 local tempicon=wibox.widget.imagebox(theme.widget_temp)
 local temp=lain.widget.temp({
 	settings=function()
-		widget:set_markup(markup.fontfg(theme.font, '#a7c260', coretemp_now .. '°C '))
+		widget:set_markup(markup.fontfg(theme.font, '#c1e874', coretemp_now .. '°C '))
 	end
 })
 
@@ -162,7 +163,7 @@ theme.volume=lain.widget.alsa({
 		if volume_now.status == 'off' then
 			volume_now.level=volume_now.level .. 'M'
 		end
-		widget:set_markup(markup.fontfg(theme.font, '#9eafc9', volume_now.level .. '% '))
+		widget:set_markup(markup.fontfg(theme.font, '#7cbad0', volume_now.level .. '% '))
 	end
 })
 
@@ -172,8 +173,8 @@ local netdowninfo=wibox.widget.textbox()
 local netupicon=wibox.widget.imagebox(theme.widget_netup)
 local netupinfo=lain.widget.net({
 	settings=function()
-		widget:set_markup(markup.fontfg(theme.font, '#a7c260', net_now.sent .. ' '))
-		netdowninfo:set_markup(markup.fontfg(theme.font, '#9eafc9', net_now.received .. ' '))
+		widget:set_markup(markup.fontfg(theme.font, '#c1e874', net_now.sent .. ' '))
+		netdowninfo:set_markup(markup.fontfg(theme.font, '#7cbad0', net_now.received .. ' '))
 	end
 })
 
@@ -181,7 +182,7 @@ local netupinfo=lain.widget.net({
 local memicon=wibox.widget.imagebox(theme.widget_mem)
 local memory=lain.widget.mem({
 	settings=function()
-		widget:set_markup(markup.fontfg(theme.font, '#a7c260', mem_now.used .. 'M '))
+		widget:set_markup(markup.fontfg(theme.font, '#c1e874', mem_now.used .. 'M '))
 	end
 })
 
