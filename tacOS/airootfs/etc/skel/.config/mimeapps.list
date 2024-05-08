@@ -2,8 +2,12 @@
 text/plain=userapp-org.gnome.gedit.desktop;
 application/xml=org.gnome.gedit.desktop;
 audio/mpeg=mpv.desktop;
+image/x-xcursor=pix.desktop;gimp.desktop;
+image/svg+xml=org.inkscape.Inkscape.desktop;
 
 [Default Applications]
 application/xml=org.gnome.gedit.desktop
 text/plain=org.gnome.gedit.desktop
 audio/mpeg=mpv.desktop
+image/x-xcursor=gimp.desktop
+image/svg+xml=org.inkscape.Inkscape.desktop
