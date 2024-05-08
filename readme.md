@@ -8,10 +8,10 @@
 • Vers: v02.02.03
 #### Weblinks
 • Archiso: https://wiki.archlinux.org/title/Archiso  
-• Arcolinux: https://arcolinux.com/  
-• Awesome: https://awesomewm.org/  
+• Arcolinux: https://arcolinux.com  
+• Awesome: https://awesomewm.org  
 • Pacman: https://wiki.archlinux.org/title/Pacman  
-• X.org: https://www.x.org/wiki/
+• X.org: https://www.x.org/wiki
 #### Description
 These isos are based on Arcolinux, no credit is taken for the aesthetics as well as most
 of the backend including the grub and calamares configs. Arch users can feel free to build
