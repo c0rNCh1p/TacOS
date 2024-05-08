@@ -3,7 +3,7 @@
 #                  _ \   |      |    _ \  \__ \  _|  \__ \
 #                _/  _\ ____| ___| _/  _\ ____/ ___| ____/
 ################################################################################
-# ▸ ~/.anarchy/aliases
+# ▸ "$HOME/.anarchy/aliases"
 ################################################################################
 # 1 DANK U WEL
 ################################################################################
@@ -15,18 +15,17 @@
 alias eeuwig_dankbaar="echo 'Mr. Dubois'"
 alias en_blijf_rollen="echo 'Arco Team!'"
 ################################################################################
-# 3 COMMANDS
+# 2 COMMANDS
 ################################################################################
 alias af='lynx -dump -width=500 http://localhost:80/whm-server-status'
-alias arcoinstall='arcolinux-welcome-app'
-alias att='archlinux-tweak-tool'
+alias arco_install='arcolinux_welcome_app'
+alias att='archlinux_tweak_tool'
 alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
 alias calc='galculator'
 alias chars='gucharmap'
 alias chkcpu='cpuid -i | grep uarch | head -n 1'
-alias chkefi="ls '/sys/firmware/efi/efivars'"
-alias chk='readFiles'
-alias chkvul="grep . '/sys/devices/system/cpu/vulnerabilities/*'"
+alias chkefi='ls /sys/firmware/efi/efivars'
+alias chkvul="grep . /sys/devices/system/cpu/vulnerabilities/*"
 alias colors='export LS_COLORS="$(cat "$HOME/.dircolors")"'
 alias cp='cp -rp'
 alias dbn='deadbeef --next &'
@@ -35,7 +34,7 @@ alias dbpp='deadbeef --play-pause &'
 alias dbr='deadbeef --random &'
 alias dbs='get_dead'
 alias df='df -h'
-alias downn='shutdown now'
+alias downnow='shutdown now'
 alias du='du -sh'
 alias ev='evince'
 alias exodus="$DATA/Exodus-linux-x64/Exodus"
@@ -45,16 +44,16 @@ alias ged='gedit'
 alias gednew='gedit --new-window'
 alias gpgchk='gpg --keyserver-options auto-key-retrieve --verify'
 alias gpgget='gpg --keyserver-options auto-key-retrieve --receive-keys'
-alias gpull='git pull'
+alias gp='git pull'
 alias grep='grep --color=always'
 alias grh='git reset --hard'
-alias grmcache="rm -r ~/.cache/git"
+alias grm_cache='rm -r ~/.cache/git'
 alias hl='highlight --out-format=ansi'
 alias hw='hwinfo --short'
 alias ipp='curl ifconfig.me; echo'
-alias jctler="journalctl -x -o short | grep -i 'error'"
-alias jctlex="journalctl -x -o short | grep -i 'exit code 1'"
-alias jctlfl="journalctl -x -o short | grep -i 'failed'"
+alias jctler='journalctl -x -o short | grep -i "error"'
+alias jctlex='journalctl -x -o short | grep -i "exit code 1"'
+alias jctlfl='journalctl -x -o short | grep -i "failed"'
 alias jctl='journalctl -p 3 -xb'
 alias k9='killall -qv -9'
 alias lcalamares='readFiles /var/log/Calamares.log'
@@ -62,10 +61,10 @@ alias less='less --use-color'
 alias ll='ls -la'
 alias lpacman='readFiles /var/log/pacman.log'
 alias ls='ls -Nh --color=always'
-alias lsusers='cut -d: -f1 /etc/passwd | sort'
+alias ls_users='cut -d: -f1 /etc/passwd | sort'
 alias lv='ls -vCa'
-alias lxorg="readFiles $HOME/.local/share/xorg/Xorg.0.log"
-alias mnt="mounter &>'/dev/null'"
+alias lxorg='readFiles $HOME/.local/share/xorg/Xorg.0.log'
+alias mnt='mounter &>/dev/null'
 alias mvp='mkdir -vp'
 alias nemo='nemo .'
 alias nmactv='nmcli -p c show --active'
@@ -80,38 +79,38 @@ alias pj='ps -ja'
 alias plk='pulseaudio --kill'
 alias pls='pulseaudio --start'
 alias psg='psGrep'
-alias puppetsync='puppet agent --test --verbose --trace'
+#alias puppet_sync='puppet agent --test --verbose --trace'
 alias py='python'
-alias qv="qview &>'/dev/null'"
+alias qv='qview &>/dev/null'
 alias reload='reload'
 alias reqs='deps -r'
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 alias rmr='rm -r'
 alias scp='scp -rp'
 alias shot='gnome-screenshot -a'
-alias sserver="pactl info | grep 'Server Name'"
-alias steampath="unlink $HOME/.steampath"
-alias steampid="unlink $HOME/.steampid"
+alias sound_server="pactl info | grep 'Server Name'"
+alias steam_path='unlink $HOME/.steampath'
+alias steam_pid='unlink $HOME/.steampid'
 alias steam='steam_mod'
 alias stopx='pkill -15 -t tty"$XDG_VTNR" Xorg'
 alias term='terminator'
 alias tree='tree -a'
-alias umnt="unmounter &>'/dev/null'"
+alias umnt='unmounter &>/dev/null'
 alias up='uptime -p'
-alias userlist="cut -d: -f1 /etc/passwd | sort"
-alias viv='vivaldi-stable'
+alias user_list='cut -d: -f1 /etc/passwd | sort'
+alias viv='vivaldi-bin'
 alias wget='wget -c'
-alias whichvga='/usr/local/bin/arcolinux-which-vga'
+alias which_vga='/usr/local/bin/arcolinux-which-vga'
 alias xd='ls /usr/share/xsessions'
 alias xdw='ls /usr/share/wayland-sessions'
 alias xr='xreader'
 alias yskip='yay -S --mflags --skipinteg'
 alias yss='yay -Ss'
 ################################################################################
-# 4 SUDO MODS
+# 3 SUDO MODS
 ################################################################################
 alias calamares='gksudo calamares'
-alias fixloadkeys='sudo sed -i '\''$d'\'' "/etc/vconsole.conf"'
+alias fix_loadkeys='sudo sed -i "$d" "/etc/vconsole.conf"'
 alias fuckup='sudo $(history -p \!\!)'
 alias sblkid='sudo blkid'
 alias scat='sudo cat'
@@ -123,88 +122,91 @@ alias sctl='sudo systemctl'
 alias scuttle='sudo scuttle'
 alias sdif='sudo diff'
 alias seject='sudo eject'
-alias setfonts='sudo fc-cache -fv'
-alias setgrubefi='sudo grub-install --efi-directory=/boot/efi'
-alias setkeymap='sudo localectl set-x11-keymap au'
-alias setlocale='sudo localectl set-locale LANG=en_US.UTF-8'
-alias setntp='sudo timedatectl set-ntp true'
-alias sfcupd='sudo fc-cache -fv'
+alias set_fonts='sudo fc-cache -fv'
+alias set_grub_efi='sudo grub-install --efi-directory=/boot/efi'
+alias set_keymap='sudo localectl set-x11-keymap au'
+alias set_locale='sudo localectl set-locale LANG=en_US.UTF-8'
+alias set_ntp='sudo timedatectl set-ntp true'
+alias sfc_upd='sudo fc-cache -fv'
 alias sfind='sudo find'
 alias sged='sudo gedit'
+alias sgrubmkconf='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias shtop='sudo htop'
 alias siptables='sudo iptables'
+alias sk9='sudo killall -qv -9'
 alias smandb='sudo mandb'
-alias smkgrubconf='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias smount='sudo mount'
-alias smvp='sudo mkdir -vp'
 alias smv='sudo mv'
+alias smvp='sudo mkdir -vp'
 alias snn='sudo rnano -w'
 alias sopenvpn='sudo openvpn'
-alias spcleanup='sudo pacman -Rns $(pacman -Qtdq)'
+alias sp_unlock='sudo rm /var/lib/pacman/db.lck'
+alias spclean='sudo pacman -Rns $(pacman -Qtdq)'
 alias spk='sudo pacman-key'
-alias splistaur='sudo pacman -Qqem'
-alias splistex='sudo pacman -Qqe'
-alias splistor='sudo pacman -Qqet'
+alias splist_aur='sudo pacman -Qqem'
+alias splist_extn='sudo pacman -Qqe'
+alias splist_orig='sudo pacman -Qqet'
 alias spqo='sudo pacman -Qo'
 alias spqs='sudo pacman -Qs'
 alias spr='sudo pacman -Rn'
+alias sps='sudo pacman -S'
 alias spsi='sudo pacman -Sii'
 alias spss='sudo pacman -Ss'
-alias sps='sudo pacman -S'
-alias sp='sudo pacman'
-alias spunlock='sudo rm /var/lib/pacman/db.lck'
-alias spupdate='sudo pacman -Syyu'
 alias spupd='sudo pacman -Syyu'
 alias srflct='sudo reflector'
-alias srmirrors='srflct -a 6 -l 20 --sort score --save /etc/pacman.d/mirrorlist'
-alias srmlogoutlock='sudo rm /tmp/arcologout.lock'
-alias srmpyextmng='sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED'
-alias srmr='sudo rm -r'
 alias srm='sudo rm'
+alias srm_logout_lock='sudo rm /tmp/arcologout.lock'
+alias srm_py_ext_mngd='sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED'
+alias srmirrors='srflct -a 6 -l 20 --sort score --save /etc/pacman.d/mirrorlist'
+alias srmr='sudo rm -r'
 alias stee='sudo tee'
 alias sucp='sudo cp -rp'
 alias sufw='sudo ufw'
 alias sumount='sudo umount'
 alias suspend='sudo systemctl suspend'
 alias svbm='sudo /usr/local/bin/arcolinux-vbox-share'
-alias swg-quick='sudo wg-quick'
-alias sysfailed='sudo systemctl list-units --failed'
-alias sysfailrs='sudo systemctl reset-failed'
-alias syslist='sudo systemctl list-unit-files --all'
-alias sysreload='sudo systemctl daemon-reload'
-alias ytavi="sudo yt-dlp -f 'bestvideo[ext=avi]+bestaudio[ext=m4a]' "
-alias ytmp3="sudo yt-dlp --extract-audio --audio-format mp3 "
-alias ytmp4="sudo yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' "
-alias ytwav="sudo yt-dlp --extract-audio --audio-format wav "
+alias swg_quick='sudo wg-quick'
+alias sys_failed='sudo systemctl list-units --failed'
+alias sys_failrs='sudo systemctl reset-failed'
+alias sys_list='sudo systemctl list-unit_files --all'
+alias sys_reload='sudo systemctl daemon_reload'
+alias ytavi="sudo yt-dlp -f 'bestvideo[ext=avi]+bestaudio[ext=m4a]'"
+alias ytmp3="sudo yt-dlp --extract-audio --audio-format mp3"
+alias ytmp4="sudo yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]'"
+alias ytwav="sudo yt-dlp --extract-audio --audio-format wav"
 ################################################################################
-# 5 SPEEDDIAL
+# 4 SPEEDDIAL
 ################################################################################
-alias sdaliases="$EDITOR $ANARCHY/aliases"
-alias sdawesome="$EDITOR $CONFIG/awesome/rc.lua"
-alias sdbashrc="$EDITOR $HOME/.bashrc"
-alias sdcleanup="$EDITOR $ANARCHY/cleanup"
-alias sdmimeapps="$EDITOR $CONFIG/mimeapps.list"
-alias sdrofilaunch="$EDITOR $CONFIG/awesome/rofi/launcher.rasi"
-alias sdterminator="$EDITOR $CONFIG/terminator/config"
-alias sdubashrc="sudo $EDITOR /root/.bashrc"
-alias sdvariables="$EDITOR $ANARCHY/variables"
-alias sudircolors="sudo $EDITOR /etc/DIR_COLORS"
-alias sugpg="sudo $EDITOR /etc/pacman.d/gnupg/gpg.conf"
-alias suhosts="sudo $EDITOR /etc/hosts"
-alias suhtop="sudo $EDITOR /etc/htopc"
-alias sujackd="sudo $EDITOR /etc/jackd"
-alias sulimits="sudo $EDITOR /etc/security/limits.conf"
-alias sunano="sudo $EDITOR /etc/nanorc"
-alias suneofetch="sudo $EDITOR /etc/neofetch/config.conf"
-alias sunmconf="sudo $EDITOR /etc/NetworkManager/NetworkManager.conf"
-alias sunsswitch="sudo $EDITOR /etc/nsswitch.conf"
-alias supacman="sudo $EDITOR /etc/pacman.conf"
-alias supchains="sudo $EDITOR /etc/proxychains.conf"
-alias sureadline="sudo $EDITOR /etc/inputrc"
-alias susshd="sudo $EDITOR /etc/ssh/sshd_config"
-alias sussh="sudo $EDITOR /etc/ssh/ssh_config"
-alias sutorrc="sudo $EDITOR /etc/tor/torrc"
-alias sutorsocks="sudo $EDITOR /etc/tor/torsocks.conf"
-alias suxinit="sudo $EDITOR /etc/X11/xinit/xinitrc"
-alias suxprofile="sudo $EDITOR /etc/xprofile"
+alias sd_aliases='$EDITOR $ANARCHY/aliases'
+alias sd_awesome='$EDITOR $CONFIG/awesome/rc.lua'
+alias sd_bashrc='$EDITOR $HOME/.bashrc'
+alias sd_cleanup='$EDITOR $ANARCHY/cleanup'
+alias sd_gitconf='$EDITOR $HOME/.gitconfig'
+alias sd_gpg='$EDITOR $HOME/.gnupg/gpg.conf'
+alias sd_mimeapps='$EDITOR $CONFIG/mimeapps.list'
+alias sd_rofilaunch='$EDITOR $CONFIG/awesome/rofi/launcher.rasi'
+alias sd_ssh='$EDITOR $HOME/.ssh/config'
+alias sd_terminator='$EDITOR $CONFIG/terminator/config'
+alias sd_theme='$EDITOR $CONFIG/awesome/themes/tacOS/theme.lua'
+alias sd_variables='$EDITOR $ANARCHY/variables'
+alias susd_bashrc='sudo $EDITOR /root/.bashrc'
+alias susd_dircolors='sudo $EDITOR /etc/DIR_COLORS'
+alias susd_gpg='sudo $EDITOR /etc/pacman.d/gnupg/gpg.conf'
+alias susd_hosts='sudo $EDITOR /etc/hosts'
+alias susd_htop='sudo $EDITOR /etc/htopc'
+alias susd_jackd='sudo $EDITOR /etc/jackd'
+alias susd_limits='sudo $EDITOR /etc/security/limits.conf'
+alias susd_nano='sudo $EDITOR /etc/nanorc'
+alias susd_neofetch='sudo $EDITOR /etc/neofetch/config.conf'
+alias susd_nmconf='sudo $EDITOR /etc/NetworkManager/NetworkManager.conf'
+alias susd_nssswitch='sudo $EDITOR /etc/nsswitch.conf'
+alias susd_pacman='sudo $EDITOR /etc/pacman.conf'
+alias susd_pchains='sudo $EDITOR /etc/proxychains.conf'
+alias susd_readline='sudo $EDITOR /etc/inputrc'
+alias susd_ssh='sudo $EDITOR /etc/ssh/ssh_config'
+alias susd_sshd='sudo $EDITOR /etc/ssh/sshd_config'
+alias susd_torrc='sudo $EDITOR /etc/tor/torrc'
+alias susd_torsocks='sudo $EDITOR /etc/tor/torsocks.conf'
+alias susd_xinit='sudo $EDITOR /etc/X11/xinit/xinitrc'
+alias susd_xprofile='sudo $EDITOR /etc/xprofile'
 ################################################################################
