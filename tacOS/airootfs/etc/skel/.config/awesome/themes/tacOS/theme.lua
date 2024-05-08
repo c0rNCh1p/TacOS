@@ -5,6 +5,7 @@
 
                                        Inspiration:
                                         ▸ Dunzor2 by Dunz0r
+                                        ▸ Matrix by ShdB
                                         ▸ Multicolor by Lcpz
                                         ▸ Wombat by Zhuravlik                                                                              
                                         ▸ Zenburn by Anrxc

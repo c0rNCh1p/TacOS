@@ -317,15 +317,17 @@ globalkeys=gears.table.join(
 		local c=client.focus
 		if c then
 			c.minimized=true
-			awful.spawn.easy_async(string.format('rofi -no-config -no-lazy-grab -show drun \
-			-modi drun -theme ~/.config/awesome/rofi/launcher2.rasi',
-			beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus),
-			function()
-				c.minimized=false
-			end)
 		end
+		awful.spawn.easy_async(string.format('rofi -no-config -no-lazy-grab -show drun \
+		-modi drun -theme ~/.config/awesome/rofi/launcher2.rasi',
+		beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus),
+		function()
+			if c then
+				c.minimized=false
+			end
+		end)
 	end,
-	{description = '| Global Menu\n', group='02 Menus'}),
+	{description='| Global Menu\n', group='02 Menus'}),
 	awful.key({modkey, altkey}, 'd', function()
 		awful.util.spawn('rofi -show drun')
 	end,
@@ -490,7 +492,7 @@ globalkeys=gears.table.join(
 	awful.key({modkey, 'Shift'}, 'r', function()
 		awful.spawn.with_shell('reaper -nosplash')
 	end,
-	{description='| Launch Reaper\n', group='04 Launchers'}),
+	{description='| Launch REAPER\n', group='04 Launchers'}),
 	awful.key({modkey}, 'a', function()
 		awful.spawn.with_shell('ardour8 -n')
 	end,
