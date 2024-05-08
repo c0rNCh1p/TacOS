@@ -286,7 +286,6 @@ docbook-xsl
 double-conversion
 drumstick
 dvgrab
-dxvk-async-git
 dxvk-mingw-git
 faac
 faad2
