@@ -559,7 +559,6 @@ ttf-ubuntu-font-family
 # 10 DISTRO SPECIFIC
 ##################################################
 #a-candy-beauty-icon-theme-git
-arcob-calamares-config-awesome-git
 arco-calamares
 arcolinux-app-git
 arcolinux-bin-git
