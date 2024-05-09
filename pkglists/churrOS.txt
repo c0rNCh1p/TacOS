@@ -65,7 +65,6 @@ yt-dlp
 ##################################################
 accountsservice
 alsa-firmware
-amd-ucode
 archinstall
 arch-install-scripts
 archiso

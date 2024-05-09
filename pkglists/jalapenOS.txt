@@ -138,7 +138,6 @@ zenity
 #xf86-video-intel
 accountsservice
 alsa-firmware
-amd-ucode
 arch-install-scripts
 archinstall
 archiso

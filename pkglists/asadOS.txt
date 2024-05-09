@@ -183,7 +183,6 @@ hdparm
 hwinfo
 hyperv
 ibus
-intel-ucode
 intltool
 inxi
 jfsutils

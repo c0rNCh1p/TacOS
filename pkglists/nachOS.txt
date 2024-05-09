@@ -140,7 +140,6 @@ zenity
 #xf86-video-nouveau
 accountsservice
 alsa-firmware
-amd-ucode
 arch-install-scripts
 archinstall
 archiso
