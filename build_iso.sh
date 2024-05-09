@@ -8,23 +8,23 @@ OUTFOLDER='iso_out'
 BUILDDATE=$(date +'%H%M-%d%m-%Y')
 
 declare -A PACKAGEURLS=(
-	['archiso']='https://geo.mirror.pkgbuild.com/extra/os/x86_64/archiso-75-1-any.pkg.tar.zst'
+	['archiso']='https://geo.mirror.pkgbuild.com/extra/os/x86_64/archiso-77-1-any.pkg.tar.zst'
 	['arcolinux-keyring']='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-keyring-20251209-3-any.pkg.tar.zst'
 	['arcolinux-mirrorlist-git']='https://ant.seedhost.eu/arcolinux/arcolinux_repo/x86_64/arcolinux-mirrorlist-git-24.03-12-any.pkg.tar.zst'
 	['chaotic-keyring']='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/chaotic-keyring-20230616-1-any.pkg.tar.zst'
 	['chaotic-mirrorlist']='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/chaotic-mirrorlist-20240306-1-any.pkg.tar.zst'
 	['endeavouros-keyring']='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/endeavouros-keyring-20231222-1-any.pkg.tar.zst'
-	['endeavouros-mirrorlist']='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/endeavouros-mirrorlist-24.2-1-any.pkg.tar.zst'
+	['endeavouros-mirrorlist']='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/endeavouros-mirrorlist-24.3-1-any.pkg.tar.zst'
 	['pacman-contrib']='https://geo.mirror.pkgbuild.com/extra/os/x86_64/pacman-contrib-1.10.5-1-x86_64.pkg.tar.zst'
 	['rebornos-keyring']='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-keyring-20231128-1-any.pkg.tar.zst'
-	['rebornos-mirrorlist']='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-mirrorlist-20240215-1-any.pkg.tar.zst'
-	['reflector']='https://geo.mirror.pkgbuild.com/extra/os/x86_64/reflector-2023-1-any.pkg.tar.zst'
+	['rebornos-mirrorlist']='https://ant.seedhost.eu/arcolinux/arcolinux_repo_3party/x86_64/rebornos-mirrorlist-20240503-1-any.pkg.tar.zst'
+	['reflector']='https://geo.mirror.pkgbuild.com/extra/os/x86_64/reflector-2023-2-any.pkg.tar.zst'
 )
 
 cleanup_failure(){
-	echo -e '\nAn error occurred, cleaning up build directories.'
+	echo -e '\nAn error occurred, cleaning up build directories'
 	sudo rm -rf "$WORKDIR" 'tacOS_latest'
-	echo -e '\nPlease check the package lists and configuration before retrying.'
+	echo -e '\nPlease check the package lists and configuration before retrying'
 	exit 1
 }
 
