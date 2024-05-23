@@ -2,16 +2,16 @@
 #### General
 ##
 #### Details
-• Arch: x86_64  
-• Size: 5.5G (ISO)  
-• Type: Squashfs  
-• Vers: v03.01.01
+- Arch: x86_64  
+- Size: 5.5G (ISO)  
+- Type: Squashfs  
+- Vers: v03.01.01
 #### Weblinks
-• Archiso: https://wiki.archlinux.org/title/Archiso  
-• Arcolinux: https://arcolinux.com  
-• Awesome: https://awesomewm.org  
-• Pacman: https://wiki.archlinux.org/title/Pacman  
-• X.org: https://www.x.org/wiki
+- Archiso: https://wiki.archlinux.org/title/Archiso  
+- Arcolinux: https://arcolinux.com  
+- Awesome: https://awesomewm.org  
+- Pacman: https://wiki.archlinux.org/title/Pacman  
+- X.org: https://www.x.org/wiki
 #### Description
 These ISOs are based on ArcoLinux, no credit is taken for the aesthetics as well as most
 of the backend including the multiple bootloader and Calamares configs. Arch users can
@@ -22,13 +22,13 @@ the software that made the project possible and for making the code open source.
 #### Installation
 ##
 #### Installing Arch
-• Arch Wiki: https://wiki.archlinux.org/title/Installation_guide  
-• Howtogeek: https://www.howtogeek.com/766168/how-to-install-arch-linux-on-a-pc  
-• Phoenixnap: https://phoenixnap.com/kb/arch-linux-install
+- Arch Wiki: https://wiki.archlinux.org/title/Installation_guide  
+- Howtogeek: https://www.howtogeek.com/766168/how-to-install-arch-linux-on-a-pc  
+- Phoenixnap: https://phoenixnap.com/kb/arch-linux-install
 #### Depends
-• archiso: Tools for creating arch Linux ISO images  
-• pacman: Library based package manager with dependency support  
-• reflector: Python script to retrieve and filter pacman mirror lists
+- archiso: Tools for creating arch Linux ISO images  
+- pacman: Library based package manager with dependency support  
+- reflector: Python script to retrieve and filter pacman mirror lists
 #### Arch Linux
 Open a terminal and clone this repo:
 ````shell
