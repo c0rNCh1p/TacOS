@@ -1,11 +1,13 @@
 #!/bin/bash
+#
 #                   \    |    _ _|    \     __|  __|   __|
 #                  _ \   |      |    _ \  \__ \  _|  \__ \
 #                _/  _\ ____| ___| _/  _\ ____/ ___| ____/
+#
 ################################################################################
-# ▸ "$HOME/.anarchy/aliases"
+# ~ "$HOME/.anarchy/aliases"
 ################################################################################
-# 1 DANK U WEL
+# 1 ~ Dank U Wel
 ################################################################################
 #
 # "arco" (ˈɑːkəʊ') british english : adverb
@@ -15,7 +17,7 @@
 alias eeuwig_dankbaar="echo 'Mr. Dubois'"
 alias en_blijf_rollen="echo 'Arco Team!'"
 ################################################################################
-# 2 COMMANDS
+# 2 ~ Commands
 ################################################################################
 #alias puppet_sync='puppet agent --test --verbose --trace'
 alias af='lynx -dump -width=500 http://localhost:80/whm-server-status'
@@ -57,15 +59,14 @@ alias jctler='journalctl -x -o short | grep -i "error"'
 alias jctlex='journalctl -x -o short | grep -i "exit code 1"'
 alias jctlfl='journalctl -x -o short | grep -i "failed"'
 alias k9='killall -qv -9'
-alias kernel='ls /usr/lib/modules'
-alias lcalamares='readFiles /var/log/Calamares.log'
+alias lcalamares='read_files /var/log/Calamares.log'
 alias less='less --use-color'
 alias ll='ls -la'
-alias lpacman='readFiles /var/log/pacman.log'
+alias lpacman='read_files /var/log/pacman.log'
 alias ls='ls -Nh --color=always'
 alias ls_users='cut -d: -f1 /etc/passwd | sort'
 alias lv='ls -vCa'
-alias lxorg='readFiles $HOME/.local/share/xorg/Xorg.0.log'
+alias lxorg='read_files $HOME/.local/share/xorg/Xorg.0.log'
 alias mnt='mounter &>/dev/null'
 alias mvp='mkdir -vp'
 alias nemo='nemo .'
@@ -77,22 +78,23 @@ alias nmradio='nmcli -p r'
 alias nmwifi='nmcli -p d wifi list'
 alias nn='rnano -w'
 alias pacman='pacman --color auto'
-alias pj='ps -ja'
+alias pj='ps -jA | bat -l rb --theme ansi --style=numbers,grid,header-filename'
 alias plk='pulseaudio --kill'
 alias pls='pulseaudio --start'
-alias psg='psGrep'
+alias psg='psgrep'
 alias py='python'
 alias qv='qview &>/dev/null'
 alias reload='reload'
 alias reqs='deps -r'
+alias rf='read_files'
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+alias rm_knownhosts="rm $HOME/.ssh/known_hosts"
 alias rmr='rm -r'
 alias scp='scp -rp'
 alias shot='gnome-screenshot -a'
 alias sound_server="pactl info | grep 'Server Name'"
-alias steam='steam_mod'
-alias steam_path='unlink $HOME/.steampath'
-alias steam_pid='unlink $HOME/.steampid'
+alias rm_steam_path='unlink $HOME/.steampath'
+alias rm_steam_pid='unlink $HOME/.steampid'
 alias stopx='pkill -15 -t tty"$XDG_VTNR" Xorg'
 alias term='terminator'
 alias tree='tree -a'
@@ -108,9 +110,8 @@ alias xr='xreader'
 alias yskip='yay -S --mflags --skipinteg'
 alias yss='yay -Ss'
 ################################################################################
-# 3 SUDO MODS
+# 3 ~ Sudo Mods
 ################################################################################
-alias boot='sudo bootctl status | grep Product | awk "{print \$2}"'
 alias calamares='gksudo calamares'
 alias fix_loadkeys='sudo sed -i "$d" "/etc/vconsole.conf"'
 alias fuckup='sudo $(history -p \!\!)'
@@ -177,12 +178,13 @@ alias ytmp3="sudo yt-dlp --extract-audio --audio-format mp3"
 alias ytmp4="sudo yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]'"
 alias ytwav="sudo yt-dlp --extract-audio --audio-format wav"
 ################################################################################
-# 4 SPEEDDIAL
+# 4 ~ Speeddial
 ################################################################################
 alias sd_aliases='$EDITOR $ANARCHY/aliases'
 alias sd_awesome='$EDITOR $CONFIG/awesome/rc.lua'
 alias sd_bashrc='$EDITOR $HOME/.bashrc'
 alias sd_cleanup='$EDITOR $ANARCHY/cleanup'
+alias sd_flameshot='$EDITOR $CONFIG/flameshot/flameshot.ini'
 alias sd_gitconf='$EDITOR $HOME/.gitconfig'
 alias sd_gpg='$EDITOR $HOME/.gnupg/gpg.conf'
 alias sd_mimeapps='$EDITOR $CONFIG/mimeapps.list'
@@ -211,4 +213,3 @@ alias susd_torrc='sudo $EDITOR /etc/tor/torrc'
 alias susd_torsocks='sudo $EDITOR /etc/tor/torsocks.conf'
 alias susd_xinit='sudo $EDITOR /etc/X11/xinit/xinitrc'
 alias susd_xprofile='sudo $EDITOR /etc/xprofile'
-################################################################################

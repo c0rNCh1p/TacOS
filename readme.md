@@ -13,20 +13,20 @@
 • Pacman: https://wiki.archlinux.org/title/Pacman  
 • X.org: https://www.x.org/wiki
 #### Description
-These isos are based on Arcolinux, no credit is taken for the aesthetics as well as most
-of the backend including the grub and calamares configs. Arch users can feel free to build
-an iso with the script and take a look in a virtual machine or flash it to a usb and run
-it live, the installer works as intended. Many thanks to those who developed the software
-that made the project possible, for making it usable and for making the code open source.
+These ISOs are based on ArcoLinux, no credit is taken for the aesthetics as well as most
+of the backend including the multiple bootloader and Calamares configs. Arch users can
+feel free to build an ISO with the script and take a look in a virtual machine or flash it
+to a usb and run it live, the installer works as intended. Thanks to those who developed
+the software that made the project possible and for making the code open source.
 ##
 #### Installation
 ##
 #### Installing Arch
 • Arch Wiki: https://wiki.archlinux.org/title/Installation_guide  
-• Howtogeek: https://www.howtogeek.com/766168/how-to-install-arch-linux-on-a-pc/  
+• Howtogeek: https://www.howtogeek.com/766168/how-to-install-arch-linux-on-a-pc  
 • Phoenixnap: https://phoenixnap.com/kb/arch-linux-install
 #### Depends
-• archiso: Tools for creating arch Linux iso images  
+• archiso: Tools for creating arch Linux ISO images  
 • pacman: Library based package manager with dependency support  
 • reflector: Python script to retrieve and filter pacman mirror lists
 #### Arch Linux
@@ -37,16 +37,12 @@ git clone 'https://gitlab.com/c0rNCh1p/tacOS.git'
 ````
 Change to the build directory, make sure the script is executable and run it:
 ````shell
-cd 'tacOS'
-chmod 764 'build_iso.sh'
-./'build_iso.sh'
+cd 'TacOS' && chmod 764 'build_iso.sh' && ./'build_iso.sh'
 ````
 #### Flashing
 A script to make the flashing process easier is included in the scripts folder:
 ````shell
-cd 'scripts'
-chmod 764 'flash_iso.sh'
-./'flash_iso.sh'
+cd 'scripts' && chmod 764 'flash_iso.sh' && ./'flash_iso.sh'
 ````
 Be sure to unplug and reinsert the usb otherwise it wont be detected in the BIOS after its
 ejected.
@@ -64,7 +60,7 @@ ejected.
 There are no symlinks in this repo, everything which would usually use a symlink during
 the boot process of an operating system is done using a script or configured manually by
 the user. As a result when booting into the live environment there is a point where the
-the kernel will ask for an input variable, this is just the timezone which is entered in
+the kernel may ask for an input variable, this is just the timezone which is entered in
 the following format:
 ````shell
 'Region/Zone'
@@ -80,4 +76,19 @@ connection, so if the machine isnt connected via ether just run:
 nmtui
 ````
 Establish the connection and then run the setup scripts.
+#### No LTS
+The Linux long term support packages arent included in the builds by default nor are they
+supported in the bootloader configurations for GRUB, systemd-boot or syslinux configs. If
+the LTS package is needed it can be added to the packagelists and whatever bootloader
+config is in use. It can also just be installed and configured, for example with GRUB:
+````shell
+sudo pacman -S linux-lts linux-lts-headers && sudo grub-mkconfig -o '/boot/grub/grub.cfg'
+````
+Now the installed kernels should have default menuentries in the GRUB config.
+#### No Netinstall
+The Calamares configuration settings and modules included in the ISO are not intended for
+installing the system over a connection and instead are optimized for offline usage.
+Sometimes a completely offline installation is impossible, but being less dependant on the
+network while using Calamares results in less headaches overall when installing and
+testing weather in a virtual machine or on hardware.
 ##

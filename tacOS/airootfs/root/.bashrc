@@ -3,7 +3,7 @@
 #shellcheck disable=SC2143
 
 if [ "$(tty)" == "/dev/tty1" ]; then
-	cmdlineFunc() {
+	cmdline_func() {
 		local PARAM
 		for PARAM in $(</proc/cmdline); do
 			case "$PARAM" in
@@ -11,7 +11,7 @@ if [ "$(tty)" == "/dev/tty1" ]; then
 			esac
 		done
 	}
-	SCRIPT="$(cmdlineFunc)"
+	SCRIPT="$(cmdline_func)"
 	if [ -n "$SCRIPT" ]; then
 		if [[ "$SCRIPT" =~ ^(http|https|ftp):// ]]; then
 			printf '%s: waiting for network-online.target\n' "$0"
@@ -37,11 +37,6 @@ fi
 
 mesg y >"/dev/null" 2>&1
 unicode_start >"/dev/null" 2>&1
-
-[ -d "$HOME/.setup/" ] &&
-find "$HOME/.setup/" -type f ! -executable -exec chmod 764 {} + >"/dev/null" 2>&1
-[ -d "$HOME/.local/bin" ] &&
-find "$HOME/.local/bin" -type f ! -executable -exec chmod 764 {} + >"/dev/null" 2>&1
 
 [ -f "$HOME/.anarchy/aliases" ] && . "$HOME/.anarchy/aliases"
 [ -f "$HOME/.anarchy/cleanup" ] && . "$HOME/.anarchy/cleanup"
@@ -74,9 +69,9 @@ if [ "$USECOLOR" == "true" ]; then
 	fi
 fi
 
-if [[ "$EUID" == 0 || $(tty | grep "/dev/tty") ]]; then
+if [[ "$EUID" == 0 || $(tty | grep '/dev/tty') ]]; then
 	PS1='\[\e[01;31m\][\h\[\e[01;36m\] \W\[\e[01;31m\]]\$\[\e[00m\] '
 else
-	echo -e "$(tput bold)\e[38;2;154;255;0;2m$USER ⩜  $(date "+\e[38;2;154;255;0;2m%I:%M")"
-	PS1='\[\e[38;2;154;255;0;2m\][\[\e[38;2;255;255;60;1m\]\W\[\e[38;2;154;255;0;2m\]]\$▸\[\e[00m\] '
+	echo -e "$(tput bold)\e[38;2;162;226;2m$USER ⩜  $HOSTNAME"
+	PS1='\[\e[38;2;162;226;2m\][\[\e[38;2;228;255;0;1m\]\W\[\e[38;2;162;226;2m\]]\$\[\e[00m\] '
 fi

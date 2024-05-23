@@ -15,11 +15,10 @@ gsettingsFunc(){
 	gsettings set org.gnome.gedit.plugins.time custom-format '%d/%m/%y'
 	gsettings set org.gnome.gedit.preferences.editor display-right-margin true
 	gsettings set org.gnome.gedit.preferences.editor highlight-current-line false
-	gsettings set org.gnome.gedit.preferences.editor scheme 'Oblivion'
+	#gsettings set org.gnome.gedit.preferences.editor scheme 'oblivion'
 	gsettings set org.gnome.gedit.preferences.editor tabs-size 4
 	gsettings set org.gnome.gedit.preferences.editor wrap-last-split-mode 'char'
 	gsettings set org.gnome.gedit.preferences.editor wrap-mode 'char'
-	gsettings set org.gnome.gedit.preferences.editor ensure-trailing-newline false
 	gsettings set org.gnome.gedit.preferences.ui bottom-panel-visible 'true'
 	gsettings set org.gnome.gedit.preferences.ui statusbar-visible 'true'
 	gsettings set org.gnome.gedit.state.window bottom-panel-active-page 'GeditTerminalPanel'

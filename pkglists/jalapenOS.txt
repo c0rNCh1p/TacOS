@@ -1,11 +1,13 @@
-#           _ _|   \ | __ __| __|  |
-#             |   .  |    |   _|   |
-#           ___| _|\_|   _|  ___| ____|           
+#
+#           _ _|   \ |__ __| __|  |
+#             |      |   |   _|   |
+#           ___| _|\_|  _|  ___| ____|
+#       
 ##################################################
-# ▸ /etc/packages.x86_64
-# ▸ /archiso/packages.x86_64
+# ~ /etc/packages.x86_64
+# ~ /archiso/packages.x86_64
 ##################################################
-# 1 INSTALL FIRST
+# 1 ~ Install Priority
 ##################################################
 freetype2
 lib32-krb5
@@ -15,7 +17,7 @@ libglvnd
 qt6-multimedia
 ruby
 ##################################################
-# 2 ASSET MANAGERS
+# 2 ~ Asset Managers
 ##################################################
 clonezilla
 mlocate
@@ -26,8 +28,9 @@ unace
 unrar
 unzip
 ##################################################
-# 3 LIBRARIES
+# 3 ~ Libraries
 ##################################################
+aalib
 alsa-lib
 boost-libs
 laptop-detect
@@ -41,8 +44,16 @@ libpwquality
 libusb-compat
 python-iwlib
 ##################################################
-# 4 FRONTEND
+# 4 ~ Frontend Software
 ##################################################
+#gnome-disk-utility
+#gnome-screenshot
+#micro
+#open-vm-tools
+#paru-git
+#qemu-git
+#qemu-guest-agent
+#sofirem-git
 appstream
 arandr
 archlinux-tweak-tool-git
@@ -60,12 +71,11 @@ downgrade
 exodus
 file-roller
 firefox
+flameshot
 font-manager
 galculator
 gedit
 git
-gnome-disk-utility
-gnome-screenshot
 gpm
 gucharmap
 hardcode-fixer-git
@@ -81,6 +91,7 @@ man-pages
 meld
 monero
 monero-gui
+most
 nano
 nano-syntax-highlighting
 nemo
@@ -107,13 +118,14 @@ rate-mirrors-bin
 reflector
 rofi
 screen
+signal-desktop
 sl
+speech-dispatcher
 telegram-desktop
 terminator
-the_platinum_searcher-bin
-the_silver_searcher
 thunderbird
 timeshift
+tmux
 transmission-gtk
 tree
 unicode-emoji
@@ -121,22 +133,27 @@ vi
 vicious
 virtualbox
 virtualbox-ext-vnc
+virtualbox-guest-utils-nox
 vivaldi
 vivaldi-ffmpeg-codecs
 vivaldi-widevine
 volumeicon
+wget
+xcolor
+xgifwallpaper
 xmrig
 xwallpaper
-xcolor
-yay-bin
+yay-git
 yt-dlp
 zenity
 ##################################################
-# 5 BACKEND
+# 5 ~ Backend Software
 ##################################################
 #fcitx
 #xf86-video-intel
+#xf86-video-vmware
 accountsservice
+aic94xx-firmware
 alsa-firmware
 arch-install-scripts
 archinstall
@@ -152,6 +169,7 @@ cryptsetup
 dconf-editor
 ddrescue
 dmidecode
+dmraid
 docker-compose
 dosfstools
 duf
@@ -179,6 +197,7 @@ gvfs-mtp
 gvfs-nfs
 gvfs-smb
 hdparm
+hw-probe
 hwinfo
 hyperv
 ibus
@@ -203,6 +222,7 @@ linux-firmware-qlogic
 linux-headers
 logrotate
 lsb-release
+lshw
 lsscsi
 lvm2
 lxrandr
@@ -250,6 +270,7 @@ tpm2-tss
 udftools
 udiskie
 udisks2
+upd72020x-fw
 upower
 usb_modeswitch
 usbmuxd
@@ -270,8 +291,10 @@ xorg-apps
 xorg-server
 xorg-xinit
 ##################################################
-# 6 MULTIMEDIA
+# 6 ~ Multimedia Software
 ##################################################
+#krita
+#shotcut
 alsa-plugins
 alsa-utils
 ardour
@@ -431,8 +454,10 @@ x265
 xjadeo
 zynaddsubfx
 ##################################################
-# 7 NETWORKING
+# 7 ~ Networking Software
 ##################################################
+#ldns
+#systemd-resolvconf
 avahi
 bind
 bluez
@@ -461,19 +486,20 @@ modemmanager
 nbd
 ndisc6
 net-tools
-networkmanager
 network-manager-applet
+networkmanager
 networkmanager-openconnect
 networkmanager-openvpn
 networkmanager-pptp
+networkmanager-qt5
 networkmanager-vpnc
 nfs-utils
 nmap
 nss-mdns
 ntp
 onionshare
-openconnect
 open-iscsi
+openconnect
 openresolv
 openssh
 openssl
@@ -484,31 +510,32 @@ pptpclient
 proxychains
 rp-pppoe
 rsync
+speedtest-cli-git
+subnetcalc
 tcpdump
 traceroute
 transmission-cli
-speedtest-cli-git
-subnetcalc
 ufw
 vpnc
 w3m
 webkit2gtk
+whois
 wireguard-tools
 wireless-regdb
 wireless_tools
 wireshark-qt
 wpa_supplicant
-whois
 wvdial
 x11-ssh-askpass
 xl2tpd
 ##################################################
-# 8 PROGRAMMING
+# 8 ~ Programming Software
 ##################################################
 bash
 bash-completion
 clang
 cmake
+diffutils
 gcc
 ghc
 ghostscript
@@ -520,23 +547,31 @@ llvm
 luacheck
 luarocks
 meson
-python39
 python-pip
 python-pyparted
+python39
 shellcheck
 shfmt
+yad
 ##################################################
-# 9 EXTRA ACCESSORIES
+# 9 ~ Extras & Accessories
 ##################################################
-adobe-source-sans-fonts
 #all-repository-fonts
+a-candy-beauty-icon-theme-git
+adobe-source-han-sans-cn-fonts
+adobe-source-han-sans-jp-fonts
+adobe-source-han-sans-kr-fonts
+adobe-source-sans-fonts
+adobe-source-serif-fonts
 arc-darkest-theme-git
 arc-gtk-theme
 bibata-cursor-theme-bin
 gsfonts
+libadwaita-without-adwaita-git
 noto-fonts
 obsidian-icon-theme
 sardi-icons
+surfn-icons-git
 terminus-font
 ttf-bitstream-vera
 ttf-dejavu
@@ -544,28 +579,27 @@ ttf-droid
 ttf-font-awesome
 ttf-hack
 ttf-inconsolata
+ttf-jetbrains-mono-nerd
 ttf-liberation
 ttf-ms-fonts
 ttf-roboto
 ttf-roboto-mono
 ttf-ubuntu-font-family
 ##################################################
-# 10 DISTRO SPECIFIC
+# 10 ~ Distro Packaged Software
 ##################################################
-arcolinux-bootloader-grub-git
-#a-candy-beauty-icon-theme-git
 arco-calamares
 arcolinux-app-git
 arcolinux-bin-git
+arcolinux-bootloader-grub-git
 arcolinux-cron-git
 arcolinux-desktop-trasher-git
-arcolinux-docs-git
 arcolinux-fonts-git
 arcolinux-grub-theme-vimix-git
 arcolinux-hblock-git
 arcolinux-keyring
 arcolinux-kvantum-git
-arcolinux-meta-steam-intel
+arcolinux-meta-steam-amd
 arcolinux-mirrorlist-git
 arcolinux-pipemenus-git
 arcolinux-qt5-git
@@ -574,8 +608,6 @@ arcolinux-rofi-themes-git
 arcolinux-system-config-git
 arcolinux-systemd-services-git
 arcolinux-system-installation-git
-arcolinux-wallpapers-dual-git
-arcolinux-wallpapers-git
 arcolinux-welcome-app-git
 chaotic-keyring
 chaotic-mirrorlist
@@ -583,4 +615,3 @@ endeavouros-keyring
 endeavouros-mirrorlist
 rebornos-keyring
 rebornos-mirrorlist
-##################################################

@@ -10,8 +10,6 @@ GH0STYURL='https://github.com/c0rNCh1p/gh0sty.git'
 MINIMAPURL='https://github.com/johnfactotum/gedit-restore-minimap.git'
 SCUTTLEURL='https://github.com/c0rNCh1p/scuttle.git'
 
-EXODUSURL='https://downloads.exodus.com/releases/exodus-linux-x64-23.12.21.zip'
-
 nottyOrNoice(){
 	local NAUGHTYORNICE BTCHSIZE BATCH
 	NAUGHTYORNICE=(
@@ -46,29 +44,22 @@ bldAURPkgs(){
 		'awesome-freedesktop-git'
 		'awesome-themes-git'
 		'bgrm-git'
-		'cadence'
 		'deadbeef-plugin-statusnotifier-git'
 		'die-plugins'
 		'epson-inkjet-printer-escpr'
 		'epson-inkjet-printer-escpr2'
-		'epsonscan2'
-		'ffhevc'
-		'ffx264'
+		'gedit-dark-variant'
 		'gedit-open-uri-context-menu-git'
-		'goverlay'
 		'habash'
-		'ipw2x00-firmware'
 		'lain-git'
 		'material-black-colors-theme'
 		'nemo-compare'
-		'proton-ge-custom'
 		'python-habitica'
 		'rig'
 		'sl'
 		'steamcmd'
-		'tastytrade'
+		'sticky-notes'
 		'unfatarians-studio'
-		'xdg-ninja-git'
 	)
 	BTCHSIZE=9
 	echo -e "|\n|~ Installing AUR packages: ${#AURPKGS[@]}\n|"
@@ -144,12 +135,23 @@ bldFabla(){
 	fi; cd || return 1
 }
 
-gedit_minimap(){
-	test -d "$HOME/.local/share/gedit/plugins/restore-minimap"
-		sudo rm -r "$HOME/.local/share/gedit/plugins/restore-minimap"
-	mkdir -p "$HOME/.local/share/gedit/plugins/"
-	cd "$HOME/.local/share/gedit/plugins/"
-	git clone 'https://github.com/johnfactotum/gedit-restore-minimap.git' restore-minimap
+bldGeditMinimap(){
+	echo -e '|\n|~ Building Gedit Minimap\n|'
+	cd "$DATA" || cd "$HOME/.local/share/" || return 1
+	if [[ ! -d "$GEDIT_HOME/plugins" || -d "$HOME/.local/share/gedit/plugins" ]]; then 
+		mkdir -p "$GEDIT_HOME/plugins" || mkdir -p "$HOME/.local/share/gedit/plugins"
+	fi
+	if [[ ! -d "$GEDIT_HOME/plugins/restore-minimap" || -d "$HOME/.local/share/gedit/plugins/restore-minimap" ]]; then
+		cd "$GEDIT_HOME/plugins" || "$HOME/.local/share/gedit/plugins/restore-minimap" || return 1
+		git clone "$MINIMAPURL" restore-minimap
+	elif [[ -d "$GEDIT_HOME/plugins/restore-minimap" || -d "$HOME/.local/share/gedit/plugins/restore-minimap" ]]; then 
+		cd "$GEDIT_HOME/plugins/restore-minimap" || "$HOME/.local/share/gedit/plugins/restore-minimap" || return 1
+		if [[ $(git diff 'origin/master') ]]; then
+			cd .. || return 1
+			sudo rm -r 'restore-minimap'
+			git clone "$MINIMAPURL" restore-minimap
+		fi
+	fi; cd || return 1
 }
 
 bldAlien(){
@@ -175,18 +177,6 @@ bldAlien(){
 	fi; cd || return 1
 }
 
-bldExodus(){
-	pullExodus(){
-		wget "$EXODUSURL"
-		unzip 'exodus'*'.zip'
-		sudo rm 'exodus'*'.zip'
-	}
-	echo -e '|\n|~ Building Exodus\n|'
-	cd "$DATA" || cd "$HOME/.local/share/" || return 1
-	pullExodus
-	cd || return 1
-}
-
 bldGloriousEggroll(){
 	#set -euo pipefail
 	echo -e '|\n|~ Building Glorious Eggroll\n|'
@@ -209,11 +199,10 @@ else
 	nottyOrNoice
 	bldAURPkgs
 	bldDummy
-	bldExodus
 	bldGh0sty
 	bldScuttle
 	bldFabla
-	gedit_minimap
+	bldGeditMinimap
 	bldAlien
 	#bldGloriousEggroll
 fi

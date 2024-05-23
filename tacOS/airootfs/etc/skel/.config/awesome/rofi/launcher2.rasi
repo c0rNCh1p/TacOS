@@ -3,7 +3,7 @@
  */
 
 configuration{
-	font:"Philly Sans 13";
+	font:"Year Supply Of Fairy Cakes Bold 8";
     show-icons:true;
 	icon-theme:"Obsidian Green";
     display-drun:"";
@@ -17,13 +17,13 @@ configuration{
 @import "colors.rasi"
 *{
   background-color:@al;
-  text-color:#d3d5b5;
+  text-color:#919d7b;
 }
 
 window{
     transparency:"real";
     background-color:#000000A9;
-    text-color:#d3d5b5;
+    text-color:#7cbad0;
 	border:1px;
 	border-color:@ac;
     border-radius:5px;
@@ -36,11 +36,11 @@ window{
 
 entry{
     transparency:"real";
-    background-color:#000000A9;
-    text-color:#a2a66e;
+    background-color:#161a1c;
+    text-color:#7cbad0;
     expand:false;
     horizontal-align:50%;
-    placeholder:"search...";
+    placeholder:"search...                       ";
     padding:0%;
     blink:true;
 }
@@ -80,7 +80,7 @@ mainbox{
 
 element{
     background-color:@al;
-    text-color:#d3d5b5;
+    text-color:#a2a66e;
     orientation:horizontal;
     border-radius:5%;
     padding:2% 1% 2% 1%;
@@ -100,12 +100,13 @@ element-text{
 
 element selected{
     background-color:@sa;
-    text-color:#d3d5b5;
+    text-color:#a2a66e;
 	border:0% 0% 0% 0%;
     border-radius:12px;
     border-color:@al;
 }
 
 element-text selected{
-    text-color:@ac;
+	background-color:#00000000;
+    text-color:#aeef23;
 }

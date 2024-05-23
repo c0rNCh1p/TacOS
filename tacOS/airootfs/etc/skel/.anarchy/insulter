@@ -1,21 +1,23 @@
 #!/bin/bash
+#shellcheck disable=SC2004
+#
 #                          _ _|   \ |   __|  |  |  |   __ __| __|  _ \
 #                            |   .  | \__ \  |  |  |      |   _|     /
 #                          ___| _|\_| ____/ \__/  ____|  _|  ___| _|_\
+#
 ####################################################################################################
-# ▸ ~/.anarchy/insulter
+# ~ $HOME/.anarchy/insulter
 ####################################################################################################
-# ▸ hkbakke | https://github.com/hkbakke/bash-insulter xo
+# ~ hkbakke | https://github.com/hkbakke/bash-insulter xo
 ####################################################################################################
-# 1 INSULT LISTS
+# 1 ~ INSULT LISTS
 ####################################################################################################
-# shellcheck disable=SC2004
 print_message () {
     local messages message
     messages=(
-#
-# defaults
-#
+
+# Defaults
+
 "🖕"
 "(╯°□°）╯︵ ┻━┻"
 "$USER, your keyboard is not a touch screen!"
@@ -85,9 +87,9 @@ print_message () {
 "Youre proof that god has a sense of humor."
 "Your Mum had a severe case of diarrhea when you were born."
 "¯\_(ツ)_/¯"
-#
-# shakespere insults
-#
+
+# Shakespere insults
+
 "Ah, $USER ye villain! I have ravished thine mother."
 "Away with you, three inch fool!"
 "Away with you, you elf-skin, you dried neats tongue, you bulls-pizzle, you stock fish!"
@@ -139,9 +141,9 @@ tongue, spanish pouch!"
 "You starvelling, you eel skin, you dried neats tongue, you bulls pizzle, you stock fish, O for 
 breath to utter what is like thee! You tailors yard, you sheath, you bow case, you vile standing 
 tuck!"
-#
-# lutheran insults
-#
+
+# Lutheran insults
+
 "All Christians should be on guard against your antichristian poison."
 "All your holiness is only stench and filth, and it merits nothing but wrath and damnation."
 "Behold, indeed, this little golden work of a golden teacher! It is a work most worthy of golden 
@@ -246,9 +248,9 @@ hell. Woe unto you, Antichrist!"
 "You shameful gluttons and servants of your bellies are better suited to be swineherds and keepers 
 of dogs."
 "You sophistic worms, grasshoppers, locusts, frogs and lice!"
-#
-# explicit
-#
+
+# Explicit
+
 "Are you with someone else, cause no single person can be that stupid."
 "Did your parents have any children that lived?"
 "Dipshit."
@@ -364,12 +366,6 @@ one too."
 "Youve got a face like a dropped pie."
 "Youve got a great body. Too bad theres no workout routine for a face."
 "You were born from mothers ass cause her pussy was busy."
-#
-# go wild idk
-#
-"Great example of what not to do."
-"$USER, youre about as literate as Joe Biden at a press conference."
-"..."
 	)
     [[ -n ${CMD_NOT_FOUND_MSGS} ]] && messages=( "${CMD_NOT_FOUND_MSGS[@]}" )
     [[ -n ${CMD_NOT_FOUND_MSGS_APPEND} ]] && messages+=( "${CMD_NOT_FOUND_MSGS_APPEND[@]}" )
@@ -380,12 +376,13 @@ one too."
     fi
 }
 ####################################################################################################
-# 2 COMMAND NOT FOUND
+# 2 ~ COMMAND NOT FOUND
 ####################################################################################################
 function_exists () {
     declare -f "$1" >"/dev/null"
     return "$?"
 }
+
 if function_exists command_not_found_handle; then
     if ! function_exists orig_command_not_found_handle; then
         eval "orig_$(declare -f command_not_found_handle)"
@@ -396,8 +393,8 @@ else
         return 127
     }
 fi
+
 command_not_found_handle () {
     print_message
     orig_command_not_found_handle "$@"
 }
-####################################################################################################

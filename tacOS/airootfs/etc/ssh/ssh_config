@@ -1,11 +1,13 @@
+#
 #                               __|   __|  |  |
 #                             \__ \ \__ \  __ |
 #                             ____/ ____/ _| _|
+#
 ################################################################################
-# ▸ /etc/ssh/ssh_config 
-# ▸ ~/.ssh/ssh_config
+# ~ /etc/ssh/ssh_config 
+# ~ $HOME/.ssh/ssh_config
 ################################################################################
-# ▸ man 'ssh_config(5)' | less +/DESCRIPTION
+# ~ man 'ssh_config(5)' | less +/DESCRIPTION
 ################################################################################
 Include /etc/ssh/ssh_config.d/*.conf
 Host *
@@ -35,4 +37,3 @@ Host *
 #   ProxyCommand ssh -q -W %h:%p gateway.example.com
 #   RekeyLimit 1G 1h
 #   UserKnownHostsFile ~/.ssh/known_hosts.d/%k
-################################################################################

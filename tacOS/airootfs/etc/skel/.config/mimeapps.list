@@ -4,6 +4,7 @@ application/xml=org.gnome.gedit.desktop;
 audio/mpeg=mpv.desktop;
 image/x-xcursor=pix.desktop;gimp.desktop;
 image/svg+xml=org.inkscape.Inkscape.desktop;
+image/x-xcf=gimp.desktop;
 
 [Default Applications]
 application/xml=org.gnome.gedit.desktop
@@ -11,3 +12,4 @@ text/plain=org.gnome.gedit.desktop
 audio/mpeg=mpv.desktop
 image/x-xcursor=gimp.desktop
 image/svg+xml=org.inkscape.Inkscape.desktop
+image/x-xcf=gimp.desktop

@@ -1,13 +1,15 @@
+#
 #                 _ \  __|    \    _ \   |    _ _|   \ |  __| 
 #                   /  _|    _ \   |  |  |      |   .  |  _|  
 #                _|_\ ___| _/  _\ ___/  ____| ___| _|\_| ___|
+#
 ################################################################################
-# ▸ /etc/inputrc
-# ▸ ~/.inputrc || $XDG_CONFIG_HOME/readline/inputrc
+# ~ /etc/inputrc
+# ~ ~/.inputrc || $XDG_CONFIG_HOME/readline/inputrc
 ################################################################################
-# ▸ man 'readline(3)' | less +/INITIALIZATION\ FILE
+# ~ man 'readline(3)' | less +/INITIALIZATION\ FILE
 ################################################################################
-# 1 READLINE SETTINGS
+# 1 ~ READLINE SETTINGS
 ################################################################################
 set keymap emacs
 set enable-keypad on
@@ -53,7 +55,7 @@ set print-completions-horizontally off
 set history-size -1
 set history-preserve-point off
 ################################################################################
-# 2 SHELL BINDINGS 
+# 2 ~ SHELL BINDINGS 
 ################################################################################
 "\C-z":abort
 "\C-x\C-g":abort
@@ -98,13 +100,12 @@ set history-preserve-point off
 "\C-x\C-s":tty-status
 "\C-x\C-v":display-shell-version
 "\C-x\C-r":re-read-init-file
-#
+
 # positioned last and suffixed with \e
 #  -r, -u, '"\seq":' & '"\seq":nop'
 # seem to be deprecated for most keymaps
-#
+
 "\C-x\C-u\e":undo
 "\C-u\e":unix-line-discard
 "\C-x\C-d\e":dump-variables
 "\C-s\e":forward-search-history
-################################################################################

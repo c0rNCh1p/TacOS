@@ -21,26 +21,25 @@ declare -A PACKAGEURLS=(
 	['reflector']='https://geo.mirror.pkgbuild.com/extra/os/x86_64/reflector-2023-2-any.pkg.tar.zst'
 )
 
+cleanup_success(){
+	sudo rm -rf "$LATESTISO" "$WORKDIR"
+	echo -e "\nFresh iso in $OUTFOLDER"
+}
+
 cleanup_failure(){
 	echo -e '\nAn error occurred, cleaning up build directories'
-	sudo rm -rf "$WORKDIR" 'tacOS_latest'
+	sudo rm -rf "$WORKDIR" "$LATESTISO.tar.gz"
 	echo -e '\nPlease check the package lists and configuration before retrying'
 	exit 1
 }
 
-cleanup_success(){
-	sudo rm -rf "$LATESTISO" "$WORKDIR"
-	echo -e "\nFresh iso in $HOME/$OUTFOLDER\n"
-}
-
 [ -d "$OUTFOLDER" ] && sudo rm -rf "$OUTFOLDER"
 [ -d "$HOME/$OUTFOLDER" ] && sudo rm -rf "$HOME/$OUTFOLDER"
-[ ! -d 'tacOS_latest' ] && mkdir -p 'tacOS_latest'
 [ ! -d "$HOME/Downloads" ] && mkdir -p "$HOME/Downloads"
 
 while true; do
-	echo -e '\nSelect the ingredients for the TacOS\n'
-	echo -e '▸ [N] NachOS (Nvidia)\n▸ [J] JalapenOS (Intel)\n▸ [A] AsadOS (AMD)\n▸ [C] ChurrOS (Server)\n'
+	echo -e '\nSelect the ingredients for the tacOS'
+	echo -e '\n▸ [N] NachOS (Nvidia)\n▸ [J] JalapenOS (Intel)\n▸ [A] AsadOS (AMD)\n▸ [C] ChurrOS (Server)'
 	read -p '▸ ' GPUBRAND
 	case "$GPUBRAND" in
 		n|N)
@@ -67,25 +66,22 @@ while true; do
 			ISOLABEL="churrOS_${DESKTOP}_${VERSION}_x86_64.iso"
 			cp "pkglists/$PACKAGELIST" "$PWD/tacOS/packages.x86_64"
 			break;;
-		*) echo -e '⚠ invalid selection ⚠';;
+		*) echo -e '\n⚠ invalid selection ⚠';;
 	esac
 done
 
-if command -v curl &>'/dev/null'; then
-	DLCMD=('curl' '-L' '-o')
-elif command -v wget &>'/dev/null'; then
-	DLCMD=('wget' '-c' '-O')
-else
-	echo -e 'Neither wget nor curl is installed. Please install one to continue.'
+if command -v curl &>'/dev/null'; then DLCMD=('curl' '-L' '-o')
+elif command -v wget &>'/dev/null'; then DLCMD=('wget' '-c' '-O')
+else echo -e '\nNeither wget nor curl is installed, please install one to continue'
 	exit 1
 fi
 
-echo -e '\nMaking sure system requirements are installed'
+echo -e '\nMaking sure system requirements are installed\n'
 for PACKAGE in "${!PACKAGEURLS[@]}"; do
-	if ! pacman -Qs "$PACKAGE" &>'/dev/null' 2>&1; then
-		echo -e "\n$PACKAGE isnt installed,\ninstalling it now"
+	if ! pacman -Qs "$PACKAGE" &>'/dev/null'; then
+		echo -e "\n$PACKAGE isnt installed, installing it now\n"
 		if ! sudo pacman -S "$PACKAGE"; then
-			echo -e "\nFailed to install $PACKAGE with pacman\ninstalling it manually from repository\n"
+			echo -e "\nFailed to install $PACKAGE with pacman, installing it manually from repository\n"
 			case "$PACKAGE" in
 				'archiso')
 					"${DLCMD[@]}" "$HOME/Downloads/${PACKAGEURLS['archiso']##*/}" "${PACKAGEURLS['archiso']}"
@@ -126,9 +122,9 @@ for PACKAGE in "${!PACKAGEURLS[@]}"; do
 done
 
 if ! diff -q 'tacOS/pacman.conf' '/etc/pacman.conf'; then
-	echo -e '\nCopy over new pacman.conf to /etc (y/n)\n'
+	echo -e '\nCopy over new pacman.conf to /etc (y/n)'
 	read -p '▸ ' ANS
-	[ "$ANS" == 'y' ] && sudo cp 'tacOS/pacman.conf' '/etc'
+	test "$ANS"='y' && sudo cp 'tacOS/pacman.conf' '/etc'
 fi
 
 echo -e '\nUpdating pacman mirrors and keyrings\n'
@@ -136,10 +132,9 @@ sudo pacman-key --init
 sudo pacman-key --populate archlinux
 sudo reflector --age 6 --latest 20 --sort score --protocol https --save '/etc/pacman.d/mirrorlist'
 sudo pacman -Fy; sudo pacman -Syu
-echo -e "\nAdding build date ($BUILDDATE) to /etc/dev-rel\n"
 sed -i "s/\(^ISO_BUILD=\).*/\1$BUILDDATE/" 'tacOS/airootfs/etc/dev-rel'
-
-echo "Building iso from archiso template with packages listed in $PACKAGELIST"
+echo -e "\nAdded build date ($BUILDDATE) to /etc/dev-rel"
+echo "\nBuilding iso from archiso template with packages listed in $PACKAGELIST"
 sudo mkarchiso -v -w "$WORKDIR" -o "$OUTFOLDER" "$PWD/tacOS/" || cleanup_failure
 
 cd "$OUTFOLDER" || exit 1
@@ -152,13 +147,7 @@ cd - || exit 1
 
 sudo chown "$USER":"$USER" "$OUTFOLDER"
 sudo find "$OUTFOLDER" -type f -exec chown "$USER":"$USER" {} \;
-test -f "$HOME/$OUTFOLDER/$ISOLABEL" && sudo rm -rf "$HOME/$OUTFOLDER/$ISOLABEL"
-cp -r "$OUTFOLDER" "$HOME/"
-mv "$OUTFOLDER" "$LATESTISO"
-tar zcvf "$LATESTISO.tar.gz" "$LATESTISO"
-test -f "tacOS_latest/$LATESTISO.tar.gz" &&
-	sudo rm -rf "$HOME/tacOS_latest/$LATESTISO.tar.gz"
-mv "$LATESTISO.tar.gz" 'tacOS_latest'
+tar zcvf "$LATESTISO.tar.gz" -C "$OUTFOLDER"
 cleanup_success
 
-unset ANS BUILDDATE DESKTOP DLCMD GPUBRAND ISOLABEL LATEST LATESTISO OUTFOLDER PACKAGELIST PACKAGEURLS WORKDIR
+unset ANS BUILDDATE DESKTOP DLCMD GPUBRAND ISOLABEL LATESTISO OUTFOLDER PACKAGELIST PACKAGEURLS WORKDIR

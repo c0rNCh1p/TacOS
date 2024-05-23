@@ -1,8 +1,10 @@
 #!/bin/bash
+
 LOGFL="$HOME/daemons.log"
 LOCKFL='/tmp/daemons.lck'
 DATE=$(date '+%d/%m/%y %H:%M:%S')
 GKDARGS='--daemonize --components=pkcs11,secrets,ssh'
+
 DAEMONS=(
 	'avahi-daemon'
 	'bluetooth'
@@ -17,40 +19,44 @@ DAEMONS=(
 	'sshd'
 	'systemd-homed'
 	'systemd-timesyncd'
-	#'vboxservice'
+	'vboxservice'
 )
-logFunc(){
+
+log_func(){
 	echo "$DATE | $1" >>"$LOGFL"
 }
-gkdFunc(){
+
+gkd_func(){
 	if ! pgrep -f gnome-keyring-daemon >'/dev/null' 2>&1; then
 		if ! gnome-keyring-daemon --start "$GKDARGS"; then
 			gnome-keyring-daemon --start "$GKDARGS" >>"$LOGFL" 2>&1 ||
-			logFunc '⚠ error starting gnome-keyring-daemon ⚠'
+			log_func 'error starting gnome-keyring-daemon'
 		fi
 	else
 		if ! gnome-keyring-daemon --replace "$GKDARGS"; then
 			gnome-keyring-daemon --replace "$GKDARGS" >>"$LOGFL" 2>&1 ||
-			logFunc '⚠ error starting gnome-keyring-daemon ⚠'
+			log_func 'error starting gnome-keyring-daemon'
 		fi
 	fi
 }
+
 if [ ! -f "$LOCKFL" ]; then clear
 	for DAEMON in "${DAEMONS[@]}"; do
 		if ! systemctl is-enabled --quiet "$DAEMON"; then
 			sudo systemctl enable "$DAEMON" | sudo tee -a "$LOGFL" 2>&1 ||
-			logFunc "⚠ error enabling $DAEMON ⚠"
+			log_func "error enabling $DAEMON"
 		fi
 	done
 	for DAEMON in "${DAEMONS[@]}"; do
 		if ! systemctl is-active --quiet "$DAEMON"; then
 			sudo systemctl start "$DAEMON" | sudo tee -a "$LOGFL" 2>&1 ||
-			logFunc "⚠ error starting $DAEMON ⚠"
+			log_func "error starting $DAEMON"
 		fi
 	done
-	gkdFunc >'/dev/null' 2>&1
+	gkd_func >'/dev/null' 2>&1
 	sudo mv "$LOGFL" '/var/log'
 	echo 'lock' >"$LOCKFL"
 	sleep 1; clear
 fi
+
 unset ARG DAEMON DAEMONS DATE GKDARGS LOCKFL LOGFL

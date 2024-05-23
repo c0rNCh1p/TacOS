@@ -1,19 +1,21 @@
+#
 #                          |  | __ __|   _ \   _ \
 #                          __ |    |    (   |  __/ 
 #                         _| _|   _|   \___/  _|   
+#
 ################################################################################
-# ▸ /etc/htoprc
-# ▸ $XDG_CONFIG_HOME/htop/htoprc
-# ▸ /root/.config/htop/htoprc (PARSER)
+# ~ /etc/htoprc
+# ~ $XDG_CONFIG_HOME/htop/htoprc
+# ~ /root/.config/htop/htoprc (PARSER)
 ################################################################################
-# ▸ man 'htop(1)' | less -N +439 +/CONFIG\ FILES
+# ~ man 'htop(1)' | less -N +439 +/CONFIG\ FILES
 ################################################################################
-# 1 GENERAL SETTINGS
+# 1 ~ GENERAL SETTINGS
 ################################################################################
 htop_version=3.2.1
 config_reader_min_version=3
 ################################################################################
-# 2 VIEW SETTINGS
+# 2 ~ VIEW SETTINGS
 ################################################################################
 fields=48 0 5 4 47 46 49 2 18 1
 hide_kernel_threads=0
@@ -45,7 +47,7 @@ enable_mouse=0
 delay=35
 hide_function_bar=1
 ################################################################################
-# 3 HEADER COLUMN SETTINGS
+# 3 ~ HEADER COLUMN SETTINGS
 ################################################################################
 header_layout=three_33_34_33
 column_meters_0=Uptime NetworkIO LoadAverage DiskIO Tasks DateTime CPU Memory
@@ -62,7 +64,7 @@ tree_sort_direction=1
 tree_view_always_by_pid=0
 all_branches_collapsed=0
 ################################################################################
-# 4 TAB SCREEN SETTINGS
+# 4 ~ TAB SCREEN SETTINGS
 ################################################################################
 screen:Main=USER PID SESSION PGRP PERCENT_CPU TIME STATE NICE Command
 .sort_key=PERCENT_CPU
@@ -80,4 +82,3 @@ screen:I/O=USER PID SESSION PGRP PERCENT_CPU IO_RATE TIME STATE Command
 .sort_direction=-1
 .tree_sort_direction=1
 .all_branches_collapsed=0
-################################################################################

@@ -1,15 +1,17 @@
 #!/bin/bash
 #shellcheck disable=SC1090
+#
 #                  \ \  / _ _|   \ | _ _| __ __| _ \   __|
 #                   >  <    |   .  |   |     |     /  (
 #                   _/\_\ ___| _|\_| ___|   _|  _|_\ \___|
+#
 ################################################################################
-# ▸ /etc/X11/xinit/xinitrc
-# ▸ ~/.xinitrc || $XDG_CONFIG_HOME/X11/xinitrc
+# ~ /etc/X11/xinit/xinitrc
+# ~ $HOME/.xinitrc || $XDG_CONFIG_HOME/X11/xinitrc
 ################################################################################
 # ▸ man 'xinit(1)' | less +/FILES
 ################################################################################
-# 1 SETUP ENVIRONMENT
+# 1 ~ SETUP ENVIRONMENT
 ################################################################################
 export XAUTHORITY="$HOME/.Xauthority"
 declare -a SOURCES
@@ -19,7 +21,7 @@ SOURCES[3]='/etc/X11/xinit/xinitrc.d/61-cadence-session-inject.sh'
 [ ! -f "$XAUTHORITY" ] && touch "$XAUTHORITY" &&
 xauth generate "$DISPLAY" . trusted
 ################################################################################
-# 2 INITIALIZE CLIENT
+# 2 ~ INITIALIZE CLIENT
 ################################################################################
 for FL in "${SOURCES[@]}"; do
 	test -f "$FL" && . "$FL" >'/dev/null' 2>&1
@@ -44,4 +46,3 @@ polkit-gnome-authentication-agent-1 &
 sh -c "$HOME/.local/bin/setxwall" &
 sleep 1
 exec '/usr/bin/awesome'
-################################################################################

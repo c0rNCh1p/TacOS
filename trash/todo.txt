@@ -1,2 +1,0 @@
-1. delete trash dir
-2. exit

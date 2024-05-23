@@ -8,7 +8,7 @@
  ▸ man 'awesomerc(5)' | less +/DESCRIPTION
  ▸ $BROWSER 'https://awesomewm.org/doc/api/sample%20files/rc.lua.html'
 ----------------------------------------------------------------------------------------------------
- 1 REQUIRED LIBRARIES
+ 1 ~ Required Libraries
 ------------------------------------------------------------------------------------------------]]--
 
 local gears=require('gears')
@@ -27,18 +27,18 @@ local dpi=require('beautiful.xresources').apply_dpi
 --local vicious=require('vicious')
 
 --[[------------------------------------------------------------------------------------------------
- 2 ERROR HANDLING
+ 2 ~ Error Handling
 ------------------------------------------------------------------------------------------------]]--
 
--- startup errors
+-- Startup Errors
 if awesome.startup_errors then
 	naughty.notify({
 		preset=naughty.config.presets.critical,
-		title='⚠ Startup error ⚠',
+		title='⚠ Startup Error ⚠',
 		text=awesome.startup_errors})
 end
 
--- runtime errors
+-- Runtime Errors
 do
 	local in_error=false
 	awesome.connect_signal('debug::error', function(err)
@@ -48,14 +48,14 @@ do
 		in_error=true
 		naughty.notify({
 			preset=naughty.config.presets.critical,
-			title='⚠ runtime error ⚠',
+			title='⚠ Runtime Error ⚠',
 			text=tostring(err)})
 		in_error=false
 	end)
 end
 
 --[[------------------------------------------------------------------------------------------------
- 3 AWESOME ENVIRONMENT
+ 3 ~ Awesome Environment⧹
 ------------------------------------------------------------------------------------------------]]--
 
 local modkey='Mod4'
@@ -63,27 +63,28 @@ local altkey='Mod1'
 local ctlkey='Control'
 local home=os.getenv('HOME')
 
--- Preset clients
+-- Preset Clients
 local browser=os.getenv('BROWSER') or 'firefox'
 local editorgui=os.getenv('GRAPHICAL') or 'gedit'
 local filemanager=os.getenv('FILEMANAGER') or 'nemo'
 local mailclient=os.getenv('MAILCLIENT') or 'thunderbird'
+local securemsg=os.getenv('SECUREMSG') or 'telegram-desktop'
 local terminal=os.getenv('TERMINAL') or 'terminator'
 awful.util.terminal=terminal
 
--- basic styling
+-- Basic Styling
 local themes={'tacOS'}
 local num=themes[1]
-awful.util.tagnames={' 1 ',  ' 2 ',  ' 3 ',  ' 4 ',  ' 5 ',  ' 6 ',  ' 7 ',  ' 8 ',  ' 9 '}
+awful.util.tagnames={' 1  ',  ' 2  ',  ' 3  ',  ' 4  ',  ' 5  ',  ' 6  ',  ' 7  ',  ' 8  ',  ' 9  '}
 local themedir=string.format('%s/.config/awesome/themes/%s', home, num)
 local iconsdir=string.format('%s/.config/awesome/themes/%s/icons', home, num)
 local choice=string.format('%s/theme.lua', themedir)
 beautiful.init(choice)
 --beautiful.wallpaper='/path/to/wallpaper'
-beautiful.font='Nouveau IBM Regular 9.5'
-beautiful.notification_font='Nouveau IBM Bold 9.5'
+beautiful.font='Nimbus Mono PS Bold 9.5'
+beautiful.notification_font='Nimbus Mono PS Bold 9.5'
 
--- adjust brightness
+-- Adjust Brightness
 local brightness=1.0
 local function adjustBrightness(inc)
     brightness=math.min(1.0, math.max(0.1, brightness + (inc * 0.1)))
@@ -91,7 +92,7 @@ local function adjustBrightness(inc)
     awful.spawn.with_shell('xrandr --output eDP-1 --brightness ' .. tostring(brightness))
 end
 
--- window layouts
+-- Window Layouts
 awful.layout.layouts={
 	awful.layout.suit.tile,
 	awful.layout.suit.floating,
@@ -117,7 +118,7 @@ awful.layout.layouts={
 	--lain.layout.termfair.center
 }
 
--- fine tune layouts
+-- Fine Tune Layouts
 lain.layout.termfair.nmaster=3
 lain.layout.termfair.ncol=1
 lain.layout.termfair.center.nmaster=3
@@ -130,10 +131,10 @@ lain.layout.cascade.tile.ncol=2
 --awful.layout.suit.tile.left.mirror=true
 
 --[[------------------------------------------------------------------------------------------------
- 4 MENU BEHAVIOUR
+ 4 ~ Menu Behaviour
 ------------------------------------------------------------------------------------------------]]--
 
--- taglist behaviour
+-- Taglist Behaviour
 awful.util.taglist_buttons=gears.table.join(
 	awful.button({ }, 1, function(t)
 		t:view_only()
@@ -157,7 +158,7 @@ awful.util.taglist_buttons=gears.table.join(
 	end)
 )
 
--- tasklist behaviour
+-- Tasklist Behaviour
 awful.util.tasklist_buttons=gears.table.join(
 	awful.button({ }, 1, function(c)
 		if c == client.focus then
@@ -191,14 +192,14 @@ awful.util.tasklist_buttons=gears.table.join(
 	end)
 )
 
--- system menu
+-- System Menu
 menu_icons={
 	['Terminal']=iconsdir .. '/terminal.png',
 	['Hotkeys']=iconsdir .. '/hotkeys.png',
 	['Display']=iconsdir .. '/display.png',
 	['Theme']=iconsdir .. '/theme.png',
 	['Applications']=iconsdir .. '/applications.png',
-	['Logout']=iconsdir .. '/logout.png',
+	['Reload']=iconsdir .. '/logout.png',
 	['Suspend']=iconsdir .. '/suspend.png',
 	['Reboot']=iconsdir .. '/reboot.png',
 	['Shutdown']=iconsdir .. '/shutdown.png'}
@@ -211,24 +212,38 @@ main_menu=awful.menu({
 	menu_icons['Hotkeys']},
 	{' Display', 'arandr', menu_icons['Display']},
 	{' Theme', 'lxappearance', menu_icons['Theme']},
-	{' Applications', 'rofi -no-config -no-lazy-grab -show drun -modi drun\
-	-theme ~/.config/awesome/rofi/launcher2.rasi', menu_icons['Applications']},
-		{' Logout', function()
-		awesome.quit()
+	{' Applications',
+		function()
+			local c=client.focus
+			if c then
+				c.minimized=true
+			end
+			awful.spawn.easy_async(string.format('rofi -no-config -no-lazy-grab -show drun \
+			-modi drun -theme ~/.config/awesome/rofi/launcher2.rasi',
+			beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus),
+			function()
+				if c then
+					c.minimized=false
+				end
+			end)
 		end,
-		menu_icons['Logout']},
-		{' Suspend', 'systemctl suspend', menu_icons['Suspend']},
-		{' Reboot', 'systemctl reboot', menu_icons['Reboot']},
-		{' Shutdown', 'systemctl poweroff', menu_icons['Shutdown']}}}
+		menu_icons['Applications']},
+	{' Reload', function()
+		awesome.restart()
+		end,
+		menu_icons['Reload']},
+	{' Suspend', 'systemctl suspend', menu_icons['Suspend']},
+	{' Reboot', 'systemctl reboot', menu_icons['Reboot']},
+	{' Shutdown', 'systemctl poweroff', menu_icons['Shutdown']}}}
 )
 
--- initialize system menu
+-- Initialize System Menu
 menu_launcher=awful.widget.launcher({
 	menu=main_menu,
 	image=beautiful.awesome_icon,
 })
 
--- initialize system tray (defined in theme.lua)
+-- Initialize System Tray (defined in theme.lua)
 awful.screen.connect_for_each_screen(function(s)
 	beautiful.at_screen_connect(s)
 		s.systray=wibox.widget.systray()
@@ -236,10 +251,10 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 
 --[[------------------------------------------------------------------------------------------------
- 7 KEY BINDINGS
+ 7 ~ Key Bindings
 ------------------------------------------------------------------------------------------------]]--
 
--- mouse buttons for top menu
+-- Mouse Buttons for Top Menu
 root.buttons(gears.table.join(
 	awful.button({ }, 3, function()
 		main_menu:toggle()
@@ -248,7 +263,7 @@ root.buttons(gears.table.join(
 	awful.button({ }, 5, awful.tag.viewprev))
 )
 
--- global key bindings
+-- Global Key Bindings
 globalkeys=gears.table.join(
 	awful.key({modkey}, 's', hotkeys_popup.show_help,
 	{description='| Show Shortcuts\n', group='01 General'}),
@@ -263,12 +278,12 @@ globalkeys=gears.table.join(
 	{description='| Lua Code Prompt\n', group='01 General'}),
 	awful.key({ctlkey, altkey}, 'x', awesome.quit,
 	{description='| Quit Awesome\n', group='01 General'}),
-	awful.key({altkey, 'Shift'}, 'Print', function()
-		awful.util.spawn('gnome-screenshot -a')
+	awful.key({altkey, 'Shift'}, 'p', function()
+		awful.spawn.with_shell('flameshot gui')
 	end,
-	{description='| Area Select Screenshot\n', group='01 General'}),
-	awful.key({modkey, altkey}, 'Print', function()
-		awful.util.spawn('gnome-screenshot')
+	{description='| Area Select Screenshot       \n', group='01 General'}),
+	awful.key({modkey, altkey}, 'p', function()
+		awful.spawn.with_shell('flameshot full')
 	end,
 	{description='| Whole Area Screenshot\n', group='01 General'}),
 	awful.key({modkey, altkey}, 'Up', function()
@@ -280,7 +295,7 @@ globalkeys=gears.table.join(
 	end,
 	{description='| Decrease Brightness\n', group='01 General'}),
 	awful.key({modkey, 'Shift'}, 'F1', function()
-		awful.spawn.with_shell("$HOME/.config/awesome/toggle_picom.sh")
+		awful.spawn.with_shell("$HOME/.config/awesome/tog_picom.sh")
 	end,
 	{description='| Toggle Picom\n', group='01 General'}),
 	awful.key({modkey}, 'F5', function()
@@ -300,7 +315,7 @@ globalkeys=gears.table.join(
 	end,
 	{description='| Deadbeef Previous\n', group='01 General'}),
 	awful.key({modkey, 'Shift'}, 'F2', function()
-		awful.spawn.with_shell("$HOME/.config/awesome/toggle_pulse.sh")
+		awful.spawn.with_shell("$HOME/.config/awesome/tog_pulse.sh")
 	end,
 	{description='| Toggle Pulse\n', group='01 General'}),	
 	awful.key({modkey}, 'w', function()
@@ -308,8 +323,8 @@ globalkeys=gears.table.join(
 	end,
 	{description='| Main Menu\n', group='02 Menus'}),
 	awful.key({modkey}, 'z', function()
-		awful.spawn(string.format("dmenu_run -i -nb '#000000' -nf '#a7c260' -sb '#474f5c'\
-		-sf '#c8ff3a' -fn NouveauIBM:pixelsize=16",
+		awful.spawn(string.format("dmenu_run -i -nb '#000000' -nf '#c1e874' -sb '#2d454e'\
+		-sf '#a9ff00' -fn NouveauIBM:pixelsize=16",
 		beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
 	end,
 	{description='| Dmenu Prompt\n', group='02 Menus'}),
@@ -392,23 +407,23 @@ globalkeys=gears.table.join(
 			if c then client.focus=c c:raise()
 		end
 	end,
-	{description='| Restore Minimized Clients\n', group='03 Client'}),
+	{description='| Restore Minimized Clients       \n', group='03 Client'}),
 	awful.key({modkey, 'Shift'}, 'j', function()
 		awful.client.swap.byidx(1)
 	end,
-	{description='| Swap with Left Tiled Window\n', group='03 Client'}),
+	{description='| Swap Tiled Window Left\n', group='03 Client'}),
 	awful.key({modkey, 'Shift'}, 'k', function()
 		awful.client.swap.byidx(-1)
 	end,
-	{description='| Swap with Right Tiled Window\n', group='03 Client'}),
+	{description='| Swap Tiled Window Right\n', group='03 Client'}),
 	awful.key({modkey, 'Shift'}, 'h', function()
 		awful.screen.focus_relative(1)
 	end,
-	{description='| Focus next Tiled Window\n', group='03 Client'}),
+	{description='| Focus Next Tiled Window\n', group='03 Client'}),
 	awful.key({modkey, 'Shift'}, 'l', function()
 		awful.screen.focus_relative(-1)
 	end,
-	{description='| Focus last Tiled Window\n', group='03 Client'}),
+	{description='| Focus Last Tiled Window\n', group='03 Client'}),
 	awful.key({altkey, 'Shift'}, 'j', function()
 		awful.tag.incmwfact(-0.05)
 	end,
@@ -501,20 +516,19 @@ globalkeys=gears.table.join(
 		awful.spawn.with_shell('Discord')
 	end,
 	{description='| Launch Discord\n', group='04 Launchers'}),
-	
-	awful.key({modkey}, 't', function()
-		awful.spawn.with_shell('telegram-desktop')
+	awful.key({modkey, 'Shift'}, 'p', function()
+		awful.util.spawn(securemsg)
 	end,
-	{description='| Launch Telegram\n', group='04 Launchers'}),
+	{description='| Launch Private Messager       \n', group='04 Launchers'}),
 	awful.key({modkey, 'Shift'}, 's', function()
 		awful.spawn.with_shell('steam-native')
 	end,
-	{description='| Launch Steam\n', group='04 Launchers'}),		
+	{description='| Launch Steam Native\n', group='04 Launchers'}),		
 	awful.key({modkey, 'Shift'}, 'b', function()
 		awful.spawn.with_shell('blender')
 	end,
 	{description='| Launch Blender\n', group='04 Launchers'}),
-	awful.key({modkey, 'Shift'}, 't', function()
+	awful.key({modkey}, 't', function()
 		awful.util.spawn('archlinux-tweak-tool')
 	end,
 	{description='| Launch Tweak Tool\n', group='04 Launchers'}),
@@ -532,11 +546,11 @@ globalkeys=gears.table.join(
 	end,
 	{description='| Toggle Systray Visibility\n', group='06 Layout'}),
 	awful.key({altkey, ctlkey}, 'h', function()
-		lain.util.useless_gaps_resize(1)
+		lain.util.useless_gaps_resize(7)
 	end,
 	{description='| Increment Useless Gaps\n', group='06 Layout'}),
 	awful.key({altkey, ctlkey}, 'l', function()
-		lain.util.useless_gaps_resize(-1)
+		lain.util.useless_gaps_resize(-7)
 	end,
 	{description='| Decrement Useless Gaps\n', group='06 Layout'}),
 	awful.key({altkey, ctlkey}, 'j', function()
@@ -557,7 +571,7 @@ globalkeys=gears.table.join(
 	{description='| Select Previous Layout\n', group='06 Layout'})
 )
 
--- client key bindings
+-- Client Key Bindings
 clientkeys=gears.table.join(
 	awful.key({modkey}, 'n', function(c)
 		c.minimized=true
@@ -586,7 +600,7 @@ clientkeys=gears.table.join(
 	{description='| Toggle Fullscreen State\n', group='03 Client'})
 )
 
--- tag selection
+-- Tag Selection
 for i=1, 9 do
 	local descr_view, descr_toggle, descr_move, descr_toggle_focus
 	if i == 1 or i == 9 then
@@ -597,7 +611,7 @@ for i=1, 9 do
 		descr_move={
 			description='| Throw Focused Client to Workspace\n', group='05 Workspaces'}
 		descr_toggle_focus={
-			description='| Follow Thrown Client to Workspace\n', group='05 Workspaces'}
+			description='| Follow Client to Workspace\n', group='05 Workspaces'}
 	end
 	globalkeys=gears.table.join(globalkeys,
 		awful.key({modkey}, '#' .. i + 9, function()
@@ -634,7 +648,7 @@ for i=1, 9 do
 	descr_toggle_focus))
 end
 
--- client mouse buttons
+-- Client Mouse Buttons
 clientbuttons=gears.table.join(
 	awful.button({ }, 1, function (c)
 		c:emit_signal('request::activate', 'mouse_click', {raise=true})
@@ -649,31 +663,56 @@ clientbuttons=gears.table.join(
 	end)
 )
 
--- initialize as root keys
+-- Initialize As Root Keys
 root.keys(globalkeys)
 
 --[[------------------------------------------------------------------------------------------------
- 6 CLIENT BEHAVIOUR
+ 6 ~ Client Behaviour
 ------------------------------------------------------------------------------------------------]]--
 
--- client rules
+-- Client Rules
 awful.rules.rules={
-	{rule={ },
-		properties={
-			border_width=beautiful.border_width,
-			border_color=beautiful.border_normal,
-			focus=awful.client.focus.filter,
-			raise=true,
-			keys=clientkeys,
-			buttons=clientbuttons,
-			screen=awful.screen.preferred,
-			placement=awful.placement.no_overlap+awful.placement.no_offscreen,
-			size_hints_honor=false}},
-	{rule_any={type={'dialog', 'normal'}},
-		properties={titlebars_enabled=false}},
+    -- Defaults
+    {rule={},
+      properties={
+        border_width=beautiful.border_width,
+        border_color=beautiful.border_normal,
+        focus=awful.client.focus.filter,
+        raise=true,
+        keys=clientkeys,
+        buttons=clientbuttons,
+        screen=awful.screen.preferred,
+        placement=awful.placement.no_overlap + awful.placement.no_offscreen,
+        size_hints_honor=false
+      }
+    },
+--    {rule={class='Terminator'},
+--      properties={
+--        floating=true,
+--        callback=function(c)
+--          naughty.notify({text="Terminator set to floating"})
+--        end
+--      }
+--    },
+    {rule={class='Firefox'},
+      properties={
+        tag=' 9  ',
+        callback=function(c)
+          naughty.notify({text="Firefox moved to tag 9"})
+        end
+      }
+    },
+    {rule={class='Vivaldi-stable'},
+      properties={ 
+        tag=' 8  ',
+        callback=function(c)
+          naughty.notify({text="Vivaldi matched moved to tag 8"})
+        end
+      }
+    },
 }
 
--- client management
+-- Client Management
 client.connect_signal('manage', function(c)
 	if awesome.startup and
 	not c.size_hints.user_position
@@ -692,10 +731,10 @@ client.connect_signal('unfocus', function(c)
 end)
 
 --[[------------------------------------------------------------------------------------------------
- 7 AUTOSTART APPLICATIONS
+ 7 ~ Autostart Applications
 ------------------------------------------------------------------------------------------------]]--
 
--- execution function
+-- Execution Function
 local function run(c)
     if not awesome.startup then
         awful.spawn.easy_async_with_shell(
@@ -711,11 +750,10 @@ local function run(c)
     end
 end
 
--- startup list
+-- Startup List
 cadence_cmd='/usr/share/cadence/src/cadence.py --minimized'
 run('volumeicon')
 run('picom -b --config "$HOME/.config/awesome/picom.conf"')
 run('nm-applet')
 run('pgrep -f "' .. cadence_cmd .. '" | xargs kill -9 & cadence --minimized')
 run('setxwall')
-----------------------------------------------------------------------------------------------------
