@@ -1,12 +1,26 @@
 #!/bin/bash
 #shellcheck disable=SC2012
+
 XWALLINC=1
 XWALLDIR="$FLAVOUR/walls"
 DEFXWALL='morning_distopia.png'
-xwallpaper --zoom "$XWALLDIR/$DEFXWALL"
+DEFAULT_EXT="${DEFXWALL##*.}"
+
+if [[ "$DEFAULT_EXT" == "gif" || "$DEFAULT_EXT" == "gfy" ]]; then
+    xgifwallpaper "$XWALLDIR/$DEFXWALL"
+else
+    xwallpaper --zoom "$XWALLDIR/$DEFXWALL"
+fi
+
 sleep "$(( XWALLINC * 550 ))"
 while true; do
-	XWALL="$(ls $XWALLDIR | sort -R | tail -1)"
-	xwallpaper --zoom "$XWALLDIR/$XWALL" >'/dev/null' 2>&1
-	sleep "$(( XWALLINC * 550 ))"
+    XWALL="$(ls $XWALLDIR | sort -R | tail -1)"
+    FILE_EXT="${XWALL##*.}"
+    if [[ "$FILE_EXT" == "gif" || "$FILE_EXT" == "gfy" ]]; then
+        xgifwallpaper "$XWALLDIR/$XWALL" >'/dev/null' 2>&1
+    else
+        xwallpaper --zoom "$XWALLDIR/$XWALL" >'/dev/null' 2>&1
+    fi
+    sleep "$(( XWALLINC * 550 ))"
 done &
+

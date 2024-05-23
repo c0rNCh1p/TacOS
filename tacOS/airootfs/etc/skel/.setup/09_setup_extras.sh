@@ -60,6 +60,7 @@ bldAURPkgs(){
 		'steamcmd'
 		'sticky-notes'
 		'unfatarians-studio'
+		'xgifwallpaper'
 	)
 	BTCHSIZE=9
 	echo -e "|\n|~ Installing AUR packages: ${#AURPKGS[@]}\n|"

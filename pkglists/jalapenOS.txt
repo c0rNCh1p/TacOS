@@ -140,7 +140,6 @@ vivaldi-widevine
 volumeicon
 wget
 xcolor
-xgifwallpaper
 xmrig
 xwallpaper
 yay-git
