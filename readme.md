@@ -88,6 +88,7 @@ testing weather in a virtual machine or on hardware.
 After installing TacOS using Calamares, please note that the autologin will no longer
 match the liveuser account, as liveuser will have been removed from the system. This means
 the shell will need to be manually logged into at startup. Additionally, to ensure
-everything works correctly, it should refreshed before running `startx`, using `bash` or
-the `reload` alias (if its been refreshed at least once already hence reading the configs).
+everything works correctly, it (the shell) should refreshed before running `startx`, using
+`bash` or the `reload` alias (if its been refreshed at least once already hence reading
+the configs).
 ##
