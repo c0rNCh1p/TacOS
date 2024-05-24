@@ -85,10 +85,9 @@ Sometimes a completely offline installation is impossible, but being less depend
 network while using Calamares results in less headaches overall when installing and
 testing weather in a virtual machine or on hardware.
 #### Reload the Shell
-After installing TacOS using Calamares, please note that the autologin will no
-longer match the liveuser account, as liveuser will have been removed from the
-system. This means the shell will need to be manually logged into at startup.
-Additionally, to ensure everything works correctly, it should refreshed the at
-least once using `bash` (or the `reload` alias when the shell has been refreshed
-at least once after installing).
+After installing TacOS using Calamares, please note that the autologin will no longer
+match the liveuser account, as liveuser will have been removed from the system. This means
+the shell will need to be manually logged into at startup. Additionally, to ensure
+everything works correctly, it should refreshed before running `startx` using `bash` (or
+the `reload` alias when the shell has been refreshed at least once after installing).
 ##
