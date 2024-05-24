@@ -16,7 +16,7 @@ selectdrive(){
 	while true; do
 		if [ -z "$DEVICE" ]; then
 			echo -e '\nAvailable drives'
-			lsblk -o NAME,SIZE,TYPE,MOUNTPOINT | grep 'disk' | sed 's/^/▸ \/dev\//'
+			lsblk -o NAME,SIZE,TYPE,MOUNTPOINT | grep 'disk' | sed 's/^/~ \/dev\//'
 		fi
 		echo -e '\nEnter drive name\n'
 		read -rep '~ ' DEVICE
