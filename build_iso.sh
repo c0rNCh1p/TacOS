@@ -122,9 +122,9 @@ for PACKAGE in "${!PACKAGEURLS[@]}"; do
 done
 
 if ! diff -q 'tacOS/pacman.conf' '/etc/pacman.conf'; then
-	echo -e '\nCopy over new pacman.conf to /etc (y/n)'
-	read -p '▸ ' ANS
-	test "$ANS"='y' && sudo cp 'tacOS/pacman.conf' '/etc'
+	echo -e '\nCopy over new pacman.conf to /etc [y/n]\n'
+	read -p ' ~ ' ANS; echo
+	[[ "$ANS" =~ ^(1|y|ya|ye|ta|ok|pl|th).* ]] && sudo cp 'tacOS/pacman.conf' '/etc'
 fi
 
 echo -e '\nUpdating pacman mirrors and keyrings\n'
@@ -143,11 +143,13 @@ echo -e "\nCreating checksums for $ISOLABEL\n"
 md5sum "$ISOLABEL" | sudo tee "$ISOLABEL.md5"
 sha1sum "$ISOLABEL" | sudo tee "$ISOLABEL.sha1"
 sha256sum "$ISOLABEL" | sudo tee "$ISOLABEL.sha256"
-cd - || exit 1
+ls -la && cd - || exit 1
 
 sudo chown "$USER":"$USER" "$OUTFOLDER"
 sudo find "$OUTFOLDER" -type f -exec chown "$USER":"$USER" {} \;
-tar zcvf "$LATESTISO.tar.gz" -C "$OUTFOLDER"
+echo -e '\nCreate an iso archive? [y/n]\n'
+read -p ' ~ ' ANS; echo
+[[ "$ANS" =~ ^(1|y|ya|ye|ta|ok|pl|th).* ]] && tar zcvf "$LATESTISO.tar.gz" "$OUTFOLDER"
 cleanup_success
 
 unset ANS BUILDDATE DESKTOP DLCMD GPUBRAND ISOLABEL LATESTISO OUTFOLDER PACKAGELIST PACKAGEURLS WORKDIR
