@@ -86,9 +86,10 @@ network while using Calamares results in less headaches overall when installing 
 testing weather in a virtual machine or on hardware.
 #### Reload the Shell
 After installing TacOS using Calamares, please note that the autologin will no longer
-match the liveuser account, as liveuser will have been removed from the system. This means
-the shell will need to be manually logged into at startup. Additionally, to ensure
-everything works correctly, it (the shell) should refreshed before running `startx`, using
-`bash` or the `reload` alias (if its been refreshed at least once already hence reading
-the configs).
+match the liveuser account, as the liveuser will have been removed from the system. This
+means the shell will need to be manually logged into at startup. Additionally, it (the
+shell) should be reset before running `startx` to launch the graphical environment or
+before continuing with sever configuration. This is done using `bash` or the `reload`
+alias (only use reload if its been reset at least once already hence the point of reading
+the configs by reloading).
 ##
