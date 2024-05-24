@@ -19,7 +19,7 @@ DAEMONS=(
 	'sshd'
 	'systemd-homed'
 	'systemd-timesyncd'
-	'vboxservice'
+	#'vboxservice'
 )
 
 log_func(){
