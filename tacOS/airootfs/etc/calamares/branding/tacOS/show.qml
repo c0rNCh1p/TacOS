@@ -8,16 +8,15 @@
  *
  */
 
-import QtQuick 2.0;
-import calamares.slideshow 1.0;
+import QtQuick 2.0
+import calamares.slideshow 1.0
 
-Presentation
-{
+Presentation {
     id: presentation
 
     function nextSlide() {
-        console.log("QML Component (default slideshow) Next slide");
-        presentation.goToNextSlide();
+        console.log("QML Component (default slideshow) Next slide")
+        presentation.goToNextSlide()
     }
 
     Timer {
@@ -34,14 +33,13 @@ Presentation
         Image {
             id: background1
             source: "01cal.jpg"
-            width: parent.width; height: parent.height
+            width: parent.width
+            height: parent.height
             verticalAlignment: Image.AlignTop
             fillMode: Image.PreserveAspectCrop
             anchors.fill: parent
         }
-
     }
-
 
     Slide {
         anchors.fill: parent
@@ -49,12 +47,12 @@ Presentation
         Image {
             id: background2
             source: "02cal.jpg"
-            width: parent.width; height: parent.height
+            width: parent.width
+            height: parent.height
             verticalAlignment: Image.AlignTop
             fillMode: Image.PreserveAspectCrop
             anchors.fill: parent
         }
-
     }
 
     Slide {
@@ -63,12 +61,12 @@ Presentation
         Image {
             id: background4
             source: "03cal.jpg"
-            width: parent.width; height: parent.height
+            width: parent.width
+            height: parent.height
             verticalAlignment: Image.AlignTop
             fillMode: Image.PreserveAspectCrop
             anchors.fill: parent
         }
-
     }
 
     Slide {
@@ -77,12 +75,12 @@ Presentation
         Image {
             id: background5
             source: "04cal.jpg"
-            width: parent.width; height: parent.height
+            width: parent.width
+            height: parent.height
             verticalAlignment: Image.AlignTop
             fillMode: Image.PreserveAspectCrop
             anchors.fill: parent
         }
-
     }
 
     Slide {
@@ -91,12 +89,12 @@ Presentation
         Image {
             id: background6
             source: "05cal.jpg"
-            width: parent.width; height: parent.height
+            width: parent.width
+            height: parent.height
             verticalAlignment: Image.AlignTop
             fillMode: Image.PreserveAspectCrop
             anchors.fill: parent
         }
-
     }
 
     Slide {
@@ -105,12 +103,12 @@ Presentation
         Image {
             id: background7
             source: "06cal.jpg"
-            width: parent.width; height: parent.height
+            width: parent.width
+            height: parent.height
             verticalAlignment: Image.AlignTop
             fillMode: Image.PreserveAspectCrop
             anchors.fill: parent
         }
-
     }
 
     Slide {
@@ -119,12 +117,12 @@ Presentation
         Image {
             id: background8
             source: "07cal.jpg"
-            width: parent.width; height: parent.height
+            width: parent.width
+            height: parent.height
             verticalAlignment: Image.AlignTop
             fillMode: Image.PreserveAspectCrop
             anchors.fill: parent
         }
-
     }
 
     Slide {
@@ -133,12 +131,12 @@ Presentation
         Image {
             id: background9
             source: "08cal.jpg"
-            width: parent.width; height: parent.height
+            width: parent.width
+            height: parent.height
             verticalAlignment: Image.AlignTop
             fillMode: Image.PreserveAspectCrop
             anchors.fill: parent
         }
-
     }
 
     Slide {
@@ -147,22 +145,20 @@ Presentation
         Image {
             id: background10
             source: "09cal.jpg"
-            width: parent.width; height: parent.height
+            width: parent.width
+            height: parent.height
             verticalAlignment: Image.AlignTop
             fillMode: Image.PreserveAspectCrop
             anchors.fill: parent
         }
-
     }
 
-
     function onActivate() {
-          console.log("QML Component (default slideshow) activated");
-          presentation.currentSlide = 0;
+        console.log("QML Component (default slideshow) activated")
+        presentation.currentSlide = 0
     }
 
     function onLeave() {
-          console.log("QML Component (default slideshow) deactivated");
+        console.log("QML Component (default slideshow) deactivated")
     }
-
 }

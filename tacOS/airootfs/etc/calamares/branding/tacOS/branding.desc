@@ -1,5 +1,5 @@
 ---
-componentName:  tacOS
+componentName: tacOS
 welcomeStyleCalamares: false
 welcomeExpandingLogo: true
 windowExpanding: normal
@@ -9,35 +9,35 @@ sidebar: widget
 navigation: widget
 
 strings:
-	productName: tacOS
-	shortProductName: tacOS
-	version: v02.02.03
-	shortVersion: v02.02.03
-	versionedName: tacOS
-	shortVersionedName: tacOS
-	bootloaderEntryName: tacOS
-#	productUrl:
-#	supportUrl:
-#	knownIssuesUrl:
-#	releaseNotesUrl:
-#	donateUrl:
+  productName: tacOS
+  shortProductName: tacOS
+  version: v02.02.03
+  shortVersion: v02.02.03
+  versionedName: tacOS
+  shortVersionedName: tacOS
+  bootloaderEntryName: tacOS
+  # productUrl:
+  # supportUrl:
+  # knownIssuesUrl:
+  # releaseNotesUrl:
+  # donateUrl:
 
 images:
-#	productBanner: "banner.png"
-#	productLogo: "squid.png"
-#	productIcon: "logo.png"
-#	productWallpaper: "wallpaper.png"
-#	productWelcome:	"01cal.jpg"
+  # productBanner: "banner.png"
+  # productLogo: "squid.png"
+  # productIcon: "logo.png"
+  # productWallpaper: "wallpaper.png"
+  # productWelcome: "01cal.jpg"
 
 style:
-   SidebarBackground: "#353945"
-   SidebarText: "#ECEDEE"
+  SidebarBackground: "#353945"
+  SidebarText: "#ECEDEE"
 
 slideshow: "show.qml"
 
 slideshowAPI: 2
 
-uploadServer :
-    type: "fiche"
-    url: "http://termbin.com:9999"
-    sizeLimit: -1
+uploadServer:
+  type: "fiche"
+  url: "http://termbin.com:9999"
+  sizeLimit: -1
