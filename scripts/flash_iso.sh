@@ -57,8 +57,7 @@ if ! command -v pv &>'/dev/null'; then
 	fi
 fi
 
-echo -e '\nEnter the iso path'
-echo -e "eg. $DEFDIR\n"
+echo -e "\nEnter the iso path eg. $DEFDIR\n"
 read -rep '~ ' ISODIR
 
 if [ ! -d "$ISODIR" ]; then
