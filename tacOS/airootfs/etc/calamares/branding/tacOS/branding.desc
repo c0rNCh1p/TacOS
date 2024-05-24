@@ -1,43 +1,52 @@
+# SPDX-FileCopyrightText: no
+# SPDX-License-Identifier: CC0-1.0
 ---
-componentName: tacOS
-welcomeStyleCalamares: false
-welcomeExpandingLogo: true
-windowExpanding: normal
+componentName:  tacOS
+
+welcomeStyleCalamares:   false
+
+welcomeExpandingLogo:   true
+
+windowExpanding:    normal
+
 windowSize: 1200px,800px
+
 windowPlacement: center
+
 sidebar: widget
+
 navigation: widget
 
 strings:
-  productName: tacOS
-  shortProductName: tacOS
-  version: v03.01.01
-  shortVersion: v03.01.01
-  versionedName: tacOS
-  shortVersionedName: tacOS
-  bootloaderEntryName: tacOS
-  # productUrl:
-  # supportUrl:
-  # knownIssuesUrl:
-  # releaseNotesUrl:
-  # donateUrl:
+    productName:         tacOS
+    shortProductName:    tacOS
+    version:             3.0
+    shortVersion:        3.0
+    versionedName:       tacOS
+    shortVersionedName:  tacOS
+    bootloaderEntryName: tacOS
+#    productUrl:          https://tacOS.info/
+#    supportUrl:          https://tacOSforum.com/
+#    knownIssuesUrl:      https://tacOS.info/
+#    releaseNotesUrl:     https://tacOS.info/tacOS-editions/
+#    donateUrl:           https://kde.org/community/donations/index.php
 
 images:
-  # productBanner: "banner.png"
-  # productLogo: "squid.png"
-  # productIcon: "logo.png"
-  # productWallpaper: "wallpaper.png"
-  # productWelcome: "01cal.jpg"
+    # productBanner:		"banner.png"
+    productLogo:			"squid.png"
+    productIcon:			"logo.png"
+    # productWallpaper:		"wallpaper.png"
+    productWelcome:			"01cal.jpg"
 
 style:
-  SidebarBackground: "#353945"
-  SidebarText: "#ECEDEE"
+   SidebarBackground:    "#353945"
+   SidebarText:          "#ECEDEE"
 
-slideshow: "show.qml"
+slideshow:               "show.qml"
 
 slideshowAPI: 2
 
-uploadServer:
-  type: "fiche"
-  url: "http://termbin.com:9999"
-  sizeLimit: -1
+uploadServer :
+    type :      "fiche"
+    url :       "http://termbin.com:9999"
+    sizeLimit : -1
