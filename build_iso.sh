@@ -39,8 +39,8 @@ cleanup_failure(){
 
 while true; do
 	echo -e '\nSelect the ingredients for the tacOS'
-	echo -e '\n▸ [N] NachOS (Nvidia)\n▸ [J] JalapenOS (Intel)\n▸ [A] AsadOS (AMD)\n▸ [C] ChurrOS (Server)'
-	read -p '▸ ' GPUBRAND
+	echo -e '\n~ [N] NachOS (Nvidia)\n~ [J] JalapenOS (Intel)\n~ [A] AsadOS (AMD)\n~ [C] ChurrOS (Server)\n'
+	read -p '~ ' GPUBRAND
 	case "$GPUBRAND" in
 		n|N)
 			PACKAGELIST='nachOS.txt'
