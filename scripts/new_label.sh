@@ -4,8 +4,8 @@
 OLDNAME='tacOS'
 
 echo -e "The current iso label is $OLDNAME"
-echo -e '\nEnter the new iso label'
-read -rp '▸ ' NEWNAME
+echo -e '\nEnter the new iso label\n'
+read -rp '~ ' NEWNAME
 echo -e '\nChanging label refs in archiso files'
 
 mv "../$OLDNAME" "../$NEWNAME"

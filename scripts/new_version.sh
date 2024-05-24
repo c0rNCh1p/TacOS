@@ -4,8 +4,8 @@
 OLDVSN='v03.01.01'
 
 echo -e "\nThe current iso version is $OLDVSN"
-echo -e '\nEnter the new iso version'
-read -rp '▸ ' NEWVSN
+echo -e '\nEnter the new iso version\n'
+read -rp '~ ' NEWVSN
 
 echo -e '\nChanging version refs in archiso files'
 sed -i 's/'$OLDVSN'/'$NEWVSN'/gI' '../build_iso.sh'

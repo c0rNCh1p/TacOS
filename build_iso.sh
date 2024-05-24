@@ -3,7 +3,7 @@
 
 WORKDIR='build'
 DESKTOP='awesome'
-VERSION='v02.02.03'
+VERSION='v03.01.01'
 OUTFOLDER='iso_out'
 BUILDDATE=$(date +'%H%M-%d%m-%Y')
 
@@ -123,7 +123,7 @@ done
 
 if ! diff -q 'tacOS/pacman.conf' '/etc/pacman.conf'; then
 	echo -e '\nCopy over new pacman.conf to /etc [y/n]\n'
-	read -p ' ~ ' ANS; echo
+	read -p '~ ' ANS
 	[[ "$ANS" =~ ^(1|y|ya|ye|ta|ok|pl|th).* ]] && sudo cp 'tacOS/pacman.conf' '/etc'
 fi
 
@@ -148,7 +148,7 @@ ls -la && cd - || exit 1
 sudo chown "$USER":"$USER" "$OUTFOLDER"
 sudo find "$OUTFOLDER" -type f -exec chown "$USER":"$USER" {} \;
 echo -e '\nCreate an iso archive? [y/n]\n'
-read -p ' ~ ' ANS; echo
+read -p '~ ' ANS
 [[ "$ANS" =~ ^(1|y|ya|ye|ta|ok|pl|th).* ]] && tar zcvf "$LATESTISO.tar.gz" "$OUTFOLDER"
 cleanup_success
 

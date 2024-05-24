@@ -11,8 +11,8 @@ navigation: widget
 strings:
   productName: tacOS
   shortProductName: tacOS
-  version: v02.02.03
-  shortVersion: v02.02.03
+  version: v03.01.01
+  shortVersion: v03.01.01
   versionedName: tacOS
   shortVersionedName: tacOS
   bootloaderEntryName: tacOS

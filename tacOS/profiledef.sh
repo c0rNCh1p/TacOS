@@ -12,10 +12,10 @@
 # ~ Bat /usr/share/doc/archiso/README.profile.rst
 ################################################################################
 iso_name='tacOS'
-iso_label='tacOS_v02.02.03'
+iso_label='tacOS_v03.01.01'
 iso_publisher='tacOS <https://github.com/c0rnch1p>'
 iso_application='tacOS Live Disk Image'
-iso_version='v02.02.03'
+iso_version='v03.01.01'
 install_dir='arch'
 buildmodes=('iso')
 bootmodes=(
