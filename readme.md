@@ -61,21 +61,14 @@ There are no symlinks in this repo, everything which would usually use a symlink
 the boot process of an operating system is done using a script or configured manually by
 the user. As a result when booting into the live environment there is a point where the
 the kernel may ask for an input variable, this is just the timezone which is entered in
-the following format:
-````shell
-'Region/Zone'
-````
-Where region is the country and zone is the city or town.
+`Region/Zone` format. Where region is the country and zone is the city or town.
 #### No Login Manager
 There is no login manager installed to the isos by default, nor is any extra support for
 login managers included in the base filesystem. Upon booting into the live environment the
 user is dropped into a tty and a welcome message is displayed. The message advises users
 to run the setup scripts in '$HOME/.setup'. Some of the scripts require an active internet
-connection, so if the machine isnt connected via ether just run:
-````shell
-nmtui
-````
-Establish the connection and then run the setup scripts.
+connection, so if the machine isnt connected via ether just run `nmtui`. Establish the
+connection and then run the setup scripts.
 #### No LTS
 The Linux long term support packages arent included in the builds by default nor are they
 supported in the bootloader configurations for GRUB, systemd-boot or syslinux configs. If
@@ -92,9 +85,10 @@ Sometimes a completely offline installation is impossible, but being less depend
 network while using Calamares results in less headaches overall when installing and
 testing weather in a virtual machine or on hardware.
 #### Post Installation
-After installing TacOS using Calamares, please note that the autologin will no longer 
-match the liveuser account, as liveuser will have been removed from the system. This means 
-you will need to manually log in to the shell at startup. Additionally, to ensure 
-everything works correctly, you should refresh the shell at least once using `bash` (or 
-`reload` after the shell has been refreshed at least once).
+After installing TacOS using Calamares, please note that the autologin will no
+longer match the liveuser account, as liveuser will have been removed from the
+system. This means the shell will need to be manually logged into at startup.
+Additionally, to ensure everything works correctly, it should refreshed the at
+least once using `bash` (or the `reload` alias when the shell has been refreshed
+at least once after installing).
 ##
