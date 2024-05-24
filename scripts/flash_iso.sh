@@ -18,8 +18,8 @@ selectdrive(){
 			echo -e '\nAvailable drives'
 			lsblk -o NAME,SIZE,TYPE,MOUNTPOINT | grep 'disk' | sed 's/^/▸ \/dev\//'
 		fi
-		echo -e '\nEnter drive name'
-		read -rep '▸ ' DEVICE
+		echo -e '\nEnter drive name\n'
+		read -rep '~ ' DEVICE
 		if [ -e "$DEVICE" ]; then break
 		else
 			echo -e '\nInvalid device name'
@@ -30,8 +30,8 @@ selectdrive(){
 writeiso(){
 	compinit
 	sudo umount "$DEVICE"* &>'/dev/null'
-	echo -e '\nOverwrite all existing data on the drive (y/n)'
-	read -p '▸ ' ANS
+	echo -e '\nOverwrite all existing data on the drive (y/n)\n'
+	read -p '~ ' ANS
 	if [ "$ANS" == 'y' ]; then echo
 		if sudo dd if="$ISOFILE" | pv -s $(stat -c%s "$ISOFILE") -w 80 -N 'Flashing iso' | sudo dd of="$DEVICE"; then
 			echo -e "\n$ISOFILE flashed to $DEVICE, ejecting now"
@@ -59,7 +59,7 @@ fi
 
 echo -e '\nEnter the iso path'
 echo -e "eg. $DEFDIR\n"
-read -rep '▸ ' ISODIR
+read -rep '~ ' ISODIR
 
 if [ ! -d "$ISODIR" ]; then
 	echo -e "\nError: ISO directory '$ISODIR' does not exist"
