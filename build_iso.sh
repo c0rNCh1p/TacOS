@@ -76,7 +76,7 @@ else echo -e '\nNeither wget nor curl is installed, please install one to contin
 	exit 1
 fi
 
-echo -e '\nMaking sure system requirements are installed\n'
+echo -e '\nMaking sure system requirements are installed'
 for PACKAGE in "${!PACKAGEURLS[@]}"; do
 	if ! pacman -Qs "$PACKAGE" &>'/dev/null'; then
 		echo -e "\n$PACKAGE isnt installed, installing it now\n"
