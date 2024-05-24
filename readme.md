@@ -89,5 +89,5 @@ After installing TacOS using Calamares, please note that the autologin will no l
 match the liveuser account, as liveuser will have been removed from the system. This means
 the shell will need to be manually logged into at startup. Additionally, to ensure
 everything works correctly, it should refreshed before running `startx` using `bash` (or
-the `reload` alias when the shell has been refreshed at least once after installing).
+the `reload` alias if the shell has already been refreshed at least once).
 ##
