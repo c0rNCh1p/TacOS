@@ -10,6 +10,8 @@ GH0STYURL='https://github.com/c0rNCh1p/gh0sty.git'
 MINIMAPURL='https://github.com/johnfactotum/gedit-restore-minimap.git'
 SCUTTLEURL='https://github.com/c0rNCh1p/scuttle.git'
 
+# Add a check weather server or desktop
+
 nottyOrNoice(){
 	local NAUGHTYORNICE BTCHSIZE BATCH
 	NAUGHTYORNICE=(
@@ -48,6 +50,7 @@ bldAURPkgs(){
 		'die-plugins'
 		'epson-inkjet-printer-escpr'
 		'epson-inkjet-printer-escpr2'
+		'faudio'
 		'gedit-dark-variant'
 		'gedit-open-uri-context-menu-git'
 		'habash'

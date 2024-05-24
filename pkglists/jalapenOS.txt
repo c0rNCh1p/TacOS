@@ -312,7 +312,6 @@ dvgrab
 dxvk-mingw-git
 faac
 faad2
-faudio
 fcgi
 ffmpeg
 ffmpegthumbnailer
