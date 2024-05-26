@@ -429,7 +429,7 @@ sdl_net
 sdl_sound
 sdl_ttf
 sndio
-steam
+steam-native-runtime
 sublime-text-4
 svt-av1
 svt-hevc
@@ -545,6 +545,7 @@ llvm
 luacheck
 luarocks
 meson
+npm
 python-pip
 python-pyparted
 python39
@@ -588,7 +589,6 @@ ttf-ubuntu-font-family
 ##################################################
 arco-calamares
 arcolinux-app-git
-arcolinux-bin-git
 arcolinux-bootloader-grub-git
 arcolinux-cron-git
 arcolinux-desktop-trasher-git
@@ -597,7 +597,6 @@ arcolinux-grub-theme-vimix-git
 arcolinux-hblock-git
 arcolinux-keyring
 arcolinux-kvantum-git
-arcolinux-meta-steam-amd
 arcolinux-mirrorlist-git
 arcolinux-pipemenus-git
 arcolinux-qt5-git

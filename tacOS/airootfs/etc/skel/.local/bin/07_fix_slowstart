@@ -33,10 +33,7 @@ check_daemons(){
 final_func(){
 	sudo systemctl reset-failed
 	sudo systemctl daemon-reload
-	echo -e '\nIf the issue still isnt resolved,'
-	echo -e 'try reloading the desktop session.'
-	echo -e 'If the issue persists, try rebooting.'
-	echo -e 'If none of that works, try reinstalling.'
+	echo -e '\nPlease reboot if the desktop loads slowly\n'
 }
 
 if [ -n "$1" ]; then "$1"

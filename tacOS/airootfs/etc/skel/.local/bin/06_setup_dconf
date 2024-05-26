@@ -1,5 +1,5 @@
 #!/bin/bash
-# shellcheck disable=SC2002
+#shellcheck disable=SC2002
 
 DATE=$(date +'%m-%d-%y-%H')
 CONFFILE="$HOME/.config/dconf/settings/settings-dump-$DATE.ini"
@@ -73,6 +73,6 @@ dconf dump / > "$CONFFILE"
 echo -e "\nSettings dumped to $CONFFILE\n"
 sleep 1
 cat "$CONFFILE" | dconf load /
-echo -e "Dconf settings loaded successfully from $CONFFILE\n"
+echo -e "Dconf settings loaded successfully from $CONFFILE"
 sleep 1
 unset CONFFILE DATE

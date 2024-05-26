@@ -324,6 +324,7 @@ llvm
 luacheck
 luarocks
 meson
+npm
 python-pip
 python-pyparted
 python39
@@ -367,12 +368,10 @@ ttf-ubuntu-font-family
 ##################################################
 arcolinux-bootloader-grub-git
 arcolinux-app-git
-arcolinux-bin-git
 arcolinux-cron-git
 arcolinux-fonts-git
 arcolinux-grub-theme-vimix-git
 arcolinux-keyring
-arcolinux-meta-steam-intel
 arcolinux-mirrorlist-git
 arcolinux-system-config-git
 arcolinux-systemd-services-git

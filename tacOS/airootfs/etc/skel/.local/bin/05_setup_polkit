@@ -3,4 +3,4 @@
 sudo chown 'root:polkitd' '/etc/polkit-1/rules.d'
 sudo find '/etc/polkit-1/rules.d' -type f -exec chmod '750' '{}' \;
 sudo find '/etc/polkit-1/rules.d' -type f -exec chown 'root:polkitd' '{}' \;
-echo -e '\nPolkit setup complete\n'
+echo -e '\nPolkit setup complete'
