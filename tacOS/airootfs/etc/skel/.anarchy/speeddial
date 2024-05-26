@@ -220,13 +220,7 @@ SYSTEM_FILES=(
 select_file(){
     local PROMPT="$1"
     local -n FILES=$2
-    local SELECTED
-    local INDEX
-    local COLUMNS
-    local COLWIDTH
-    local ROWS
-    local ROW
-    local COL
+    local COL COLUMNS COLWIDTH INDEX REPLY ROW ROWS SELECTED
     echo -e "\033[0;32m\n$PROMPT\n\033[0m"
     COLUMNS=$(tput cols)
     MAX_LENGTH=0
