@@ -8,7 +8,12 @@
 ########################################################################################################################
 # ~ $ANARCHY/cleanup
 ########################################################################################################################
-# ~ File Removals (1)
+# ~ Source Files (1)
+########################################################################################################################
+[ -f "$HOME/.anarchy/aliases" ] && . "$HOME/.anarchy/aliases"
+[ -f "$HOME/.anarchy/variables" ] && . "$HOME/.anarchy/variables"
+########################################################################################################################
+# ~ File Removals (2)
 ########################################################################################################################
 [ -f "$HOME/.aspell.en.prepl" ] && rm "$HOME/.aspell.en.prepl"
 [ -f "$HOME/.aspell.en.pws" ] && rm "$HOME/.aspell.en.pws"
@@ -47,7 +52,7 @@
 [ -f '/etc/xdg/autostart/gnome-keyring-ssh.desktop' ] && srm '/etc/xdg/autostart/gnome-keyring-ssh.desktop'
 [ -f '/usr/share/nano-syntax-highlighting/nanorc.nanorc' ] && srm '/usr/share/nano-syntax-highlighting/nanorc.nanorc'
 ########################################################################################################################
-# ~ File Modifications (2)
+# ~ File Modifications (3)
 ########################################################################################################################
 [ -f "$CONFIG/auostart/variety.desktop" ] && smv "$CONFIG/auostart/variety.desktop" "/etc/xdg/autostart"
 [ -f "$HOME/.asoundrc" ] && mv "$HOME/.asoundrc" "$ALSA_HOME/asoundrc"
@@ -57,7 +62,7 @@
 [[ -f '/usr/local/bin/arcolinux-graphical-target' && -f "$HOME/.local/bin/agt_mod" ]] &&
 	smv "$HOME/.local/bin/agt_mod" '/usr/local/bin/arcolinux-graphical-target'
 ########################################################################################################################
-# ~ Directory Removals (3)
+# ~ Directory Removals (4)
 ########################################################################################################################
 [ -d "$CONFIG/auostart" ] && rmr "$CONFIG/autostart"
 [ -d "$HOME/.log" ] && rmr "$HOME/.log"
@@ -71,7 +76,7 @@
 [ -d "$HOME/Videos" ] && rmr "$HOME/Videos"
 [ -d "$MONERO_HOME/.bitmonero/lmdb" ] && rmr "$MONERO_HOME/.bitmonero/lmdb"
 ########################################################################################################################
-# ~ Directory Modifications (4)
+# ~ Directory Modifications (5)
 ########################################################################################################################
 [ ! -d "$ALSA_HOME" ] && mvp "$ALSA_HOME" &>'/dev/null'
 [ ! -d "$AUDIO" ] && mvp "$AUDIO" &>'/dev/null'
@@ -96,7 +101,7 @@
 [ -d "$HOME/.wine" ] && mv "$HOME/.wine" "$WINEPREFIX" &>'/dev/null'
 [ -d "$HOME/Monero" ] && mv "$HOME/Monero" "$CONFIG/monero-project" &>'/dev/null'
 ########################################################################################################################
-# ~ Position Last (5)
+# ~ Position Last (6)
 ########################################################################################################################
 [ ! -d "$ARDOUR" ] && mvp "$ARDOUR" &>'/dev/null'
 [ ! -d "$ARDOUR/plugins" ] && mvp "$ARDOUR/plugins" &>'/dev/null'
