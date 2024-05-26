@@ -10,19 +10,6 @@
 ########################################################################################################################
 # ~ File Removals (1)
 ########################################################################################################################
-[ -f '/etc/profile.d/debuginfod.csh' ] && srm '/etc/profile.d/debuginfod.csh'
-[ -f '/etc/profile.d/gawk.csh' ] && srm '/etc/profile.d/gawk.csh'
-[ -f '/etc/profile.d/gawk.sh' ] && srm '/etc/profile.d/gawk.sh'
-[ -f '/etc/profile.d/jre.csh' ] && srm '/etc/profile.d/jre.csh'
-[ -f '/etc/profile.d/libreoffice-fresh.csh' ] && srm '/etc/profile.d/libreoffice-fresh.csh'
-[ -f '/etc/profile.d/perlbin.csh' ] && srm '/etc/profile.d/perlbin.csh'
-[ -f '/etc/profile.d/perlbin.sh' ] && srm '/etc/profile.d/perlbin.sh'
-[ -f '/etc/profile.d/vte.csh' ] && srm '/etc/profile.d/vte.csh'
-[ -f '/etc/X11/xinit/xinitrc.d/50-systemd-user.sh' ] && srm '/etc/X11/xinit/xinitrc.d/50-systemd-user.sh'
-[ -f '/etc/X11/xinit/xinitrc.d/80xapp-gtk3-module.sh' ] && srm '/etc/X11/xinit/xinitrc.d/80xapp-gtk3-module.sh'
-[ -f '/etc/xdg/autostart/gnome-keyring-pkcs11.desktop' ] && srm '/etc/xdg/autostart/gnome-keyring-pkcs11.desktop'
-[ -f '/etc/xdg/autostart/gnome-keyring-secrets.desktop' ] && srm '/etc/xdg/autostart/gnome-keyring-secrets.desktop'
-[ -f '/etc/xdg/autostart/gnome-keyring-ssh.desktop' ] && srm '/etc/xdg/autostart/gnome-keyring-ssh.desktop'
 [ -f "$HOME/.aspell.en.prepl" ] && rm "$HOME/.aspell.en.prepl"
 [ -f "$HOME/.aspell.en.pws" ] && rm "$HOME/.aspell.en.pws"
 [ -f "$HOME/.bash_logout" ] && rm "$HOME/.bash_logout"
@@ -38,71 +25,84 @@
 [ -f "$HOME/.sqlite_history" ] && rm "$HOME/.sqlite_history"
 [ -f "$HOME/.wget-hsts" ] && rm "$HOME/.wget-hsts"
 [ -f "$HOME/.Xresources" ] && rm "$HOME/.Xresources"
-[ -f "$HOME/.xsession-errors.old" ] && rm "$HOME/.xsession-errors.old"
-[ -f "$HOME/.xsession-errors" ] && rm "$HOME/.xsession-errors"
-[ -f "$HOME/.xsessionrc" ] && rm "$HOME/.xsessionrc"
 [ -f "$HOME/.xsession" ] && rm "$HOME/.xsession"
+[ -f "$HOME/.xsession-errors" ] && rm "$HOME/.xsession-errors"
+[ -f "$HOME/.xsession-errors.old" ] && rm "$HOME/.xsession-errors.old"
+[ -f "$HOME/.xsessionrc" ] && rm "$HOME/.xsessionrc"
+[ -f "$HOME/.yarnrc" ] && rm "$HOME/.yarnrc"
 [ -f "$HOME/.zshrc" ] && rm "$HOME/.zshrc"
 [ -f "$HOME/.zynaddsubfx-bank-cache.xml" ] && rm "$HOME/.zynaddsubfx-bank-cache.xml"
+[ -f '/etc/profile.d/debuginfod.csh' ] && srm '/etc/profile.d/debuginfod.csh'
+[ -f '/etc/profile.d/gawk.csh' ] && srm '/etc/profile.d/gawk.csh'
+[ -f '/etc/profile.d/gawk.sh' ] && srm '/etc/profile.d/gawk.sh'
+[ -f '/etc/profile.d/jre.csh' ] && srm '/etc/profile.d/jre.csh'
+[ -f '/etc/profile.d/libreoffice-fresh.csh' ] && srm '/etc/profile.d/libreoffice-fresh.csh'
+[ -f '/etc/profile.d/perlbin.csh' ] && srm '/etc/profile.d/perlbin.csh'
+[ -f '/etc/profile.d/perlbin.sh' ] && srm '/etc/profile.d/perlbin.sh'
+[ -f '/etc/profile.d/vte.csh' ] && srm '/etc/profile.d/vte.csh'
+[ -f '/etc/X11/xinit/xinitrc.d/50-systemd-user.sh' ] && srm '/etc/X11/xinit/xinitrc.d/50-systemd-user.sh'
+[ -f '/etc/X11/xinit/xinitrc.d/80xapp-gtk3-module.sh' ] && srm '/etc/X11/xinit/xinitrc.d/80xapp-gtk3-module.sh'
+[ -f '/etc/xdg/autostart/gnome-keyring-pkcs11.desktop' ] && srm '/etc/xdg/autostart/gnome-keyring-pkcs11.desktop'
+[ -f '/etc/xdg/autostart/gnome-keyring-secrets.desktop' ] && srm '/etc/xdg/autostart/gnome-keyring-secrets.desktop'
+[ -f '/etc/xdg/autostart/gnome-keyring-ssh.desktop' ] && srm '/etc/xdg/autostart/gnome-keyring-ssh.desktop'
 [ -f '/usr/share/nano-syntax-highlighting/nanorc.nanorc' ] && srm '/usr/share/nano-syntax-highlighting/nanorc.nanorc'
 ########################################################################################################################
 # ~ File Modifications (2)
 ########################################################################################################################
-[[ -f '/etc/ch1px0rg-rel' && -f '/etc/lsb-release' ]] && smv '/etc/ch1px0rg-rel' '/etc/lsb-release'
-[[ -f '/usr/local/bin/arcolinux-graphical-target' && -f "$HOME/.local/bin/agt_mod" ]] &&
-	smv "$HOME/.local/bin/agt_mod" '/usr/local/bin/arcolinux-graphical-target'
 [ -f "$CONFIG/auostart/variety.desktop" ] && smv "$CONFIG/auostart/variety.desktop" "/etc/xdg/autostart"
 [ -f "$HOME/.asoundrc" ] && mv "$HOME/.asoundrc" "$ALSA_HOME/asoundrc"
 [ -f "$HOME/.gtkrc-2.0" ] && mv "$HOME/.gtkrc-2.0" "$GTK2_RC_FILES/gtkrc"
 [ -f "$HOME/.screenrc" ] && mv "$HOME/.screenrc" "$SCREENRC"
+[[ -f '/etc/ch1px0rg-rel' && -f '/etc/lsb-release' ]] && smv '/etc/ch1px0rg-rel' '/etc/lsb-release'
+[[ -f '/usr/local/bin/arcolinux-graphical-target' && -f "$HOME/.local/bin/agt_mod" ]] &&
+	smv "$HOME/.local/bin/agt_mod" '/usr/local/bin/arcolinux-graphical-target'
 ########################################################################################################################
 # ~ Directory Removals (3)
 ########################################################################################################################
 [ -d "$CONFIG/auostart" ] && rmr "$CONFIG/autostart"
 [ -d "$HOME/.log" ] && rmr "$HOME/.log"
+[ -d "$HOME/.shared-ringdb" ] && rmr "$HOME/.shared-ringdb"
+[ -d "$HOME/.tor" ] && rmr "$HOME/.tor"
+[ -d "$HOME/.vital" ] && rmr "$HOME/.vital"
 [ -d "$HOME/Music" ] && rmr "$HOME/Music"
 [ -d "$HOME/Pictures" ] && rmr "$HOME/Pictures"
 [ -d "$HOME/Public" ] && rmr "$HOME/Public"
-[ -d "$HOME/.shared-ringdb" ] && rmr "$HOME/.shared-ringdb"
 [ -d "$HOME/Templates" ] && rmr "$HOME/Templates"
-[ -d "$HOME/.tor" ] && rmr "$HOME/.tor"
 [ -d "$HOME/Videos" ] && rmr "$HOME/Videos"
-[ -d "$HOME/.vital" ] && rmr "$HOME/.vital"
 [ -d "$MONERO_HOME/.bitmonero/lmdb" ] && rmr "$MONERO_HOME/.bitmonero/lmdb"
-[ -d '/home/root' ] && srm '/home/root'
 ########################################################################################################################
 # ~ Directory Modifications (4)
 ########################################################################################################################
 [ ! -d "$ALSA_HOME" ] && mvp "$ALSA_HOME" &>'/dev/null'
 [ ! -d "$AUDIO" ] && mvp "$AUDIO" &>'/dev/null'
-[ ! -d "$GTK2_RC_FILES" ] && mvp "$GTK2_RC_FILES" &>'/dev/null'
-[ -d "$HOME/.bin" ] && mv "$HOME/.bin" "$LOCAL/bin" &>'/dev/null'
-[ -d "$HOME/.cargo" ] && mv "$HOME/.cargo" "$CARGO_HOME" &>'/dev/null'
-[ -d "$HOME/.ccache" ] && mv "$HOME/.ccache" "$CCACHE_DIR" &>'/dev/null'
-[ -d "$HOME/Monero" ] && mv "$HOME/Monero" "$CONFIG/monero-project" &>'/dev/null'
-[ -d "$HOME/.pki" ] && mv "$HOME/.pki" "$PKI_HOME" &>'/dev/null'
-[ -d "$HOME/.pulse" ] && mv "$HOME/.pulse" "$PULSE_HOME" &>'/dev/null'
-[ -d "$HOME/.wine" ] && mv "$HOME/.wine" "$WINEPREFIX" &>'/dev/null'
 [ ! -d "$DEADBEEF_HOME" ] && mvp "$DEADBEEF_HOME" &>'/dev/null'
 [ ! -d "$GIMP_HOME" ] && mvp "$GIMP_HOME" &>'/dev/null'
+[ ! -d "$GTK2_RC_FILES" ] && mvp "$GTK2_RC_FILES" &>'/dev/null'
+[ ! -d "$LIB" ] && mvp "$LIB" &>'/dev/null'
 [ ! -d "$LOCAL" ] && mvp "$LOCAL" &>'/dev/null'
 [ ! -d "$MONERO_HOME" ] && mvp "$MONERO_HOME" &>'/dev/null'
-[ ! -d "$NANO_HOME/backup" ] && mvp "$NANO_HOME/backup" &>'/dev/null'
 [ ! -d "$NANO_HOME" ] && mvp "$NANO_HOME" &>'/dev/null'
+[ ! -d "$NANO_HOME/backup" ] && mvp "$NANO_HOME/backup" &>'/dev/null'
 [ ! -d "$REPO_HOME" ] && mvp "$REPO_HOME" &>'/dev/null'
 [ ! -d "$SQL_HOME" ] && mvp "$SQL_HOME" &>'/dev/null'
 [ ! -d "$SSH_HOME" ] && mvp "$SSH_HOME" &>'/dev/null'
 [ ! -d "$VISUAL" ] && mvp "$VISUAL" &>'/dev/null'
-[ ! -d "$XDG_STATE_HOME/bash" ] && mvp "$XDG_STATE_HOME/bash" &>'/dev/null'
 [ ! -d "$XDG_STATE_HOME" ] && mvp "$XDG_STATE_HOME" &>'/dev/null'
+[ ! -d "$XDG_STATE_HOME/bash" ] && mvp "$XDG_STATE_HOME/bash" &>'/dev/null'
+[ -d "$HOME/.bin" ] && mv "$HOME/.bin" "$LOCAL/bin" &>'/dev/null'
+[ -d "$HOME/.cargo" ] && mv "$HOME/.cargo" "$CARGO_HOME" &>'/dev/null'
+[ -d "$HOME/.ccache" ] && mv "$HOME/.ccache" "$CCACHE_DIR" &>'/dev/null'
+[ -d "$HOME/.pki" ] && mv "$HOME/.pki" "$PKI_HOME" &>'/dev/null'
+[ -d "$HOME/.wine" ] && mv "$HOME/.wine" "$WINEPREFIX" &>'/dev/null'
+[ -d "$HOME/Monero" ] && mv "$HOME/Monero" "$CONFIG/monero-project" &>'/dev/null'
 ########################################################################################################################
 # ~ Position Last (5)
 ########################################################################################################################
-[ ! -d "$AUDIO/files" ] && mvp "$AUDIO/files" &>'/dev/null'
 [ ! -d "$ARDOUR" ] && mvp "$ARDOUR" &>'/dev/null'
 [ ! -d "$ARDOUR/plugins" ] && mvp "$ARDOUR/plugins" &>'/dev/null'
 [ ! -d "$ARDOUR/projects" ] && mvp "$ARDOUR/projects" &>'/dev/null'
 [ ! -d "$ARDOUR/templates" ] && mvp "$ARDOUR/templates" &>'/dev/null'
+[ ! -d "$AUDIO/files" ] && mvp "$AUDIO/files" &>'/dev/null'
 [ ! -d "$BLENDER" ] && mvp "$BLENDER" &>'/dev/null'
 [ ! -d "$BLENDER/plugins" ] && mvp "$BLENDER/plugins" &>'/dev/null'
 [ ! -d "$BLENDER/projects" ] && mvp "$BLENDER/projects" &>'/dev/null'
