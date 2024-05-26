@@ -1,0 +1,197 @@
+#!/bin/bash
+#
+#               __|  _ \  __|  __|  _ \   _ \  _ _|    \    |
+#             \__ \  __/  _|   _|   |  |  |  |   |    _ \   |
+#             ____/ _|   ___| ___| ___/  ___/  ___| _/  _\ ____|
+#
+################################################################################
+# ~ $ANARCHY/speeddial
+################################################################################
+# 1 ~ User Files
+################################################################################
+USER_FILES=(
+	"$ANARCHY/aliases"
+	"$ANARCHY/cleanup"
+	"$ANARCHY/daemons"
+	"$ANARCHY/insulter"
+	"$ANARCHY/mntmgr"
+	"$ANARCHY/perso"
+	"$ANARCHY/speeddial"
+	"$ANARCHY/variables"
+	"$CONFIG/awesome/rc.lua"
+	"$CONFIG/awesome/themes/tacOS/theme.lua"
+	"$CONFIG/flameshot/flameshot.ini"
+	"$CONFIG/lvm/lvm.conf"
+	"$CONFIG/mimeapps.list"
+	"$CONFIG/terminator/config"
+	"$DATA/xorg/Xorg.0.log"
+	"$HOME/.bashrc"
+	"$HOME/.gitconfig"
+	"$HOME/.ssh/config"
+	"$HOME/extras.log"
+	"$HOME/daemons.log"
+	# TODO add $BIN files
+)
+################################################################################
+# 2 ~ System Files
+################################################################################
+SYSTEM_FILES=(
+	'/etc/calamares/branding/tacOS/branding.desc'
+	'/etc/calamares/branding/tacOS/calamares-widget-tree'
+	'/etc/calamares/branding/tacOS/show.qml'
+	'/etc/calamares/branding/tacOS/stylesheet-codes.qss'
+	'/etc/calamares/branding/tacOS/stylesheet.qss'
+	'/etc/calamares/modules/bootloader-grub.conf'
+	'/etc/calamares/modules/bootloader-refind.conf'
+	'/etc/calamares/modules/bootloader-systemd.conf'
+	'/etc/calamares/modules/bootloader.conf'
+	'/etc/calamares/modules/finished.conf'
+	'/etc/calamares/modules/fstab.conf'
+	'/etc/calamares/modules/grubcfg.conf'
+	'/etc/calamares/modules/initcpio.conf'
+	'/etc/calamares/modules/locale.conf'
+	'/etc/calamares/modules/machineid.conf'
+	'/etc/calamares/modules/mount.conf'
+	'/etc/calamares/modules/packages.conf'
+	'/etc/calamares/modules/partition.conf'
+	'/etc/calamares/modules/preservefiles.conf'
+	'/etc/calamares/modules/removeuser.conf'
+	'/etc/calamares/modules/shellprocess-before.conf'
+	'/etc/calamares/modules/shellprocess-final.conf'
+	'/etc/calamares/modules/ucode.conf'
+	'/etc/calamares/modules/umount.conf'
+	'/etc/calamares/modules/unpackfs1.conf'
+	'/etc/calamares/modules/unpackfs2.conf'
+	'/etc/calamares/modules/users.conf'
+	'/etc/calamares/modules/welcome.conf'
+	'/etc/calamares/settings.conf'
+	'/etc/default/grub'
+	'/etc/dev-rel'
+	'/etc/DIR_COLORS'
+	'/etc/dnsmasq.conf'
+	'/etc/environment'
+	'/etc/group'
+	'/etc/grub.d/40_custom'
+	'/etc/gshadow'
+	'/etc/hostname'
+	'/etc/htoprc'
+	'/etc/inputrc'
+	'/etc/issue'
+	'/etc/jackdrc'
+	'/etc/locale.conf'
+	'/etc/locale.gen'
+	'/etc/mime.types'
+	'/etc/mkinitcpio.conf'
+	'/etc/mkinitcpio.d/linux.preset'
+	'/etc/mkinitcpio.d/tacOS'
+	'/etc/modprobe.d/broadcom-wl.conf'
+	'/etc/nanorc'
+	'/etc/neofetch/config.conf'
+	'/etc/neofetch/logo'
+	'/etc/NetworkManager/NetworkManager.conf'
+	'/etc/nsswitch.conf'
+	'/etc/openvpn/client/ovpncli.ovpn'
+	'/etc/pacman.conf'
+	'/etc/pacman.d/gnupg/gpg.conf'
+	'/etc/pacman.d/mirrorlist'
+	'/etc/pam.d/login'
+	'/etc/pam.d/system-auth'
+	'/etc/passwd'
+	'/etc/profile'
+	'/etc/profile.d/locale.sh'
+	'/etc/proxychains.conf'
+	'/etc/resolv.conf'
+	'/etc/security/limits.conf'
+	'/etc/shadow'
+	'/etc/ssh/ssh_config'
+	'/etc/ssh/sshd_config'
+	'/etc/sudoers'
+	'/etc/sysctl.conf'
+	'/etc/systemd/journald.conf'
+	'/etc/systemd/logind.conf'
+	'/etc/systemd/logind.conf.d/tacOS-settings.conf'
+	'/etc/systemd/network.conf.d/ipv6-privacy-extensions.conf'
+	'/etc/systemd/network/20-ethernet.network'
+	'/etc/systemd/network/20-wlan.network'
+	'/etc/systemd/network/20-wwan.network'
+	'/etc/tacOS-rel'
+	'/etc/tor/torrc'
+	'/etc/tor/torsocks.conf'
+	'/etc/vconsole.conf'
+	'/etc/X11/xinit/xinitrc'
+	'/etc/X11/xinit/xserverrc'
+	'/etc/xdg/user-dirs.conf'
+	'/etc/xdg/user-dirs.defaults'
+)
+################################################################################
+# 3 ~ Select File
+################################################################################
+select_file(){
+	local PROMPT="$1"
+	local -n FILES=$2
+	local SELECTED
+	local INDEX
+	echo -e "\033[0;32m\n$PROMPT\n\033[0m"
+	for INDEX in "${!FILES[@]}"; do
+		printf "\033[0;36m%d ~\033[0m \033[0;37m%s\033[0m\n" $((INDEX+1)) "${FILES[INDEX]}"
+	done
+	while true; do
+		echo -e "\033[0;32m\nEnter \$#\n\033[0m"
+		read -rp "~ " REPLY
+		if [[ "$REPLY" =~ ^[0-9]+$ ]] && [ "$REPLY" -ge 1 ] &&
+		[ "$REPLY" -le "${#FILES[@]}" ]; then
+			SELECTED="${FILES[REPLY-1]}"
+			echo -e "\n\033[0;32mSelected:\033[0m \033[0;37m$SELECTED\033[0m\n"
+			REPLY="$SELECTED"
+			return 0
+		else
+			echo -e "\033[0;31mInvalid selection. Valid files: 1-${#FILES[@]}\033[0m"
+		fi
+	done
+}
+################################################################################
+# 4 ~ Read Files
+################################################################################
+read_perso_speeddial(){
+	local FILE
+	select_file 'Perso Files' PERSO_FILES
+	FILE="$REPLY"
+	[[ -n "$FILE" ]] && but "$FILE"
+}
+
+read_user_speeddial() {
+	local FILE
+	select_file 'User Files' USER_FILES
+	FILE="$REPLY"
+	[[ -n "$FILE" ]] && but "$FILE"
+}
+
+read_system_speeddial() {
+	local FILE
+	select_file 'System Files' SYSTEM_FILES
+	FILE="$REPLY"
+	[[ -n "$FILE" ]] && sbut "$FILE"
+}
+################################################################################
+# 5 ~ Edit Files
+################################################################################
+edit_perso_speeddial() {
+	local FILE
+	select_file 'Perso Files' PERSO_FILES
+	FILE="$REPLY"
+	[[ -n "$FILE" ]] && $EDITOR "$FILE"
+}
+
+edit_user_speeddial() {
+	local FILE
+	select_file 'Perso Files' USER_FILES
+	FILE="$REPLY"
+	[[ -n "$FILE" ]] && $EDITOR "$FILE"
+}
+
+edit_system_speeddial() {
+	local FILE
+	select_file 'System Files' SYSTEM_FILES
+	FILE="$REPLY"
+	[[ -n "$FILE" ]] && sudo $EDITOR "$FILE"
+}

@@ -1,10 +1,20 @@
 #!/bin/bash
-
-LOGFL="$HOME/daemons.log"
+#
+#                 _ \     \    __|   \  |   _ \    \ |   __|
+#                 |  |   _ \   _|   |\/ |  (   |     | \__ \
+#                ___/  _/  _\ ___| _|  _| \___/  _|\_| ____/
+#
+################################################################################
+# ~ $ANARCHY/daemons
+################################################################################
+# man -P 'less +/DESCRIPTION' 'daemon(7)'
+################################################################################
+# 1 ~ Variables & Daemon List
+################################################################################
+LOGFL='/var/log/daemons.log'
 LOCKFL='/tmp/daemons.lck'
 DATE=$(date '+%d/%m/%y %H:%M:%S')
 GKDARGS='--daemonize --components=pkcs11,secrets,ssh'
-
 DAEMONS=(
 	'avahi-daemon'
 	'bluetooth'
@@ -21,42 +31,61 @@ DAEMONS=(
 	'systemd-timesyncd'
 	#'vboxservice'
 )
-
+################################################################################
+# 2 ~ Manage Start Process
+################################################################################
 log_func(){
 	echo "$DATE | $1" >>"$LOGFL"
 }
 
+check_deps(){
+	for CMD in systemctl pgrep gnome-keyring-daemon sudo; do
+		if ! command -v "$CMD" &>'/dev/null'; then
+			echo "Error: $CMD is not installed." >&2
+			exit 1
+		fi
+	done
+}
+
+# Manage gnome-keyring-daemon
 gkd_func(){
-	if ! pgrep -f gnome-keyring-daemon >'/dev/null' 2>&1; then
+	if ! pgrep -f gnome-keyring-daemon &>'/dev/null'; then
 		if ! gnome-keyring-daemon --start "$GKDARGS"; then
 			gnome-keyring-daemon --start "$GKDARGS" >>"$LOGFL" 2>&1 ||
-			log_func 'error starting gnome-keyring-daemon'
+			log_func 'Error starting gnome-keyring-daemon'
 		fi
 	else
 		if ! gnome-keyring-daemon --replace "$GKDARGS"; then
 			gnome-keyring-daemon --replace "$GKDARGS" >>"$LOGFL" 2>&1 ||
-			log_func 'error starting gnome-keyring-daemon'
+			log_func 'Error starting gnome-keyring-daemon'
 		fi
 	fi
 }
 
+enable_daemon(){
+	if ! systemctl is-enabled --quiet "$1"; then
+		sudo systemctl enable "$1" | sudo tee -a "$LOGFL" 2>&1 ||
+		log_func "Error enabling $1"
+	fi
+}
+
+start_daemon(){
+	if ! systemctl is-active --quiet "$1"; then
+		sudo systemctl start "$1" | sudo tee -a "$LOGFL" 2>&1 ||
+		log_func "Error starting $1"
+	fi
+}
+
+check_deps
 if [ ! -f "$LOCKFL" ]; then clear
 	for DAEMON in "${DAEMONS[@]}"; do
-		if ! systemctl is-enabled --quiet "$DAEMON"; then
-			sudo systemctl enable "$DAEMON" | sudo tee -a "$LOGFL" 2>&1 ||
-			log_func "error enabling $DAEMON"
-		fi
+		enable_daemon "$DAEMON"
 	done
 	for DAEMON in "${DAEMONS[@]}"; do
-		if ! systemctl is-active --quiet "$DAEMON"; then
-			sudo systemctl start "$DAEMON" | sudo tee -a "$LOGFL" 2>&1 ||
-			log_func "error starting $DAEMON"
-		fi
+		start_daemon "$DAEMON"
 	done
-	gkd_func >'/dev/null' 2>&1
-	sudo mv "$LOGFL" '/var/log'
-	echo 'lock' >"$LOCKFL"
+	gkd_func &>'/dev/null'
+	echo 'Probatissima' >"$LOCKFL"
 	sleep 1; clear
 fi
-
-unset ARG DAEMON DAEMONS DATE GKDARGS LOCKFL LOGFL
+unset DAEMON DAEMONS DATE GKDARGS LOCKFL LOGFL

@@ -1,17 +1,17 @@
 #!/bin/bash
 #
-#                                    \  |   \ | __ __|   \  |   __|  _ \
-#                                   |\/ |  .  |    |    |\/ |  (_ |    /
-#                                  _|  _| _|\_|   _|   _|  _| \___| _|_\
+#                                      \  |   \ | __ __|  \  |   \ |   __|  _ \
+#                                     |\/ |  .  |    |   |\/ |  .  |  (_ |    /
+#                                    _|  _| _|\_|   _|  _|  _| _|\_| \___| _|_\
 #
-##############################################################################################################
-# ~ $HOME/.anarchy/mntmgr
-##############################################################################################################
+########################################################################################################################
+# ~ $ANARCHY/mntmgr
+########################################################################################################################
 # ~ Luke Smith | https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/mounter
-#              | https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/unmounter
-##############################################################################################################
-# 1 ~ MOUNTER
-##############################################################################################################
+#			   | https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/unmounter
+########################################################################################################################
+# 1 ~ Mounter
+########################################################################################################################
 mounter(){
 	IFS='
 	'
@@ -42,7 +42,7 @@ mounter(){
 		uuid="${drive%% *}"
 		uuid="${uuid//-}" # This is a bashism
 		for open in $decrypted; do
-			[ "$uuid" = "$open" ] && break 1
+			[ "$uuid"="$open" ] && break 1
 		done && continue 1
 		echo "🔒 $drive"
 	done | filter)"
@@ -66,7 +66,7 @@ mounter(){
 		if [ ! -d "$mp" ]; then
 			mkdiryn=$(printf "No\\nYes" | \
 			dmenu -nb "#3e3e3e" -nf "#2f8e00" -sb "#969696" -sf "#55ff00" -i -p "no $mp, create it?")
-			[ "$mkdiryn" = "Yes" ] && (sudo -A mkdir -p "$mp")
+			[ "$mkdiryn"="Yes" ] && (sudo -A mkdir -p "$mp")
 		fi
 	}
 	attemptmount(){
@@ -78,14 +78,14 @@ mounter(){
 	case "$chosen" in
 		💾*)
 			chosen="${chosen%% *}"
-			chosen="${chosen:1}" # This is a bashism
+			chosen="${chosen:1}"
 			attemptmount || getmount
 			sudo -A mount "$chosen" "$mp" -o uid="$(id -u)",gid="$(id -g)"
 			notify-send "💾Drive Mounted." "$chosen mounted to $mp."
 			;;
 		🔒*)
 			chosen="${chosen%% *}"
-			chosen="${chosen:1}" # This is a bashism
+			chosen="${chosen:1}"
 			# Number the drive
 			while true; do
 				[ -f "/dev/mapper/usb$num" ] || break
@@ -103,16 +103,16 @@ mounter(){
 			notify-send "❗note" "remember to allow file access on your phone now."
 			getmount
 			number="${chosen%%:*}"
-			number="${chosen:1}" # this is a bashism
+			number="${chosen:1}"
 			sudo -A simple-mtpfs -o allow_other \
 			-o fsname="simple-mtpfs-$(escape $chosen)" --device "$number" "$mp"
 			notify-send "🤖 android mounted." "android device mounted to $mp."
 			;;
 	esac
 }
-##############################################################################################################
-# 2 ~ UNMOUNTER
-##############################################################################################################
+########################################################################################################################
+# 2 ~ Unmounter
+########################################################################################################################
 unmounter(){
 mounteddroids="$(grep simple-mtpfs /etc/mtab | awk '{print "📱" $2}')"
 	lsblkoutput="$(lsblk -nrpo "name,type,size,mountpoint")"

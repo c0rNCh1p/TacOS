@@ -1,16 +1,16 @@
 #!/bin/bash
 #
-#                   \    |    _ _|    \     __|  __|   __|
-#                  _ \   |      |    _ \  \__ \  _|  \__ \
-#                _/  _\ ____| ___| _/  _\ ____/ ___| ____/
+#                    \    |    _ _|    \     __|  __|   __|
+#                   _ \   |      |    _ \  \__ \  _|  \__ \
+#                 _/  _\ ____| ___| _/  _\ ____/ ___| ____/
 #
 ################################################################################
-# ~ "$HOME/.anarchy/aliases"
+# ~ $ANARCHY/aliases
 ################################################################################
 # 1 ~ Dank U Wel
 ################################################################################
 #
-# "arco" (ˈɑːkəʊ') british english : adverb
+# 'arco' (ˈɑːkəʊ') british english : adverb
 # A musical direction for instruments of the violin family, indicating that the
 # bow should be used (as opposed to plucking strings).
 #
@@ -24,12 +24,13 @@ alias af='lynx -dump -width=500 http://localhost:80/whm-server-status'
 alias arco_install='arcolinux_welcome_app'
 alias att='archlinux_tweak_tool'
 alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
+alias but='bat --theme=OneHalfDark --color=always --language=sh'
 alias calc='galculator'
 alias chars='gucharmap'
 alias chkcpu='cpuid -i | grep uarch | head -n 1'
 alias chkefi='ls /sys/firmware/efi/efivars'
-alias chkvul="grep . /sys/devices/system/cpu/vulnerabilities/*"
-alias colors='export LS_COLORS="$(cat "$HOME/.dircolors")"'
+alias chkvul='grep . /sys/devices/system/cpu/vulnerabilities/*'
+alias colors='export LS_COLORS=$(cat $HOME/.dircolors)'
 alias cp='cp -rp'
 alias dbn='deadbeef --next &'
 alias dbp='deadbeef --prev &'
@@ -39,10 +40,16 @@ alias dbs='get_dead'
 alias df='df -h'
 alias downnow='shutdown now'
 alias du='du -sh'
+alias edit_perso_speeddial='edit_perso_speeddial'
+alias edit_system_speeddial='edit_system_speeddial'
+alias edit_user_speeddial='edit_user_speeddial'
+alias edpspd='edit_perso_speeddial'
+alias edsspd='edit_system_speeddial'
+alias eduspd='edit_user_speeddial'
 alias ev='evince'
-alias exodus="$DATA/Exodus-linux-x64/Exodus"
+alias exodus='$DATA/Exodus-linux-x64/Exodus'
 alias free='free -wh'
-alias fuckoff='faillock --user "$USER" --reset'
+alias fuckoff='faillock --user $USER --reset'
 alias ged='gedit'
 alias gednew='gedit --new-window'
 alias gp='git pull'
@@ -51,22 +58,20 @@ alias gpgget='gpg --keyserver-options auto-key-retrieve --receive-keys'
 alias grep='grep --color=always'
 alias grh='git reset --hard'
 alias grm_cache='rm -r ~/.cache/git'
-alias hl='highlight --out-format=ansi'
+alias hl='highlight --syntax sh --style greenlcd'
+alias hll='hl readme_*.txt && ll && echo'
 alias hw='hwinfo --short'
 alias ipp='curl ifconfig.me; echo'
 alias jctl='journalctl -p 3 -xb'
-alias jctler='journalctl -x -o short | grep -i "error"'
-alias jctlex='journalctl -x -o short | grep -i "exit code 1"'
-alias jctlfl='journalctl -x -o short | grep -i "failed"'
+alias jctler="journalctl -x -o short | grep -i 'error'"
+alias jctlex="journalctl -x -o short | grep -i 'exit code 1'"
+alias jctlfl="journalctl -x -o short | grep -i 'failed'"
 alias k9='killall -qv -9'
-alias lcalamares='read_files /var/log/Calamares.log'
 alias less='less --use-color'
 alias ll='ls -la'
-alias lpacman='read_files /var/log/pacman.log'
 alias ls='ls -Nh --color=always'
 alias ls_users='cut -d: -f1 /etc/passwd | sort'
 alias lv='ls -vCa'
-alias lxorg='read_files $HOME/.local/share/xorg/Xorg.0.log'
 alias mnt='mounter &>/dev/null'
 alias mvp='mkdir -vp'
 alias nemo='nemo .'
@@ -84,18 +89,23 @@ alias pls='pulseaudio --start'
 alias psg='psgrep'
 alias py='python'
 alias qv='qview &>/dev/null'
+alias rdpspd='read_perso_speeddial'
+alias rdsspd='read_system_speeddial'
+alias rduspd='read_user_speeddial'
+alias read_perso_speeddial='read_perso_speeddial'
+alias read_system_speeddial='read_system_speeddial'
+alias read_user_speeddial='read_user_speeddial'
 alias reload='reload'
 alias reqs='deps -r'
-alias rf='read_files'
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
-alias rm_knownhosts="rm $HOME/.ssh/known_hosts"
+alias rm_knownhosts='rm $HOME/.ssh/known_hosts'
+alias rm_steam_path='unlink $HOME/.steampath'
+alias rm_steam_pid='unlink $HOME/.steampid'
 alias rmr='rm -r'
 alias scp='scp -rp'
 alias shot='gnome-screenshot -a'
 alias sound_server="pactl info | grep 'Server Name'"
-alias rm_steam_path='unlink $HOME/.steampath'
-alias rm_steam_pid='unlink $HOME/.steampid'
-alias stopx='pkill -15 -t tty"$XDG_VTNR" Xorg'
+alias stopx='pkill -15 -t tty$XDG_VTNR Xorg'
 alias term='terminator'
 alias tree='tree -a'
 alias umnt='unmounter &>/dev/null'
@@ -113,9 +123,10 @@ alias yss='yay -Ss'
 # 3 ~ Sudo Mods
 ################################################################################
 alias calamares='gksudo calamares'
-alias fix_loadkeys='sudo sed -i "$d" "/etc/vconsole.conf"'
+alias fix_loadkeys='sudo sed -i $d /etc/vconsole.conf'
 alias fuckup='sudo $(history -p \!\!)'
 alias sblkid='sudo blkid'
+alias sbut='sudo bat --theme=OneHalfDark --color=always --language=sh'
 alias scat='sudo cat'
 alias schattr='sudo chattr'
 alias schgrp='sudo chgrp'
@@ -174,42 +185,6 @@ alias sys_failrs='sudo systemctl reset-failed'
 alias sys_list='sudo systemctl list-unit_files --all'
 alias sys_reload='sudo systemctl daemon_reload'
 alias ytavi="sudo yt-dlp -f 'bestvideo[ext=avi]+bestaudio[ext=m4a]'"
-alias ytmp3="sudo yt-dlp --extract-audio --audio-format mp3"
+alias ytmp3='sudo yt-dlp --extract-audio --audio-format mp3'
 alias ytmp4="sudo yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]'"
-alias ytwav="sudo yt-dlp --extract-audio --audio-format wav"
-################################################################################
-# 4 ~ Speeddial
-################################################################################
-alias sd_aliases='$EDITOR $ANARCHY/aliases'
-alias sd_awesome='$EDITOR $CONFIG/awesome/rc.lua'
-alias sd_bashrc='$EDITOR $HOME/.bashrc'
-alias sd_cleanup='$EDITOR $ANARCHY/cleanup'
-alias sd_flameshot='$EDITOR $CONFIG/flameshot/flameshot.ini'
-alias sd_gitconf='$EDITOR $HOME/.gitconfig'
-alias sd_gpg='$EDITOR $HOME/.gnupg/gpg.conf'
-alias sd_mimeapps='$EDITOR $CONFIG/mimeapps.list'
-alias sd_rofilaunch='$EDITOR $CONFIG/awesome/rofi/launcher.rasi'
-alias sd_ssh='$EDITOR $HOME/.ssh/config'
-alias sd_terminator='$EDITOR $CONFIG/terminator/config'
-alias sd_theme='$EDITOR $CONFIG/awesome/themes/tacOS/theme.lua'
-alias sd_variables='$EDITOR $ANARCHY/variables'
-alias susd_bashrc='sudo $EDITOR /root/.bashrc'
-alias susd_dircolors='sudo $EDITOR /etc/DIR_COLORS'
-alias susd_gpg='sudo $EDITOR /etc/pacman.d/gnupg/gpg.conf'
-alias susd_hosts='sudo $EDITOR /etc/hosts'
-alias susd_htop='sudo $EDITOR /etc/htopc'
-alias susd_jackd='sudo $EDITOR /etc/jackd'
-alias susd_limits='sudo $EDITOR /etc/security/limits.conf'
-alias susd_nano='sudo $EDITOR /etc/nanorc'
-alias susd_neofetch='sudo $EDITOR /etc/neofetch/config.conf'
-alias susd_nmconf='sudo $EDITOR /etc/NetworkManager/NetworkManager.conf'
-alias susd_nssswitch='sudo $EDITOR /etc/nsswitch.conf'
-alias susd_pacman='sudo $EDITOR /etc/pacman.conf'
-alias susd_pchains='sudo $EDITOR /etc/proxychains.conf'
-alias susd_readline='sudo $EDITOR /etc/inputrc'
-alias susd_ssh='sudo $EDITOR /etc/ssh/ssh_config'
-alias susd_sshd='sudo $EDITOR /etc/ssh/sshd_config'
-alias susd_torrc='sudo $EDITOR /etc/tor/torrc'
-alias susd_torsocks='sudo $EDITOR /etc/tor/torsocks.conf'
-alias susd_xinit='sudo $EDITOR /etc/X11/xinit/xinitrc'
-alias susd_xprofile='sudo $EDITOR /etc/xprofile'
+alias ytwav='sudo yt-dlp --extract-audio --audio-format wav'
