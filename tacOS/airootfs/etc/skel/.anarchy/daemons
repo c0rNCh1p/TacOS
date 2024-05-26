@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+#80x
 #                 _ \     \    __|   \  |   _ \    \ |   __|
 #                 |  |   _ \   _|   |\/ |  (   |     | \__ \
 #                ___/  _/  _\ ___| _|  _| \___/  _|\_| ____/
@@ -7,9 +7,9 @@
 ################################################################################
 # ~ $ANARCHY/daemons
 ################################################################################
-# man -P 'less +/DESCRIPTION' 'daemon(7)'
+# ~ man -P 'less +/DESCRIPTION' 'daemon(7)'
 ################################################################################
-# 1 ~ Variables & Daemon List
+# ~ Variables & Daemon List (1)
 ################################################################################
 LOGFL='/var/log/daemons.log'
 LOCKFL='/tmp/daemons.lck'
@@ -32,7 +32,7 @@ DAEMONS=(
 	#'vboxservice'
 )
 ################################################################################
-# 2 ~ Manage Start Process
+# ~ Manage Start Process (2)
 ################################################################################
 log_func(){
 	echo "$DATE | $1" >>"$LOGFL"
@@ -88,4 +88,5 @@ if [ ! -f "$LOCKFL" ]; then clear
 	echo 'Probatissima' >"$LOCKFL"
 	sleep 1; clear
 fi
+
 unset DAEMON DAEMONS DATE GKDARGS LOCKFL LOGFL

@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+#80x
 #                    \    |    _ _|    \     __|  __|   __|
 #                   _ \   |      |    _ \  \__ \  _|  \__ \
 #                 _/  _\ ____| ___| _/  _\ ____/ ___| ____/
@@ -7,7 +7,7 @@
 ################################################################################
 # ~ $ANARCHY/aliases
 ################################################################################
-# 1 ~ Dank U Wel
+# ~ Dank U Wel (1)
 ################################################################################
 #
 # 'arco' (ˈɑːkəʊ') british english : adverb
@@ -17,7 +17,7 @@
 alias eeuwig_dankbaar="echo 'Mr. Dubois'"
 alias en_blijf_rollen="echo 'Arco Team!'"
 ################################################################################
-# 2 ~ Commands
+# ~ Commands (2)
 ################################################################################
 #alias puppet_sync='puppet agent --test --verbose --trace'
 alias af='lynx -dump -width=500 http://localhost:80/whm-server-status'
@@ -121,7 +121,7 @@ alias xr='xreader'
 alias yskip='yay -S --mflags --skipinteg'
 alias yss='yay -Ss'
 ################################################################################
-# 3 ~ Sudo Mods
+# ~ Sudo Mods (3)
 ################################################################################
 alias calamares='gksudo calamares'
 alias fix_loadkeys='sudo sed -i $d /etc/vconsole.conf'

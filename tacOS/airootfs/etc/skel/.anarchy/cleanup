@@ -1,6 +1,6 @@
 #!/bin/bash
 #shellcheck disable=SC1091
-#
+#120x
 #                                       __|  |     __|    \     \ |  |  |  _ \
 #                                      (     |     _|    _ \   .  |  |  |  __/
 #                                     \___| ____| ___| _/  _\ _|\_| \__/  _|
@@ -8,7 +8,7 @@
 ########################################################################################################################
 # ~ $ANARCHY/cleanup
 ########################################################################################################################
-# 1 ~ File Removals
+# ~ File Removals (1)
 ########################################################################################################################
 [ -f '/etc/profile.d/debuginfod.csh' ] && srm '/etc/profile.d/debuginfod.csh'
 [ -f '/etc/profile.d/gawk.csh' ] && srm '/etc/profile.d/gawk.csh'
@@ -46,7 +46,7 @@
 [ -f "$HOME/.zynaddsubfx-bank-cache.xml" ] && rm "$HOME/.zynaddsubfx-bank-cache.xml"
 [ -f '/usr/share/nano-syntax-highlighting/nanorc.nanorc' ] && srm '/usr/share/nano-syntax-highlighting/nanorc.nanorc'
 ########################################################################################################################
-# 2 ~ File Modifications
+# ~ File Modifications (2)
 ########################################################################################################################
 [[ -f '/etc/ch1px0rg-rel' && -f '/etc/lsb-release' ]] && smv '/etc/ch1px0rg-rel' '/etc/lsb-release'
 [[ -f '/usr/local/bin/arcolinux-graphical-target' && -f "$HOME/.local/bin/agt_mod" ]] &&
@@ -56,7 +56,7 @@
 [ -f "$HOME/.gtkrc-2.0" ] && mv "$HOME/.gtkrc-2.0" "$GTK2_RC_FILES/gtkrc"
 [ -f "$HOME/.screenrc" ] && mv "$HOME/.screenrc" "$SCREENRC"
 ########################################################################################################################
-# 3 ~ Directory Removals
+# ~ Directory Removals (3)
 ########################################################################################################################
 [ -d "$CONFIG/auostart" ] && rmr "$CONFIG/autostart"
 [ -d "$HOME/.log" ] && rmr "$HOME/.log"
@@ -71,7 +71,7 @@
 [ -d "$MONERO_HOME/.bitmonero/lmdb" ] && rmr "$MONERO_HOME/.bitmonero/lmdb"
 [ -d '/home/root' ] && srm '/home/root'
 ########################################################################################################################
-# 4 ~ Directory Modifications
+# ~ Directory Modifications (4)
 ########################################################################################################################
 [ ! -d "$ALSA_HOME" ] && mvp "$ALSA_HOME" &>'/dev/null'
 [ ! -d "$AUDIO" ] && mvp "$AUDIO" &>'/dev/null'
@@ -96,7 +96,7 @@
 [ ! -d "$XDG_STATE_HOME/bash" ] && mvp "$XDG_STATE_HOME/bash" &>'/dev/null'
 [ ! -d "$XDG_STATE_HOME" ] && mvp "$XDG_STATE_HOME" &>'/dev/null'
 ########################################################################################################################
-# 5 ~ Position Last
+# ~ Position Last (5)
 ########################################################################################################################
 [ ! -d "$AUDIO/files" ] && mvp "$AUDIO/files" &>'/dev/null'
 [ ! -d "$ARDOUR" ] && mvp "$ARDOUR" &>'/dev/null'

@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+#80x
 #            \ \   /   \    _ \ _ _|    \    _ )  |     __|   __|
 #             \ \ /   _ \     /   |    _ \   _ \  |     _|  \__ \
 #              \_/  _/  _\ _|_\ ___| _/  _\ ___/ ____| ___| ____/
@@ -7,35 +7,9 @@
 ################################################################################
 # ~ $ANARCHY/variables
 ################################################################################
-# man -P 'less +2960 +/shopt' 'bash(1)'
+# ~ man -P 'less +2960 +/shopt' 'bash(1)'
 ################################################################################
-# 1 ~ Shopt Options
-################################################################################
-shopt -s autocd
-shopt -s cdable_vars
-shopt -s cdspell
-shopt -s checkwinsize
-shopt -s cmdhist
-shopt -s complete_fullquote
-shopt -s dirspell
-shopt -s dotglob
-shopt -s expand_aliases
-shopt -s extglob
-shopt -s extquote
-shopt -s globstar
-shopt -s gnu_errfmt
-shopt -s histappend
-shopt -s hostcomplete
-shopt -s huponexit
-shopt -s interactive_comments
-shopt -s lithist
-shopt -s no_empty_cmd_completion
-shopt -s nocaseglob
-shopt -s progcomp
-shopt -s progcomp_alias
-shopt -s sourcepath
-################################################################################
-# 2 ~ Path Directives
+# ~ Path Directives (1)
 ################################################################################
 export PATH="\
 $HOME/.bin:\
@@ -62,7 +36,33 @@ $HOME/.local/share/gem/ruby/3.0.0/gems:\
 /usr/sbin:\
 /usr/share/drbl/bin"
 ################################################################################
-# 3 ~ Home Layout
+# ~ Shopt Options (2)
+################################################################################
+shopt -s autocd
+shopt -s cdable_vars
+shopt -s cdspell
+shopt -s checkwinsize
+shopt -s cmdhist
+shopt -s complete_fullquote
+shopt -s dirspell
+shopt -s dotglob
+shopt -s expand_aliases
+shopt -s extglob
+shopt -s extquote
+shopt -s globstar
+shopt -s gnu_errfmt
+shopt -s histappend
+shopt -s hostcomplete
+shopt -s huponexit
+shopt -s interactive_comments
+shopt -s lithist
+shopt -s no_empty_cmd_completion
+shopt -s nocaseglob
+shopt -s progcomp
+shopt -s progcomp_alias
+shopt -s sourcepath
+################################################################################
+# ~ Home Layout (3)
 ################################################################################
 #export XDG_RUNTIME_DIR="/run/user/1000"
 export ANARCHY="$HOME/.anarchy"
@@ -98,7 +98,7 @@ export XDG_DOCUMENTS_DIR="$HOME/Documents"
 export XDG_DOWNLOAD_DIR="$HOME/Downloads"
 export XDG_STATE_HOME="$LOCAL/state"
 ################################################################################
-# 4 ~ Program Directories
+# ~ Program Directories (4)
 ################################################################################
 export ALIEN_HOME="$DATA/alien"
 export ALSA_HOME="$CONFIG/alsa"
@@ -139,7 +139,7 @@ export W3M_HOME="$DATA/w3m"
 export WINEPREFIX="$DATA/wine"
 export YAY_HOME="$DATA/yay"
 ################################################################################
-# 5 ~ Input Vars
+# ~ Input Vars (5)
 ################################################################################
 #export GNOME_KEYRING_CONTROL='/run/user/1000/keyring/control'
 #export QT_STYLE_OVERRIDE='/bin/kvantum'
@@ -171,7 +171,7 @@ export TERMINAL='/bin/terminator'
 export XMODIFIERS='@im=dbus'
 #export XMODIFIERS='@im=fcitx'
 ################################################################################
-# 6 ~ Shell Vars
+# ~ Shell Vars (6)
 ################################################################################
 export COLORTERM=truecolor
 export HISTCONTROL='ignoredups:erasedups'
