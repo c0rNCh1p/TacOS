@@ -8,10 +8,11 @@ echo -e '\nEnter the new iso label\n'
 read -rp '~ ' NEWNAME
 echo -e '\nChanging label refs in archiso files'
 
-mv "../$OLDNAME" "../$NEWNAME"
 mv "../$NEWNAME/airootfs/etc/$OLDNAME-rel" "../$NEWNAME/airootfs/etc/$NEWNAME-rel"
-mv "../$NEWNAME/airootfs/etc/systemd/logind.conf.d/$OLDNAME-settings.conf" "../$NEWNAME/airootfs/etc/systemd/logind.conf.d/$NEWNAME-settings.conf"
+mv "../$NEWNAME/airootfs/etc/calamares/branding/$OLDNAME" "../$NEWNAME/airootfs/etc/calamares/branding/$NEWNAME"
 mv "../$NEWNAME/airootfs/etc/mkinitcpio.d/$OLDNAME" "../$NEWNAME/airootfs/etc/mkinitcpio.d/$NEWNAME"
+mv "../$NEWNAME/airootfs/etc/systemd/logind.conf.d/$OLDNAME-settings.conf" "../$NEWNAME/airootfs/etc/systemd/logind.conf.d/$NEWNAME-settings.conf"
+mv "../$OLDNAME" "../$NEWNAME"
 
 sed -i 's/'$OLDNAME'/'$NEWNAME'/gI' "../$NEWNAME/airootfs/etc/$NEWNAME-rel"
 sed -i 's/'$OLDNAME'/'$NEWNAME'/gI' "../$NEWNAME/airootfs/etc/default/grub"
@@ -37,6 +38,7 @@ sed -i 's/'$OLDNAME'/'$NEWNAME'/gI' '../tacOS/airootfs/etc/calamares/modules/she
 sed -i 's/'$OLDNAME'/'$NEWNAME'/gI' '../tacOS/airootfs/etc/calamares/modules/shellprocess-final.conf'
 sed -i 's/'$OLDNAME'/'$NEWNAME'/gI' '../tacOS/airootfs/etc/calamares/modules/users.conf'
 sed -i 's/'$OLDNAME'/'$NEWNAME'/gI' '../tacOS/airootfs/etc/calamares/settings.conf'
+sed -i 's/'$OLDNAME'/'$NEWNAME'/gI' '../tacOS/airootfs/etc/skel/.bashrc'
 sed -i 's/'$OLDNAME'/'$NEWNAME'/gI' 'new_version.sh'
 
 
