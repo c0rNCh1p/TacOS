@@ -42,8 +42,6 @@ for FILE in "${ANARCHY_FILES[@]}"; do
 done
 
 # Make scripts executable
-[ -d "$HOME/.setup/" ] && 
-    find "$HOME/.setup/" -type f ! -executable -exec chmod 764 {} + &>'/dev/null' # TODO put in $BIN
 [ -d "$HOME/.local/bin" ] &&
     find "$HOME/.local/bin" -type f ! -executable -exec chmod 764 {} + &>'/dev/null'
 [ -f "$AWESOME_HOME/tog_*.sh" ] &&

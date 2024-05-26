@@ -70,6 +70,7 @@ alias k9='killall -qv -9'
 alias less='less --use-color'
 alias ll='ls -la'
 alias ls='ls -Nh --color=always'
+alias lss="ls | tr ' ' '\n'"
 alias ls_users='cut -d: -f1 /etc/passwd | sort'
 alias lv='ls -vCa'
 alias mnt='mounter &>/dev/null'
