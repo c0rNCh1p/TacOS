@@ -91,7 +91,7 @@ if command grep -q 'live' '/etc/group'; then
         echo -e '| Welcome to TacOS have fun!'
     fi
 else
-    sed -i -e '7s/^\(\s*\)#/\1/' -e '7s/^\(\s*\) /\1/' "$BIN/01_run_all" &>'/dev/null'
+    sed -i -e '6s/^\(\s*\)#/\1/' -e '6s/^\(\s*\) /\1/' "$BIN/01_run_all" &>'/dev/null'
     sed -i -e '10s/^\(\s*\)#/\1/' -e '10s/^\(\s*\) /\1/' "$BIN/01_run_all" &>'/dev/null'
 fi
 ####################################################################################################
