@@ -1,202 +1,210 @@
 #!/bin/bash
 #shellcheck disable=SC2162
-setntpFunc() {
+
+set_ntp_func(){
 	local ANS
-	if ! timedatectl | grep "NTP service: active" >"/dev/null"; then
-		echo -e "#\n# ntp is inactive\n#"
-		echo -e "# turn it on?\n#"
-		read -p "# ▸ " ANS
-		[[ "$ANS" =~ ^(1|y|ya|ye|ta|ok|pl|th).* ]] && timedatectl set-ntp true
+	if ! timedatectl | grep -q 'NTP service: active'; then
+		echo -e '\nNTP is inactive\n'
+		echo -e 'Turn it on?\n'
+		read -p '~ ' ANS
+		[[ "$ANS" =~ ^(1|y|ya|ye|ta|ok|pl|th).* ]] && sudo timedatectl set-ntp true
 	fi
 }
-sethostnameFunc() {
+
+set_hostname_func(){
 	local ANS NEWNAME
-	if hostnamectl | grep "$HOSTNAME" >"/dev/null"; then
-		echo -e "#\n# hostname: $HOSTNAME\n#"
-		echo -e "# configure hostname?\n#"
-		read -p "# ▸ " ANS
+	if hostnamectl | grep -q "$HOSTNAME"; then
+		echo -e "\nHostname: $HOSTNAME\n"
+		echo -e 'Configure hostname?\n'
+		read -p '~ ' ANS
 		if [[ "$ANS" =~ ^(1|y|ya|ye|ta|ok|pl|th).* ]]; then
-			echo -e "#\n# enter new hostname\n#"
-			read -p "# ▸ " NEWNAME
-			hostnamectl set-hostname "$NEWNAME"
-			echo -e "#\n# hostname set to $NEWNAME"
+			echo -e '\nEnter new hostname\n'
+			read -p '~ ' NEWNAME
+			sudo hostnamectl set-hostname "$NEWNAME"
+			echo -e "\nHostname set to $NEWNAME"
 		fi
 	fi
 }
-setlocaleFunc() {
+
+set_locale_func(){
 	local LOCALE ANS
 	LOCALE=$(locale | grep LANG | sed 's/LANG=//g')
-	getlocales() {
-		tail -n495 "/etc/locale.gen" | sed 's/#//' | head -n489
+	get_locales() {
+		grep -v '^#' '/etc/locale.gen' | awk '{print $1}'
 	}
-	echo -e "#\n# locale: $LOCALE\n#"
-	echo -e "# configure locale?\n#"
-	read -p "# ▸ " ANS
+	echo -e "\nLocale: $LOCALE\n"
+	echo -e 'Configure locale?\n'
+	read -p '~ ' ANS
 	if [[ "$ANS" =~ ^(1|y|ya|ye|ta|ok|pl|th).* ]]; then
 		while true; do
-			echo -e "#\n# (l) list\n# (r) refresh\n# (e) enter\n# (c) cancel\n#"
-			read -p "# ▸ " ANS
-			if [ "$ANS" == "l" ]; then
-				getlocales | less
-			elif [ "$ANS" == "r" ]; then
-				sudo locale-gen; break
-			elif [ "$ANS" == "e" ]; then
-				echo -e "#\n# enter locale\n#"
-				read -p "# ▸ " ANS
-				if getlocales | grep -qw "$ANS"; then
-					localectl set-locale LANG="$ANS" >"/dev/null" 2>&1
-					if ! grep "$ANS" "/etc/locale.conf" >"/dev/null"; then
-						echo "$ANS" >>"/etc/locale.conf"
-					fi
-					echo -e "#\n# locale set to $ANS"; break
-				else
-					echo -e "#\n# ⚠ invalid locale ⚠"
-				fi
-			elif [ "$ANS" == "c" ]; then break
-			fi
+			echo -e '\n~ <L> List\n~ <R> Refresh\n~ <E> Enter\n~ <C> Cancel\n'
+			read -p '~ ' ANS
+			case $ANS in
+				l) get_locales | less;;
+				r) sudo locale-gen; break;;
+				e)
+					echo -e '\nEnter locale\n'
+					read -p '~ ' ANS
+					if get_locales | grep -qw "$ANS"; then
+						sudo localectl set-locale LANG="$ANS"
+						grep -q "$ANS" '/etc/locale.conf' ||
+						echo "LANG=$ANS" | sudo tee -a '/etc/locale.conf' >'/dev/null'
+						echo -e "\nLocale set to $ANS"
+						break
+					else
+						echo -e '\nInvalid locale'
+					fi;;
+				c) break;;
+			esac
 		done
 	fi
 }
-settimezoneFunc() {
+
+set_timezone_func(){
 	local TIMEZONE REGION ZONE ANS
-	TIMEZONE=$(timedatectl | grep "zone" | sed 's/Time zone://g' | tr -s ' ')
-	getregions() {
-		ls -vCa "/usr/share/zoneinfo/"
+	TIMEZONE=$(timedatectl | grep 'Time zone' | awk '{print $3}')
+	get_regions(){
+		ls '/usr/share/zoneinfo/'
 	}
-	getzones() {
-		ls -vCa "/usr/share/zoneinfo/$REGION"
+	get_zones(){
+		ls "/usr/share/zoneinfo/$REGION"
 	}
-	[ -d "/etc/localtime" ] && sudo rm -rf "/etc/localtime"
-	echo -e "#\n# timezone: $TIMEZONE\n#"
-	echo -e "# configure timezone?\n#"
-	read -p "# ▸ " ANS
+	[ -d '/etc/localtime' ] && sudo rm -rf '/etc/localtime'
+	echo -e "\nTimezone: $TIMEZONE\n"
+	echo -e 'Configure timezone?\n'
+	read -p '~ ' ANS
 	if [[ "$ANS" =~ ^(1|y|ya|ye|ta|ok|pl|th).* ]]; then
 		while true; do
-			echo -e "#\n# (l) link /usr/share/zoneinfo/UTC"
-			echo -e "# (e) enter region and zone manually\n# (c) cancel\n#"
-			read -p "# ▸ " ANS
-			if [ "$ANS" == "l" ]; then
-				sudo ln -sf "/usr/share/zoneinfo/UTC" "/etc/localtime"
-				echo -e "#\n# timezone set to UTC"; break
-			elif [ "$ANS" == "e" ]; then
-				while true; do
-					echo -e "#\n# (l) regions\n# (e) enter region\n# (c) cancel\n#"
-					read -p "# ▸ " ANS
-					if [ "$ANS" == "l" ]; then
-						getregions | less
-					elif [ "$ANS" == "e" ]; then
-						echo -e "#\n# enter region\n#"
-						read -p "# ▸ " REGION
-						if ! getregions | grep -qw "$REGION"; then
-							echo -e "#\n# ⚠ invalid region ⚠"
-						else break
-						fi
-					elif [ "$ANS" == "c" ]; then break
-					fi
-				done
-				if [[ "$ANS" != "c" && -d "/usr/share/zoneinfo/$REGION" ]]; then
+			echo -e '\n~ <L> Link /usr/share/zoneinfo/UTC'
+			echo -e '~ <E> Enter region and zone manually\n~ <C> Cancel\n'
+			read -p '~ ' ANS
+			case $ANS in
+				l)
+					sudo ln -sf '/usr/share/zoneinfo/UTC' '/etc/localtime'
+					echo -e '\nTimezone set to UTC'
+					break;;
+				e)
 					while true; do
-						echo -e "#\n# (l) zones"
-						echo -e "# (e) enter zone\n# (c) cancel\n#"
-						read -p "# ▸ " ANS
-						if [ "$ANS" == "l" ]; then
-							getzones | less
-						elif [ "$ANS" == "e" ]; then
-							echo -e "#\n# enter zone\n#"
-							read -p "# ▸ " ZONE
-							if ! getzones | grep -qw "$ZONE"; then
-								echo -e "#\n# ⚠ invalid zone ⚠"
-							else
-								sudo ln -sf "/usr/share/zoneinfo/$REGION/$ZONE" "/etc/localtime"
-								echo -e "#\n# timezone set to $REGION/$ZONE"; break
-							fi
-						elif [ "$ANS" == "c" ]; then break
-						fi
+						echo -e '\n~ <L> List regions\n~ <E> Enter region\n~ <C> Cancel\n'
+						read -p '~ ' ANS
+						case $ANS in
+							l) get_regions | less;;
+							e)
+								echo -e '\nEnter region\n'
+								read -p '~ ' REGION
+								if get_regions | grep -qw "$REGION"; then
+									break
+								else
+									echo -e '\nInvalid region'
+								fi;;
+							c) break 2;;
+						esac
 					done
-				else
-					sudo ln -sf "/usr/share/zoneinfo/$REGION" "/etc/localtime"
-					echo -e "#\n# timezone set to $REGION"
-				fi
-				break
-			elif [ "$ANS" == "c" ]; then break
-			fi
+					if [[ "$ANS" != 'c' && -d "/usr/share/zoneinfo/$REGION" ]]; then
+						while true; do
+							echo -e '\n~ <L> List zones\n~ <E> Enter zone\n~ <C> Cancel\n'
+							read -p '~ ' ANS
+							case $ANS in
+								l) get_zones | less;;
+								e)
+									echo -e '\nEnter zone\n'
+									read -p '~ ' ZONE
+									if get_zones | grep -qw "$ZONE"; then
+										sudo ln -sf "/usr/share/zoneinfo/$REGION/$ZONE" '/etc/localtime'
+										echo -e "\nTimezone set to $REGION/$ZONE"
+										break 2
+									else
+										echo -e '\nInvalid zone'
+									fi;;
+								c) break 2;;
+							esac
+						done
+					else
+						sudo ln -sf "/usr/share/zoneinfo/$REGION" '/etc/localtime'
+						echo -e "\nTimezone set to $REGION"
+						break
+					fi;;
+				c) break;;
+			esac
 		done
 	fi
 }
-setconsolefontFunc() {
+
+set_console_font_func(){
 	local CONSOLEFONT ANS
-	CONSOLEFONT=$(grep "FONT=" "/etc/vconsole.conf" | sed 's/FONT=//g')
-	getfonts() {
-		tree "/usr/share/kbd/consolefonts" --noreport -F |\
-		sed -e 's/README//g' -e 's/ERRORS//g' | sed -e '1d;44d;239d'
+	CONSOLEFONT=$(grep 'FONT=' '/etc/vconsole.conf' | sed 's/FONT=//g')
+	get_fonts(){
+		find '/usr/share/kbd/consolefonts' -type f \
+		! -name 'README' ! -name 'ERRORS' -exec basename {} \;
 	}
-	echo -e "#\n# console font: $CONSOLEFONT\n#"
-	echo -e "# configure console font?\n#"
-	read -p "# ▸ " ANS
+	echo -e "\nConsole font: $CONSOLEFONT\n"
+	echo -e 'Configure console font?\n'
+	read -p '~ ' ANS
 	if [[ "$ANS" =~ ^(1|y|ya|ye|ta|ok|pl|th).* ]]; then
 		while true; do
-			echo -e "#\n# (l) list fonts\n# (e) enter font\n# (c) cancel\n#"
-			read -p "# ▸ " ANS
-			if [ "$ANS" == "l" ]; then getfonts | less
-			elif [ "$ANS" == "e" ]; then
-				echo -e "#\n# enter console font\n#"
-				read -p "# ▸ " ANS
-				if getfonts | grep "$ANS" >"/dev/null"; then
-					setfont "$ANS" >"/dev/null" 2>&1
-					sudo chown "$USER":"$USER" "/etc/vconsole.conf"
-					sudo sed -i '/FONT=.*/d' "/etc/vconsole.conf"
-					echo "FONT=$ANS" >>"/etc/vconsole.conf"
-					sudo sed -i -e 's/.gz//g' -e 's/.psfu//g' -e 's/.psf//g' "/etc/vconsole.conf"
-					sudo chown root:root "/etc/vconsole.conf"
-					echo -e "#\n# console font set to $ANS" | sed -e 's/.gz//g' -e 's/.psfu//g' -e 's/.psf//g'
-					persistFunc >"/dev/null" 2>&1; break
-				fi
-			elif [ "$ANS" == "c" ]; then break
-			fi
+			echo -e '\n<L> List fonts\n<E> Enter font\n<C> Cancel\n'
+			read -p '~ ' ANS
+			case $ANS in
+				l) get_fonts | less;;
+				e)
+					echo -e '\nEnter console font\n'
+					read -p '~ ' ANS
+					if get_fonts | grep -qw "$ANS"; then
+						sudo setfont "$ANS"
+						sudo sed -i '/FONT=.*/d' /etc/vconsole.conf
+						echo "FONT=$ANS" | sudo tee -a /etc/vconsole.conf >/dev/null
+						echo -e "\nConsole font set to $ANS"
+						break
+					else
+						echo -e '\nInvalid console font'
+					fi;;
+				c) break;;
+			esac
 		done
 	fi
 }
-setkeymapFunc() {
+
+set_keymap_func(){
 	local KEYMAP ANS
-	KEYMAP=$(localectl status | grep "VC Keymap" | sed 's/    VC Keymap://g')
-	getkeymaps() {
-		tree "/usr/share/kbd/keymaps" | sed "s/.map.gz//g"
+	KEYMAP=$(localectl status | grep 'VC Keymap' | awk '{print $3}')
+	get_keymaps(){
+		find '/usr/share/kbd/keymaps' -type f -name '*.map.gz' -exec basename {} .map.gz \;
 	}
-	echo -e "#\n# keymap: $KEYMAP\n#"
-	echo -e "# configure keymap?\n#"
-	read -p "# ▸ " ANS
+	echo -e "\nKeymap: $KEYMAP\n"
+	echo -e 'Configure keymap?\n'
+	read -p '~ ' ANS
 	if [[ "$ANS" =~ ^(1|y|ya|ye|ta|ok|pl|th).* ]]; then
 		while true; do
-			echo -e "#\n# (l) list\n# (e) enter\n# (c) cancel\n#"
-			read -p "# ▸ " ANS
-			if [[ "$ANS" == "l" ]]; then getkeymaps | less
-			elif [[ "$ANS" == "e" ]]; then
-				echo -e "#\n# enter keymap\n#"
-				read -p "# ▸ " ANS
-				if getkeymaps | grep -q "$ANS"; then
-					loadkeys "$ANS" >"/dev/null" 2>&1
-					if ! grep "$ANS" "/etc/vconsole.conf"; then
-						sudo chown "$USER":"$USER" "/etc/vconsole.conf"
-						sudo sed -i "/KEYMAP=$KEYMAP/d" "/etc/vconsole.conf" >"/dev/null" 2>&1
-						echo "KEYMAP=${ANS}" >>"/etc/vconsole.conf"
-						sudo chown root:root "/etc/vconsole.conf"
-						echo -e "#\n# keymap set to $ANS\n#"; break
+			echo -e '\n<L> List\n<E> Enter\n<C> Cancel\n'
+			read -p '~ ' ANS
+			case $ANS in
+				l) get_keymaps | less;;
+				e)
+					echo -e '\nEnter keymap\n'
+					read -p '~ ' ANS
+					if get_keymaps | grep -qw "$ANS"; then
+						sudo loadkeys "$ANS"
+						sudo sed -i '/KEYMAP=.*/d' /etc/vconsole.conf
+						echo "KEYMAP=$ANS" | sudo tee -a /etc/vconsole.conf >/dev/null
+						echo -e "\nKeymap set to $ANS"
+						break
+					else
+						echo -e '\nInvalid keymap'
 					fi
-					break
-				else
-					echo -e "#\n# ⚠ invalid keymap ⚠"
-				fi
-			elif [ "$ANS" == "c" ]; then break
-			fi
+					;;
+				c) break;;
+			esac
 		done
 	fi
 }
+
 if [ -n "$1" ]; then "$1"
 else
-	setntpFunc
-	sethostnameFunc
-	setlocaleFunc
-	settimezoneFunc
-	setconsolefontFunc
-	setkeymapFunc
+	set_ntp_func
+	set_hostname_func
+	set_locale_func
+	set_timezone_func
+	set_console_font_func
+	set_keymap_func
 fi
+

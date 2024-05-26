@@ -1,6 +1,5 @@
 #!/bin/bash
-#shellcheck disable=SC1091
-#shellcheck disable=SC2143
+#shellcheck disable=SC1091, SC2143
 #
 #                               _ )    \     __|  |  |  _ \   __|
 #                               _ \   _ \  \__ \  __ |    /  (
