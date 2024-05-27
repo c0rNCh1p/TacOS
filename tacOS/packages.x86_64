@@ -1,8 +1,8 @@
 #
-#        \ | \ \   / _ _|  _ \  _ _|    \
-#          |  \ \ /    |   |  |   |    _ \
-#      _|\_|   \_/   ___| ___/  ___| _/  _\
-#
+#           _ _|   \ |__ __| __|  |
+#             |      |   |   _|   |
+#           ___| _|\_|  _|  ___| ____|
+#       
 ##################################################
 # ~ /etc/packages.x86_64
 # ~ /archiso/packages.x86_64
@@ -22,6 +22,7 @@ ruby
 clonezilla
 mlocate
 p7zip
+pdf2png
 ripgrep
 unace
 unrar
@@ -32,8 +33,8 @@ unzip
 aalib
 alsa-lib
 boost-libs
-lib32-nvidia-utils
 laptop-detect
+lib32-vulkan-intel
 libdvdcss
 libfido2
 libgsf
@@ -147,11 +148,8 @@ zenity
 ##################################################
 # 5 ~ Backend Software
 ##################################################
-#cuda
-#cuda-tools
 #fcitx
-#opencl-nvidia-390xx
-#xf86-video-nouveau
+#xf86-video-intel
 #xf86-video-vmware
 accountsservice
 aic94xx-firmware
@@ -202,6 +200,8 @@ hw-probe
 hwinfo
 hyperv
 ibus
+intel-compute-runtime
+intel-media-driver
 intel-ucode
 intltool
 inxi
@@ -212,7 +212,7 @@ ki18n5
 kpmcore
 kservice5
 lib32-mesa-vdpau
-libva-nvidia-driver
+libva-intel-driver-g45-h264
 linux
 linux-atm
 linux-firmware
@@ -243,12 +243,8 @@ mtpfs
 nilfs-utils
 ntfs-3g
 numlockx
-nvidia-dkms
-nvidia-settings
-nvidia-utils
 nvme-cli
 open-vm-tools
-opencl-nvidia-470xx
 os-prober
 partclone
 parted
@@ -278,6 +274,7 @@ upower
 usb_modeswitch
 usbmuxd
 usbutils
+vulkan-intel
 wayland
 wd719x-firmware
 wmctrl
@@ -432,7 +429,7 @@ sdl_net
 sdl_sound
 sdl_ttf
 sndio
-steam
+steam-native-runtime
 sublime-text-4
 svt-av1
 svt-hevc
@@ -548,6 +545,7 @@ llvm
 luacheck
 luarocks
 meson
+npm
 python-pip
 python-pyparted
 python39
@@ -591,7 +589,6 @@ ttf-ubuntu-font-family
 ##################################################
 arco-calamares
 arcolinux-app-git
-arcolinux-bin-git
 arcolinux-bootloader-grub-git
 arcolinux-cron-git
 arcolinux-desktop-trasher-git
@@ -600,7 +597,6 @@ arcolinux-grub-theme-vimix-git
 arcolinux-hblock-git
 arcolinux-keyring
 arcolinux-kvantum-git
-arcolinux-meta-steam-nvidia
 arcolinux-mirrorlist-git
 arcolinux-pipemenus-git
 arcolinux-qt5-git
@@ -608,7 +604,6 @@ arcolinux-rofi-git
 arcolinux-rofi-themes-git
 arcolinux-system-config-git
 arcolinux-systemd-services-git
-arcolinux-system-installation-git
 arcolinux-welcome-app-git
 chaotic-keyring
 chaotic-mirrorlist
