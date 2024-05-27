@@ -375,7 +375,6 @@ arcolinux-keyring
 arcolinux-mirrorlist-git
 arcolinux-system-config-git
 arcolinux-systemd-services-git
-arcolinux-system-installation-git
 chaotic-keyring
 chaotic-mirrorlist
 endeavouros-keyring

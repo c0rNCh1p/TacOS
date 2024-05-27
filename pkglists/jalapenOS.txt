@@ -604,7 +604,6 @@ arcolinux-rofi-git
 arcolinux-rofi-themes-git
 arcolinux-system-config-git
 arcolinux-systemd-services-git
-arcolinux-system-installation-git
 arcolinux-welcome-app-git
 chaotic-keyring
 chaotic-mirrorlist
