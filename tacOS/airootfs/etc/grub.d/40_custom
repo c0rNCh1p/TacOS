@@ -7,7 +7,7 @@
 # ~ $BROWSER https://www.gnu.org/software/grub/manual/grub/grub.html
 # ~ $BROWSER https://www.supergrubdisk.org/wiki/Loopback.cfg
 
-exec tail -n +3 $0
+tail -n +3 $0
 
 # Menu entries
 if [ "${grub_platform}" == 'efi' ]; then
