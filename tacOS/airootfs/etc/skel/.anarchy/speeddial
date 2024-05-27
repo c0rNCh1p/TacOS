@@ -77,7 +77,7 @@ USER_FILES=(
 	"$DATA/xorg/Xorg.0.log"
 	"$DEADBEEF_HOME/config"
 	"$FLAMESHOT_HOME/flameshot.ini"
-	"$GALC_HOME/galculator/galculator.conf"
+	"$GALC_HOME/galculator.conf"
 	"$GEDIT_HOME/saved-sessions.xml"
 	"$GIMP_HOME/dockrc"
 	"$GIMP_HOME/gimprc"
