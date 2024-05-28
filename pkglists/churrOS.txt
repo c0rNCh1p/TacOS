@@ -374,6 +374,7 @@ arcolinux-grub-theme-vimix-git
 arcolinux-keyring
 arcolinux-mirrorlist-git
 arcolinux-system-config-git
+arcolinux-system-installation-git
 arcolinux-systemd-services-git
 chaotic-keyring
 chaotic-mirrorlist

@@ -606,6 +606,7 @@ arcolinux-qt5-git
 arcolinux-rofi-git
 arcolinux-rofi-themes-git
 arcolinux-system-config-git
+arcolinux-system-installation-git
 arcolinux-systemd-services-git
 arcolinux-welcome-app-git
 chaotic-keyring
