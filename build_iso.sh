@@ -3,7 +3,7 @@
 
 WORKDIR='build'
 DESKTOP='awesome'
-VERSION='v03.01.01'
+VERSION='v03.01.02'
 OUTFOLDER='iso_out'
 BUILDDATE=$(date +'%H%M-%d%m-%Y')
 
