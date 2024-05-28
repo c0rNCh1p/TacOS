@@ -1,37 +1,17 @@
 #!/bin/sh
+#thank you Garuda team
+exec tail -n +3 $0
+# This file provides an easy way to add custom menu entries.  Simply type the
+# menu entries you want to add after this comment.  Be careful not to change
+# the 'exec tail' line above.
 
-# ~ $BROWSER https://en.wikipedia.org/wiki/Grand_Unified_Bootloader
-# ~ $BROWSER https://help.ubuntu.com/community/Grub2
-# ~ $BROWSER https://wiki.archlinux.org/title/GRUB
-# ~ $BROWSER https://wiki.archlinux.org/title/GRUB/Tips_and_tricks
-# ~ $BROWSER https://www.gnu.org/software/grub/manual/grub/grub.html
-# ~ $BROWSER https://www.supergrubdisk.org/wiki/Loopback.cfg
-
-tail -n +3 $0
-
-# Menu entries
-if [ "${grub_platform}" == 'efi' ]; then
-	if [ "${grub_cpu}" == 'x86_64' -a -f '/shellx64.efi' ]; then
-		menuentry 'UEFI Shell' --class efi {
-			chainloader '/shellx64.efi'
-		}
-	elif [ "${grub_cpu}" == "i386" -a -f '/shellia32.efi' ]; then
-		menuentry 'UEFI Shell' --class efi {
-			chainloader '/shellia32.efi'
-		}
-	fi
-	menuentry 'UEFI Firmware Settings' --id 'uefi-firmware' {
-		fwsetup
-	}
-fi
-
-menuentry 'Restart' --class restart {
-	echo 'System rebooting...'
+menuentry "Restart" --class restart {
+	echo "System rebooting..."
 	reboot
 }
 
-menuentry 'Shutdown' --class shutdown {
-	echo 'System shutting down...'
+menuentry "Shutdown" --class shutdown {
+	echo "System shutting down..."
 	halt
 }
 
