@@ -145,16 +145,27 @@ local temp=lain.widget.temp({
 	end
 })
 
--- Battery
 local baticon=wibox.widget.imagebox(theme.widget_batt)
+local prev_ac_status=nil
+local prev_perc=nil
 local bat=lain.widget.bat({
 	settings=function()
 		local perc=bat_now.perc ~= 'N/A' and bat_now.perc .. '%' or bat_now.perc
 		if bat_now.ac_status == 1 then
-			perc=perc .. ' plug'
+			baticon:set_image(icons_dir .. '/ac.png')
+			if prev_ac_status ~= bat_now.ac_status or prev_perc ~= bat_now.perc then
+				awful.spawn.with_shell('notify-send "Battery: Charging"')
+			end
+		else
+			baticon:set_image(icons_dir .. '/bat.png')
+			if prev_ac_status ~= bat_now.ac_status or prev_perc ~= bat_now.perc then
+				awful.spawn.with_shell('notify-send "Battery: Serving"')
+			end
 		end
 		widget:set_markup(markup.fontfg(theme.font, '#c1e874', perc .. ' ❱ '))
-	end
+		prev_ac_status=bat_now.ac_status
+		prev_perc=bat_now.perc
+	end,
 })
 
 -- Volume
