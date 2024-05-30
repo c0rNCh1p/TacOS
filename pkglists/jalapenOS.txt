@@ -398,6 +398,7 @@ poppler-qt5
 popsift
 portmidi
 potrace
+proton-ge-custom
 protontricks-git
 pstoedit
 ptex
