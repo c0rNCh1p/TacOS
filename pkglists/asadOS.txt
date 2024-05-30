@@ -105,7 +105,7 @@ nemo-terminal
 neofetch
 pacman-mirrorlist
 pamac-aur
-pavucontrol
+pavucontrol-qt
 pdf2png
 picom
 pix
@@ -610,7 +610,6 @@ arcolinux-rofi-themes-git
 arcolinux-system-config-git
 arcolinux-system-installation-git
 arcolinux-systemd-services-git
-arcolinux-welcome-app-git
 chaotic-keyring
 chaotic-mirrorlist
 endeavouros-keyring
