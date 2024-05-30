@@ -39,6 +39,7 @@ sed -i 's/'$OLDNAME'/'$NEWNAME'/gI' '../tacOS/airootfs/etc/calamares/modules/she
 sed -i 's/'$OLDNAME'/'$NEWNAME'/gI' '../tacOS/airootfs/etc/calamares/modules/users.conf'
 sed -i 's/'$OLDNAME'/'$NEWNAME'/gI' '../tacOS/airootfs/etc/calamares/settings.conf'
 sed -i 's/'$OLDNAME'/'$NEWNAME'/gI' '../tacOS/airootfs/etc/skel/.bashrc'
+sed -i 's/'$OLDNAME'/'$NEWNAME'/gI' '../tacOS/airootfs/usr/share/icons/default/index.theme'
 sed -i 's/'$OLDNAME'/'$NEWNAME'/gI' 'new_version.sh'
 
 
