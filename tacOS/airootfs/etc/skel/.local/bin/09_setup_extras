@@ -44,6 +44,7 @@ install_aur_pkgs(){
 	AURPKGS=(
 		'awesome-freedesktop-git'
 		'awesome-themes-git'
+		'cadence'
 		'deadbeef-plugin-statusnotifier-git'
 		'die-plugins'
 		'epson-inkjet-printer-escpr'
