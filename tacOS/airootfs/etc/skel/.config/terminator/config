@@ -42,11 +42,13 @@
     background_color = "#0f0e0e"
     background_darkness = 0.66
     background_type = transparent
+    font = Nimbus Mono PS 10
     foreground_color = "#b1bf9a"
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
     palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    use_system_font = False
     bold_is_bright = True
     title_hide_sizetext = True
     title_transmit_fg_color = "#000000"
