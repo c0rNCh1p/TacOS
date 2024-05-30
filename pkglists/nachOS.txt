@@ -60,6 +60,7 @@ autorandr
 awesome
 awesome-terminal-fonts
 bat
+btop
 bulky
 deadbeef
 dex
@@ -80,6 +81,7 @@ gucharmap
 hardcode-fixer-git
 hardinfo-gtk3
 htop
+knotes
 kvantum
 kwidgetsaddons5
 less
@@ -140,6 +142,7 @@ volumeicon
 wget
 xcolor
 xmrig
+xterm
 xwallpaper
 yay-git
 yt-dlp
@@ -154,6 +157,8 @@ zenity
 #xf86-video-nouveau
 #xf86-video-vmware
 accountsservice
+acpi
+acpid
 aic94xx-firmware
 alsa-firmware
 arch-install-scripts
@@ -393,6 +398,7 @@ opensubdiv
 opentimelineio
 openvdb
 openxr
+pamixer
 playerctl
 poppler
 poppler-data

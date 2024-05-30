@@ -48,7 +48,6 @@ install_aur_pkgs(){
 		'die-plugins'
 		'epson-inkjet-printer-escpr'
 		'epson-inkjet-printer-escpr2'
-		'gedit-dark-variant'
 		'gedit-open-uri-context-menu-git'
 		'lain-git'
 		'material-black-colors-theme'
@@ -56,7 +55,6 @@ install_aur_pkgs(){
 		'rig'
 		'sl'
 		'steamcmd'
-		'sticky-notes'
 		'unfatarians-studio'
 	)
 	echo -e "\nInstalling AUR packages: ${#AURPKGS[@]}\n"

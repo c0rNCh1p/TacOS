@@ -48,6 +48,7 @@ python-iwlib
 #sofirem-git
 awesome-terminal-fonts
 bat
+btop
 dialog
 git
 gpm
@@ -68,12 +69,15 @@ tree
 unicode-emoji
 vi
 wget
+xterm
 yay-git
 yt-dlp
 ##################################################
 # 5 ~ Backend Software
 ##################################################
 accountsservice
+acpi
+acpid
 aic94xx-firmware
 alsa-firmware
 arch-install-scripts
@@ -224,6 +228,7 @@ jack2-dbus
 jack-example-tools
 mediainfo
 mpv
+pamixer
 pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
