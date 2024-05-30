@@ -12,6 +12,7 @@
 # ~ Variables & Daemon List (1)
 ################################################################################
 LOGFL="$LOG/daemons.log"
+! test -e "$LOGFL" && touch "$LOGFL"
 LOCKFL='/tmp/daemons.lck'
 DATE=$(date '+%d/%m/%y %H:%M:%S')
 GKDARGS='--daemonize --components=pkcs11,secrets,ssh'

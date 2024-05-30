@@ -2,7 +2,7 @@
 #shellcheck disable=SC1091
 
 LOGFL="$LOG/run_all.log"
-! test -e "$LOGFL" && sudo touch "$LOGFL"
+! test -e "$LOGFL" && touch "$LOGFL"
 
 '02_setup_alpm' | sudo tee -a "$LOGFL"
 '03_setup_general' | sudo tee -a "$LOGFL"
