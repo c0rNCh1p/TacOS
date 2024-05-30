@@ -52,6 +52,8 @@ install_aur_pkgs(){
 		'lain-git'
 		'material-black-colors-theme'
 		'nemo-compare'
+		'obs-bin'
+		'obsidian-bin'		
 		'rig'
 		'sl'
 		'steamcmd'

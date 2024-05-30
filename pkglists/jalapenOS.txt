@@ -183,6 +183,7 @@ edk2-shell
 efibootmgr
 exfatprogs
 expac
+fabric
 f2fs-tools
 fatresize
 fsarchiver
