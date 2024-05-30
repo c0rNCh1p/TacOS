@@ -1,7 +1,7 @@
 #!/bin/bash
 
-LOGFILE="$HOME/extras.log"
-! test -e "$LOGFILE" && touch "$LOGFILE"
+LOGFL="$HOME/extras.log"
+! test -e "$LOGFL" && touch "$LOGFL"
 
 ALIENURL='https://sourceforge.net/projects/alien-pkg-convert/files/release/alien_8.95.tar.xz'
 DUMMYURL='https://github.com/c0rnch1p/dummy.git'
@@ -30,7 +30,7 @@ install_reqs(){
 		BATCH=("${NAUGHTYORNICE[@]:i:BTCHSIZE}")
 		sudo pacman -S --noconfirm --needed "${BATCH[@]}" || {
 			for PKG in "${BATCH[@]}"; do
-				echo -e "\nFailed to install $PKG\n" | tee -a "$LOGFILE"
+				echo -e "\nFailed to install $PKG\n" | tee -a "$LOGFL"
 			done
 		}
 	done
@@ -48,7 +48,6 @@ install_aur_pkgs(){
 		'die-plugins'
 		'epson-inkjet-printer-escpr'
 		'epson-inkjet-printer-escpr2'
-		'gedit-dark-variant'
 		'gedit-open-uri-context-menu-git'
 		'lain-git'
 		'material-black-colors-theme'
@@ -56,15 +55,14 @@ install_aur_pkgs(){
 		'rig'
 		'sl'
 		'steamcmd'
-		'sticky-notes'
 		'unfatarians-studio'
 	)
 	echo -e "\nInstalling AUR packages: ${#AURPKGS[@]}\n"
 	for PKG in "${AURPKGS[@]}"; do
 		if ! yay -S --noconfirm --needed --mflags --skipinteg "$PKG"; then
-			echo -e "\nFailed to install $PKG\n" | tee -a "$LOGFILE"
+			echo -e "\nFailed to install $PKG\n" | tee -a "$LOGFL"
 		else
-			echo -e "\nSuccessfully installed $PKG\n" | tee -a "$LOGFILE"
+			echo -e "\nSuccessfully installed $PKG\n" | tee -a "$LOGFL"
 		fi
 	done
 	yay
@@ -162,7 +160,7 @@ build_alien(){
 	fi
 }
 
-sudo mv "$LOGFILE" '/var/log'
+sudo mv "$LOGFL" '/var/log'
 if [ -n "$1" ]; then
 	"$1"
 else
@@ -176,4 +174,4 @@ else
 	build_alien
 fi; echo
 
-unset ALIENURL DUMMYURL FABLAURL GH0STYURL LOGFILE MINIMAPURL SCUTTLEURL
+unset ALIENURL DUMMYURL FABLAURL GH0STYURL LOGFL MINIMAPURL SCUTTLEURL
