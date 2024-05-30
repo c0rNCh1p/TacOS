@@ -1,11 +1,14 @@
 #!/bin/bash
 #shellcheck disable=SC1091
 
-'02_setup_alpm'
-'03_setup_general'
-#'04_setup_system'
-'05_setup_polkit'
-'06_setup_dconf'
-#'07_fix_slowstart'
-#'08_setup_initramfs'
-'09_setup_extras'
+LOGFL="$LOG/run_all.log"
+! test -e "$LOGFL" && sudo touch "$LOGFL"
+
+'02_setup_alpm' | sudo tee -a "$LOGFL"
+'03_setup_general' | sudo tee -a "$LOGFL"
+'04_setup_system' | sudo tee -a "$LOGFL"
+'05_setup_polkit' | sudo tee -a "$LOGFL"
+'06_setup_dconf' | sudo tee -a "$LOGFL" 
+#'07_fix_slowstart' | sudo tee -a "$LOGFL"
+'08_setup_initramfs' | sudo tee -a "$LOGFL"
+'09_setup_extras' | sudo tee -a "$LOGFL"

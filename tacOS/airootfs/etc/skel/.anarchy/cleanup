@@ -65,7 +65,6 @@
 # ~ Directory Removals (4)
 ########################################################################################################################
 [ -d "$CONFIG/auostart" ] && rmr "$CONFIG/autostart"
-[ -d "$HOME/.log" ] && rmr "$HOME/.log"
 [ -d "$HOME/.shared-ringdb" ] && rmr "$HOME/.shared-ringdb"
 [ -d "$HOME/.tor" ] && rmr "$HOME/.tor"
 [ -d "$HOME/.vital" ] && rmr "$HOME/.vital"
@@ -85,6 +84,7 @@
 [ ! -d "$GTK2_RC_FILES" ] && mvp "$GTK2_RC_FILES" &>'/dev/null'
 [ ! -d "$LIB" ] && mvp "$LIB" &>'/dev/null'
 [ ! -d "$LOCAL" ] && mvp "$LOCAL" &>'/dev/null'
+[ ! -d "$LOG" ] && mvp "$LOG" &>'/dev/null'
 [ ! -d "$MONERO_HOME" ] && mvp "$MONERO_HOME" &>'/dev/null'
 [ ! -d "$NANO_HOME" ] && mvp "$NANO_HOME" &>'/dev/null'
 [ ! -d "$NANO_HOME/backup" ] && mvp "$NANO_HOME/backup" &>'/dev/null'

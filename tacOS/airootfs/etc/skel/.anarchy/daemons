@@ -11,11 +11,12 @@
 ################################################################################
 # ~ Variables & Daemon List (1)
 ################################################################################
-LOGFL='/var/log/daemons.log'
+LOGFL="$LOG/daemons.log"
 LOCKFL='/tmp/daemons.lck'
 DATE=$(date '+%d/%m/%y %H:%M:%S')
 GKDARGS='--daemonize --components=pkcs11,secrets,ssh'
 DAEMONS=(
+	'acpid'
 	'avahi-daemon'
 	'bluetooth'
 	'cups'
@@ -64,14 +65,14 @@ gkd_func(){
 
 enable_daemon(){
 	if ! systemctl is-enabled --quiet "$1"; then
-		sudo systemctl enable "$1" | sudo tee -a "$LOGFL" 2>&1 ||
+		sudo systemctl enable "$1" | tee -a "$LOGFL" 2>&1 ||
 		log_func "Error enabling $1"
 	fi
 }
 
 start_daemon(){
 	if ! systemctl is-active --quiet "$1"; then
-		sudo systemctl start "$1" | sudo tee -a "$LOGFL" 2>&1 ||
+		sudo systemctl start "$1" | tee -a "$LOGFL" 2>&1 ||
 		log_func "Error starting $1"
 	fi
 }

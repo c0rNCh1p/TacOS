@@ -90,12 +90,10 @@ USER_FILES=(
 	"$GTK3_HOME/settings.ini"
 	"$HL_HOME/lang.lua"
 	"$HL_HOME/theme.lua"
-	"$HOME/.Xauthority"
 	"$HOME/.bashrc"
 	"$HOME/.dircolors"
 	"$HOME/.gitconfig"
-	"$HOME/daemons.log"
-	"$HOME/extras.log"
+	"$HOME/.Xauthority"
 	"$INKSCAPE_HOME/preferences.xml"
 	"$JACK_HOME/conf.xml"
 	"$LIBFM_HOME/libfm.conf"
@@ -114,6 +112,9 @@ USER_FILES=(
 	"$TRANSMISSION_HOME/settings.json"
 	"$VOLUMEICON_HOME/volumeicon"
 	"$YAY_HOME/config.json"
+	"$LOG/daemons.log"
+	"$LOG/extras.log"
+	"$LOG/run_all.log"
 )
 ################################################################################
 # ~ System Files (3)
