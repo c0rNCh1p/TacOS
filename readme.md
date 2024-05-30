@@ -3,7 +3,7 @@
 ##
 #### Details
 - Arch: x86_64  
-- Size: 5.5G (ISO)  
+- Size: 5.4G (ISO)  
 - Type: Squashfs  
 - Vers: v03.02.02
 #### Weblinks
