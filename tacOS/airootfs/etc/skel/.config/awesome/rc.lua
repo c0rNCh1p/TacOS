@@ -753,9 +753,10 @@ end
 -- Startup List & Final
 awful.spawn.with_shell('$HOME/.config/awesome/lain/widget/upd_bat_widget.sh')
 cadence_cmd='/usr/share/cadence/src/cadence.py --minimized'
-run('knotes')
 run('volumeicon')
-run('picom -b --config "$HOME/.config/awesome/picom.conf"')
+run('pamac-tray')
+run('knotes')
 run('nm-applet')
+run('picom -b --config "$HOME/.config/awesome/picom.conf"')
 run('pgrep -f "' .. cadence_cmd .. '" | xargs kill -9 & cadence --minimized')
 run('setxwall')
