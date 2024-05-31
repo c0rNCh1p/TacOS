@@ -313,6 +313,7 @@ blender
 bottles
 carla
 code
+dgedit
 docbook-xml
 docbook-xsl
 double-conversion

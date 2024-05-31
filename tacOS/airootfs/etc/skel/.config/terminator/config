@@ -1,7 +1,7 @@
 [global_config]
   focus = mouse
-  handle_size = 2
   borderless = True
+  extra_styling = False
   tab_position = hidden
   homogeneous_tabbar = False
   use_custom_url_handler = True
