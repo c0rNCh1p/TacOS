@@ -5,14 +5,14 @@
 #                ___/  _/  _\ ___| _|  _| \___/  _|\_| ____/
 #
 ################################################################################
-# ~ $ANARCHY/daemons
+# - $ANARCHY/daemons
 ################################################################################
-# ~ man -P 'less +/DESCRIPTION' 'daemon(7)'
+# - man -P 'less +/DESCRIPTION' 'daemon(7)'
 ################################################################################
-# ~ Variables & Daemon List (1)
+# - [1] Variables & Daemon List
 ################################################################################
 LOGFL="$LOG/daemons.log"
-! test -e "$LOGFL" && touch "$LOGFL"
+[ ! -e "$LOGFL" ] && touch "$LOGFL"
 LOCKFL='/tmp/daemons.lck'
 DATE=$(date '+%d/%m/%y %H:%M:%S')
 GKDARGS='--daemonize --components=pkcs11,secrets,ssh'
@@ -34,7 +34,7 @@ DAEMONS=(
 	#'vboxservice'
 )
 ################################################################################
-# ~ Manage Start Process (2)
+# - [2] Manage Start Process
 ################################################################################
 log_func(){
 	echo "$DATE | $1" >>"$LOGFL"
@@ -49,7 +49,7 @@ check_deps(){
 	done
 }
 
-# Manage gnome-keyring-daemon
+# Handle gnome-keyring-daemon
 gkd_func(){
 	if ! pgrep -f gnome-keyring-daemon &>'/dev/null'; then
 		if ! gnome-keyring-daemon --start "$GKDARGS"; then
@@ -66,14 +66,14 @@ gkd_func(){
 
 enable_daemon(){
 	if ! systemctl is-enabled --quiet "$1"; then
-		sudo systemctl enable "$1" | tee -a "$LOGFL" 2>&1 ||
+		sudo systemctl enable "$1" | sudo tee -a "$LOGFL" 2>&1 ||
 		log_func "Error enabling $1"
 	fi
 }
 
 start_daemon(){
 	if ! systemctl is-active --quiet "$1"; then
-		sudo systemctl start "$1" | tee -a "$LOGFL" 2>&1 ||
+		sudo systemctl start "$1" | sudo tee -a "$LOGFL" 2>&1 ||
 		log_func "Error starting $1"
 	fi
 }
@@ -87,8 +87,7 @@ if [ ! -f "$LOCKFL" ]; then clear
 		start_daemon "$DAEMON"
 	done
 	gkd_func &>'/dev/null'
-	echo 'Probatissima' >"$LOCKFL"
+	echo '*click*' >"$LOCKFL"
 	sleep 1; clear
 fi
-
 unset DAEMON DAEMONS DATE GKDARGS LOCKFL LOGFL

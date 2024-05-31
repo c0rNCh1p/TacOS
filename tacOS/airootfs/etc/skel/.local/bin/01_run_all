@@ -2,13 +2,13 @@
 #shellcheck disable=SC1091
 
 LOGFL="$LOG/run_all.log"
-! test -e "$LOGFL" && touch "$LOGFL"
+[ ! -e "$LOGFL" ] && touch "$LOGFL"
 
 '02_setup_alpm' | sudo tee -a "$LOGFL"
 '03_setup_general' | sudo tee -a "$LOGFL"
 '04_setup_system' | sudo tee -a "$LOGFL"
 '05_setup_polkit' | sudo tee -a "$LOGFL"
-'06_setup_dconf' | sudo tee -a "$LOGFL" 
+'06_setup_dconf' | sudo tee -a "$LOGFL"
 #'07_fix_slowstart' | sudo tee -a "$LOGFL"
 '08_setup_initramfs' | sudo tee -a "$LOGFL"
 '09_setup_extras' | sudo tee -a "$LOGFL"

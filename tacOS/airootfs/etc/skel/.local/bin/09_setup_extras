@@ -1,8 +1,7 @@
 #!/bin/bash
 
 LOGFL="$HOME/extras.log"
-! test -e "$LOGFL" && touch "$LOGFL"
-
+[ ! -e "$LOGFL" ] && touch "$LOGFL"
 ALIENURL='https://sourceforge.net/projects/alien-pkg-convert/files/release/alien_8.95.tar.xz'
 DUMMYURL='https://github.com/c0rnch1p/dummy.git'
 FABLAURL='https://github.com/openAVproductions/openAV-Fabla2.git'
@@ -30,7 +29,7 @@ install_reqs(){
 		BATCH=("${NAUGHTYORNICE[@]:i:BTCHSIZE}")
 		sudo pacman -S --noconfirm --needed "${BATCH[@]}" || {
 			for PKG in "${BATCH[@]}"; do
-				echo -e "\nFailed to install $PKG\n" | tee -a "$LOGFL"
+				echo -e "\nFailed to install $PKG\n" | sudo tee -a "$LOGFL"
 			done
 		}
 	done
@@ -47,11 +46,13 @@ install_aur_pkgs(){
 		'cadence'
 		'deadbeef-plugin-statusnotifier-git'
 		'die-plugins'
+		'editorconfig-gedit-git'
 		'epson-inkjet-printer-escpr'
 		'epson-inkjet-printer-escpr2'
 		'gedit-open-uri-context-menu-git'
 		'lain-git'
 		'material-black-colors-theme'
+		'metagedit-git'
 		'nemo-compare'
 		'rig'
 		'sl'
@@ -61,9 +62,9 @@ install_aur_pkgs(){
 	echo -e "\nInstalling AUR packages: ${#AURPKGS[@]}\n"
 	for PKG in "${AURPKGS[@]}"; do
 		if ! yay -S --noconfirm --needed --mflags --skipinteg "$PKG"; then
-			echo -e "\nFailed to install $PKG\n" | tee -a "$LOGFL"
+			echo -e "\nFailed to install $PKG\n" | sudo tee -a "$LOGFL"
 		else
-			echo -e "\nSuccessfully installed $PKG\n" | tee -a "$LOGFL"
+			echo -e "\nSuccessfully installed $PKG\n" | sudo tee -a "$LOGFL"
 		fi
 	done
 	yay
