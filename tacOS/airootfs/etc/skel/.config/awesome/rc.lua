@@ -1,7 +1,7 @@
 --100x
---                           \  \ \      / __|   __|   _ \    \  |  __|
---                          _ \  \ \ \  /  _|  \__ \  (   |  |\/ |  _|
---                        _/  _\  \_/\_/  ___| ____/ \___/  _|  _| ___|
+--						   \  \ \	   / __|   __|   _ \	\  |  __|
+--						  _ \  \ \ \  /  _|  \__ \  (   |  |\/ |  _|
+--						_/  _\  \_/\_/  ___| ____/ \___/  _|  _| ___|
 --
 -- =================================================================================================
 -- $AWESOME_HOME/rc.lua
@@ -84,9 +84,9 @@ beautiful.notification_font='Nimbus Mono PS Bold 9.5'
 -- Adjust Brightness
 local brightness=1.0
 local function adjustBrightness(inc)
-    brightness=math.min(1.0, math.max(0.1, brightness + (inc * 0.1)))
-    awful.spawn.with_shell('xrandr --output HDMI-1 --brightness '.. tostring(brightness))
-    awful.spawn.with_shell('xrandr --output eDP-1 --brightness '.. tostring(brightness))
+	brightness=math.min(1.0, math.max(0.1, brightness+(inc*0.1)))
+	awful.spawn.with_shell('xrandr --output HDMI-1 --brightness '.. tostring(brightness))
+	awful.spawn.with_shell('xrandr --output eDP-1 --brightness '.. tostring(brightness))
 end
 
 -- Window Layouts
@@ -274,7 +274,7 @@ globalkeys=gears.table.join(
 	awful.key({altkey, 'Shift'}, 'p', function()
 		awful.spawn.with_shell('flameshot gui')
 	end,
-	{description='| Area Select Screenshot       \n', group='01 General'}),
+	{description='| Area Select Screenshot	   \n', group='01 General'}),
 	awful.key({modkey, altkey}, 'p', function()
 		awful.spawn.with_shell('flameshot full')
 	end,
@@ -310,7 +310,7 @@ globalkeys=gears.table.join(
 	awful.key({modkey, 'Shift'}, 'F2', function()
 		awful.spawn.with_shell("$HOME/.config/awesome/tog_pulse.sh")
 	end,
-	{description='| Toggle Pulse\n', group='01 General'}),	
+	{description='| Toggle Pulse\n', group='01 General'}),
 	awful.key({modkey}, 'w', function()
 		main_menu:show()
 	end,
@@ -400,7 +400,7 @@ globalkeys=gears.table.join(
 			if c then client.focus=c c:raise()
 		end
 	end,
-	{description='| Restore Minimized Clients       \n', group='03 Client'}),
+	{description='| Restore Minimized Clients	   \n', group='03 Client'}),
 	awful.key({modkey, 'Shift'}, 'j', function()
 		awful.client.swap.byidx(1)
 	end,
@@ -476,11 +476,11 @@ globalkeys=gears.table.join(
 	awful.key({modkey}, 'F11', function()
 		awful.spawn.with_shell('arandr')
 	end,
-	{description='| Launch Arandr\n', group='04 Launchers'}),	
+	{description='| Launch Arandr\n', group='04 Launchers'}),
 	awful.key({modkey}, 'F1', function()
 		awful.spawn.with_shell('deadbeef')
 	end,
-	{description='| Launch Deadbeef\n', group='04 Launchers'}),	
+	{description='| Launch Deadbeef\n', group='04 Launchers'}),
 	awful.key({modkey}, 'g', function()
 		awful.util.spawn('gimp')
 	end,
@@ -512,11 +512,11 @@ globalkeys=gears.table.join(
 	awful.key({modkey, 'Shift'}, 'p', function()
 		awful.util.spawn(securemsg)
 	end,
-	{description='| Launch Private Messager       \n', group='04 Launchers'}),
+	{description='| Launch Private Messager	   \n', group='04 Launchers'}),
 	awful.key({modkey, 'Shift'}, 's', function()
 		awful.spawn.with_shell('steam-native')
 	end,
-	{description='| Launch Steam Native\n', group='04 Launchers'}),		
+	{description='| Launch Steam Native\n', group='04 Launchers'}),
 	awful.key({modkey, 'Shift'}, 'b', function()
 		awful.spawn.with_shell('blender')
 	end,
@@ -607,21 +607,21 @@ for i=1, 9 do
 			description='| Follow Client to Workspace\n', group='05 Workspaces'}
 	end
 	globalkeys=gears.table.join(globalkeys,
-		awful.key({modkey}, '#'.. i + 9, function()
+		awful.key({modkey}, '#'.. i+9, function()
 			screen=awful.screen.focused() local tag=screen.tags[i]
 			if tag then
 				tag:view_only()
 			end
 		end,
 	descr_view),
-	awful.key({altkey, 'Shift'}, '#'.. i + 9, function()
+	awful.key({altkey, 'Shift'}, '#'.. i+9, function()
 		screen=awful.screen.focused()
 		local tag=screen.tags[i]
 			if tag then awful.tag.viewtoggle(tag)
 		end
 	end,
 	descr_toggle),
-	awful.key({altkey, ctlkey}, '#'.. i + 9, function()
+	awful.key({altkey, ctlkey}, '#'.. i+9, function()
 		if client.focus then
 			local tag=client.focus.screen.tags[i]
 			if tag then
@@ -630,7 +630,7 @@ for i=1, 9 do
 		end
 	end,
 	descr_move),
-	awful.key({altkey, modkey}, '#'.. i + 9, function()
+	awful.key({altkey, modkey}, '#'.. i+9, function()
 		if client.focus then
 			local tag=client.focus.screen.tags[i]
 			if tag then
@@ -663,44 +663,44 @@ root.keys(globalkeys)
 -- =================================================================================================
 -- Client Rules
 awful.rules.rules={
-    -- Defaults
-    {rule={},
-      properties={
-        border_width=beautiful.border_width,
-        border_color=beautiful.border_normal,
-        focus=awful.client.focus.filter,
-        raise=true,
-        keys=clientkeys,
-        buttons=clientbuttons,
-        screen=awful.screen.preferred,
-        placement=awful.placement.no_overlap + awful.placement.no_offscreen,
-        size_hints_honor=false
-      }
-    },
---    {rule={class='Terminator'},
---      properties={
---        floating=true,
---        callback=function(c)
---          naughty.notify({text="Terminator set to floating"})
---        end
---      }
---    },
-    {rule={class='Firefox'},
-      properties={
-        tag='9  ',
-        callback=function(c)
-          naughty.notify({text="Firefox moved to tag 9"})
-        end
-      }
-    },
-    {rule={class='Vivaldi-stable'},
-      properties={ 
-        tag='8  ',
-        callback=function(c)
-          naughty.notify({text="Vivaldi moved to tag 8"})
-        end
-      }
-    },
+	-- Defaults
+	{rule={},
+	  properties={
+		border_width=beautiful.border_width,
+		border_color=beautiful.border_normal,
+		focus=awful.client.focus.filter,
+		raise=true,
+		keys=clientkeys,
+		buttons=clientbuttons,
+		screen=awful.screen.preferred,
+		placement=awful.placement.no_overlap+awful.placement.no_offscreen,
+		size_hints_honor=false
+	  }
+	},
+--	{rule={class='Terminator'},
+--	  properties={
+--		floating=true,
+--		callback=function(c)
+--		  naughty.notify({text="Terminator set to floating"})
+--		end
+--	  }
+--	},
+	{rule={class='Firefox'},
+	  properties={
+		tag='9  ',
+		callback=function(c)
+		  naughty.notify({text="Firefox moved to tag 9"})
+		end
+	  }
+	},
+	{rule={class='Vivaldi-stable'},
+	  properties={
+		tag='8  ',
+		callback=function(c)
+		  naughty.notify({text="Vivaldi moved to tag 8"})
+		end
+	  }
+	},
 }
 
 -- Client Management
@@ -725,18 +725,18 @@ end)
 -- =================================================================================================
 -- Execution Function
 local function run(c)
-    if not awesome.startup then
-        awful.spawn.easy_async_with_shell(
-        string.format('pgrep -f '%s'', c),
-            function(stdout)
-                if not stdout:match('%S') then
-                    awful.spawn(c)
-                end
-            end)
-    else
-        awful.spawn.easy_async_with_shell(
-            string.format("killall -9 '%s'>'/dev/null'2>&1 & sleep 1; %s &", c, c))
-    end
+	if not awesome.startup then
+		awful.spawn.easy_async_with_shell(
+		string.format('pgrep -f '%s'', c),
+			function(stdout)
+				if not stdout:match('%S') then
+					awful.spawn(c)
+				end
+			end)
+	else
+		awful.spawn.easy_async_with_shell(
+			string.format("killall -9 '%s'>'/dev/null'2>&1 & sleep 1; %s &", c, c))
+	end
 end
 
 -- Startup List & Final
