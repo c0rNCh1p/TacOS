@@ -1,14 +1,14 @@
-#
+#50x
 #                  \    \  |  _ \
 #                 _ \  |\/ |  | |                                 
 #               _/  _\_|  _| ___/
 #
-##################################################
-# ~ /etc/packages.x86_64
-# ~ /archiso/packages.x86_64
-##################################################
-# 1 ~ Install Priority
-##################################################
+#=================================================
+# - /etc/packages.x86_64
+# - /archiso/packages.x86_64
+#=================================================
+# - [1] Install Priority
+#=================================================
 freetype2
 lib32-krb5
 lib32-libglvnd
@@ -16,9 +16,9 @@ libcamera
 libglvnd
 qt6-multimedia
 ruby
-##################################################
-# 2 ~ Asset Managers
-##################################################
+#=================================================
+# - [2] Asset Managers
+#=================================================
 clonezilla
 mlocate
 p7zip
@@ -27,9 +27,9 @@ ripgrep
 unace
 unrar
 unzip
-##################################################
-# 3 ~ Libraries
-##################################################
+#=================================================
+# - [3] Libraries
+#=================================================
 aalib
 alsa-lib
 boost-libs
@@ -43,17 +43,17 @@ libopenraw
 libpwquality
 libusb-compat
 python-iwlib
-##################################################
-# 4 ~ Frontend Software
-##################################################
-#gnome-disk-utility
-#gnome-screenshot
-#micro
-#open-vm-tools
-#paru-git
-#qemu-git
-#qemu-guest-agent
-#sofirem-git
+#=================================================
+# - [4] Frontend Software
+#=================================================
+# gnome-disk-utility
+# gnome-screenshot
+# micro
+# open-vm-tools
+# paru-git
+# qemu-git
+# qemu-guest-agent
+# sofirem-git
 appstream
 arandr
 archlinux-tweak-tool-git
@@ -148,12 +148,12 @@ xwallpaper
 yay-git
 yt-dlp
 zenity
-##################################################
-# 5 ~ Backend Software
-##################################################
-#fcitx
-#xf86-video-amdgpu
-#xf86-video-vmware
+#=================================================
+# - [5] Backend Software
+#=================================================
+# fcitx
+# xf86-video-amdgpu
+# xf86-video-vmware
 accountsservice
 acpi
 acpid
@@ -293,11 +293,11 @@ xkeyboard-config
 xorg-apps
 xorg-server
 xorg-xinit
-##################################################
-# 6 ~ Multimedia Software
-##################################################
-#krita
-#shotcut
+#=================================================
+# - [6] Multimedia Software
+#=================================================
+# krita
+# shotcut
 alsa-plugins
 alsa-utils
 ardour
@@ -457,11 +457,11 @@ x264
 x265
 xjadeo
 zynaddsubfx
-##################################################
-# 7 ~ Networking Software
-##################################################
-#ldns
-#systemd-resolvconf
+#=================================================
+# - [7] Networking Software
+#=================================================
+# ldns
+# systemd-resolvconf
 avahi
 bind
 bluez
@@ -528,13 +528,13 @@ wireguard-tools
 wireless-regdb
 wireless_tools
 wireshark-qt
-wpa_supplicant
+wpa-supplicant
 wvdial
 x11-ssh-askpass
 xl2tpd
-##################################################
-# 8 ~ Programming Software
-##################################################
+#=================================================
+# - [8] Programming Software
+#=================================================
 bash
 bash-completion
 clang
@@ -558,10 +558,10 @@ python39
 shellcheck
 shfmt
 yad
-##################################################
-# 9 ~ Extras & Accessories
-##################################################
-#all-repository-fonts
+#=================================================
+# - [9] Extras & Accessories
+#=================================================
+# all-repository-fonts
 a-candy-beauty-icon-theme-git
 adobe-source-han-sans-cn-fonts
 adobe-source-han-sans-jp-fonts
@@ -590,9 +590,9 @@ ttf-ms-fonts
 ttf-roboto
 ttf-roboto-mono
 ttf-ubuntu-font-family
-##################################################
-# 10 ~ Distro Packaged Software
-##################################################
+#=================================================
+# - [10] Distro Packaged Software
+#=================================================
 arco-calamares
 arcolinux-app-git
 arcolinux-bootloader-grub-git
