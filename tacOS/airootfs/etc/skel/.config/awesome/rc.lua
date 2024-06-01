@@ -316,8 +316,8 @@ globalkeys=gears.table.join(
 	end,
 	{description='| Main Menu\n', group='02 Menus'}),
 	awful.key({modkey}, 'z', function()
-		awful.spawn(string.format("dmenu_run -i -nb '#000000'-nf '#c1e874'-sb '#2d454e'\
-		-sf '#a9ff00'-fn NouveauIBM:pixelsize=16",
+		awful.spawn(string.format("dmenu_run -i -nb '#000000' -nf '#c1e874' -sb '#2d454e'\
+		-sf '#a9ff00' -fn NouveauIBM:pixelsize=16",
 		beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
 	end,
 	{description='| Dmenu Prompt\n', group='02 Menus'}),
