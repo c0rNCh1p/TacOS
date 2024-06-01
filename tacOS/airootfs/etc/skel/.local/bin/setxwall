@@ -2,7 +2,7 @@
 #shellcheck disable=SC2012
 
 XWALLINC=1
-XWALLDIR="$FLAVOUR/walls"
+XWALLDIR="$FLAVOR/walls"
 DEFXWALL='morning_distopia.png'
 DEFAULT_EXT="${DEFXWALL##*.}"
 

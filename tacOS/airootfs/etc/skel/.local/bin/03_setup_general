@@ -20,7 +20,7 @@ update_secconf(){
 
 update_fonts(){
 	local FONT
-	local FONT_DIR="$FLAVOUR_HOME/fonts"
+	local FONT_DIR="$FLAVOR_HOME/fonts"
 	echo -e '\nUpdating font database\n'
 	for FONT in "$FONT_DIR"/*.{ttf,otf}; do
 		[ -e "$FONT" ] || continue
