@@ -148,7 +148,7 @@ ls -la && cd - || exit 1
 sudo chown "$USER":"$USER" "$OUTFOLDER"
 sudo find "$OUTFOLDER" -type f -exec chown "$USER":"$USER" {} \;
 echo -e '\nCreate an iso archive? [y/n]\n'
-read -p '- ' ANS
+read -p '~ ' ANS
 [[ "$ANS" =~ ^(1|y|ya|ye|ta|ok|pl|th).* ]] && tar zcvf "$LATESTISO.tar.gz" "$OUTFOLDER"
 cleanup_success
 
