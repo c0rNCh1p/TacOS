@@ -123,7 +123,7 @@ done
 
 if ! diff -q 'tacOS/pacman.conf' '/etc/pacman.conf'; then
 	echo -e '\nCopy over new pacman.conf to /etc [y/n]\n'
-	read -p '- ' ANS
+	read -p '~ ' ANS
 	[[ "$ANS" =~ ^(1|y|ya|ye|ta|ok|pl|th).* ]] && sudo cp 'tacOS/pacman.conf' '/etc'
 fi
 
