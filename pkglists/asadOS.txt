@@ -291,7 +291,12 @@ xf86-input-libinput
 xfsprogs
 xkeyboard-config
 xorg-apps
+xorg-docs
+xorg-font-util
+xorg-fonts-100dpi
+xorg-fonts-75dpi
 xorg-server
+xorg-server-devel
 xorg-xinit
 #=================================================
 # - [6] Multimedia Software

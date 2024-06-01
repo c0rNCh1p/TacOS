@@ -204,6 +204,7 @@ xf86-input-elographics
 xf86-input-libinput
 xfsprogs
 xkeyboard-config
+xorg-docs
 #=================================================
 # - [6] Multimedia Software
 #=================================================
