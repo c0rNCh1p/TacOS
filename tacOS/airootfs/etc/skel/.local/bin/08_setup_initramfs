@@ -57,70 +57,73 @@ setup_mkinitcpio_func(){
 }
 
 setup_grub_func(){
-	local TARGETS TARGET GRUBARGS ANS
-	TARGETS=(
-		'arm-coreboot'
-		'arm-efi'
-		'arm-uboot'
-		'arm64-efi'
-		'i386-coreboot'
-		'i386-efi'
-		'i386-ieee1275'
-		'i386-multiboot'
-		'i386-pc'
-		'i386-qemu'
-		'i386-xen'
-		'i386-xen_pvh'
-		'ia64-efi'
-		'loongarch64-efi'
-		'mips-arc'
-		'mips-qemu_mips'
-		'mipsel-arc'
-		'mipsel-loongson'
-		'mipsel-qemu_mips'
-		'powerpc-ieee1275'
-		'riscv32-efi'
-		'riscv64-efi'
-		'sparc64-ieee1275'
-		'x86_64-efi (default)'
-		'x86_64-xen'
-	)
-	GRUBARGS=(--efi-directory='/boot/efi')
-	if ! tree '/boot/efi' | grep -q 'grub'; then
-		while true; do
-			echo -e '\nGrub isnt installed in /boot/efi\n'
-			echo -e '~ <L> List targets\n~ <E> Enter target'
-			echo -e '~ <D> Use default\n~ <C> Cancel\n'
-			read -p '~ ' ANS
-			case $ANS in
-				l)
-					for TARGET in "${TARGETS[@]}"; do
-						echo " $TARGET"
-					done | less;;
-				e)
-					echo -e '\nEnter target\n'
-					read -rp '~ ' ANS
-					for ARG in "${GRUBARGS[@]}"; do
-						sudo grub-install --target="$ANS" "$ARG"
-					done
-					break;;
-				d)
-					for ARG in "${GRUBARGS[@]}"; do
-						sudo grub-install --target='x86_64-efi' "$ARG"
-					done
-					break;;
-				c)
-					break;;
-			esac
-		done
-	fi
-	if [ ! -f '/boot/grub/grub.cfg' ]; then
-		echo -e '\nThis system doesnt have a grub config'
-		sleep 1
-		echo -e '\nGenerating a new one at /boot/grub/grub.cfg'
-		sudo grub-mkconfig -o '/boot/grub/grub.cfg'
-		sudo update-grub
-	fi; echo
+    local TARGETS TARGET GRUBARGS ANS
+    TARGETS=(
+        'arm-coreboot'
+        'arm-efi'
+        'arm-uboot'
+        'arm64-efi'
+        'i386-coreboot'
+        'i386-efi'
+        'i386-ieee1275'
+        'i386-multiboot'
+        'i386-pc'
+        'i386-qemu'
+        'i386-xen'
+        'i386-xen_pvh'
+        'ia64-efi'
+        'loongarch64-efi'
+        'mips-arc'
+        'mips-qemu_mips'
+        'mipsel-arc'
+        'mipsel-loongson'
+        'mipsel-qemu_mips'
+        'powerpc-ieee1275'
+        'riscv32-efi'
+        'riscv64-efi'
+        'sparc64-ieee1275'
+        'x86_64-efi (default)'
+        'x86_64-xen'
+    )
+    GRUBARGS=(--efi-directory='/boot/efi')
+    if ! tree /boot/efi | grep -q grub; then
+        while true; do
+            echo -e '\nGrub isnt installed in /boot/efi\n'
+            echo -e '~ <L> List targets\n~ <E> Enter target'
+            echo -e '~ <D> Use default\n~ <C> Cancel\n'
+            read -p '~ ' ANS
+            case $ANS in
+                l)
+                    for TARGET in "${TARGETS[@]}"; do
+                        echo " $TARGET"
+                    done | less;;
+                e)
+                    echo -e '\nEnter target\n'
+                    read -rp '~ ' ANS
+                    for ARG in "${GRUBARGS[@]}"; do
+                        sudo grub-install --target="$ANS" "$ARG"
+                    done
+                    break;;
+                d)
+                    for ARG in "${GRUBARGS[@]}"; do
+                        sudo grub-install --target='x86_64-efi' "$ARG"
+                    done
+                    break;;
+                c)
+                    break;;
+                *)
+                    echo 'Invalid option. Please choose a valid option';;
+            esac
+        done
+    fi
+    if [ ! -f '/boot/grub/grub.cfg' ]; then
+        echo -e '\nThis system doesnt have a grub config'
+        sleep 1
+        echo -e '\nGenerating a new one at /boot/grub/grub.cfg'
+        sudo grub-mkconfig -o '/boot/grub/grub.cfg'
+        sudo update-grub
+    fi
+    echo
 }
 
 if [ -n "$1" ]; then "$1"
