@@ -13,314 +13,309 @@ for FILE in \
 	"$HOME/.anarchy/perso" \
 	"$HOME/.anarchy/aliases" \
 	"$HOME/.anarchy/variables"; do
-    if [ -f "$FILE" ]; then . "$FILE"
-    else echo "ERR: Source file not found: $FILE"
-    fi
+	if [ -f "$FILE" ]; then . "$FILE"
+	else echo "ERR: Source file not found: $FILE"
+	fi
 done
 ################################################################################
 # - [2] User Files Array
 ################################################################################
 USER_FILES=(
-    "$ALSA_HOME/asoundrc"
-    "$ANARCHY/aliases"
-    "$ANARCHY/cleanup"
-    "$ANARCHY/daemons"
-    "$ANARCHY/insulter"
-    "$ANARCHY/mntmgr"
-    "$ANARCHY/perso"
-    "$ANARCHY/speeddial"
-    "$ANARCHY/variables"
-    "$ARDOUR_HOME/config"
-    "$ARDOUR_HOME/session.rc"
-    "$ARDOUR_HOME/ui_config"
-    "$ARDOUR_HOME/ui_scripts"
-    "$AWESOME_HOME/rc.lua"
-    "$AWESOME_HOME/themes/tacOS/theme.lua"
-    "$AWESOME_HOME/tog_picom.sh"
-    "$AWESOME_HOME/tog_pulse.sh"
-    "$BIN/01_run_all"
-    "$BIN/02_setup_alpm"
-    "$BIN/03_setup_general"
-    "$BIN/04_setup_system"
-    "$BIN/05_setup_polkit"
-    "$BIN/06_setup_dconf"
-    "$BIN/07_fix_slowstart"
-    "$BIN/08_setup_initramfs"
-    "$BIN/09_setup_extras"
-    "$BIN/bust"
-    "$BIN/colortest"
-    "$BIN/colortest-slim"
-    "$BIN/colorview"
-    "$BIN/colorwheel"
-    "$BIN/deps"
-    "$BIN/fuckem"
-    "$BIN/get_dead"
-    "$BIN/magic_8ball"
-    "$BIN/print256"
-    "$BIN/setxwall"
-    "$BIN/sex"
-    "$BIN/stoker"
-    "$BIN/urch"
-    "$BITMONERO_HOME/monero-wallet-gui.log"
-    "$CADENCE_HOME/Cadence-Logs.conf"
-    "$CADENCE_HOME/Cadence.conf"
-    "$CADENCE_HOME/GlobalSettings.conf"
-    "$CADENCE_HOME/JackSettings.conf"
-    "$CONFIG/dirs.conf"
-    "$CONFIG/fonts.conf"
-    "$CONFIG/kdeglobals"
-    "$CONFIG/kdenlive-layoutsrc"
-    "$CONFIG/mimeapps.list"
-    "$CONFIG/nemo-compare.conf"
-    "$CONFIG/pavucontrol.ini"
-    "$CONFIG/QtProject.conf"
-    "$CONFIG/screenrc"
-    "$CONFIG/Trolltech.conf"
-    "$CONFIG/user-dirs.dirs"
-    "$CONFIG/user-dirs.locale"
-    "$CONKY_HOME/conky.conf"
-    "$CURL_HOME/.curlrc"
-    "$DATA/xorg/Xorg.0.log"
-    "$DEADBEEF_HOME/config"
-    "$FLAMESHOT_HOME/flameshot.ini"
-    "$GALC_HOME/galculator.conf"
-    "$GEDIT_HOME/saved-sessions.xml"
-    "$GIMP_HOME/dockrc"
-    "$GIMP_HOME/gimprc"
-    "$GIMP_HOME/menurc"
-    "$GIMP_HOME/themerc"
-    "$GNUPGHOME/gpg-agent.conf"
-    "$GNUPGHOME/gpg.conf"
-    "$GTK2_RC_FILES/gtkfilechooser.ini"
-    "$GTK2_RC_FILES/gtkrc"
-    "$GTK3_HOME/settings.ini"
-    "$HL_HOME/lang.lua"
-    "$HL_HOME/theme.lua"
-    "$HOME/.bashrc"
-    "$HOME/.dircolors"
-    "$HOME/.gitconfig"
-    "$HOME/.Xauthority"
-    "$INKSCAPE_HOME/preferences.xml"
-    "$JACK_HOME/conf.xml"
-    "$LIBFM_HOME/libfm.conf"
-    "$MONERO_HOME/monero-core.conf"
-    "$OBS_HOME/global.ini"
-    "$PULSE_HOME/client.conf"
-    "$PULSE_HOME/daemon.conf"
-    "$QJACKCTL_HOME/QjackCtl.conf"
-    "$QT5_HOME/qt5ct.conf"
-    "$QVIEW_HOME/qView.conf"
-    "$ROFI_HOME/config.rasi"
-    "$SSH_HOME/config"
-    "$SSH_HOME/known_hosts"
-    "$STICKY_HOME/notes.json"
-    "$TERMINATOR_HOME/config"
-    "$TRANSMISSION_HOME/settings.json"
-    "$VOLUMEICON_HOME/volumeicon"
-    "$YAY_HOME/config.json"
-    "$LOG/daemons.log"
-    "$LOG/extras.log"
-    "$LOG/run_all.log"
+	"$ALSA_HOME/asoundrc"
+	"$ANARCHY/aliases"
+	"$ANARCHY/cleanup"
+	"$ANARCHY/daemons"
+	"$ANARCHY/insulter"
+	"$ANARCHY/mntmgr"
+	"$ANARCHY/perso"
+	"$ANARCHY/speeddial"
+	"$ANARCHY/variables"
+	"$ARDOUR_HOME/config"
+	"$ARDOUR_HOME/session.rc"
+	"$ARDOUR_HOME/ui_config"
+	"$ARDOUR_HOME/ui_scripts"
+	"$AWESOME_HOME/rc.lua"
+	"$AWESOME_HOME/themes/tacOS/theme.lua"
+	"$PAVU_HOME/pavucontrol-qt.conf"
+	"$BIN/01_run_all"
+	"$BIN/02_setup_alpm"
+	"$BIN/03_setup_general"
+	"$BIN/04_setup_system"
+	"$BIN/05_setup_polkit"
+	"$BIN/06_setup_dconf"
+	"$BIN/07_fix_slowstart"
+	"$BIN/08_setup_initramfs"
+	"$BIN/09_setup_extras"
+	"$BIN/bust"
+	"$BIN/colortest"
+	"$BIN/colortest-slim"
+	"$BIN/colorview"
+	"$BIN/colorwheel"
+	"$BIN/deps"
+	"$BIN/fuckem"
+	"$BIN/get_dead"
+	"$BIN/magic_8ball"
+	"$BIN/print256"
+	"$BIN/setxwall"
+	"$BIN/sex"
+	"$BIN/stoker"
+	"$BIN/urch"
+	"$BITMONERO_HOME/monero-wallet-gui.log"
+	"$CADENCE_HOME/Cadence-Logs.conf"
+	"$CADENCE_HOME/Cadence.conf"
+	"$CADENCE_HOME/GlobalSettings.conf"
+	"$CADENCE_HOME/JackSettings.conf"
+	"$CONFIG/dirs.conf"
+	"$CONFIG/fonts.conf"
+	"$CONFIG/kdeglobals"
+	"$CONFIG/kdenlive-layoutsrc"
+	"$CONFIG/mimeapps.list"
+	"$CONFIG/nemo-compare.conf"
+	"$CONFIG/pavucontrol.ini"
+	"$CONFIG/QtProject.conf"
+	"$CONFIG/screenrc"
+	"$CONFIG/Trolltech.conf"
+	"$CONFIG/user-dirs.dirs"
+	"$CONFIG/user-dirs.locale"
+	"$CONKY_HOME/conky.conf"
+	"$CURL_HOME/.curlrc"
+	"$DATA/xorg/Xorg.0.log"
+	"$DEADBEEF_HOME/config"
+	"$FLAMESHOT_HOME/flameshot.ini"
+	"$GALC_HOME/galculator.conf"
+	"$GEDIT_HOME/saved-sessions.xml"
+	"$GIMP_HOME/dockrc"
+	"$GIMP_HOME/gimprc"
+	"$GIMP_HOME/menurc"
+	"$GIMP_HOME/themerc"
+	"$GNUPGHOME/gpg-agent.conf"
+	"$GNUPGHOME/gpg.conf"
+	"$GTK2_RC_FILES/gtkfilechooser.ini"
+	"$GTK2_RC_FILES/gtkrc"
+	"$GTK3_HOME/settings.ini"
+	"$HL_HOME/lang.lua"
+	"$HL_HOME/theme.lua"
+	"$HOME/.bashrc"
+	"$HOME/.dircolors"
+	"$HOME/.gitconfig"
+	"$HOME/.Xauthority"
+	"$INKSCAPE_HOME/preferences.xml"
+	"$JACK_HOME/conf.xml"
+	"$LIBFM_HOME/libfm.conf"
+	"$MONERO_HOME/monero-core.conf"
+	"$OBS_HOME/global.ini"
+	"$PULSE_HOME/client.conf"
+	"$PULSE_HOME/daemon.conf"
+	"$QJACKCTL_HOME/QjackCtl.conf"
+	"$QT5_HOME/qt5ct.conf"
+	"$QVIEW_HOME/qView.conf"
+	"$ROFI_HOME/config.rasi"
+	"$SSH_HOME/config"
+	"$SSH_HOME/known_hosts"
+	"$STICKY_HOME/notes.json"
+	"$TERMINATOR_HOME/config"
+	"$TRANSMISSION_HOME/settings.json"
+	"$VOLUMEICON_HOME/volumeicon"
+	"$YAY_HOME/config.json"
+	"$LOG/daemons.log"
+	"$LOG/extras.log"
+	"$LOG/run_all.log"
 )
 ################################################################################
 # - [3] System Files Array
 ################################################################################
 SYSTEM_FILES=(
-    '/etc/calamares/branding/tacOS/branding.desc'
-    '/etc/calamares/branding/tacOS/calamares-widget-tree'
-    '/etc/calamares/branding/tacOS/show.qml'
-    '/etc/calamares/branding/tacOS/stylesheet-codes.qss'
-    '/etc/calamares/branding/tacOS/stylesheet.qss'
-    '/etc/calamares/modules/bootloader-grub.conf'
-    '/etc/calamares/modules/bootloader-refind.conf'
-    '/etc/calamares/modules/bootloader-systemd.conf'
-    '/etc/calamares/modules/bootloader.conf'
-    '/etc/calamares/modules/finished.conf'
-    '/etc/calamares/modules/fstab.conf'
-    '/etc/calamares/modules/grubcfg.conf'
-    '/etc/calamares/modules/initcpio.conf'
-    '/etc/calamares/modules/locale.conf'
-    '/etc/calamares/modules/machineid.conf'
-    '/etc/calamares/modules/mount.conf'
-    '/etc/calamares/modules/packages.conf'
-    '/etc/calamares/modules/partition.conf'
-    '/etc/calamares/modules/preservefiles.conf'
-    '/etc/calamares/modules/removeuser.conf'
-    '/etc/calamares/modules/shellprocess-before.conf'
-    '/etc/calamares/modules/shellprocess-final.conf'
-    '/etc/calamares/modules/ucode.conf'
-    '/etc/calamares/modules/umount.conf'
-    '/etc/calamares/modules/unpackfs1.conf'
-    '/etc/calamares/modules/unpackfs2.conf'
-    '/etc/calamares/modules/users.conf'
-    '/etc/calamares/modules/welcome.conf'
-    '/etc/calamares/settings.conf'
-    '/etc/containers/containers.conf'
-    '/etc/containers/storage.conf'
-    '/etc/default/grub'
-    '/etc/dev-rel'
-    '/etc/DIR_COLORS'
-    '/etc/dnsmasq.conf'
-    '/etc/environment'
-    '/etc/group'
-    '/etc/grub.d/40_custom'
-    '/etc/gshadow'
-    '/etc/hostname'
-    '/etc/htoprc'
-    '/etc/inputrc'
-    '/etc/issue'
-    '/etc/jackdrc'
-    '/etc/locale.conf'
-    '/etc/locale.gen'
-    '/etc/lvm/lvm.conf'
-    '/etc/mime.types'
-    '/etc/mkinitcpio.conf'
-    '/etc/mkinitcpio.d/linux.preset'
-    '/etc/mkinitcpio.d/tacOS'
-    '/etc/modprobe.d/broadcom-wl.conf'
-    '/etc/nanorc'
-    '/etc/neofetch/config.conf'
-    '/etc/neofetch/logo'
-    '/etc/NetworkManager/NetworkManager.conf'
-    '/etc/nsswitch.conf'
-    '/etc/openvpn/client/ovpncli.ovpn'
-    '/etc/pacman.conf'
-    '/etc/pacman.d/gnupg/gpg-agent.conf'
-    '/etc/pacman.d/gnupg/gpg.conf'
-    '/etc/pacman.d/mirrorlist'
-    '/etc/pam.d/login'
-    '/etc/pam.d/system-auth'
-    '/etc/passwd'
-    '/etc/profile'
-    '/etc/profile.d/locale.sh'
-    '/etc/proxychains.conf'
-    '/etc/resolv.conf'
-    '/etc/security/limits.conf'
-    '/etc/shadow'
-    '/etc/ssh/ssh_config'
-    '/etc/ssh/sshd_config'
-    '/etc/sudo -Aers'
-    '/etc/sysctl.conf'
-    '/etc/systemd/journald.conf'
-    '/etc/systemd/logind.conf'
-    '/etc/systemd/logind.conf.d/tacOS-settings.conf'
-    '/etc/systemd/network.conf.d/ipv6-privacy-extensions.conf'
-    '/etc/systemd/network/20-ethernet.network'
-    '/etc/systemd/network/20-wlan.network'
-    '/etc/systemd/network/20-wwan.network'
-    '/etc/tacOS-rel'
-    '/etc/tor/torrc'
-    '/etc/tor/torsocks.conf'
-    '/etc/vconsole.conf'
-    '/etc/wgetrc'
-    '/etc/wireguard/wgcli.conf'
-    '/etc/X11/xinit/xinitrc'
-    '/etc/X11/xinit/xserverrc'
-    '/etc/xdg/user-dirs.conf'
-    '/etc/xdg/user-dirs.defaults'
-    '/usr/share/doc/most/most.rc'
-    '/usr/share/icons/default/index.theme'
-    '/usr/share/X11/app-defaults/SshAskpass'
+	"$CALAMARES/branding/tacOS/branding.desc"
+	"$CALAMARES/branding/tacOS/calamares-widget-tree"
+	"$CALAMARES/branding/tacOS/show.qml"
+	"$CALAMARES/branding/tacOS/stylesheet-codes.qss"
+	"$CALAMARES/branding/tacOS/stylesheet.qss"
+	"$CALAMARES/modules/bootloader-grub.conf"
+	"$CALAMARES/modules/bootloader-refind.conf"
+	"$CALAMARES/modules/bootloader-systemd.conf"
+	"$CALAMARES/modules/bootloader.conf"
+	"$CALAMARES/modules/finished.conf"
+	"$CALAMARES/modules/fstab.conf"
+	"$CALAMARES/modules/grubcfg.conf"
+	"$CALAMARES/modules/initcpio.conf"
+	"$CALAMARES/modules/locale.conf"
+	"$CALAMARES/modules/machineid.conf"
+	"$CALAMARES/modules/mount.conf"
+	"$CALAMARES/modules/packages.conf"
+	"$CALAMARES/modules/partition.conf"
+	"$CALAMARES/modules/preservefiles.conf"
+	"$CALAMARES/modules/removeuser.conf"
+	"$CALAMARES/modules/shellprocess-before.conf"
+	"$CALAMARES/modules/shellprocess-final.conf"
+	"$CALAMARES/modules/ucode.conf"
+	"$CALAMARES/modules/umount.conf"
+	"$CALAMARES/modules/unpackfs1.conf"
+	"$CALAMARES/modules/unpackfs2.conf"
+	"$CALAMARES/modules/users.conf"
+	"$CALAMARES/modules/welcome.conf"
+	"$CALAMARES/settings.conf"
+	'/etc/containers/containers.conf'
+	'/etc/containers/storage.conf'
+	'/etc/default/grub'
+	'/etc/DIR_COLORS'
+	'/etc/dnsmasq.conf'
+	'/etc/group'
+	'/etc/grub.d/40_custom'
+	'/etc/gshadow'
+	'/etc/hostname'
+	'/etc/htoprc'
+	'/etc/inputrc'
+	'/etc/issue'
+	'/etc/jackdrc'
+	'/etc/locale.conf'
+	'/etc/locale.gen'
+	'/etc/lvm/lvm.conf'
+	'/etc/mime.types'
+	'/etc/mkinitcpio.conf'
+	'/etc/mkinitcpio.d/linux.preset'
+	'/etc/mkinitcpio.d/tacOS'
+	'/etc/modprobe.d/broadcom-wl.conf'
+	'/etc/nanorc'
+	'/etc/neofetch/config.conf'
+	'/etc/neofetch/logo'
+	'/etc/NetworkManager/NetworkManager.conf'
+	'/etc/nsswitch.conf'
+	'/etc/openvpn/client/ovpncli.ovpn'
+	'/etc/pacman.conf'
+	'/etc/pacman.d/gnupg/gpg-agent.conf'
+	'/etc/pacman.d/gnupg/gpg.conf'
+	'/etc/pacman.d/mirrorlist'
+	'/etc/pam.d/login'
+	'/etc/pam.d/system-auth'
+	'/etc/passwd'
+	'/etc/profile'
+	'/etc/profile.d/locale.sh'
+	'/etc/proxychains.conf'
+	'/etc/resolv.conf'
+	'/etc/security/limits.conf'
+	'/etc/shadow'
+	'/etc/ssh/ssh_config'
+	'/etc/ssh/sshd_config'
+	'/etc/sudo -Aers'
+	'/etc/sysctl.conf'
+	'/etc/systemd/journald.conf'
+	'/etc/systemd/logind.conf'
+	'/etc/systemd/logind.conf.d/tacOS-settings.conf'
+	'/etc/systemd/network.conf.d/ipv6-privacy-extensions.conf'
+	'/etc/systemd/network/20-ethernet.network'
+	'/etc/systemd/network/20-wlan.network'
+	'/etc/systemd/network/20-wwan.network'
+	'/etc/tor/torrc'
+	'/etc/tor/torsocks.conf'
+	'/etc/vconsole.conf'
+	'/etc/wgetrc'
+	'/etc/wireguard/wgcli.conf'
+	'/etc/X11/xinit/xinitrc'
+	'/etc/X11/xinit/xserverrc'
+	'/etc/xdg/user-dirs.conf'
+	'/usr/share/doc/most/most.rc'
+	'/usr/share/icons/default/index.theme'
+	'/usr/share/X11/app-defaults/SshAskpass'
 )
 ################################################################################
 # - [4] Select File
 ################################################################################
 select_file(){
-    local PROMPT="$1"
-    local -n FILES=$2
-    local COL COLUMNS COLWIDTH INDEX REPLY ROW ROWS SELECTED
-    echo -e "\033[0;32m\n$PROMPT\n\033[0m"
-    COLUMNS=$(tput cols)
-    MAX_LENGTH=0
-    for FILE in "${FILES[@]}"; do
-        if [ ${#FILE} -gt $MAX_LENGTH ]; then
-            MAX_LENGTH=${#FILE}
-        fi
-    done
-    COLWIDTH=$((MAX_LENGTH + 2))
-    if (( COLWIDTH * 3 > COLUMNS )); then
-        NUMCOLS=$(( COLUMNS / COLWIDTH ))
-    else NUMCOLS=3
-    fi
-    ROWS=$(( (${#FILES[@]} + NUMCOLS - 1) / NUMCOLS ))
-    for ROW in $(seq 0 $((ROWS - 1))); do
-        for COL in $(seq 0 $((NUMCOLS - 1))); do
-            INDEX=$((ROW + COL * ROWS))
-            if [ $INDEX -lt ${#FILES[@]} ]; then
-                printf '\033[0;36m%3d -\033[0m \033[0;37m%-*s\033[0m' \
-                $((INDEX+1)) $COLWIDTH "${FILES[INDEX]}"
-            fi
-        done; echo
-    done
-    while true; do
-        echo -e '\033[0;32m\nEnter \$#\n\033[0m'
-        read -rp "- " REPLY
-        if [[ "$REPLY" =~ ^[0-9]+$ ]] && [ "$REPLY" -ge 1 ] && \
-        [ "$REPLY" -le "${#FILES[@]}" ]; then
-            SELECTED="${FILES[REPLY-1]}"
-            echo -e "\n\033[0;32mSelected:\033[0m \033[0;37m$SELECTED\033[0m\n"
-            eval "$3='$SELECTED'"
-            return 0
-        else echo -e "\033[0;31mValid files: 1-${#FILES[@]}\033[0m"
-        fi
-    done
+	local PROMPT="$1"
+	local -n FILES=$2
+	local COL COLUMNS COLWIDTH INDEX REPLY ROW ROWS SELECTED
+	echo -e "\033[0;32m\n$PROMPT\n\033[0m"
+	COLUMNS=$(tput cols)
+	MAX_LENGTH=0
+	for FILE in "${FILES[@]}"; do
+		if [ ${#FILE} -gt $MAX_LENGTH ]; then
+			MAX_LENGTH=${#FILE}
+		fi
+	done
+	COLWIDTH=$((MAX_LENGTH + 2))
+	if (( COLWIDTH * 3 > COLUMNS )); then
+		NUMCOLS=$(( COLUMNS / COLWIDTH ))
+	else NUMCOLS=3
+	fi
+	ROWS=$(( (${#FILES[@]} + NUMCOLS - 1) / NUMCOLS ))
+	for ROW in $(seq 0 $((ROWS - 1))); do
+		for COL in $(seq 0 $((NUMCOLS - 1))); do
+			INDEX=$((ROW + COL * ROWS))
+			if [ $INDEX -lt ${#FILES[@]} ]; then
+				printf '\033[0;36m%3d -\033[0m \033[0;37m%-*s\033[0m' \
+				$((INDEX+1)) $COLWIDTH "${FILES[INDEX]}"
+			fi
+		done; echo
+	done
+	while true; do
+		echo -e '\033[0;32m\nEnter \$#\n\033[0m'
+		read -rp "- " REPLY
+		if [[ "$REPLY" =~ ^[0-9]+$ ]] && [ "$REPLY" -ge 1 ] && \
+		[ "$REPLY" -le "${#FILES[@]}" ]; then
+			SELECTED="${FILES[REPLY-1]}"
+			echo -e "\n\033[0;32mSelected:\033[0m \033[0;37m$SELECTED\033[0m\n"
+			eval "$3='$SELECTED'"
+			return 0
+		else echo -e "\033[0;31mValid files: 1-${#FILES[@]}\033[0m"
+		fi
+	done
 }
 ################################################################################
 # - [5] Read Files
 ################################################################################
 read_perso_speeddial(){
-    local FILE
-    select_file 'Perso Files' PERSO_FILES FILE
-    if [[ -f "$FILE" ]]; then
-        but "$FILE" || echo "ERR: Failed to open $FILE with but"
-    else echo "ERR: No perso file selected or file path empty"
-    fi
+	local FILE
+	select_file 'Perso Files' PERSO_FILES FILE
+	if [[ -f "$FILE" ]]; then
+		but "$FILE" || echo "ERR: Failed to open $FILE with but"
+	else echo "ERR: No perso file selected or file path empty"
+	fi
 }
 
 read_user_speeddial() {
-    local FILE
-    select_file 'User Files' USER_FILES FILE
-    if [[ -f "$FILE" ]]; then
-        echo "ERR: Attempting to open user file with but: $FILE"
-        but "$FILE" || echo "ERR: Failed to open $FILE with but"
-    else echo "ERR: No user file selected or file path empty"
-    fi
+	local FILE
+	select_file 'User Files' USER_FILES FILE
+	if [[ -f "$FILE" ]]; then
+		echo "ERR: Attempting to open user file with but: $FILE"
+		but "$FILE" || echo "ERR: Failed to open $FILE with but"
+	else echo "ERR: No user file selected or file path empty"
+	fi
 }
 
 read_system_speeddial() {
-    local FILE
-    select_file 'System Files' SYSTEM_FILES FILE
-    if [[ -f "$FILE" ]]; then
-        sbut "$FILE" || echo "ERR: Failed to open $FILE with sbut"
-    else echo "ERR: No system file selected or file path empty"
-    fi
+	local FILE
+	select_file 'System Files' SYSTEM_FILES FILE
+	if [[ -f "$FILE" ]]; then
+		sbut "$FILE" || echo "ERR: Failed to open $FILE with sbut"
+	else echo "ERR: No system file selected or file path empty"
+	fi
 }
 ################################################################################
 # - [6] Edit Files
 ################################################################################
 edit_perso_speeddial(){
-    local FILE
-    select_file 'Perso Files' PERSO_FILES FILE
-    if [[ -f "$FILE" ]]; then
-        $EDITOR "$FILE" || echo "ERR: Failed to edit $FILE with editor $EDITOR"
-    else echo "ERR: No perso file selected or file path empty"
-    fi
+	local FILE
+	select_file 'Perso Files' PERSO_FILES FILE
+	if [[ -f "$FILE" ]]; then
+		$EDITOR "$FILE" || echo "ERR: Failed to edit $FILE with editor $EDITOR"
+	else echo "ERR: No perso file selected or file path empty"
+	fi
 }
 
 edit_user_speeddial(){
-    local FILE
-    select_file 'User Files' USER_FILES FILE
-    if [[ -f "$FILE" ]]; then
-        $EDITOR "$FILE" || echo "ERR: Failed to edit $FILE with editor $EDITOR"
-    else echo "ERR: No user file selected or file path empty"
-    fi
+	local FILE
+	select_file 'User Files' USER_FILES FILE
+	if [[ -f "$FILE" ]]; then
+		$EDITOR "$FILE" || echo "ERR: Failed to edit $FILE with editor $EDITOR"
+	else echo "ERR: No user file selected or file path empty"
+	fi
 }
 
 edit_system_speeddial(){
-    local FILE
-    select_file 'System Files' SYSTEM_FILES FILE
-    if [[ -f "$FILE" ]]; then
-        sudo -A $EDITOR "$FILE" || echo "ERR: Failed to edit $FILE with $EDITOR"
-    else echo "ERR: No system file selected or file path empty"
-    fi
+	local FILE
+	select_file 'System Files' SYSTEM_FILES FILE
+	if [[ -f "$FILE" ]]; then
+		sudo -A $EDITOR "$FILE" || echo "ERR: Failed to edit $FILE with $EDITOR"
+	else echo "ERR: No system file selected or file path empty"
+	fi
 }

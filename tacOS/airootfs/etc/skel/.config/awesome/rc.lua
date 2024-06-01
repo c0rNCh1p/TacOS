@@ -1,16 +1,15 @@
---[[                         \  \ \      / __|   __|   _ \    \  |  __|
-                            _ \  \ \ \  /  _|  \__ \  (   |  |\/ |  _|
-                          _/  _\  \_/\_/  ___| ____/ \___/  _|  _| ___|
+--                           \  \ \      / __|   __|   _ \    \  |  __|
+--                          _ \  \ \ \  /  _|  \__ \  (   |  |\/ |  _|
+--                        _/  _\  \_/\_/  ___| ____/ \___/  _|  _| ___|
 ----------------------------------------------------------------------------------------------------
- ▸ $XDG_CONFIG_HOME/awesome/rc.lua
+-- $XDG_CONFIG_HOME/awesome/rc.lua
 ----------------------------------------------------------------------------------------------------
- ▸ man 'awesome(1)' | less +/DESCRIPTION
- ▸ man 'awesomerc(5)' | less +/DESCRIPTION
- ▸ $BROWSER 'https://awesomewm.org/doc/api/sample%20files/rc.lua.html'
+-- man -P 'less +/DESCRIPTION' 'awesome(1)'
+-- man -P 'less +/DESCRIPTION' 'awesomerc(5)'
+-- $BROWSER 'https://awesomewm.org/doc/api/sample%20files/rc.lua.html'
 ----------------------------------------------------------------------------------------------------
- 1 ~ Required Libraries
-------------------------------------------------------------------------------------------------]]--
-
+-- [1] Required Libraries
+----------------------------------------------------------------------------------------------------
 local gears=require('gears')
 local awful=require('awful')
 require('awful.autofocus')
@@ -25,11 +24,9 @@ local hotkeys_popup=require('awful.hotkeys_popup').widget
 --require('awful.hotkeys_popup.keys')
 local dpi=require('beautiful.xresources').apply_dpi
 --local vicious=require('vicious')
-
---[[------------------------------------------------------------------------------------------------
- 2 ~ Error Handling
-------------------------------------------------------------------------------------------------]]--
-
+----------------------------------------------------------------------------------------------------
+-- [2] Error Handling
+----------------------------------------------------------------------------------------------------
 -- Startup Errors
 if awesome.startup_errors then
 	naughty.notify({
@@ -53,11 +50,9 @@ do
 		in_error=false
 	end)
 end
-
---[[------------------------------------------------------------------------------------------------
- 3 ~ Awesome Environment⧹
-------------------------------------------------------------------------------------------------]]--
-
+----------------------------------------------------------------------------------------------------
+-- [3] Awesome Environment
+----------------------------------------------------------------------------------------------------
 local modkey='Mod4'
 local altkey='Mod1'
 local ctlkey='Control'
@@ -129,11 +124,9 @@ lain.layout.cascade.tile.extra_padding=dpi(5)
 lain.layout.cascade.tile.nmaster=5
 lain.layout.cascade.tile.ncol=2
 --awful.layout.suit.tile.left.mirror=true
-
---[[------------------------------------------------------------------------------------------------
- 4 ~ Menu Behaviour
-------------------------------------------------------------------------------------------------]]--
-
+----------------------------------------------------------------------------------------------------
+-- [4] Menu Behaviour
+----------------------------------------------------------------------------------------------------
 -- Taglist Behaviour
 awful.util.taglist_buttons=gears.table.join(
 	awful.button({ }, 1, function(t)
@@ -249,11 +242,9 @@ awful.screen.connect_for_each_screen(function(s)
 		s.systray=wibox.widget.systray()
 		s.systray.visible=true
 end)
-
---[[------------------------------------------------------------------------------------------------
- 7 ~ Key Bindings
-------------------------------------------------------------------------------------------------]]--
-
+----------------------------------------------------------------------------------------------------
+-- [5] Key Bindings
+----------------------------------------------------------------------------------------------------
 -- Mouse Buttons for Top Menu
 root.buttons(gears.table.join(
 	awful.button({ }, 3, function()
@@ -665,11 +656,9 @@ clientbuttons=gears.table.join(
 
 -- Initialize As Root Keys
 root.keys(globalkeys)
-
---[[------------------------------------------------------------------------------------------------
- 6 ~ Client Behaviour
-------------------------------------------------------------------------------------------------]]--
-
+----------------------------------------------------------------------------------------------------
+-- [6] Client Behaviour
+----------------------------------------------------------------------------------------------------
 -- Client Rules
 awful.rules.rules={
     -- Defaults
@@ -729,11 +718,9 @@ end)
 client.connect_signal('unfocus', function(c)
 	c.border_color=beautiful.border_normal
 end)
-
---[[------------------------------------------------------------------------------------------------
- 7 ~ Autostart Applications
+----------------------------------------------------------------------------------------------------
+-- [7] Autostart Applications
 ------------------------------------------------------------------------------------------------]]--
-
 -- Execution Function
 local function run(c)
     if not awesome.startup then
@@ -753,10 +740,10 @@ end
 -- Startup List & Final
 awful.spawn.with_shell('$HOME/.config/awesome/lain/widget/upd_bat_widget.sh')
 cadence_cmd='/usr/share/cadence/src/cadence.py --minimized'
-run('volumeicon')
-run('pamac-tray')
-run('knotes')
-run('nm-applet')
 run('picom -b --config "$HOME/.config/awesome/picom.conf"')
+run('knotes')
+run('pamac-tray')
+run('volumeicon')
+run('nm-applet')
 run('pgrep -f "' .. cadence_cmd .. '" | xargs kill -9 & cadence --minimized')
 run('setxwall')
