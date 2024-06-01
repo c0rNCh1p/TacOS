@@ -3,12 +3,12 @@
 #             |      |   |   _|   |
 #           ___| _|\_|  _|  ___| ____|
 #       
-##################################################
-# ~ /etc/packages.x86_64
-# ~ /archiso/packages.x86_64
-##################################################
-# 1 ~ Install Priority
-##################################################
+#=================================================
+# - /etc/packages.x86_64
+# - /archiso/packages.x86_64
+#=================================================
+# - [1] Install Priority
+#=================================================
 freetype2
 lib32-krb5
 lib32-libglvnd
@@ -16,9 +16,9 @@ libcamera
 libglvnd
 qt6-multimedia
 ruby
-##################################################
-# 2 ~ Asset Managers
-##################################################
+#=================================================
+# - [2] Asset Managers
+#=================================================
 clonezilla
 mlocate
 p7zip
@@ -27,9 +27,9 @@ ripgrep
 unace
 unrar
 unzip
-##################################################
-# 3 ~ Libraries
-##################################################
+#=================================================
+# - [3] Libraries
+#=================================================
 aalib
 alsa-lib
 boost-libs
@@ -43,9 +43,9 @@ libopenraw
 libpwquality
 libusb-compat
 python-iwlib
-##################################################
-# 4 ~ Frontend Software
-##################################################
+#=================================================
+# - [4] Frontend Software
+#=================================================
 #gnome-disk-utility
 #gnome-screenshot
 #micro
@@ -61,6 +61,7 @@ autorandr
 awesome
 awesome-terminal-fonts
 bat
+btop
 bulky
 deadbeef
 dex
@@ -81,6 +82,7 @@ gucharmap
 hardcode-fixer-git
 hardinfo-gtk3
 htop
+knotes
 kvantum
 kwidgetsaddons5
 less
@@ -103,7 +105,7 @@ nemo-terminal
 neofetch
 pacman-mirrorlist
 pamac-aur
-pavucontrol
+pavucontrol-qt
 pdf2png
 picom
 pix
@@ -141,17 +143,20 @@ volumeicon
 wget
 xcolor
 xmrig
+xterm
 xwallpaper
 yay-git
 yt-dlp
 zenity
-##################################################
-# 5 ~ Backend Software
-##################################################
+#=================================================
+# - [5] Backend Software
+#=================================================
 #fcitx
 #xf86-video-intel
 #xf86-video-vmware
 accountsservice
+acpi
+acpid
 aic94xx-firmware
 alsa-firmware
 arch-install-scripts
@@ -178,6 +183,7 @@ edk2-shell
 efibootmgr
 exfatprogs
 expac
+fabric
 f2fs-tools
 fatresize
 fsarchiver
@@ -289,9 +295,9 @@ xkeyboard-config
 xorg-apps
 xorg-server
 xorg-xinit
-##################################################
-# 6 ~ Multimedia Software
-##################################################
+#=================================================
+# - [6] Multimedia Software
+#=================================================
 #krita
 #shotcut
 alsa-plugins
@@ -304,6 +310,7 @@ blender
 bottles
 carla
 code
+dgedit
 docbook-xml
 docbook-xsl
 double-conversion
@@ -390,6 +397,7 @@ opensubdiv
 opentimelineio
 openvdb
 openxr
+pamixer
 playerctl
 poppler
 poppler-data
@@ -398,6 +406,7 @@ poppler-qt5
 popsift
 portmidi
 potrace
+proton-ge-custom
 protontricks-git
 pstoedit
 ptex
@@ -430,7 +439,6 @@ sdl_sound
 sdl_ttf
 sndio
 steam-native-runtime
-sublime-text-4
 svt-av1
 svt-hevc
 swh-plugins
@@ -451,9 +459,9 @@ x264
 x265
 xjadeo
 zynaddsubfx
-##################################################
-# 7 ~ Networking Software
-##################################################
+#=================================================
+# - [7] Networking Software
+#=================================================
 #ldns
 #systemd-resolvconf
 avahi
@@ -526,9 +534,9 @@ wpa_supplicant
 wvdial
 x11-ssh-askpass
 xl2tpd
-##################################################
-# 8 ~ Programming Software
-##################################################
+#=================================================
+# - [8] Programming Software
+#=================================================
 bash
 bash-completion
 clang
@@ -552,9 +560,9 @@ python39
 shellcheck
 shfmt
 yad
-##################################################
-# 9 ~ Extras & Accessories
-##################################################
+#=================================================
+# - [9] Extras & Accessories
+#=================================================
 #all-repository-fonts
 a-candy-beauty-icon-theme-git
 adobe-source-han-sans-cn-fonts
@@ -584,9 +592,9 @@ ttf-ms-fonts
 ttf-roboto
 ttf-roboto-mono
 ttf-ubuntu-font-family
-##################################################
-# 10 ~ Distro Packaged Software
-##################################################
+#=================================================
+# - [10] Distro Packaged Software
+#=================================================
 arco-calamares
 arcolinux-app-git
 arcolinux-bootloader-grub-git
@@ -603,8 +611,8 @@ arcolinux-qt5-git
 arcolinux-rofi-git
 arcolinux-rofi-themes-git
 arcolinux-system-config-git
+arcolinux-system-installation-git
 arcolinux-systemd-services-git
-arcolinux-welcome-app-git
 chaotic-keyring
 chaotic-mirrorlist
 endeavouros-keyring
