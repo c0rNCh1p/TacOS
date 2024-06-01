@@ -454,7 +454,7 @@ globalkeys=gears.table.join(
 	end,
 	{description='| Launch File Manager\n', group='04 Launchers'}),
 	awful.key({modkey}, 'F2', function()
-		awful.spawn.with_shell('pavucontrol')
+		awful.spawn.with_shell('pavucontrol-qt')
 	end,
 	{description='| Launch Pulse Mixer\n', group='04 Launchers'}),
 	awful.key({modkey}, 'F3', function()
