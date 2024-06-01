@@ -94,7 +94,6 @@
 [ ! -d "$VISUAL" ] && mvp "$VISUAL" &>'/dev/null'
 [ ! -d "$XDG_STATE_HOME" ] && mvp "$XDG_STATE_HOME" &>'/dev/null'
 [ ! -d "$XDG_STATE_HOME/bash" ] && mvp "$XDG_STATE_HOME/bash" &>'/dev/null'
-[ -d "$DOCUMENTS/Obsidian Vault" ] && mv "$DOCUMENTS/Obsidian Vault" "$OBSIDIAN_HOME" &>'/dev/null'
 [ -d "$HOME/.bin" ] && mv "$HOME/.bin" "$LOCAL/bin" &>'/dev/null'
 [ -d "$HOME/.cargo" ] && mv "$HOME/.cargo" "$CARGO_HOME" &>'/dev/null'
 [ -d "$HOME/.ccache" ] && mv "$HOME/.ccache" "$CCACHE_DIR" &>'/dev/null'
