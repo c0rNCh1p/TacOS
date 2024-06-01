@@ -4,13 +4,13 @@
 #             \ \ /   _ \     /   |    _ \   _ \  |     _|  \__ \
 #              \_/  _/  _\ _|_\ ___| _/  _\ ___/ ____| ___| ____/
 #
-################################################################################
-# ~ $ANARCHY/variables
-################################################################################
-# ~ man -P 'less +2960 +/shopt' 'bash(1)'
-################################################################################
-# ~ Path Directives (1)
-################################################################################
+#===============================================================================
+# - $ANARCHY/variables
+#===============================================================================
+# - man -P 'less +2960 +/shopt' 'bash(1)'
+#===============================================================================
+# - [1] Path Directives
+#===============================================================================
 export PATH="\
 $HOME/.bin:\
 $HOME/.local/bin:\
@@ -35,9 +35,9 @@ $HOME/.local/share/gem/ruby/3.0.0/gems:\
 /usr/local/sbin:\
 /usr/sbin:\
 /usr/share/drbl/bin"
-################################################################################
-# ~ Shopt Options (2)
-################################################################################
+#===============================================================================
+# - [2] Shopt Options
+#===============================================================================
 shopt -s autocd
 shopt -s cdable_vars
 shopt -s cdspell
@@ -61,9 +61,9 @@ shopt -s nocaseglob
 shopt -s progcomp
 shopt -s progcomp_alias
 shopt -s sourcepath
-################################################################################
-# ~ Home Layout (3)
-################################################################################
+#===============================================================================
+# - [3] Home Layout
+#===============================================================================
 #export XDG_RUNTIME_DIR="/run/user/1000"
 export ANARCHY="$HOME/.anarchy"
 export ARDOUR="$HOME/.audio/ardour"
@@ -98,9 +98,9 @@ export XDG_DESKTOP_DIR="$HOME/Desktop"
 export XDG_DOCUMENTS_DIR="$HOME/Documents"
 export XDG_DOWNLOAD_DIR="$HOME/Downloads"
 export XDG_STATE_HOME="$LOCAL/state"
-################################################################################
-# ~ Program Directories (4)
-################################################################################
+#===============================================================================
+# - [4] Program Directories
+#===============================================================================
 export ALSA_HOME="$CONFIG/alsa"
 export ARDOUR_HOME="$CONFIG/ardour8"
 export AWESOME_HOME="$CONFIG/awesome"
@@ -134,6 +134,7 @@ export NEMO_HOME="$CONFIG/nemo"
 export OBS_HOME="$CONFIG/obs-studio"
 export OBSIDIAN_HOME="$CONFIG/obsidian"
 export OPENAI_HOME="$PYTHON_LIB/openai"
+export PAVU_HOME="$CONFIG/pavucontrol-qt"
 export PICOM_HOME="$CONFIG/picom"
 export PIX_HOME="$CONFIG/pix"
 export PKI_DATA="$DATA/pki"
@@ -161,15 +162,19 @@ export WINEPREFIX="$DATA/wine"
 export XORG_DATA="$DATA/xorg"
 export YAY_DATA="$DATA/yay"
 export YAY_HOME="$CONFIG/yay"
-################################################################################
-# ~ Input Vars (5)
-################################################################################
+#===============================================================================
+# - [5] Input Vars
+#===============================================================================
 #export GNOME_KEYRING_CONTROL='/run/user/1000/keyring/control'
+#export GTK_IM_MODULE='/bin/fcitx'
+#export QT_IM_MODULE='/bin/fcitx'
 #export QT_STYLE_OVERRIDE='/bin/kvantum'
 #export SSH_AUTH_SOCK='/run/user/1000/keyring/ssh'
 #export XINITRC='/etc/X11/xinit/xinitrc'
+#export XMODIFIERS='@im=fcitx'
 #export XSERVERRC='/etc/X11/xinit/xserverrc'
 export BROWSER='/bin/firefox'
+export CALAMARES='/etc/calamares'
 export DATE_LONG=$(date +'%H%M-%d%m-%Y')
 export DATE_SHORT=$(date +'%d/%m/%y')
 export EDITOR="/bin/nano --backupdir=$NANO_HOME/backup"
@@ -179,23 +184,20 @@ export GIT_CONFIG_SYSTEM='/etc/gitconfig'
 export GIT_SSH_COMMAND='/bin/ssh'
 export GRAPHICAL='/bin/gedit'
 export GTK_IM_MODULE='/bin/ibus'
-#export GTK_IM_MODULE='/bin/fcitx'
 export INPUTRC='/etc/inputrc'
 export LS_COLORS
 export MAILCLIENT='/bin/thunderbird'
 export PYGAME_DETECT_AVX2=1
 export QT_IM_MODULE='/bin/ibus'
-#export QT_IM_MODULE='/bin/fcitx'
 export QT_QPA_PLATFORMTHEME='/bin/qt5ct'
 export SCREENRC="$CONFIG/screenrc"
 export SECUREMSG='/bin/telegram-desktop'
 export SUDO_ASKPASS='/usr/lib/ssh/x11-ssh-askpass'
 export TERMINAL='/bin/terminator'
 export XMODIFIERS='@im=dbus'
-#export XMODIFIERS='@im=fcitx'
-################################################################################
-# ~ Shell Vars (6)
-################################################################################
+#===============================================================================
+# - [6] Shell Vars
+#===============================================================================
 export COLORTERM=truecolor
 export HISTCONTROL='ignoredups:erasedups'
 export HISTFILE="$XDG_STATE_HOME/bash/history"

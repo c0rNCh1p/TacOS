@@ -1,37 +1,39 @@
+--100x
 --                           \  \ \      / __|   __|   _ \    \  |  __|
 --                          _ \  \ \ \  /  _|  \__ \  (   |  |\/ |  _|
 --                        _/  _\  \_/\_/  ___| ____/ \___/  _|  _| ___|
-----------------------------------------------------------------------------------------------------
--- $XDG_CONFIG_HOME/awesome/rc.lua
-----------------------------------------------------------------------------------------------------
--- man -P 'less +/DESCRIPTION' 'awesome(1)'
--- man -P 'less +/DESCRIPTION' 'awesomerc(5)'
+--
+-- =================================================================================================
+-- $AWESOME_HOME/rc.lua
+-- =================================================================================================
+-- man -P 'less +/DESCRIPTION''awesome(1)'
+-- man -P 'less +/DESCRIPTION''awesomerc(5)'
 -- $BROWSER 'https://awesomewm.org/doc/api/sample%20files/rc.lua.html'
-----------------------------------------------------------------------------------------------------
+-- =================================================================================================
 -- [1] Required Libraries
-----------------------------------------------------------------------------------------------------
-local gears=require('gears')
-local awful=require('awful')
-require('awful.autofocus')
-local wibox=require('wibox')
-local beautiful=require('beautiful')
-local naughty=require('naughty')
-naughty.config.defaults['icon_size']=100
-local menubar=require('menubar')
-local lain=require('lain')
-local freedesktop=require('freedesktop')
-local hotkeys_popup=require('awful.hotkeys_popup').widget
---require('awful.hotkeys_popup.keys')
-local dpi=require('beautiful.xresources').apply_dpi
+-- =================================================================================================
 --local vicious=require('vicious')
-----------------------------------------------------------------------------------------------------
+--require('awful.hotkeys_popup.keys')
+local awful=require('awful')
+local beautiful=require('beautiful')
+local dpi=require('beautiful.xresources').apply_dpi
+local freedesktop=require('freedesktop')
+local gears=require('gears')
+local hotkeys_popup=require('awful.hotkeys_popup').widget
+local lain=require('lain')
+local menubar=require('menubar')
+local naughty=require('naughty')
+local wibox=require('wibox')
+naughty.config.defaults['icon_size']=100
+require('awful.autofocus')
+-- =================================================================================================
 -- [2] Error Handling
-----------------------------------------------------------------------------------------------------
+-- =================================================================================================
 -- Startup Errors
 if awesome.startup_errors then
 	naughty.notify({
 		preset=naughty.config.presets.critical,
-		title='⚠ Startup Error ⚠',
+		title='Startup Error',
 		text=awesome.startup_errors})
 end
 
@@ -45,18 +47,18 @@ do
 		in_error=true
 		naughty.notify({
 			preset=naughty.config.presets.critical,
-			title='⚠ Runtime Error ⚠',
+			title='Runtime Error',
 			text=tostring(err)})
 		in_error=false
 	end)
 end
-----------------------------------------------------------------------------------------------------
+-- =================================================================================================
 -- [3] Awesome Environment
-----------------------------------------------------------------------------------------------------
-local modkey='Mod4'
+-- =================================================================================================
 local altkey='Mod1'
 local ctlkey='Control'
 local home=os.getenv('HOME')
+local modkey='Mod4'
 
 -- Preset Clients
 local browser=os.getenv('BROWSER') or 'firefox'
@@ -68,6 +70,7 @@ local terminal=os.getenv('TERMINAL') or 'terminator'
 awful.util.terminal=terminal
 
 -- Basic Styling
+--beautiful.wallpaper='/path/wallpaper'
 local themes={'tacOS'}
 local num=themes[1]
 awful.util.tagnames={' 1  ',  ' 2  ',  ' 3  ',  ' 4  ',  ' 5  ',  ' 6  ',  ' 7  ',  ' 8  ',  ' 9  '}
@@ -75,7 +78,6 @@ local themedir=string.format('%s/.config/awesome/themes/%s', home, num)
 local iconsdir=string.format('%s/.config/awesome/themes/%s/icons', home, num)
 local choice=string.format('%s/theme.lua', themedir)
 beautiful.init(choice)
---beautiful.wallpaper='/path/to/wallpaper'
 beautiful.font='Nimbus Mono PS Bold 9.5'
 beautiful.notification_font='Nimbus Mono PS Bold 9.5'
 
@@ -83,50 +85,50 @@ beautiful.notification_font='Nimbus Mono PS Bold 9.5'
 local brightness=1.0
 local function adjustBrightness(inc)
     brightness=math.min(1.0, math.max(0.1, brightness + (inc * 0.1)))
-    awful.spawn.with_shell('xrandr --output HDMI-1 --brightness ' .. tostring(brightness))
-    awful.spawn.with_shell('xrandr --output eDP-1 --brightness ' .. tostring(brightness))
+    awful.spawn.with_shell('xrandr --output HDMI-1 --brightness '.. tostring(brightness))
+    awful.spawn.with_shell('xrandr --output eDP-1 --brightness '.. tostring(brightness))
 end
 
 -- Window Layouts
 awful.layout.layouts={
-	awful.layout.suit.tile,
-	awful.layout.suit.floating,
-	awful.layout.suit.tile.left,
-	awful.layout.suit.tile.bottom,
-	awful.layout.suit.tile.top,
-	awful.layout.suit.fair,
-	awful.layout.suit.fair.horizontal,
-	awful.layout.suit.spiral,
-	awful.layout.suit.spiral.dwindle,
-	awful.layout.suit.max,
-	awful.layout.suit.max.fullscreen,
-	awful.layout.suit.magnifier,
-	--awful.layout.suit.corner.nw,
 	--awful.layout.suit.corner.ne,
-	--awful.layout.suit.corner.sw,
+	--awful.layout.suit.corner.nw,
 	--awful.layout.suit.corner.se,
+	--awful.layout.suit.corner.sw,
 	--lain.layout.cascade,
 	--lain.layout.cascade.tile,
 	--lain.layout.centerwork,
 	--lain.layout.centerwork.horizontal,
 	--lain.layout.termfair,
 	--lain.layout.termfair.center
+	awful.layout.suit.fair,
+	awful.layout.suit.fair.horizontal,
+	awful.layout.suit.floating,
+	awful.layout.suit.magnifier,
+	awful.layout.suit.max,
+	awful.layout.suit.max.fullscreen,
+	awful.layout.suit.spiral,
+	awful.layout.suit.spiral.dwindle,
+	awful.layout.suit.tile,
+	awful.layout.suit.tile.bottom,
+	awful.layout.suit.tile.left,
+	awful.layout.suit.tile.top,
 }
 
 -- Fine Tune Layouts
-lain.layout.termfair.nmaster=3
-lain.layout.termfair.ncol=1
-lain.layout.termfair.center.nmaster=3
-lain.layout.termfair.center.ncol=1
+--awful.layout.suit.tile.left.mirror=true
+lain.layout.cascade.tile.extra_padding=dpi(5)
+lain.layout.cascade.tile.ncol=2
+lain.layout.cascade.tile.nmaster=5
 lain.layout.cascade.tile.offset_x=dpi(2)
 lain.layout.cascade.tile.offset_y=dpi(32)
-lain.layout.cascade.tile.extra_padding=dpi(5)
-lain.layout.cascade.tile.nmaster=5
-lain.layout.cascade.tile.ncol=2
---awful.layout.suit.tile.left.mirror=true
-----------------------------------------------------------------------------------------------------
+lain.layout.termfair.center.ncol=1
+lain.layout.termfair.center.nmaster=3
+lain.layout.termfair.ncol=1
+lain.layout.termfair.nmaster=3
+-- =================================================================================================
 -- [4] Menu Behaviour
-----------------------------------------------------------------------------------------------------
+-- =================================================================================================
 -- Taglist Behaviour
 awful.util.taglist_buttons=gears.table.join(
 	awful.button({ }, 1, function(t)
@@ -198,14 +200,14 @@ menu_icons={
 	['Shutdown']=iconsdir .. '/shutdown.png'}
 main_menu=awful.menu({
 	items={
-	{' Terminal', terminal, menu_icons['Terminal']},
-	{' Hotkeys', function()
+	{'Terminal', terminal, menu_icons['Terminal']},
+	{'Hotkeys', function()
 		return false, hotkeys_popup.show_help
 	end,
 	menu_icons['Hotkeys']},
-	{' Display', 'arandr', menu_icons['Display']},
-	{' Theme', 'lxappearance', menu_icons['Theme']},
-	{' Applications',
+	{'Display', 'arandr', menu_icons['Display']},
+	{'Theme', 'lxappearance', menu_icons['Theme']},
+	{'Applications',
 		function()
 			local c=client.focus
 			if c then
@@ -221,13 +223,13 @@ main_menu=awful.menu({
 			end)
 		end,
 		menu_icons['Applications']},
-	{' Reload', function()
+	{'Reload', function()
 		awesome.restart()
 		end,
 		menu_icons['Reload']},
-	{' Suspend', 'systemctl suspend', menu_icons['Suspend']},
-	{' Reboot', 'systemctl reboot', menu_icons['Reboot']},
-	{' Shutdown', 'systemctl poweroff', menu_icons['Shutdown']}}}
+	{'Suspend', 'systemctl suspend', menu_icons['Suspend']},
+	{'Reboot', 'systemctl reboot', menu_icons['Reboot']},
+	{'Shutdown', 'systemctl poweroff', menu_icons['Shutdown']}}}
 )
 
 -- Initialize System Menu
@@ -242,9 +244,9 @@ awful.screen.connect_for_each_screen(function(s)
 		s.systray=wibox.widget.systray()
 		s.systray.visible=true
 end)
-----------------------------------------------------------------------------------------------------
+-- =================================================================================================
 -- [5] Key Bindings
-----------------------------------------------------------------------------------------------------
+-- =================================================================================================
 -- Mouse Buttons for Top Menu
 root.buttons(gears.table.join(
 	awful.button({ }, 3, function()
@@ -314,8 +316,8 @@ globalkeys=gears.table.join(
 	end,
 	{description='| Main Menu\n', group='02 Menus'}),
 	awful.key({modkey}, 'z', function()
-		awful.spawn(string.format("dmenu_run -i -nb '#000000' -nf '#c1e874' -sb '#2d454e'\
-		-sf '#a9ff00' -fn NouveauIBM:pixelsize=16",
+		awful.spawn(string.format("dmenu_run -i -nb '#000000'-nf '#c1e874'-sb '#2d454e'\
+		-sf '#a9ff00'-fn NouveauIBM:pixelsize=16",
 		beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
 	end,
 	{description='| Dmenu Prompt\n', group='02 Menus'}),
@@ -605,21 +607,21 @@ for i=1, 9 do
 			description='| Follow Client to Workspace\n', group='05 Workspaces'}
 	end
 	globalkeys=gears.table.join(globalkeys,
-		awful.key({modkey}, '#' .. i + 9, function()
+		awful.key({modkey}, '#'.. i + 9, function()
 			screen=awful.screen.focused() local tag=screen.tags[i]
 			if tag then
 				tag:view_only()
 			end
 		end,
 	descr_view),
-	awful.key({altkey, 'Shift'}, '#' .. i + 9, function()
+	awful.key({altkey, 'Shift'}, '#'.. i + 9, function()
 		screen=awful.screen.focused()
 		local tag=screen.tags[i]
 			if tag then awful.tag.viewtoggle(tag)
 		end
 	end,
 	descr_toggle),
-	awful.key({altkey, ctlkey}, '#' .. i + 9, function()
+	awful.key({altkey, ctlkey}, '#'.. i + 9, function()
 		if client.focus then
 			local tag=client.focus.screen.tags[i]
 			if tag then
@@ -628,7 +630,7 @@ for i=1, 9 do
 		end
 	end,
 	descr_move),
-	awful.key({altkey, modkey}, '#' .. i + 9, function()
+	awful.key({altkey, modkey}, '#'.. i + 9, function()
 		if client.focus then
 			local tag=client.focus.screen.tags[i]
 			if tag then
@@ -656,9 +658,9 @@ clientbuttons=gears.table.join(
 
 -- Initialize As Root Keys
 root.keys(globalkeys)
-----------------------------------------------------------------------------------------------------
+-- =================================================================================================
 -- [6] Client Behaviour
-----------------------------------------------------------------------------------------------------
+-- =================================================================================================
 -- Client Rules
 awful.rules.rules={
     -- Defaults
@@ -685,7 +687,7 @@ awful.rules.rules={
 --    },
     {rule={class='Firefox'},
       properties={
-        tag=' 9  ',
+        tag='9  ',
         callback=function(c)
           naughty.notify({text="Firefox moved to tag 9"})
         end
@@ -693,7 +695,7 @@ awful.rules.rules={
     },
     {rule={class='Vivaldi-stable'},
       properties={ 
-        tag=' 8  ',
+        tag='8  ',
         callback=function(c)
           naughty.notify({text="Vivaldi moved to tag 8"})
         end
@@ -718,9 +720,9 @@ end)
 client.connect_signal('unfocus', function(c)
 	c.border_color=beautiful.border_normal
 end)
-----------------------------------------------------------------------------------------------------
+-- =================================================================================================
 -- [7] Autostart Applications
-------------------------------------------------------------------------------------------------]]--
+-- =================================================================================================
 -- Execution Function
 local function run(c)
     if not awesome.startup then
@@ -733,17 +735,18 @@ local function run(c)
             end)
     else
         awful.spawn.easy_async_with_shell(
-            string.format("killall -9 '%s' >'/dev/null' 2>&1 & sleep 1; %s &", c, c))
+            string.format("killall -9 '%s'>'/dev/null'2>&1 & sleep 1; %s &", c, c))
     end
 end
 
 -- Startup List & Final
+--run('knotes')
+--run('volumeicon')
+awful.spawn.with_shell('$HOME/.config/awesome/lain/widget/tog_pulse.sh')
 awful.spawn.with_shell('$HOME/.config/awesome/lain/widget/upd_bat_widget.sh')
 cadence_cmd='/usr/share/cadence/src/cadence.py --minimized'
-run('picom -b --config "$HOME/.config/awesome/picom.conf"')
-run('knotes')
-run('pamac-tray')
-run('volumeicon')
 run('nm-applet')
-run('pgrep -f "' .. cadence_cmd .. '" | xargs kill -9 & cadence --minimized')
+run('pamac-tray')
+run('pgrep -f "'.. cadence_cmd .. '" | xargs kill -9 & cadence --minimized')
+run('picom -b --config "$HOME/.config/awesome/picom.conf"')
 run('setxwall')
