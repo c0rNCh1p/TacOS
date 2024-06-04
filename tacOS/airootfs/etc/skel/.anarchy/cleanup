@@ -69,6 +69,7 @@
 [ -d "$HOME/.shared-ringdb" ] && rmr "$HOME/.shared-ringdb"
 [ -d "$HOME/.tor" ] && rmr "$HOME/.tor"
 [ -d "$HOME/.vital" ] && rmr "$HOME/.vital"
+[ -d "$HOME/go" ] && rmr "$HOME/go"
 [ -d "$HOME/Music" ] && rmr "$HOME/Music"
 [ -d "$HOME/Pictures" ] && rmr "$HOME/Pictures"
 [ -d "$HOME/Public" ] && rmr "$HOME/Public"
