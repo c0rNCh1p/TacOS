@@ -1,7 +1,7 @@
 --100x
---						   \  \ \	   / __|   __|   _ \	\  |  __|
---						  _ \  \ \ \  /  _|  \__ \  (   |  |\/ |  _|
---						_/  _\  \_/\_/  ___| ____/ \___/  _|  _| ___|
+--                           \  \ \	     / __|   __|   _ \	  \  |  __|
+--                          _ \  \ \ \  /  _|  \__ \  (   |  |\/ |  _|
+--                        _/  _\  \_/\_/  ___| ____/ \___/  _|  _| ___|
 --
 -- =================================================================================================
 -- $AWESOME_HOME/rc.lua
@@ -85,8 +85,8 @@ beautiful.notification_font='Nimbus Mono PS Bold 9.5'
 local brightness=1.0
 local function adjustBrightness(inc)
 	brightness=math.min(1.0, math.max(0.1, brightness+(inc*0.1)))
-	awful.spawn.with_shell('xrandr --output HDMI-1 --brightness '.. tostring(brightness))
-	awful.spawn.with_shell('xrandr --output eDP-1 --brightness '.. tostring(brightness))
+	awful.spawn.with_shell('xrandr --output HDMI-1 --brightness ' .. tostring(brightness))
+	awful.spawn.with_shell('xrandr --output eDP-1 --brightness ' .. tostring(brightness))
 end
 
 -- Window Layouts
@@ -512,7 +512,7 @@ globalkeys=gears.table.join(
 	awful.key({modkey, 'Shift'}, 'p', function()
 		awful.util.spawn(securemsg)
 	end,
-	{description='| Launch Private Messager	   \n', group='04 Launchers'}),
+	{description='| Launch Private Messager   \n', group='04 Launchers'}),
 	awful.key({modkey, 'Shift'}, 's', function()
 		awful.spawn.with_shell('steam-native')
 	end,
@@ -607,21 +607,21 @@ for i=1, 9 do
 			description='| Follow Client to Workspace\n', group='05 Workspaces'}
 	end
 	globalkeys=gears.table.join(globalkeys,
-		awful.key({modkey}, '#'.. i+9, function()
+		awful.key({modkey}, '#' .. i+9, function()
 			screen=awful.screen.focused() local tag=screen.tags[i]
 			if tag then
 				tag:view_only()
 			end
 		end,
 	descr_view),
-	awful.key({altkey, 'Shift'}, '#'.. i+9, function()
+	awful.key({altkey, 'Shift'}, '#' .. i+9, function()
 		screen=awful.screen.focused()
 		local tag=screen.tags[i]
 			if tag then awful.tag.viewtoggle(tag)
 		end
 	end,
 	descr_toggle),
-	awful.key({altkey, ctlkey}, '#'.. i+9, function()
+	awful.key({altkey, ctlkey}, '#' .. i+9, function()
 		if client.focus then
 			local tag=client.focus.screen.tags[i]
 			if tag then
@@ -630,7 +630,7 @@ for i=1, 9 do
 		end
 	end,
 	descr_move),
-	awful.key({altkey, modkey}, '#'.. i+9, function()
+	awful.key({altkey, modkey}, '#' .. i+9, function()
 		if client.focus then
 			local tag=client.focus.screen.tags[i]
 			if tag then
@@ -735,18 +735,17 @@ local function run(c)
 			end)
 	else
 		awful.spawn.easy_async_with_shell(
-			string.format("killall -9 '%s'>'/dev/null'2>&1 & sleep 1; %s &", c, c))
+			string.format("killall -9 '%s' >'/dev/null' 2>&1 & sleep 1; %s &", c, c))
 	end
 end
 
 -- Startup List & Final
---run('knotes')
---run('volumeicon')
 awful.spawn.with_shell('$HOME/.config/awesome/lain/widget/tog_pulse.sh')
 awful.spawn.with_shell('$HOME/.config/awesome/lain/widget/upd_bat_widget.sh')
 cadence_cmd='/usr/share/cadence/src/cadence.py --minimized'
+run('volumeicon')
 run('nm-applet')
 run('pamac-tray')
-run('pgrep -f "'.. cadence_cmd .. '" | xargs kill -9 & cadence --minimized')
+run('pgrep -f "' .. cadence_cmd .. '" | xargs kill -9 & cadence --minimized')
 run('picom -b --config "$HOME/.config/awesome/picom.conf"')
 run('setxwall')
