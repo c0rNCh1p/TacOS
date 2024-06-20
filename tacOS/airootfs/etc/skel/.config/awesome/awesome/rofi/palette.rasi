@@ -1,0 +1,10 @@
+/* Palette */
+
+*{
+  al: #00000000;
+  bg: #1F1F1FFF;
+  ba: #ffb30033;
+  br: #1F1F1FFF;
+  fg: #FFFFFFFF;
+  ac: #375500;
+}
