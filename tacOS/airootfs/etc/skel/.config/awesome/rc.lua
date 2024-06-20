@@ -214,7 +214,7 @@ main_menu=awful.menu({
 				c.minimized=true
 			end
 			awful.spawn.easy_async(string.format('rofi -no-config -no-lazy-grab -show drun \
-			-modi drun -theme ~/.config/awesome/rofi/launcher2.rasi',
+			-modi drun -theme ~/.config/awesome/rofi/launcher.rasi',
 			beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus),
 			function()
 				if c then
@@ -327,7 +327,7 @@ globalkeys=gears.table.join(
 			c.minimized=true
 		end
 		awful.spawn.easy_async(string.format('rofi -no-config -no-lazy-grab -show drun \
-		-modi drun -theme ~/.config/awesome/rofi/launcher2.rasi',
+		-modi drun -theme ~/.config/awesome/rofi/launcher.rasi',
 		beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus),
 		function()
 			if c then
