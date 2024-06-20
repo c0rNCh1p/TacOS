@@ -1,32 +1,23 @@
+-- Awesome-Freedesktop
+-- Freedesktop.org compliant desktop entries and menu
+-- Licensed under GNU General Public License v2
+--  * (c) 2016, Luke Bonham
+--  * (c) 2009-2015, Antonio Terceiro
 
---[[
-
-     Awesome-Freedesktop
-     Freedesktop.org compliant desktop entries and menu
-
-     Menu section
-
-     Licensed under GNU General Public License v2
-      * (c) 2016, Luke Bonham
-      * (c) 2014, Harvey Mittens
-
---]]
-
-local Gio        = require("lgi").Gio
-local awful_menu = require("awful.menu")
-local menu_gen   = require("menubar.menu_gen")
-local menu_utils = require("menubar.utils")
-
+-- Variables
+local Gio=require("lgi").Gio
+local awful_menu=require("awful.menu")
+local menu_gen=require("menubar.menu_gen")
+local menu_utils=require("menubar.utils")
 local io, pairs, string, table, os = io, pairs, string, table, os
 
 -- Expecting a wm_name of awesome omits too many applications and tools
-menu_utils.wm_name = ""
+menu_utils.wm_name=""
 
 -- Menu
--- freedesktop.menu
-local menu = {}
+local menu={}
 
--- Check if a path is a directory.
+-- Check if a path is a directory
 -- @tparam string path The directory path
 -- @treturn boolean True if path exists and is a directory
 function menu.is_dir(path)
@@ -58,15 +49,13 @@ end
 -- Use MenuBar parsing utils to build a menu for Awesome
 -- @return awful.menu
 function menu.build(args)
-    local args       = args or {}
-    local before     = args.before or {}
-    local after      = args.after or {}
-    local skip_items = args.skip_items or {}
-    local sub_menu   = args.sub_menu or false
-
-    local result     = {}
-    local _menu      = awful_menu({ items = before })
-
+    local args=args or {}
+    local before=args.before or {}
+    local after=args.after or {}
+    local skip_items=args.skip_items or {}
+    local sub_menu=args.sub_menu or false
+    local result={}
+    local _menu=awful_menu({ items = before })
     menu_gen.generate(function(entries)
         -- Add category icons
         for k, v in pairs(menu_gen.all_categories) do
@@ -86,8 +75,8 @@ function menu.build(args)
         end
 
         -- Cleanup things a bit
-        for i = #result, 1, -1 do
-            local v = result[i]
+        for i=#result, 1, -1 do
+            local v=result[i]
             if #v[2] == 0 then
                 -- Remove unused categories
                 table.remove(result, i)
@@ -104,7 +93,7 @@ function menu.build(args)
 
         -- Add menu item to hold the generated menu
         if sub_menu then
-            result = {{sub_menu, result}}
+            result={{sub_menu, result}}
         end
 
         -- Add items to menu
@@ -113,9 +102,7 @@ function menu.build(args)
     end)
 
     -- Hold the menu in the module
-    menu.menu = _menu
-
+    menu.menu=_menu
     return _menu
 end
-
 return menu
