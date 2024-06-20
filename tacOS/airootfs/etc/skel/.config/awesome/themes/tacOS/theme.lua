@@ -1,23 +1,23 @@
---[[                           __________         _______  _________
-                               \__   ___/____ ____\_ __  \/   _____/
-                                 |   |  \__  \  __\   |   \_____   \
-                                 |___|  (____/____/_______/________/
-
-                                       Inspiration:
-                                        ~ Dunzor2 by Dunz0r
-                                        ~ Matrix by ShdB
-                                        ~ Multicolor by Lcpz
-                                        ~ Wombat by Zhuravlik                                                                              
-                                        ~ Zenburn by Anrxc
-
+--100x
+--                             __________         _______  _________
+--                             \__   ___/____ ____\_ __  \/   _____/
+--                               |   |  \__  \  __\   |   \_____   \
+--                               |___|  (____/____/_______/________/
+--
+--                                      Inspiration:
+--                                      - Dunzor2 by Dunz0r
+--                                      - Matrix by ShdB
+--                                      - Multicolor by Lcpz
+--                                      - Wombat by Zhuravlik
+--                                      - Zenburn by Anrxc
+--
 ----------------------------------------------------------------------------------------------------
- ▸ $XDG_CONFIG_HOME/awesome/themes/tacOS/theme.lua
+-- $HOME/.config/awesome/themes/tacOS/theme.lua
 ----------------------------------------------------------------------------------------------------
- ▸ $BROWSER 'https://awesomewm.org/doc/api/sample%20files/theme.lua.html'
+-- $BROWSER 'https://awesomewm.org/doc/api/sample%20files/theme.lua.html'
 ----------------------------------------------------------------------------------------------------
- 1 ~ Required Libraries
-------------------------------------------------------------------------------------------------]]--
-
+-- [1] Required Libraries
+----------------------------------------------------------------------------------------------------
 local gears=require('gears')
 local lain=require('lain')
 local awful=require('awful')
@@ -25,11 +25,9 @@ require('awful.util')
 local wibox=require('wibox')
 local dpi=require('beautiful.xresources').apply_dpi
 local config=awful.util.getdir('config')
-
---[[------------------------------------------------------------------------------------------------
- 2 ~ Setup Environment
-------------------------------------------------------------------------------------------------]]--
-
+----------------------------------------------------------------------------------------------------
+-- [2] Setup Environment
+----------------------------------------------------------------------------------------------------
 local theme_name='tacOS'
 local home=os.getenv('HOME')
 local config_dir=os.getenv('XDG_CONFIG_HOME') or os.getenv('CONFIG')
@@ -45,12 +43,11 @@ if awful.util.file_readable(this_dir .. '/theme.lua') then
 else
 	theme_file=home .. '.config/awesome/themes/tacOS/theme.lua'
 end
-
---[[------------------------------------------------------------------------------------------------
- 3 ~ Theme Variables
-------------------------------------------------------------------------------------------------]]--
-
+----------------------------------------------------------------------------------------------------
+-- [3] Theme Variables
+----------------------------------------------------------------------------------------------------
 theme={}
+-- General
 theme.confdir=this_dir
 theme.icon_theme='Obsidian Green'
 theme.font='Nimbus Mono PS Bold 9'
@@ -64,6 +61,7 @@ theme.tasklist_disable_icon=true
 theme.useless_gap=5
 markup=lain.util.markup
 
+-- Colors
 theme.bg_normal='#03010f' -- No Touchy
 theme.bg_focus='#121214' -- No Touchy
 theme.bg_urgent='#161616' -- Black
@@ -79,6 +77,7 @@ theme.menu_fg_focus='#7cbad0' -- Light Blue
 theme.menu_bg_normal='#161616' -- Black
 theme.menu_bg_focus='#161616' -- Black
 
+-- Icons
 theme.awesome_icon=icons_dir .. '/awesome.png'
 theme.menu_submenu_icon=icons_dir .. '/circle.png'
 theme.widget_temp=icons_dir .. '/temp.png'
@@ -110,11 +109,9 @@ theme.layout_max=icons_dir .. '/max.png'
 theme.layout_fullscreen=icons_dir .. '/fullscreen.png'
 theme.layout_magnifier=icons_dir .. '/magnifier.png'
 theme.layout_floating=icons_dir .. '/floating.png'
-
---[[------------------------------------------------------------------------------------------------
- 4 ~ Systray Widgets
-------------------------------------------------------------------------------------------------]]--
-
+----------------------------------------------------------------------------------------------------
+-- [4] Systray Widgets
+----------------------------------------------------------------------------------------------------
 -- Text Clock
 os.setlocale(os.getenv('LANG'))
 local mytextclock=
@@ -129,7 +126,7 @@ theme.cal=lain.widget.cal({
 	}
 })
 
--- CPU Load⟯ ❱ ❯ ❱ 
+-- CPU Load  
 local cpuicon=wibox.widget.imagebox(theme.widget_cpu)
 local cpu=lain.widget.cpu({
 	settings=function()
@@ -145,6 +142,7 @@ local temp=lain.widget.temp({
 	end
 })
 
+-- Battery
 local baticon=wibox.widget.imagebox(theme.widget_batt)
 local prev_ac_status=nil
 local prev_perc=nil
@@ -179,7 +177,7 @@ theme.volume=lain.widget.alsa({
 	end
 })
 
--- Network Speeds🡘
+-- Network Speeds
 local netdownicon=wibox.widget.imagebox(theme.widget_netdown)
 local netdowninfo=wibox.widget.textbox()
 local netupicon=wibox.widget.imagebox(theme.widget_netup)
