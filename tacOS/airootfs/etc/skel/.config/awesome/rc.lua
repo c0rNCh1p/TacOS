@@ -743,9 +743,9 @@ end
 awful.spawn.with_shell('$HOME/.config/awesome/lain/widget/tog_pulse.sh')
 awful.spawn.with_shell('$HOME/.config/awesome/lain/widget/upd_bat_widget.sh')
 cadence_cmd='/usr/share/cadence/src/cadence.py --minimized'
+run('pgrep -f "' .. cadence_cmd .. '" | xargs kill -9 & cadence --minimized')
 run('volumeicon')
 run('nm-applet')
 run('pamac-tray')
-run('pgrep -f "' .. cadence_cmd .. '" | xargs kill -9 & cadence --minimized')
 run('picom -b --config "$HOME/.config/awesome/picom.conf"')
 run('setxwall')
