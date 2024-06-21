@@ -1,82 +1,81 @@
 #                          \ |    \     \ |   _ \
 #                         .  |   _ \   .  |  (   |
 #                        _|\_| _/  _\ _|\_| \___/
-################################################################################
-# ▸ /etc/nanorc
-# ▸ $XDG_CONFIG_DIR/nano/nanorc
-################################################################################
-# ▸ man 'nanorc(5)' | less +/OPTIONS
-################################################################################
-# 1 GENERAL SETTINGS
-################################################################################
-set backup
-set zap
-set magic
-set boldtext
-set tabsize 4
-set trimblanks
-set autoindent
-set constantshow
-set casesensitive
-set speller "aspell"
-set punct "!.;:?"
-set whitespace ">."
-set brackets ""')>]}"
-set matchbrackets "(<[{)>]}"
-set mouse
-set atblanks
+#===============================================================================
+# - /etc/nanorc
+# - $XDG_CONFIG_DIR/nano/nanorc
+#===============================================================================
+# - man -P 'less +5 +/DESCRIPTION' 'nanorc(5)'
+#===============================================================================
+# - [1] General
+#===============================================================================
 set afterends
+set atblanks
+set autoindent
+set backup
+set boldtext
+set brackets ""')>]}"
+set breaklonglines
+set casesensitive
+set constantshow
 set cutfromcursor
 set fill -1
-set softwrap
-set indicator
-set quickblank
-set nonewlines
-set linenumbers
-set jumpyscrolling
-set breaklonglines
 set guidestripe 120
-################################################################################
-# 2 AESTHETICS
-################################################################################
-set titlecolor bold,white,magenta
-set promptcolor black,yellow
-set statuscolor bold,white,magenta
-set errorcolor bold,white,red
-set spotlightcolor black,orange
-set selectedcolor lightwhite,cyan
-set stripecolor yellow
-set scrollercolor magenta
-set numbercolor magenta
-set keycolor lightmagenta
-set functioncolor magenta
+set indicator
+set jumpyscrolling
+set linenumbers
+set magic
+set matchbrackets "(<[{)>]}"
+set mouse
+set nonewlines
+set punct "!.;:?"
+set quickblank
+set softwrap
+set speller "aspell"
+set tabsize 4
+set trimblanks
+set whitespace ">."
+set zap
+#===============================================================================
+# - [2] Aesthetics
+#===============================================================================
+include "/usr/share/nano-syntax-highlighting/*.nanorc"
 include "/usr/share/nano/*.nanorc"
 include "/usr/share/nano/extra/*.nanorc"
-include "/usr/share/nano-syntax-highlighting/*.nanorc"
-################################################################################
-# 3 KEYBINDINGS
-################################################################################
-bind F1 help all
-bind F1 exit help
+set errorcolor bold,white,red
+set functioncolor magenta
+set keycolor lightmagenta
+set numbercolor magenta
+set promptcolor black,yellow
+set scrollercolor magenta
+set selectedcolor lightwhite,cyan
+set spotlightcolor black,orange
+set statuscolor bold,white,magenta
+set stripecolor yellow
+set titlecolor bold,white,magenta
+#===============================================================================
+# - [3] Keybindings
+#===============================================================================
+bind ^A mark main
+bind ^B wherewas all
 bind ^C copy main
-bind ^X cut main
-bind ^V paste all
-bind ^Q exit all
-bind ^S savefile main
-bind ^W writeout main
+bind ^D findprevious all
+bind ^E execute main
 bind ^F whereis all
 bind ^G findnext all
-bind ^B wherewas all
-bind ^D findprevious all
-bind ^R replace main
-bind ^A mark main
-bind ^P location main
-bind ^E execute main
-bind ^Z undo main
-bind ^Y redo main
-bind M-Z suspend main
-bind M-M comment main
 bind ^H chopwordleft main
-bind ^U "{nextword}{mark}{prevword}{execute}|sed 's/.*/\U&/'{enter}" main
 bind ^L "{nextword}{mark}{prevword}{execute}|sed 's/.*/\L&/'{enter}" main
-################################################################################
+bind ^P location main
+bind ^Q exit all
+bind ^R replace main
+bind ^S savefile main
+bind ^U "{nextword}{mark}{prevword}{execute}|sed 's/.*/\U&/'{enter}" main
+bind ^V paste all
+bind ^W writeout main
+bind ^X cut main
+bind ^Y redo main
+bind ^Z undo main
+bind F1 exit help
+bind F1 help all
+bind M-M comment main
+bind M-Z suspend main
