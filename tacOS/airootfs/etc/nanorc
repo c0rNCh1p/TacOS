@@ -14,7 +14,7 @@ set atblanks
 set autoindent
 set backup
 set boldtext
-set brackets ""')>]}"
+set brackets ")>]}"
 set breaklonglines
 set casesensitive
 set constantshow
