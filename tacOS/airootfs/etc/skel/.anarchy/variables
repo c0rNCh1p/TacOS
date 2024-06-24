@@ -114,6 +114,8 @@ export EXODUS_HOME="$CONFIG/Exodus"
 export FABLA_DATA="$DATA/openAV-Fabla2"
 export FLAMESHOT_HOME="$CONFIG/flameshot"
 export GALC_HOME="$CONFIG/galculator"
+export GEANY_DATA="$DATA/geany"
+export GEANY_HOME="$CONFIG/geany"
 export GEDIT_DATA="$DATA/gedit"
 export GEDIT_HOME="$CONFIG/gedit"
 export GIMP_HOME="$CONFIG/GIMP/2.10"
@@ -183,7 +185,7 @@ export FILEMANAGER='/bin/nemo'
 export GIT_CONFIG_GLOBAL="$HOME/.gitconfig"
 export GIT_CONFIG_SYSTEM='/etc/gitconfig'
 export GIT_SSH_COMMAND='/bin/ssh'
-export GRAPHICAL='/bin/gedit'
+export GRAPHICAL='/bin/geany'
 export GTK_IM_MODULE='/bin/ibus'
 export INPUTRC='/etc/inputrc'
 export LS_COLORS
