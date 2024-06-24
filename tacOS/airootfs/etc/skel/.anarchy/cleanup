@@ -88,6 +88,7 @@
 [ ! -d "$LOCAL" ] && mvp "$LOCAL" &>'/dev/null'
 [ ! -d "$LOG" ] && mvp "$LOG" &>'/dev/null'
 [ ! -d "$MONERO_HOME" ] && mvp "$MONERO_HOME" &>'/dev/null'
+[ ! -d "$MPD_HOME" ] && mvp "$MPD_HOME" &>'/dev/null'
 [ ! -d "$NANO_HOME" ] && mvp "$NANO_HOME" &>'/dev/null'
 [ ! -d "$NANO_HOME/backup" ] && mvp "$NANO_HOME/backup" &>'/dev/null'
 [ ! -d "$REPO_HOME" ] && mvp "$REPO_HOME" &>'/dev/null'

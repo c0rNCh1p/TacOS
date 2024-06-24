@@ -17,6 +17,7 @@ LOCKFL='/tmp/daemons.lck'
 DATE=$(date '+%d/%m/%y %H:%M:%S')
 GKDARGS='--daemonize --components=pkcs11,secrets,ssh'
 DAEMONS=(
+	#'vboxservice'
 	'acpid'
 	'avahi-daemon'
 	'bluetooth'
@@ -24,6 +25,7 @@ DAEMONS=(
 	'dbus'
 	'fstrim'
 	'graphical.target'
+	'mpd'
 	'multi-user.target'
 	'NetworkManager'
 	'NetworkManager-wait-online'
@@ -31,7 +33,6 @@ DAEMONS=(
 	'sshd'
 	'systemd-homed'
 	'systemd-timesyncd'
-	#'vboxservice'
 )
 ################################################################################
 # - [2] Manage Start Process
