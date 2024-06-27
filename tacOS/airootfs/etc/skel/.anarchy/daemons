@@ -17,6 +17,7 @@ LOCKFL='/tmp/daemons.lck'
 DATE=$(date '+%d/%m/%y %H:%M:%S')
 GKDARGS='--daemonize --components=pkcs11,secrets,ssh'
 DAEMONS=(
+	#'mpd'
 	#'vboxservice'
 	'acpid'
 	'avahi-daemon'
@@ -25,7 +26,6 @@ DAEMONS=(
 	'dbus'
 	'fstrim'
 	'graphical.target'
-	'mpd'
 	'multi-user.target'
 	'NetworkManager'
 	'NetworkManager-wait-online'
