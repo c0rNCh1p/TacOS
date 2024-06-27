@@ -55,7 +55,9 @@
 #=======================================================================================================================
 # - [3] File Modifications
 #=======================================================================================================================
-[ -f "$CONFIG/auostart/variety.desktop" ] && smv "$CONFIG/auostart/variety.desktop" "/etc/xdg/autostart"
+[ ! -f "$MPD_HOME/mpd.db" ] && touch "$MPD_HOME/mpd.db"
+[ ! -f "$MPD_HOME/mpd.pid" ] && touch "$MPD_HOME/mpd.pid"
+[ -f "$CONFIG/auostart/variety.desktop" ] && smv "$CONFIG/auostart/variety.desktop" '/etc/xdg/autostart'
 [ -f "$HOME/.asoundrc" ] && mv "$HOME/.asoundrc" "$ALSA_HOME/asoundrc"
 [ -f "$HOME/.gtkrc-2.0" ] && mv "$HOME/.gtkrc-2.0" "$GTK2_RC_FILES/gtkrc"
 [ -f "$HOME/.screenrc" ] && mv "$HOME/.screenrc" "$SCREENRC"
@@ -84,11 +86,13 @@
 [ ! -d "$DEADBEEF_HOME" ] && mvp "$DEADBEEF_HOME" &>'/dev/null'
 [ ! -d "$GIMP_HOME" ] && mvp "$GIMP_HOME" &>'/dev/null'
 [ ! -d "$GTK2_RC_FILES" ] && mvp "$GTK2_RC_FILES" &>'/dev/null'
+[ ! -d "$HOME/.local/state/mpd" ] && mvp "$HOME/.local/state/mpd" &>'/dev/null'
 [ ! -d "$LIB" ] && mvp "$LIB" &>'/dev/null'
 [ ! -d "$LOCAL" ] && mvp "$LOCAL" &>'/dev/null'
 [ ! -d "$LOG" ] && mvp "$LOG" &>'/dev/null'
 [ ! -d "$MONERO_HOME" ] && mvp "$MONERO_HOME" &>'/dev/null'
 [ ! -d "$MPD_HOME" ] && mvp "$MPD_HOME" &>'/dev/null'
+[ ! -d "$MPD_HOME/playlists" ] && mvp "$MPD_HOME/playlists" &>'/dev/null'
 [ ! -d "$NANO_HOME" ] && mvp "$NANO_HOME" &>'/dev/null'
 [ ! -d "$NANO_HOME/backup" ] && mvp "$NANO_HOME/backup" &>'/dev/null'
 [ ! -d "$REPO_HOME" ] && mvp "$REPO_HOME" &>'/dev/null'
