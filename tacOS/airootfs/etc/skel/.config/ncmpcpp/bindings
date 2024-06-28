@@ -6,11 +6,10 @@
 #===============================================================================
 #
 # Files:
-# - Contributors: $HOME/.config/awesome/contrib.txt
-# - Filepath: $HOME/.config/awesome/ncmpcpp_bindings
-# - Licence: $HOME/.config/awesome/licence.txt
-# - User Config Path (1): $HOME/.ncmpcpp/bindings
-# - User Config Path (2): $HOME/.config/ncmpcpp/bindings
+# - Contributors: $HOME/.config/contrib.txt
+# - Filepath: $HOME/.config/ncmpcpp/bindings
+# - Licence: $HOME/.config/licence.txt
+# - User Config: $HOME/.ncmpcpp/bindings
 #
 #===============================================================================
 #

@@ -6,11 +6,10 @@
 #===============================================================================
 #
 # Files:
-# - Contributors: $HOME/.config/awesome/contrib.txt
-# - Filepath: $HOME/.config/awesome/ncmpcpp_config
-# - Licence: $HOME/.config/awesome/licence.txt
-# - User Config Path (1): $HOME/.ncmpcpp/config
-# - User Config Path (2): $HOME/.config/ncmpcpp/config
+# - Contributors: $HOME/.config/contrib.txt
+# - Filepath: $HOME/.config/ncmpcpp/config
+# - Licence: $HOME/.config/licence.txt
+# - User Config: $HOME/.ncmpcpp/config
 #
 #===============================================================================
 #
@@ -76,7 +75,5 @@ statusbar_time_color=cyan:b
 # - [4] Shell
 #===============================================================================
 
-execute_on_song_change="\
-	echo 'awesome.emit_signal(\"song::changed\")' | awesome-client"
-execute_on_player_state_change="\
-	echo 'awesome.emit_signal(\"player::state_changed\")' | awesome-client"
+#execute_on_song_change="echo 'newsong' >'~/.config/ncmpcpp/song.txt'"
+#execute_on_player_state_change="echo 'newstate' >'~/.config/ncmpcpp/state.txt'"
