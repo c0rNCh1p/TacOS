@@ -32,7 +32,7 @@
 #===============================================================================
 
 ncmpcpp_directory="~/.config/ncmpcpp"
-lyrics_directory="~/.local/share/lyrics"
+lyrics_directory="~/.config/ncmpcpp/lyrics"
 mpd_music_dir="~/audio/files"
 message_delay_time="1"
 visualizer_type="spectrum"
