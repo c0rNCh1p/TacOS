@@ -7,7 +7,6 @@
 ================================================================================
 
  Files:
- - Contributors: $HOME/.config/contrib
  - Filepath: $HOME/.config/wezterm/wezterm.lua
  - Licence: $HOME/.config/licence
 
