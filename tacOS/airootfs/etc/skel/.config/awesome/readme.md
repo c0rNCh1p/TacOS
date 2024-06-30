@@ -20,9 +20,8 @@ cd
 git clone 'https://github.com/c0rNCh1p/tacOS.git' ||
 git clone 'https://gitlab.com/c0rNCh1p/tacOS.git'
 [ -d "$HOME/.config/awesome" ] && rm -rf "$HOME/.config/awesome"
-if [ -d "$HOME/tacOS/tacOS/airootfs/etc/skel/.config/awesome" ]; then
+[ -d "$HOME/tacOS/tacOS/airootfs/etc/skel/.config/awesome" ] &&
 	mv "$HOME/tacOS/tacOS/airootfs/etc/skel/.config/awesome" "$HOME/.config"
-fi
 rm -rf "$HOME/tacOS"
 clear
 ```
