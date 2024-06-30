@@ -30,31 +30,22 @@ rm -rf "$HOME/tacOS" & clear
 #### Screenshots
 ##### Programs
 
-<p align="center">
-  <img src="desktop/programs.png" alt="Programs" width="1000">
-</p>
+<img src="desktop/programs.png" alt="Programs" width="1200">
 
 ##### Terminals
 
-<p align="center">
-  <img src="desktop/terminal.png" alt="Terminal" width="1000">
-</p>
+<img src="desktop/terminal.png" alt="Terminal" width="1200">
 
 ##### Icons
 
-<p align="center">
-  <img src="desktop/icon_set.png" alt="Icon Set" width="500">
-</p>
+<img src="desktop/icon_set.png" alt="Icon Set" width="1200">
 
 #### Basic Usage
 ##### Hotkeys
 AwesomeWM comes with a built-in hotkeys popup that can be accessed with 'Super+s'. This
 will display all the available shortcuts in the current setup.
-##### Hotkeys
 
-<p align="center">
-  <img src="desktop/hotkeys.png" alt="Hotkeys" width="1000">
-</p>
+<img src="desktop/hotkeys.png" alt="Hotkeys" width="1200">
 
 ##### Weather Widget Configuration
 To configure the weather widget, set the API key and city ID in `configs/openweather.conf`:
