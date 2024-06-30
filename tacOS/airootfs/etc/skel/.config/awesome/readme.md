@@ -3,11 +3,11 @@
 ##
 ##### Overview
 This AwesomeWM configuration aims to provide a fully functional and visually acceptable
-setup out of the box. Custom configs are included for autostart applications like Picom,
-and shell scripts have been integrated with the Lua code for handling troublesome systems
-like Pulse. Additionally, it features an extensive set of custom launchers and other
-shortcuts for window management, a nicely styled theme with a custom icon set, and a
-variety of system menus and widgets.
+setup out of the box (of tacos). Custom configs are included for autostart applications
+like Picom, and shell scripts have been integrated with the Lua code for handling
+troublesome systems like Pulse. Additionally, it features an extensive set of custom
+launchers and other shortcuts for window management, a nicely styled theme with a custom
+icon set, and a variety of system menus and widgets.
 ##### Programs
 
 <img src="desktop/programs.png" alt="Programs" width="1200">
@@ -38,8 +38,8 @@ rm -rf "$HOME/tacOS" & clear
 #### Basic Usage
 ##
 ##### Hotkeys
-AwesomeWM comes with a builtin hotkeys popup that can be accessed with `Super+s` on the
-keyboard. This will display all the available shortcuts in the current setup.
+AwesomeWM comes with a builtin hotkeys popup menu that can be accessed with `Super+s` on
+the keyboard. This will display all the available shortcuts in the current setup.
 
 <img src="desktop/hotkeys.png" alt="Hotkeys" width="1200">
 
