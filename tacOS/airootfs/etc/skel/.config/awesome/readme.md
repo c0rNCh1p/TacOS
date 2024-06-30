@@ -36,7 +36,9 @@ rm -rf "$HOME/tacOS" & clear
 
 <img src="desktop/terminal.png" alt="Terminal" width="1200">
 
+##
 #### Basic Usage
+##
 ##### Hotkeys
 AwesomeWM comes with a builtin hotkeys popup that can be accessed with `Super+s` on the
 keyboard. This will display all the available shortcuts in the current setup.
@@ -53,8 +55,9 @@ Replace `user_api_key` and `user_city_id` with the actual OpenWeatherMap API key
 city ID for the location. City IDs are obtained via https://openweathermap.org/find and
 are visible in each city page URL. API keys are created once an account is created at
 https://home.openweathermap.org/users/sign_up.
-
+##
 ##### Awesome Icon Set 4u
+##
 Pngs shown in highres (640x640) and lowres (64x64).
 
 <img src="desktop/icon_set.png" alt="Icon Set" width="1200">
