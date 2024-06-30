@@ -2,7 +2,7 @@
 #### AwesomeWM Config
 ##
 #### Screenshots
-![Programs](https://gitlab.com/c0rNCh1p/tacos/-/blob/master/tacOS/airootfs/etc/skel/.config/awesome/desktop/desktop.png)
+![Programs](desktop/desktop.png)
 ![Terminal](https://gitlab.com/c0rNCh1p/tacos/-/blob/master/tacOS/airootfs/etc/skel/.config/awesome/desktop/terminal.png)
 ![Icon Set](https://gitlab.com/c0rNCh1p/tacos/-/blob/master/tacOS/airootfs/etc/skel/.config/awesome/desktop/icon_set.png)
 #### Overview
