@@ -55,8 +55,8 @@ are visible in each city page URL. API keys are created once an account is creat
 'https://home.openweathermap.org/users/sign_up'.
 
 ##### Awesome Icon Set 4u
-Pngs shown in high res (640x640) and low res (64x64).
 
 <img src="desktop/icon_set.png" alt="Icon Set" width="1200">
 
+Pngs shown in high res (640x640) and low res (64x64).
 ##### <3 xo
