@@ -9,8 +9,8 @@ like Pulse. Additionally, it features an extensive set of custom launchers and o
 shortcuts for window management, a nicely styled theme with a custom icon set, and a
 variety of system menus and widgets.
 #### Installation
-The installation of dependencies and initialization is handled automatically during the OS
-installation. No manual installation steps are immediately required. If all which is
+The installation of dependencies and initialization is handled automatically during the
+TacOS installation. No manual installation steps are immediately required. If all which is
 needed from this repo is the Awesome config, feel free to save and run this shell script
 provided below, be sure to make it executable (chmod explained in main readme):
 ```sh
