@@ -12,7 +12,7 @@ This AwesomeWM configuration is part of a larger operating system created with A
 The installation of dependencies and the configuration itself is handled automatically
 during the OS installation. No manual installation steps are immediately required. If all
 which is needed from this repo is the Awesome config, feel free to save and run this shell
-script provided below, be sure to make it executable (chmod explained in main readme).
+script provided below, be sure to make it executable (chmod explained in main readme):
 ```sh
 #!/bin/bash
 read -rep 'Is AwesomeWM installed?' ANS
@@ -26,3 +26,18 @@ git clone 'https://gitlab.com/c0rnch1p/tacOS.git'
 	mv "$HOME/tacOS/tacOS/airootfs/etc/skel/.config/awesome" "$HOME/.config"
 rm -rf "$HOME/tacOS" & clear
 ```
+#### Basic Usage
+##### Hotkeys
+AwesomeWM comes with a built-in hotkeys popup that can be accessed with `Super + s`. This
+will display all the available shortcuts in the current setup.
+
+### Weather Widget Configuration
+To configure the weather widget, provide the API key and city ID in the `openweather.conf` file.
+
+Example:
+```ini
+api_key=insert_api_key_here
+city_id=insert_city_id_here
+```
+
+Replace `insert_api_key_here` and `insert_city_id_here` with the actual OpenWeatherMap API key and the city ID for the location.
