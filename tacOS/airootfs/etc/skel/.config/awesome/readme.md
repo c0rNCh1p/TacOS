@@ -3,7 +3,7 @@
 ##
 ##### Overview
 This Awesome config aims to provide a fully functional and visually acceptable setup out of
-the [(taco) box](https://cdn0.woolworths.media/content/wowproductimages/large/228151.jpg).
+the [(taco)](https://cdn0.woolworths.media/content/wowproductimages/large/228151.jpg) box.
 Custom configs are included for autostart applications like Picom, and shell scripts have
 been integrated with the Lua code for handling troublesome systems like Pulse.
 Additionally, it features an extensive set of custom launchers and other shortcuts for
