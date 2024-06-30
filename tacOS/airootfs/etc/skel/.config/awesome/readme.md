@@ -8,7 +8,7 @@ It features an extensive set of launchers and other shortcuts for window managem
 well as a nicely styled theme with a custom icon set, and a variety of system menus and
 widgets. Custom configs are included for autostart applications like Picom, and shell
 scripts have been integrated with the Lua code for handling older systems like Pulse (Pipe
-is also installed and will receive further support in TacOS at a later date).
+is also installed on TacOS and will receive further builtin support at a later date).
 ##### Programs
 
 <img src="desktop/programs.png" alt="Programs" width="1200">
