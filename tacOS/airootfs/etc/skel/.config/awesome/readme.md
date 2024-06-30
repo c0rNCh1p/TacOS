@@ -20,8 +20,8 @@ also installed on TacOS, it will see future builtin support).
 ##### Installation
 The installation of dependencies and initialization of the WM in the X config is handled
 automatically in TacOS. No manual intervention is immediately required. If all which is
-desired from this repo is the Awesome config, feel free to save and run this shell script
-provided below, it will also need to be made executable (chmod explained in main readme):
+desired from this repo is the Awesome config, feel free to save and run the shell script
+provided below, it will need to be made executable (chmod explained in main readme):
 ```sh
 #!/bin/bash
 read -rep 'Is AwesomeWM installed?' ANS
