@@ -1,5 +1,5 @@
 ##
-#### AwesomeWM Config
+#### TacOS AwesomeWM Config
 ##
 #### Overview
 This AwesomeWM configuration aims to provide a fully functional and visually appealing
@@ -54,6 +54,8 @@ city ID for the location. City IDs are obtained via 'https://openweathermap.org/
 are visible in each city page URL. API keys are created once an account is created at
 'https://home.openweathermap.org/users/sign_up'.
 
-##### Icon Set 4U
+##### Icon Set 4u
 
 <img src="desktop/icon_set.png" alt="Icon Set" width="1200">
+
+##### Yez 4u <3
