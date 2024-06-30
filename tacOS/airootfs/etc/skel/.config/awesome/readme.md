@@ -35,6 +35,12 @@ git clone 'https://gitlab.com/c0rnch1p/tacOS.git'
 	mv "$HOME/tacOS/tacOS/airootfs/etc/skel/.config/awesome" "$HOME/.config"
 rm -rf "$HOME/tacOS" & clear
 ```
+After the script has been run, the currently active display server on the system can be
+configured to start the Awesome Window Manager when it loads the graphical environment.
+This is done on X.org by adding the following line to the end of `/etc/X11/xinit/xinitrc`
+```sh
+exec '/usr/bin/awesome'
+```
 ##
 #### Basic Usage
 ##
