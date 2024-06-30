@@ -58,5 +58,5 @@ are visible in each city page URL. API keys are created once an account is creat
 
 <img src="desktop/icon_set.png" alt="Icon Set" width="1200">
 
-Pngs shown in high res (640x640) and low res (64x64).
+Pngs shown in highres (640x640) and lowres (64x64).
 ##### <3 xo
