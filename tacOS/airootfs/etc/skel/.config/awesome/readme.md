@@ -13,7 +13,7 @@ The installation of dependencies and the configuration itself is handled automat
 during the OS installation. No manual installation steps are immediately required. If all
 which is needed from this repo is the Awesome config, feel free to save and run this shell
 script provided below, be sure to make it executable (chmod explained in main readme).
-```
+```sh
 #!/bin/bash
 # Please make sure AwesomeWM is installed on the current system
 cd
