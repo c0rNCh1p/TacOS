@@ -33,7 +33,7 @@ rm -rf "$HOME/tacOS" & clear
 ```
 #### Basic Usage
 ##### Hotkeys
-AwesomeWM comes with a built-in hotkeys popup that can be accessed with `Super + s`. This
+AwesomeWM comes with a built-in hotkeys popup that can be accessed with 'Super+s'. This
 will display all the available shortcuts in the current setup.
 ![Hotkeys](-)
 ##### Weather Widget Configuration
