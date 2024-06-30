@@ -20,7 +20,7 @@ to a usb and run it live, the installer works as intended. Thanks to those who d
 the software that made the project possible and for making the code open source.
 #### AwesomeWM Configuration
 For detailed information about the AwesomeWM configuration included in this OS, please
-refer to the [AwesomeWM Configuration README](https://gitlab.com/c0rNCh1p/tacos/-/tree/master/tacOS/airootfs/etc/skel/.config/awesome?ref_type=heads).
+refer to the [AwesomeWM Configuration Readme](https://gitlab.com/c0rNCh1p/tacos/-/tree/master/tacOS/airootfs/etc/skel/.config/awesome?ref_type=heads).
 ##
 #### Installation
 ##
