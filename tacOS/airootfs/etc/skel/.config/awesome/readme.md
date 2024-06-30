@@ -32,12 +32,12 @@ AwesomeWM comes with a built-in hotkeys popup that can be accessed with `Super +
 will display all the available shortcuts in the current setup.
 
 ### Weather Widget Configuration
-To configure the weather widget, provide the API key and city ID in the `openweather.conf` file.
-
-Example:
+To configure the weather widget, set the API key and city ID in `configs/openweather.conf`:
 ```ini
-api_key=insert_api_key_here
-city_id=insert_city_id_here
+api_key=user_api_key
+city_id=user_city_id
 ```
-
-Replace `insert_api_key_here` and `insert_city_id_here` with the actual OpenWeatherMap API key and the city ID for the location.
+Replace `user_api_key` and `user_city_id` with the actual OpenWeatherMap API key and the
+city ID for the location. The city IDs are obtained via 'https://openweathermap.org/find'
+and are visible in each city page URL. API keys are created once an account is created at
+'https://home.openweathermap.org/users/sign_up'.
