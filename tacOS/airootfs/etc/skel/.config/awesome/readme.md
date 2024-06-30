@@ -4,11 +4,11 @@
 ##### Overview
 This Awesome config aims to provide a fully functional and visually acceptable setup out
 of the [(taco)](https://cdn0.woolworths.media/content/wowproductimages/large/228151.jpg)
-box. It features an extensive set of launchers and other shortcuts for window management,
-as well as a nicely styled theme with a custom icon set, and a variety of system menus
-and widgets. Custom configs are included for autostart applications like Picom, and shell
-scripts have been integrated with the Lua code for handling older systems like Pulse
-(Pipe is installed on TacOS too, it will see further builtin support).
+box. It features an extensive set of launchers and other shortcuts for client management,
+a nicely styled theme with a custom icon set, and a variety of system menus and widgets.
+Custom configs are included for autostart applications like Picom, and shell scripts have
+been integrated with the Lua code for handling older systems like Pulse (Pipe is installed
+on TacOS too, it will see further builtin support).
 ##### Programs
 
 <img src="desktop/programs.png" alt="Programs" width="1200">
