@@ -5,10 +5,9 @@
 This Awesome config aims to provide a fully functional and visually acceptable setup out of
 the [(taco)](https://cdn0.woolworths.media/content/wowproductimages/large/228151.jpg) box.
 Custom configs are included for autostart applications like Picom, and shell scripts have
-been integrated with the Lua code for handling troublesome systems like Pulse.
-Additionally, it features an extensive set of custom launchers and other shortcuts for
-window management, a nicely styled theme with a custom icon set, and a variety of system
-menus and widgets.
+been integrated with the Lua code for handling troublesome systems like Pulse. It features
+an extensive set of launchers and other shortcuts for window management, a nicely styled
+theme with a custom icon set, and a variety of system menus and widgets.
 ##### Programs
 
 <img src="desktop/programs.png" alt="Programs" width="1200">
@@ -55,7 +54,7 @@ city ID for the location. City IDs are obtained via https://openweathermap.org/f
 are visible in each city page URL. API keys are created once an account is created at
 https://home.openweathermap.org/users/sign_up.
 ##
-#### AwesomeWM Icon Set 4u
+#### Awesome Icon Set 4u
 ##
 Pngs shown in highres (640x640) and lowres (64x64).
 
