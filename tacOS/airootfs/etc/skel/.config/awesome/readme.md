@@ -1,12 +1,17 @@
 ##
 #### AwesomeWM Config
 ##
+#### Screenshots
+![Programs](-)
+![Terminal](-)
+![Icon Set](-)
 #### Overview
 This AwesomeWM configuration aims to provide a fully functional and visually appealing
 setup out of the box. Custom configs are included for autostart applications like Picom.
 Shell scripts have been integrated with the Lua code for handling finicky systems like
 Pulse. Additionally, it features an extensive set of custom launchers and other shortcuts
-for window management, a nicely styled theme, and a variety of system menus and widgets.
+for window management, a nicely styled theme with a custom icon set, and a variety of
+system menus and widgets.
 #### Installation
 This AwesomeWM configuration is part of a larger operating system created with Archiso.
 The installation of dependencies and the configuration itself is handled automatically
@@ -30,8 +35,8 @@ rm -rf "$HOME/tacOS" & clear
 ##### Hotkeys
 AwesomeWM comes with a built-in hotkeys popup that can be accessed with `Super + s`. This
 will display all the available shortcuts in the current setup.
-
-### Weather Widget Configuration
+![Hotkeys](-)
+##### Weather Widget Configuration
 To configure the weather widget, set the API key and city ID in `configs/openweather.conf`:
 ```ini
 api_key=user_api_key

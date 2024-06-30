@@ -19,7 +19,8 @@ feel free to build an ISO with the script and take a look in a virtual machine o
 to a usb and run it live, the installer works as intended. Thanks to those who developed
 the software that made the project possible and for making the code open source.
 #### AwesomeWM
-For information about the AwesomeWM configuration installed with TacOS, see the [config readme](https://gitlab.com/c0rNCh1p/tacos/-/tree/master/tacOS/airootfs/etc/skel/.config/awesome?ref_type=heads).
+For information about the AwesomeWM configuration installed with TacOS, see the [config
+readme](gitlab.com/c0rNCh1p/tacos/-/tree/master/tacOS/airootfs/etc/skel/.config/awesome).
 ##
 #### Installation
 ##
