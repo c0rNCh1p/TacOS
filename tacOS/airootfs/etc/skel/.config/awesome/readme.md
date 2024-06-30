@@ -1,14 +1,14 @@
 ##
 #### TacOS AwesomeWM Config
 ##
-#### Overview
+##### Overview
 This AwesomeWM configuration aims to provide a fully functional and visually acceptable
 setup out of the box. Custom configs are included for autostart applications like Picom,
 and shell scripts have been integrated with the Lua code for handling troublesome systems
 like Pulse. Additionally, it features an extensive set of custom launchers and other
 shortcuts for window management, a nicely styled theme with a custom icon set, and a
 variety of system menus and widgets.
-#### Installation
+##### Installation
 The installation of dependencies and initialization is handled automatically during the
 TacOS installation. No manual intervention is immediately required. If all which is
 needed from this repo is the Awesome config, feel free to save and run this shell script
@@ -55,7 +55,7 @@ city ID for the location. City IDs are obtained via https://openweathermap.org/f
 are visible in each city page URL. API keys are created once an account is created at
 https://home.openweathermap.org/users/sign_up.
 ##
-##### AwesomeWM Icon Set 4u
+#### AwesomeWM Icon Set 4u
 ##
 Pngs shown in highres (640x640) and lowres (64x64).
 
