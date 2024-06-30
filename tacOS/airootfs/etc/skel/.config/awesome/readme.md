@@ -10,7 +10,7 @@ shortcuts for window management, a nicely styled theme with a custom icon set, a
 variety of system menus and widgets.
 #### Installation
 The installation of dependencies and initialization is handled automatically during the
-TacOS installation. No manual installation steps are immediately required. If all which is
+TacOS installation. No manual intervention is immediately required. If all which is
 needed from this repo is the Awesome config, feel free to save and run this shell script
 provided below, be sure to make it executable (chmod explained in main readme):
 ```sh
