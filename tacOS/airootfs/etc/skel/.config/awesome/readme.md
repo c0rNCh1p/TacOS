@@ -38,8 +38,8 @@ rm -rf "$HOME/tacOS" & clear
 
 #### Basic Usage
 ##### Hotkeys
-AwesomeWM comes with a built-in hotkeys popup that can be accessed with `Super+s`. This
-will display all the available shortcuts in the current setup.
+AwesomeWM comes with a builtin hotkeys popup that can be accessed with `Super+s` on the
+keyboard. This will display all the available shortcuts in the current setup.
 
 <img src="desktop/hotkeys.png" alt="Hotkeys" width="1200">
 
@@ -55,7 +55,7 @@ are visible in each city page URL. API keys are created once an account is creat
 'https://home.openweathermap.org/users/sign_up'.
 
 ##### Awesome Icon Set 4u
-Icons shown in high res (640x640) and low res (64x64).
+Svgs shown in high res (640x640) and low res (64x64).
 
 <img src="desktop/icon_set.png" alt="Icon Set" width="1200">
 
