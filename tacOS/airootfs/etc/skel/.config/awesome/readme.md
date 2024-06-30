@@ -50,9 +50,9 @@ api_key=user_api_key
 city_id=user_city_id
 ```
 Replace `user_api_key` and `user_city_id` with the actual OpenWeatherMap API key and the
-city ID for the location. City IDs are obtained via 'https://openweathermap.org/find' and
+city ID for the location. City IDs are obtained via `https://openweathermap.org/find` and
 are visible in each city page URL. API keys are created once an account is created at
-'https://home.openweathermap.org/users/sign_up'.
+`https://home.openweathermap.org/users/sign_up`.
 
 ##### Awesome Icon Set 4u
 Pngs shown in highres (640x640) and lowres (64x64).
