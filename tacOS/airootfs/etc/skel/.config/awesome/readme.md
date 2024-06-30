@@ -54,8 +54,9 @@ city ID for the location. City IDs are obtained via 'https://openweathermap.org/
 are visible in each city page URL. API keys are created once an account is created at
 'https://home.openweathermap.org/users/sign_up'.
 
-##### Icon Set 4u
+##### Awesome Icon Set 4u
+Icons shown in high res (640x640) and low res (64x64).
 
 <img src="desktop/icon_set.png" alt="Icon Set" width="1200">
 
-##### <3
+##### <3 xo
