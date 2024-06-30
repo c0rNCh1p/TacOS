@@ -2,9 +2,11 @@
 #### AwesomeWM Config
 ##
 #### Screenshots
-<img src="desktop/programs.png" alt="Programs" width="600">
-<img src="desktop/terminal.png" alt="Terminal" width="600">
-<img src="desktop/icon_set.png" alt="Icon Set" width="600">
+
+<img src="desktop/programs.png" alt="Programs" width="1000">
+<img src="desktop/terminal.png" alt="Terminal" width="1000">
+<img src="desktop/icon_set.png" alt="Icon Set" width="500">
+
 #### Overview
 This AwesomeWM configuration aims to provide a fully functional and visually appealing
 setup out of the box. Custom configs are included for autostart applications like Picom.
@@ -35,7 +37,9 @@ rm -rf "$HOME/tacOS" & clear
 ##### Hotkeys
 AwesomeWM comes with a built-in hotkeys popup that can be accessed with 'Super+s'. This
 will display all the available shortcuts in the current setup.
-<img src="desktop/hotkeys.png" alt="Hotkeys" width="600">
+
+<img src="desktop/hotkeys.png" alt="Hotkeys" width="1000">
+
 ##### Weather Widget Configuration
 To configure the weather widget, set the API key and city ID in `configs/openweather.conf`:
 ```ini
