@@ -58,4 +58,4 @@ are visible in each city page URL. API keys are created once an account is creat
 
 <img src="desktop/icon_set.png" alt="Icon Set" width="1200">
 
-##### Yez 4u <3
+##### <3
