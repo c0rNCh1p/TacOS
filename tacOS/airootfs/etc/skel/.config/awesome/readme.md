@@ -2,13 +2,14 @@
 #### TacOS AwesomeWM Config
 ##
 ##### Overview
-This Awesome config aims to provide a fully functional and visually acceptable setup out of
-the [(taco)](https://cdn0.woolworths.media/content/wowproductimages/large/228151.jpg) box.
-It features an extensive set of launchers and other shortcuts for window management, as
-well as a nicely styled theme with a custom icon set, and a variety of system menus and
-widgets. Custom configs are included for autostart applications like Picom, and shell
-scripts have been integrated with the Lua code for handling older systems like Pulse (Pipe
-is also installed on TacOS and will receive further builtin support at a later date).
+This Awesome config aims to provide a fully functional and visually acceptable setup out
+of the [(taco)](https://cdn0.woolworths.media/content/wowproductimages/large/228151.jpg)
+box. It features an extensive set of launchers and other shortcuts for window management,
+as well as a nicely styled theme with a custom icon set, and a variety of system menus
+and widgets. Custom configs are included for autostart applications like Picom, and shell
+scripts have been integrated with the Lua code for handling older systems like Pulse
+(Pipe is also installed on TacOS by default, it will receive further builtin support at
+some point in the future).
 ##### Programs
 
 <img src="desktop/programs.png" alt="Programs" width="1200">
@@ -18,10 +19,10 @@ is also installed on TacOS and will receive further builtin support at a later d
 <img src="desktop/terminal.png" alt="Terminal" width="1200">
 
 ##### Installation
-The installation of dependencies and initialization is handled automatically during the
-TacOS installation. No manual intervention is immediately required. If all which is
-needed from this repo is the Awesome config, feel free to save and run this shell script
-provided below, be sure to make it executable (chmod explained in main readme):
+The installation of dependencies and initialization of the WM is handled automatically
+during the TacOS installation. No manual intervention is immediately required. If all
+which is desired from this repo is the Awesome config, feel free to save and run this shell
+script provided below, be sure to make it executable (chmod explained in main readme):
 ```sh
 #!/bin/bash
 read -rep 'Is AwesomeWM installed?' ANS
@@ -39,7 +40,7 @@ rm -rf "$HOME/tacOS" & clear
 #### Basic Usage
 ##
 ##### Hotkeys
-AwesomeWM comes with a builtin hotkeys popup menu that can be accessed with `Super+s` on
+AwesomeWM comes with a builtin hotkey popup menu that can be accessed with `Super+s` on
 the keyboard. This will display all the available shortcuts in the current setup.
 
 <img src="desktop/hotkeys.png" alt="Hotkeys" width="1200">
