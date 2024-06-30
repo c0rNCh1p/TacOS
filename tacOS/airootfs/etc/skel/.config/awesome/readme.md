@@ -2,9 +2,9 @@
 #### AwesomeWM Config
 ##
 #### Screenshots
-![Programs](-)
-![Terminal](-)
-![Icon Set](-)
+![Programs](https://gitlab.com/c0rNCh1p/tacos/-/blob/master/tacOS/airootfs/etc/skel/.config/awesome/desktop/desktop.png)
+![Terminal](https://gitlab.com/c0rNCh1p/tacos/-/blob/master/tacOS/airootfs/etc/skel/.config/awesome/desktop/terminal.png)
+![Icon Set](https://gitlab.com/c0rNCh1p/tacos/-/blob/master/tacOS/airootfs/etc/skel/.config/awesome/desktop/icon_set.png)
 #### Overview
 This AwesomeWM configuration aims to provide a fully functional and visually appealing
 setup out of the box. Custom configs are included for autostart applications like Picom.
@@ -35,7 +35,7 @@ rm -rf "$HOME/tacOS" & clear
 ##### Hotkeys
 AwesomeWM comes with a built-in hotkeys popup that can be accessed with 'Super+s'. This
 will display all the available shortcuts in the current setup.
-![Hotkeys](-)
+![Hotkeys](https://gitlab.com/c0rNCh1p/tacos/-/blob/master/tacOS/airootfs/etc/skel/.config/awesome/desktop/hotkeys.png)
 ##### Weather Widget Configuration
 To configure the weather widget, set the API key and city ID in `configs/openweather.conf`:
 ```ini
@@ -43,6 +43,6 @@ api_key=user_api_key
 city_id=user_city_id
 ```
 Replace `user_api_key` and `user_city_id` with the actual OpenWeatherMap API key and the
-city ID for the location. The city IDs are obtained via 'https://openweathermap.org/find'
-and are visible in each city page URL. API keys are created once an account is created at
+city ID for the location. City IDs are obtained via 'https://openweathermap.org/find' and
+are visible in each city page URL. API keys are created once an account is created at
 'https://home.openweathermap.org/users/sign_up'.
