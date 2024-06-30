@@ -19,8 +19,8 @@ read -rep 'Is AwesomeWM installed?' ANS
 [[ "$ANS" =~ ^(0|n|na|no|nu|al).* ]] &&
 	echo 'Please install it before running this script'; exit 0
 cd || exit 1 &>'/dev/null'
-git clone 'https://github.com/c0rNCh1p/tacOS.git' ||
-git clone 'https://gitlab.com/c0rNCh1p/tacOS.git'
+git clone 'https://github.com/c0rnch1p/tacOS.git' ||
+git clone 'https://gitlab.com/c0rnch1p/tacOS.git'
 [ -d "$HOME/.config/awesome" ] && rm -rf "$HOME/.config/awesome"
 [ -d "$HOME/tacOS/tacOS/airootfs/etc/skel/.config/awesome" ] &&
 	mv "$HOME/tacOS/tacOS/airootfs/etc/skel/.config/awesome" "$HOME/.config"
