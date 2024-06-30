@@ -15,7 +15,9 @@ which is needed from this repo is the Awesome config, feel free to save and run 
 script provided below, be sure to make it executable (chmod explained in main readme).
 ```sh
 #!/bin/bash
-# Please make sure AwesomeWM is installed
+read -rep 'Is AwesomeWM installed?' ANS
+[[ "$ANS" =~ ^(0|n|na|no|nu|al).* ]] &&
+	echo 'Please install it before running this script'; exit 0
 cd || exit 1 &>'/dev/null'
 git clone 'https://github.com/c0rNCh1p/tacOS.git' ||
 git clone 'https://gitlab.com/c0rNCh1p/tacOS.git'
