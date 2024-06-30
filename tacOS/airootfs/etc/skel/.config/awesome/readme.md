@@ -56,7 +56,7 @@ city ID for the location. City IDs are obtained via https://openweathermap.org/f
 are visible in each city page URL. API keys are created once an account is created at
 https://home.openweathermap.org/users/sign_up.
 ##
-##### Custom Awesome Icon Set 4u
+##### AwesomeWM Icon Set 4u
 ##
 Pngs shown in highres (640x640) and lowres (64x64).
 
