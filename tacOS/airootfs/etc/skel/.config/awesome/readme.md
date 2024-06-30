@@ -8,6 +8,14 @@ and shell scripts have been integrated with the Lua code for handling troublesom
 like Pulse. Additionally, it features an extensive set of custom launchers and other
 shortcuts for window management, a nicely styled theme with a custom icon set, and a
 variety of system menus and widgets.
+##### Programs
+
+<img src="desktop/programs.png" alt="Programs" width="1200">
+
+##### Terminals
+
+<img src="desktop/terminal.png" alt="Terminal" width="1200">
+
 ##### Installation
 The installation of dependencies and initialization is handled automatically during the
 TacOS installation. No manual intervention is immediately required. If all which is
@@ -26,15 +34,6 @@ git clone 'https://gitlab.com/c0rnch1p/tacOS.git'
 	mv "$HOME/tacOS/tacOS/airootfs/etc/skel/.config/awesome" "$HOME/.config"
 rm -rf "$HOME/tacOS" & clear
 ```
-#### Screenshots
-##### Programs
-
-<img src="desktop/programs.png" alt="Programs" width="1200">
-
-##### Terminals
-
-<img src="desktop/terminal.png" alt="Terminal" width="1200">
-
 ##
 #### Basic Usage
 ##
