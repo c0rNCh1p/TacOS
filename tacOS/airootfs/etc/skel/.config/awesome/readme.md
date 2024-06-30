@@ -16,12 +16,11 @@ script provided below, be sure to make it executable (chmod explained in main re
 ```sh
 #!/bin/bash
 # Please make sure AwesomeWM is installed
-cd
+cd || exit 1 &>'/dev/null'
 git clone 'https://github.com/c0rNCh1p/tacOS.git' ||
 git clone 'https://gitlab.com/c0rNCh1p/tacOS.git'
 [ -d "$HOME/.config/awesome" ] && rm -rf "$HOME/.config/awesome"
 [ -d "$HOME/tacOS/tacOS/airootfs/etc/skel/.config/awesome" ] &&
 	mv "$HOME/tacOS/tacOS/airootfs/etc/skel/.config/awesome" "$HOME/.config"
-rm -rf "$HOME/tacOS"
-clear
+rm -rf "$HOME/tacOS" & clear
 ```
