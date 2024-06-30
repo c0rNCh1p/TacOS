@@ -18,10 +18,11 @@ also installed on TacOS, it will see future builtin support).
 <img src="desktop/terminal.png" alt="Terminal" width="1200">
 
 ##### Installation
-The installation of dependencies and initialization of the WM is handled automatically
-during the TacOS installation. No manual intervention is immediately required. If all
-which is desired from this repo is the Awesome config, feel free to save and run this shell
-script provided below, be sure to make it executable (chmod explained in main readme):
+The installation of dependencies and initialization of the WM in the X config is handled
+automatically during the TacOS installation. No manual intervention is immediately
+required. If all which is desired from this repo is the Awesome config, feel free to save
+and run this shell script provided below, be sure to make it executable (chmod explained
+in main readme):
 ```sh
 #!/bin/bash
 read -rep 'Is AwesomeWM installed?' ANS
