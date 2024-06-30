@@ -2,8 +2,8 @@
 #### TacOS AwesomeWM Config
 ##
 ##### Overview
-This AwesomeWM configuration aims to provide a fully functional and visually acceptable
-setup out of the box (of tacos). Custom configs are included for autostart applications
+This Awesome config aims to provide a fully functional and visually acceptable
+setup out of the (taco) box. Custom configs are included for autostart applications
 like Picom, and shell scripts have been integrated with the Lua code for handling
 troublesome systems like Pulse. Additionally, it features an extensive set of custom
 launchers and other shortcuts for window management, a nicely styled theme with a custom
