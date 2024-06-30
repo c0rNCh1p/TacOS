@@ -3,8 +3,8 @@
 ##
 #### Screenshots
 ![Programs](desktop/desktop.png)
-![Terminal](https://gitlab.com/c0rNCh1p/tacos/-/blob/master/tacOS/airootfs/etc/skel/.config/awesome/desktop/terminal.png)
-![Icon Set](https://gitlab.com/c0rNCh1p/tacos/-/blob/master/tacOS/airootfs/etc/skel/.config/awesome/desktop/icon_set.png)
+![Terminal](desktop/terminal.png)
+![Icon Set](desktop/icon_set.png)
 #### Overview
 This AwesomeWM configuration aims to provide a fully functional and visually appealing
 setup out of the box. Custom configs are included for autostart applications like Picom.
@@ -35,7 +35,7 @@ rm -rf "$HOME/tacOS" & clear
 ##### Hotkeys
 AwesomeWM comes with a built-in hotkeys popup that can be accessed with 'Super+s'. This
 will display all the available shortcuts in the current setup.
-![Hotkeys](https://gitlab.com/c0rNCh1p/tacos/-/blob/master/tacOS/airootfs/etc/skel/.config/awesome/desktop/hotkeys.png)
+![Hotkeys](desktop/hotkeys.png)
 ##### Weather Widget Configuration
 To configure the weather widget, set the API key and city ID in `configs/openweather.conf`:
 ```ini
