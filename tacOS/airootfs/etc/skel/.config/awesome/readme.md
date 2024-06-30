@@ -3,9 +3,11 @@
 ##
 #### Screenshots
 
-<img src="desktop/programs.png" alt="Programs" width="1000">
-<img src="desktop/terminal.png" alt="Terminal" width="1000">
-<img src="desktop/icon_set.png" alt="Icon Set" width="500">
+<img src="desktop/programs.png" alt="Programs" width="1000" style="display: block; margin: 0 auto; border: 2px solid #000;">
+<img src="desktop/terminal.png" alt="Terminal" width="1000" style="display: block; margin: 0 auto; border: 2px solid #000;">
+<img src="desktop/icon_set.png" alt="Icon Set" width="500" style="display: block; margin: 0 auto; border: 2px solid #000;">
+
+#### Overview
 
 #### Overview
 This AwesomeWM configuration aims to provide a fully functional and visually appealing
@@ -38,7 +40,7 @@ rm -rf "$HOME/tacOS" & clear
 AwesomeWM comes with a built-in hotkeys popup that can be accessed with 'Super+s'. This
 will display all the available shortcuts in the current setup.
 
-<img src="desktop/hotkeys.png" alt="Hotkeys" width="1000">
+<img src="desktop/hotkeys.png" alt="Hotkeys" width="500" style="display: block; margin: 0 auto; border: 2px solid #000;">
 
 ##### Weather Widget Configuration
 To configure the weather widget, set the API key and city ID in `configs/openweather.conf`:
