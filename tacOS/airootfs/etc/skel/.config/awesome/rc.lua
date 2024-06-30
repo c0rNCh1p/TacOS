@@ -626,16 +626,16 @@ awful.rules.rules={
 		floating=true, callback=function(c)
 			awful.spawn.with_shell("notify-send 'Terminator set to floating'")
 		end}},
-	-- Htop -- Cant be identified by class or name
+	-- Htop -- Cant be identified xprop class or name
 --	{rule={name='htop'}, properties={
 --		tag=' 1  ', maximized=true, callback=function(c)
 --			awful.spawn.with_shell("notify-send 'htop moved to tag 1'")
 --		end}},
-	-- Nemo
-	{rule={class='nemo'}, properties={
-		tag=' 2  ', maximized=true, callback=function(c)
-			awful.spawn.with_shell("notify-send 'Nemo moved to tag 2'")
-		end}},
+	-- Nemo -- Cant be identified by xprop class or name without explanation
+--	{rule={class='nemo'}, properties={
+--		tag=' 2  ', maximized=true, callback=function(c)
+--			awful.spawn.with_shell("notify-send 'Nemo moved to tag 2'")
+--		end}},
 	-- OBS
 	{rule={class='obs'}, properties={
 		tag=' 5  ', maximized=true, callback=function(c)
@@ -646,7 +646,7 @@ awful.rules.rules={
 		tag=' 3  ', callback=function(c)
 			awful.spawn.with_shell("notify-send 'Obsidian moved to tag 3'")
 		end}},
-	-- Geany -- Cant be identified by class or name without explanation
+	-- Geany -- Cant be identified by xprop class or name without explanation
 --	{rule={class='geany'}, properties={
 --		tag=' 4  ', callback=function(c)
 --			awful.spawn.with_shell("notify-send 'Geany moved to tag 4'")
