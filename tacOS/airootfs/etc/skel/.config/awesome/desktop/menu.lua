@@ -1,8 +1,3 @@
---[[ Awesome-Freedesktop
-	 Luca CPZ Repo: https://github.com/lcpz/awesome-freedesktop?tab=readme-ov-file
-	 LCPZ Repo Wiki: https://github.com/lcpz/awesome-freedesktop/wiki
-	 Arch Wiki AwesomeWM (Popup Menus): https://wiki.archlinux.org/title/Awesome#Pop-up_menus ]]
-
 local Gio=require('lgi').Gio
 local awful_menu=require('awful.menu')
 local menu_gen=require('menubar.menu_gen')
@@ -57,7 +52,7 @@ function menu.build(args)
 	menu_gen.generate(function(entries)
 		-- Add category icons
 		for k, v in pairs(menu_gen.all_categories) do
-			table.insert(result, { k, {}, v.icon})
+			table.insert(result, {k, {}, v.icon})
 		end
 		-- Get items table
 		for k, v in pairs(entries) do

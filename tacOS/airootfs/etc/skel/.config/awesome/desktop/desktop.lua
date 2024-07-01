@@ -1,8 +1,3 @@
---[[ Awesome-Freedesktop
-	 Luca CPZ Repo: <https://github.com/lcpz/awesome-freedesktop?tab=readme-ov-file>
-	 LCPZ Repo Wiki: <https://github.com/lcpz/awesome-freedesktop/wiki>
-	 Arch Wiki AwesomeWM (Popup Menus): <https://wiki.archlinux.org/title/Awesome#Pop-up_menus> ]]
-
 local awful=require('awful')
 local theme=require('beautiful')
 local utils=require('menubar.utils')
@@ -189,7 +184,7 @@ end
 function desktop.add_dirs_and_files_icons(args)
 	for _, file in ipairs(desktop.parse_dirs_and_files(args.dir)) do
 		if file.show then
-			local label=args.showlabels and file.filename or nil
+    		local label=args.showlabels and file.filename or nil
 			local onclick=function() awful.spawn(string.format("%s '%s'", args.open_with, file.path)) end
 			desktop.add_single_icon(args, label, file.icon, onclick)
 		end
